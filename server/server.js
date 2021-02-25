@@ -17,3 +17,5 @@ app.use(
   })
 );
 app.use(cors());
+
+app.use("/jobs", require("./routes/jobs"));
