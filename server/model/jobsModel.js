@@ -1,29 +1,12 @@
-const mongoose = require("mongoose").Schema.Types;
-const jobSchema = new mongoose.Schema({
-  job: {
+const mongoose = require("mongoose");
+
+const JobSchema = new mongoose.Schema(
+  {
     description: String,
     location: String,
     salary: Number,
-    title: String,
-  } /*what to write since the data type is not only string*/,
-});
-module.export = mongoose.model("job", jobSchema);
+    title: { type: String, required: true },
+  } /*what to write since the data type is not only string*/
+);
 
-const JobModel = require("/job");
-const msg = new JobModel({
-  job: {
-    description: "expereince",
-    location: "frankfurt",
-    salary: 30000,
-    title: "mentor",
-  },
-});
-
-msg
-  .save()
-  .then((doc) => {
-    console.log(doc);
-  })
-  .catch((doc) => {
-    console.log(doc);
-  });
+module.exports = mongoose.model("job", JobSchema);

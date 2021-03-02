@@ -1,8 +1,18 @@
 const express = require("express");
+const JobSchema = require("../model/jobsModel");
 const router = express.Router();
 
-router.get("/test", (req, res) => {
-  res.send({ msg: "test route." });
+router.get("/all", (req, res) => {
+  JobSchema.find({}, (err, jobs) => {
+    if (err) {
+      console.log("error :>> ", error);
+    } else {
+      console.log("jobs :>> ", jobs);
+      res.send(jobs);
+    }
+  });
 });
+
+router.post("/new", (req, res) => {});
 
 module.exports = router;
