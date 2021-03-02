@@ -19,3 +19,10 @@ app.use(
 app.use(cors());
 
 app.use("/jobs", require("./routes/jobs"));
+
+const db = require("/keys").mongoURI;
+const mongoose = require("mongoose");
+mongoose
+  .connect(db, { useNewurlPraser: true, useCreateIndex: true })
+  .then(() => console.log("Connection to Mongo DB established"))
+  .catch((err) => console.log("error"));
