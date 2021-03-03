@@ -5,14 +5,26 @@ const router = express.Router();
 router.get("/all", (req, res) => {
   JobSchema.find({}, (err, jobs) => {
     if (err) {
-      console.log("error :>> ", error);
+      res.send(err);
     } else {
-      console.log("jobs :>> ", jobs);
       res.send(jobs);
     }
   });
 });
 
-router.post("/new", (req, res) => {});
+router.post("/new", (req, res) => {
+  console.log("req.", req.body);
+  const newJob = new JobSchema(req.body);
+  newJob
+    .save()
+    .then((job) => {
+      console.log(job);
+      res.send(job);
+    })
+    .catch((err) => {
+      res.send(err);
+      res;
+    });
+});
 
 module.exports = router;
