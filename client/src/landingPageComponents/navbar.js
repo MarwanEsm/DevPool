@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from "./logo";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -8,21 +9,30 @@ import Nav from "react-bootstrap/Nav";
 function Headbar() {
   return (
     <div>
-      <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-        <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
-        </Nav>
+      <Navbar bg="light" variant="light">
+        <Logo />
+
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-info">Search</Button>
+          <Button variant="outline-primary">Search</Button>
         </Form>
+        <Nav className="mr-auto" style={navStyle}>
+          <Nav.Link href="Jobs">Jobs</Nav.Link>
+          <Nav.Link href="Registration">Register</Nav.Link>
+          <h5 style={h6Style}>|</h5>
+          <Nav.Link href="Loging">Login</Nav.Link>
+        </Nav>
       </Navbar>
       <br />
     </div>
   );
 }
 
+const h6Style = {
+  marginTop: "4%",
+};
+
+const navStyle = {
+  marginLeft: "25%",
+};
 export default Headbar;
