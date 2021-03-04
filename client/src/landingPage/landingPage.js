@@ -1,12 +1,12 @@
 import React from "react";
 import Logo from "../landingPageComponents/logo";
-import PrimarySearchAppBar from "../landingPageComponents/navbar";
+import Nav from "../landingPageComponents/navbar";
 
 function LandingPage() {
   return (
     <div>
       <Logo />
-      <PrimarySearchAppBar />
+      <Nav />
     </div>
   );
 }

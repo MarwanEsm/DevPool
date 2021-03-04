@@ -10,7 +10,7 @@ function Logo() {
 }
 
 const imgStyle = {
-  width: "6%",
+  width: "4%",
   marginLeft: "2%",
   marginTop: "2%",
 };
