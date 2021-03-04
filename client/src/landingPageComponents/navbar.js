@@ -11,9 +11,9 @@ function Headbar() {
     <div>
       <Navbar bg="light" variant="light">
         <Logo />
-
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+        <Form style={formStyle}>
+          <FormControl type="text" placeholder="Where" className="mr-sm-2" />
+          <FormControl type="text" placeholder="What" className="mr-sm-2" />
           <Button variant="outline-primary">Search</Button>
         </Form>
         <Nav className="mr-auto" style={navStyle}>
@@ -34,5 +34,13 @@ const h6Style = {
 
 const navStyle = {
   marginLeft: "25%",
+};
+
+const formStyle = {
+  display: "flex",
+  justifyContent: "space-around",
+  alighItems: "center",
+  width: "50%",
+  marginLeft: "10%",
 };
 export default Headbar;
