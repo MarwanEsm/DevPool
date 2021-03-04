@@ -37,11 +37,6 @@ function Fetch() {
                   <Button variant="primary">Apply</Button>
                 </Card.Body>
               </Card>
-
-              {/* <h3>Title:{job.title}</h3>
-              <h4>Location:{job.location}</h4>
-              <h4>Salary:{job.salary}</h4>
-              <h5>Description:{job.description}</h5> */}
             </div>
           );
         })}
