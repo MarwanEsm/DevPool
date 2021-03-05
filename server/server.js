@@ -23,7 +23,7 @@ app.use(
 );
 app.use(cors());
 
-app.use("/job", require("./routes/job"));
+app.use("/candidate", require("./routes/candidate"));
 
 // run app and listen to requests on port 5000
 app.listen(port, () => {

@@ -4,19 +4,19 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 function Fetch() {
-  const [jobs, setJobs] = useState([]);
+  const [candidates, setCandidates] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/job/all")
+    fetch("http://localhost:5000/candidate/all")
       .then((res) => res.json())
-      .then((data) => setJobs(data));
+      .then((data) => setCandidates(data));
   }, []);
   return (
     <div style={divStyle}>
-      {jobs.length &&
-        jobs.map((job) => {
+      {candidates.length &&
+        candidates.map((candidate) => {
           return (
-            <div key={job._id}>
+            <div key={candidate._id}>
               <Card>
                 <Card.Header>
                   <Nav variant="pills" defaultActiveKey="#first">
@@ -29,10 +29,12 @@ function Fetch() {
                   </Nav>
                 </Card.Header>
                 <Card.Body>
-                  <Card.Title>Title: {job.title}</Card.Title>
-                  <Card.Text>Location:{job.location}</Card.Text>
-                  <Card.Text>Salary:{job.salary}</Card.Text>
-                  <Card.Text>Description:{job.description}</Card.Text>
+                  <Card.Title>Name: {candidate.name}</Card.Title>
+                  <Card.Text>Title:{candidate.title}</Card.Text>
+                  <Card.Text>Location:{candidate.location}</Card.Text>
+                  {/* <Card.Text>
+                    Work Expereince:{candidate.workExpereince}
+                  </Card.Text> */}
                   <Nav.Link href="#link">....Read more</Nav.Link>
                   <Button variant="primary">Apply</Button>
                 </Card.Body>

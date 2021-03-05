@@ -1,25 +1,25 @@
 const express = require("express");
-const JobSchema = require("../model/jobsModel");
+const JobSchema = require("../model/candidatesModel");
 const router = express.Router();
 
 router.get("/all", (req, res) => {
-  JobSchema.find({}, (err, jobs) => {
+  JobSchema.find({}, (err, candidates) => {
     if (err) {
       res.send(err);
     } else {
-      res.send(jobs);
+      res.send(candidates);
     }
   });
 });
 
 router.post("/new", (req, res) => {
   console.log("req.", req.body);
-  const newJob = new JobSchema(req.body);
-  newJob
+  const newCandidate = new CandidateSchema(req.body);
+  newCandidate
     .save()
-    .then((job) => {
-      console.log(job);
-      res.send(job);
+    .then((candidate) => {
+      console.log(candidate);
+      res.send(candidate);
     })
     .catch((err) => {
       res.send(err);
