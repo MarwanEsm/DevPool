@@ -29,12 +29,23 @@ function Fetch() {
                   </Nav>
                 </Card.Header>
                 <Card.Body>
-                  <Card.Title>Name: {candidate.name}</Card.Title>
-                  <Card.Text>Title:{candidate.title}</Card.Text>
-                  <Card.Text>Location:{candidate.location}</Card.Text>
-                  {/* <Card.Text>
-                    Work Expereince:{candidate.workExpereince}
-                  </Card.Text> */}
+                  <Card.Title>Name : {candidate.name}</Card.Title>
+                  <Card.Text>Title : {candidate.title}</Card.Text>
+                  <Card.Text>Location : {candidate.location}</Card.Text>
+                  <Card.Text>Work Experience :</Card.Text>
+
+                  <ul>
+                    {candidate.workExperiences.lenght &&
+                      candidate.workExperiences.map((workExperience) => {
+                        return <li>{workExperience}</li>;
+                      })}
+                  </ul>
+                  <Card.Text>
+                    Desired Position : {candidate.desiredPosition}
+                  </Card.Text>
+                  <Card.Text>
+                    Expected Salary : {candidate.expectedSalary}
+                  </Card.Text>
                   <Nav.Link href="#link">....Read more</Nav.Link>
                   <Button variant="primary">Apply</Button>
                 </Card.Body>
