@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
+// if can change the color of the first word//
+
 function Fetch1() {
   const [candidates, setCandidates] = useState([]);
 
@@ -13,6 +15,9 @@ function Fetch1() {
 
   return (
     <div style={divStyle}>
+      <Card.Text style={style} className="word">
+        Work Experience{" "}
+      </Card.Text>
       {candidates.length &&
         candidates.map((candidate) => {
           return (
@@ -23,11 +28,11 @@ function Fetch1() {
                     return <li>{workExperience}</li>;
                   })}
               </ul>
-              <Card.Text>
-                Desired Position : {candidate.desiredPosition}
+              <Card.Text style={style}>
+                Desired Position {candidate.desiredPosition}
               </Card.Text>
-              <Card.Text>
-                Expected Salary : {candidate.expectedSalary}
+              <Card.Text style={style}>
+                Expected Salary {candidate.expectedSalary}
               </Card.Text>
               <Button variant="primary">Check Profile</Button>
             </div>
@@ -38,9 +43,13 @@ function Fetch1() {
 }
 
 const divStyle = {
-  width: "27%",
   marginTop: "2%",
-  marginLeft: "2%",
+};
+
+const style = {
+  fontFamily: "Consolas",
+  fontSize: 17,
+  marginTop: "5%",
 };
 
 export default Fetch1;

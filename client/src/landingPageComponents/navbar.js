@@ -13,11 +13,12 @@ function Headbar() {
         <Logo />
         <Form style={formStyle}>
           <FormControl type="text" placeholder="Where" className="mr-sm-2" />
+
           <FormControl type="text" placeholder="What" className="mr-sm-2" />
           <Button variant="outline-primary">Search</Button>
         </Form>
         <Nav className="mr-auto" style={navStyle}>
-          <Nav.Link href="Jobs">Jobs</Nav.Link>
+          <Nav.Link href="Jobs">Candidates </Nav.Link>
           <Nav.Link href="Registration">Register</Nav.Link>
           <h5 style={h6Style}>|</h5>
           <Nav.Link href="Loging">Login</Nav.Link>
@@ -33,14 +34,14 @@ const h6Style = {
 };
 
 const navStyle = {
-  marginLeft: "25%",
+  marginLeft: "8%",
 };
 
 const formStyle = {
   display: "flex",
   justifyContent: "space-around",
   alighItems: "center",
-  width: "50%",
-  marginLeft: "10%",
+  width: "80%",
 };
+
 export default Headbar;
