@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "./logo";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
@@ -7,14 +7,36 @@ import FormControl from "react-bootstrap/FormControl";
 import Nav from "react-bootstrap/Nav";
 
 function Headbar() {
+  const [state, setState] = useState({
+    where: "",
+    what: "",
+  });
+
+  const handleChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value });
+  };
+
   return (
     <div>
       <Navbar bg="light" variant="light">
         <Logo />
         <Form style={formStyle}>
-          <FormControl type="text" placeholder="Where" className="mr-sm-2" />
-
-          <FormControl type="text" placeholder="What" className="mr-sm-2" />
+          <FormControl
+            type="text"
+            name="where"
+            placeholder="Where"
+            className="mr-sm-2"
+            value={state.where}
+            onChange={handleChange}
+          />
+          <FormControl
+            type="text"
+            name="what"
+            placeholder="What"
+            className="mr-sm-2"
+            value={state.what}
+            onChange={handleChange}
+          />
           <Button variant="outline-primary">Search</Button>
         </Form>
         <Nav className="mr-auto" style={navStyle}>
