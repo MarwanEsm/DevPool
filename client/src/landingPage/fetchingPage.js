@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Nav from "react-bootstrap/Nav";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import Fetch1 from "./fetchForReadMore";
 
 function Fetch() {
   const [candidates, setCandidates] = useState([]);
@@ -11,6 +11,27 @@ function Fetch() {
       .then((res) => res.json())
       .then((data) => setCandidates(data));
   }, []);
+
+  const [text, setText] = useState(false);
+  const readMore = () => {
+    setText(!text);
+  };
+  const linkName = text ? "Read Less << " : "Read More >> ";
+
+  // const extraContent = (
+  //   <div>
+  //     <Card.Text>Work Experience :</Card.Text>
+  //     <ul>
+  //       {candidate.workExperiences.length &&
+  //         candidate.workExperiences.map((workExperience) => {
+  //           return <li>{workExperience}</li>;
+  //         })}
+  //     </ul>
+  //     <Card.Text>Desired Position : {candidate.desiredPosition}</Card.Text>
+  //     <Card.Text>Expected Salary : {candidate.expectedSalary}</Card.Text>
+  //   </div>
+  // );
+
   return (
     <div style={divStyle}>
       {candidates.length &&
@@ -33,21 +54,23 @@ function Fetch() {
                   <Card.Text>Title : {candidate.title}</Card.Text>
                   <Card.Text>Location : {candidate.location}</Card.Text>
                   <Card.Text>Work Experience :</Card.Text>
-
-                  <ul>
-                    {candidate.workExperiences.lenght &&
-                      candidate.workExperiences.map((workExperience) => {
-                        return <li>{workExperience}</li>;
-                      })}
-                  </ul>
-                  <Card.Text>
-                    Desired Position : {candidate.desiredPosition}
-                  </Card.Text>
-                  <Card.Text>
-                    Expected Salary : {candidate.expectedSalary}
-                  </Card.Text>
-                  <Nav.Link href="#link">....Read more</Nav.Link>
-                  <Button variant="primary">Apply</Button>
+                  <span onClick={readMore}>
+                    {linkName}
+                    {text && <Fetch1 />}
+                    {/* <Card.Text>Work Experience :</Card.Text>
+                    <ul>
+                      {candidate.workExperiences.length &&
+                        candidate.workExperiences.map((workExperience) => {
+                          return <li>{workExperience}</li>;
+                        })}
+                    </ul>
+                    <Card.Text>
+                      Desired Position : {candidate.desiredPosition}
+                    </Card.Text>
+                    <Card.Text>
+                      Expected Salary : {candidate.expectedSalary}
+                    </Card.Text> */}
+                  </span>
                 </Card.Body>
               </Card>
             </div>
@@ -62,5 +85,9 @@ const divStyle = {
   marginTop: "2%",
   marginLeft: "2%",
 };
+
+// const fetch1Style = {
+//   width: "24%",
+// };
 
 export default Fetch;
