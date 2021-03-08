@@ -3,9 +3,11 @@ import Headbar from "../landingPageComponents/navbar";
 import Fetch from "./fetchingPage";
 
 function LandingPage() {
+
+
   return (
     <div>
-      <Headbar />
+      <Headbar/>
       <Fetch />
     </div>
   );

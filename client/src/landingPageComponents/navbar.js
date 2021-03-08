@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Nav from "react-bootstrap/Nav";
+// import LandingPage from "../landingPage/landingPage";
 
 function Headbar() {
   const [state, setState] = useState({
@@ -40,7 +41,7 @@ function Headbar() {
           <Button variant="outline-primary">Search</Button>
         </Form>
         <Nav className="mr-auto" style={navStyle}>
-          <Nav.Link href="Jobs">Candidates </Nav.Link>
+          <Nav.Link href="Candidates">Candidates </Nav.Link>
           <Nav.Link href="Registration">Register</Nav.Link>
           <h5 style={h6Style}>|</h5>
           <Nav.Link href="Loging">Login</Nav.Link>
