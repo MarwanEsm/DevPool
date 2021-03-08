@@ -14,7 +14,7 @@ function Fetch1() {
   }, []);
 
   return (
-    <div style={divStyle}>
+    <div style={divStyle} >
       <Card.Text style={style} className="word">
         Work Experience{" "}
       </Card.Text>
@@ -25,7 +25,7 @@ function Fetch1() {
               <ul>
                 {candidate.workExperiences.length &&
                   candidate.workExperiences.map((workExperience) => {
-                    return <li>{workExperience}</li>;
+                    return <li style= {style}>{workExperience}</li>;
                   })}
               </ul>
               <Card.Text style={style}>
@@ -49,7 +49,9 @@ const divStyle = {
 const style = {
   fontFamily: "Consolas",
   fontSize: 17,
+  color :'black',
   marginTop: "5%",
+  textDecoration :'none',
 };
 
 export default Fetch1;

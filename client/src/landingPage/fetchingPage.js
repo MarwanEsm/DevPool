@@ -6,12 +6,20 @@ import Fetch1 from "./fetchForReadMore";
 // if can change the color of the first word//
 
 function Fetch() {
-  const [candidates, setCandidates] = useState([]);
+  const [candidates, setCandidates] = useState([]
+    // candidates: [],
+    // filterCandidate: [],
+    // filterLocation: []
+  );
 
   useEffect(() => {
     fetch("http://localhost:5000/candidate/all")
       .then((res) => res.json())
-      .then((data) => setCandidates(data));
+      .then((data) => setCandidates(
+        data,
+        // filterCandidate: candidates.title,
+        // filterLocation: candidates.location
+      ));
   }, []);
 
   const [text, setText] = useState(false);
@@ -92,7 +100,6 @@ const style = {
 const spanStyle = {
   fontFamily: "Lucida Sans Unicode",
   color: "blue",
-  textDecoration: "underline",
   fontSize: 13,
 };
 export default Fetch;
