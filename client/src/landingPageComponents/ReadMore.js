@@ -4,12 +4,12 @@ import Button from "react-bootstrap/Button";
 import { CandidatesContext } from "../CandidatesContext/CandidatesContextProvider";
 
 function ReadMore() {
-  const { candidates } = useContext(CandidatesContext);
+  const { filteredCandidates } = useContext(CandidatesContext);
 
   return (
     <div style={divStyle}>
-      {candidates.length &&
-        candidates.map((candidate) => {
+      {filteredCandidates.length &&
+        filteredCandidates.map((candidate) => {
           return (
             <div key={candidate._id}>
               <ul>

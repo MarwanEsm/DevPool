@@ -13,7 +13,7 @@ function LandingPage() {
     setText(!text);
   };
   const linkName = text ? "Read Less << " : "Read More >> ";
-console.log(filteredCandidates);
+  
   return (
     <div>
       <Headbar />
@@ -95,12 +95,6 @@ const spanStyle = {
   fontSize: 13,
 };
 
-//   return (
-//     <div>
-//       <Headbar/>
-//       <Fetch />
-//     </div>
-//   );
-// }
+
 
 export default LandingPage;
