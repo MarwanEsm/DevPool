@@ -13,6 +13,7 @@ function Headbar() {
     setSearchLocation,
     searchTitle,
     setSearchTitle,
+    filteredCandidates,
   } = useContext(CandidatesContext);
 
   return (
@@ -20,27 +21,36 @@ function Headbar() {
       <Navbar bg="light" variant="light">
         <Logo />
         <Form style={formStyle}>
-          <FormControl
+          <div style={divStyle}>
+          <select>{filteredCandidates.length &&filteredCandidates.map((candidate)=>{
+            return (
+              <option>{candidate.location}</option>
+            )
+          })}
+            
+          </select>
+          {/* <FormControl
             type="text"
             name="where"
             placeholder="Where"
             className="mr-sm-2"
-            // value={searchLocation}
-            // onChange={(e) => setSearchLocation(e.target.value)}
-          />
+            value={searchLocation}
+            onChange={(e) => setSearchLocation(e.target.name)}
+          /> */}
           <FormControl
             type="text"
             name="what"
             placeholder="What"
             className="mr-sm-2"
             value={searchTitle}
-            onChange={(e) => setSearchTitle(e.target.value)}
+            onChange={(e) => setSearchTitle(e.target.name)}
           />
-          <Button
-            variant="outline-primary" /*onClick ={(e)=> setSearchLocation(e.target.value)}*/
+          {/* <Button
+            variant="outline-primary" onClick ={(e)=> setSearchLocation(e.target.value)}
           >
             Search
-          </Button>
+          </Button> */}
+          </div>
         </Form>
         <Nav className="mr-auto" style={navStyle}>
           <Nav.Link href="/Landingpage">Candidates </Nav.Link>
@@ -59,7 +69,7 @@ const h6Style = {
 };
 
 const navStyle = {
-  marginLeft: "13%",
+  marginLeft: "8%",
 };
 
 const formStyle = {
@@ -68,5 +78,11 @@ const formStyle = {
   alighItems: "center",
   width: "80%",
 };
+
+const divStyle={
+  display:'flex',
+  justifyContent :'space-around',
+ 
+}
 
 export default Headbar;
