@@ -1,22 +1,25 @@
-import React, { useState } from "react";
-import Logo from "./logo";
+import React, { useState, useContext } from "react";
+import Logo from "./Logo";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Nav from "react-bootstrap/Nav";
+import {CandidatesContext} from '../CandidatesContext/CandidatesContextProvider'
 
 
 function Headbar() {
-  const [state, setState] = useState({
-    where: "",
-    what: "",
-  });
 
-  const handleChange = (e) => {
-    setState({ ...state, [e.target.name]: e.target.value });
+  const {searchLocation, setSearchLocation} = useContext (CandidatesContext)
+  // const [state, setState] = useState({
+  //   where: "",
+  //   what: "",
+  // });
 
-  };
+  // const handleChange = (e) => {
+  //   setState({ ...state, [e.target.name]: e.target.value });
+
+  // };
 
 
   // const handleSearch = (event) => {
@@ -36,28 +39,28 @@ function Headbar() {
   return (
     <div>
       <Navbar bg="light" variant="light">
-        <Logo />
+        <Logo/>
         <Form style={formStyle}>
           <FormControl
             type="text"
             name="where"
             placeholder="Where"
             className="mr-sm-2"
-            value={state.where}
-            onChange={handleChange}
+            value={searchLocation}
+            onChange={(e)=> setSearchLocation(e.target.value)}
           />
           <FormControl
             type="text"
             name="what"
             placeholder="What"
             className="mr-sm-2"
-            value={state.what}
-            onChange={handleChange}
+            // value={state.what}
+            // onChange={handleChange}
           />
           <Button variant="outline-primary" /*onClick ={handleSearch}*/>Search</Button>
         </Form>
         <Nav className="mr-auto" style={navStyle}>
-          <Nav.Link href="/landingpage">Candidates </Nav.Link>
+          <Nav.Link href="/Landingpage">Candidates </Nav.Link>
           <Nav.Link href="Registration">Register</Nav.Link>
           <h5 style={h6Style}>|</h5>
           <Nav.Link href="Loging">Login</Nav.Link>
@@ -73,7 +76,7 @@ const h6Style = {
 };
 
 const navStyle = {
-  marginLeft: "8%",
+  marginLeft: "13%",
 };
 
 const formStyle = {
@@ -82,5 +85,6 @@ const formStyle = {
   alighItems: "center",
   width: "80%",
 };
+
 
 export default Headbar;

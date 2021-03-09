@@ -11,6 +11,6 @@ function Logo() {
 
 const imgStyle = {
   width: "12%",
-  marginLeft: "2%",
+  marginRight: "70%",
 };
 export default Logo;
