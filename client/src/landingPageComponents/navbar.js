@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Nav from "react-bootstrap/Nav";
-// import LandingPage from "../landingPage/landingPage";
+
 
 function Headbar() {
   const [state, setState] = useState({
@@ -15,7 +15,23 @@ function Headbar() {
 
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
+
   };
+
+
+  // const handleSearch = (event) => {
+  //   if (state.where === event.target.value && event.target.name === 'where') {
+  //     return (candidates.location.fliter(location))
+
+  //   }
+  // }
+
+  //   )
+
+  // }
+  //   }
+
+
 
   return (
     <div>
@@ -38,10 +54,10 @@ function Headbar() {
             value={state.what}
             onChange={handleChange}
           />
-          <Button variant="outline-primary">Search</Button>
+          <Button variant="outline-primary" /*onClick ={handleSearch}*/>Search</Button>
         </Form>
         <Nav className="mr-auto" style={navStyle}>
-          <Nav.Link href="Candidates">Candidates </Nav.Link>
+          <Nav.Link href="/landingpage">Candidates </Nav.Link>
           <Nav.Link href="Registration">Register</Nav.Link>
           <h5 style={h6Style}>|</h5>
           <Nav.Link href="Loging">Login</Nav.Link>
