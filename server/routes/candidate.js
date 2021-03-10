@@ -1,9 +1,9 @@
 const express = require("express");
-const JobSchema = require("../model/candidatesModel");
+const CandidateSchema = require("../model/candidatesModel");
 const router = express.Router();
 
 router.get("/all", (req, res) => {
-  JobSchema.find({}, (err, candidates) => {
+  CandidateSchema.find({}, (err, candidates) => {
     if (err) {
       res.send(err);
     } else {
@@ -23,7 +23,7 @@ router.post("/new", (req, res) => {
     })
     .catch((err) => {
       res.send(err);
-      res;
+     
     });
 });
 

@@ -1,18 +1,21 @@
-import React, {useContext } from "react";
+import React, { useContext } from "react";
 import Logo from "./Logo";
 import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Nav from "react-bootstrap/Nav";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { CandidatesContext } from "../CandidatesContext/CandidatesContextProvider";
 
 function Headbar() {
-  const {
-    searchTitle,
-    setSearchTitle,
-    filteredCandidates,
-  } = useContext(CandidatesContext);
+  const { searchTitle, setSearchTitle, filteredCandidates } = useContext(
+    CandidatesContext
+  );
+
+  // const history= useHistory()
+  // const clickHandler = () =>{
+  //   history.push('/RegistrationPage')
+  // }
 
   return (
     <div>
@@ -40,7 +43,7 @@ function Headbar() {
         <div style={div1Style}>
           <Nav className="mr-auto" style={navStyle}>
             <Link to="/Landingpage">Candidates </Link>
-            <Link to="/Registration">Register</Link>
+            <Link to="/RegistrationPage" /*onClick={clickHandler}*/>Register</Link>
             <h5 style={h6Style}>|</h5>
             <Link to="/Login">Login</Link>
           </Nav>

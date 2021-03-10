@@ -13,4 +13,14 @@ router.get('/all', (req, res) =>{
 })})
 
 
+router.post('/new', (req,res)=>{
+    const newUser = new UserSchema(req.body);
+    newUser.save().then((user) =>{
+        res.send(user)
+    }) .catch((err)=>{
+        res.send(err)
+    });
+});
+        
+       
 module.exports = router;
