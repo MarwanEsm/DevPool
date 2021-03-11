@@ -24,7 +24,7 @@ function LoginPage() {
 
   return (
     <div style={divStyle}>
-      <Form>
+      <Form method='POST' action ='http://localhost:5000/user/all'>
         <Form.Row>
           <Form.Group as={Col} controlId="formGridEmail">
             <Form.Label>Email</Form.Label>

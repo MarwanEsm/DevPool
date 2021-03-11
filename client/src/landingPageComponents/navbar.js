@@ -2,9 +2,8 @@ import React, { useContext } from "react";
 import Logo from "./Logo";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
-import Nav from "react-bootstrap/Nav";
 import Col from "react-bootstrap/Col";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { CandidatesContext } from "../CandidatesContext/CandidatesContextProvider";
 
 function Headbar() {
@@ -45,21 +44,23 @@ function Headbar() {
           </Form.Group>
         </Form.Row>
       </div>
-      <div>
-        <Nav>
-        <Nav.Link href="/Landingpage">Candidates</Nav.Link>
-        <Nav.Link href="/RegistrationPage">Register</Nav.Link>
-        <h5 style={h6Style}>|</h5>
-        <Nav.Link href="/LoginPage">Login</Nav.Link>
-        </Nav>
+      <div style={navdiv}>
+        <Link to="/Landingpage">Candidates</Link>
+        &nbsp;
+        &nbsp;
+        <Link to="/RegistrationPage">Register</Link>
+        &nbsp;
+        &nbsp;
+        <h5>|</h5>
+        &nbsp;
+        &nbsp;
+        <Link to="/LoginPage">Login</Link>
       </div>
     </div>
   );
 }
 
-const h6Style = {
-  marginTop: "3%",
-};
+
 
 const labelStyle = {
   marginRight: "6%",
@@ -81,5 +82,12 @@ const div1Style = {
 const rowdivStyle = {
   marginRight: "16%",
 };
+
+
+const navdiv ={
+  display : 'flex',
+  justifyContent :'space-around',
+
+}
 
 export default Headbar;
