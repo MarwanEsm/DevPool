@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import RegissterNavBar from './NavBarRegister';
 
 function RegistrationPage() {
   const [state, setState] = useState({
@@ -36,6 +37,10 @@ function RegistrationPage() {
   // };
 
   return (
+    <div>
+    <div>
+      <RegissterNavBar/>
+    </div>
     <div style={divStyle}>
       <Form method = 'POST' action ='http://localhost:5000/auth/register'>
         <Form.Row>
@@ -138,11 +143,12 @@ function RegistrationPage() {
         </Button>
       </Form>
     </div>
+    </div>
   );
 }
 
 const divStyle = {
-  marginTop: "6%",
+  marginTop: "4%",
   marginLeft: "18%",
   marginRight: "18%",
 };
