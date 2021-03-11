@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema({
   password: { type: String, required: true },
   city: { type: String, required: true },
   country: { type: String, required: true },
-  owner: { type: String, required: true },
+//   owner: { type: String, required: true },
 });
 
 module.exports = mongoose.model("user", UserSchema);

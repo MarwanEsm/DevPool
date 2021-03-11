@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const mongoURI = require("./config.js").mongoURI;
-// const auth = require ('./routes/auth.js');
+
 
 // init express app
 const app = express();

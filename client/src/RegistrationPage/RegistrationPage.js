@@ -3,9 +3,6 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
-
-
-
 function RegistrationPage() {
   const [state, setState] = useState({
     firstName: "",
@@ -21,15 +18,14 @@ function RegistrationPage() {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
+  const submitDetails = () => {
 
-  
-    
-  
-  
+
+  };
 
   return (
     <div style={divStyle}>
-      <Form>
+      <Form method = 'POST' action ='http://localhost:5000/auth/register'>
         <Form.Row>
           <Form.Group as={Col} controlId="formGridPassword">
             <Form.Label>First Name</Form.Label>
@@ -101,20 +97,20 @@ function RegistrationPage() {
             />
           </Form.Group>
 
-          <Form.Group as={Col} controlId="formGridCity">
+          {/* <Form.Group as={Col} controlId="formGridCity">
             <Form.Label>Owner</Form.Label>
             <Form.Control as="select" defaultValue="Choose...">
               <option>Candidate</option>
               <option>Employer</option>
             </Form.Control>
-          </Form.Group>
+          </Form.Group> */}
         </Form.Row>
 
         <Form.Group id="formGridCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
 
-        <Button variant="primary" type="submit" /*onClick={submitDetails}*/>
+        <Button variant="primary" type="submit" onClick={submitDetails}>
           Submit
         </Button>
       </Form>
