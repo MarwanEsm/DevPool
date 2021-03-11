@@ -2,7 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const mongoURI = require("./config.js").mongoURI;
+const mongoURI = require("./Config.js").mongoURI;
+
 
 
 // init express app

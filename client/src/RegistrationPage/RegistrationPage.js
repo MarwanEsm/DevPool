@@ -9,6 +9,7 @@ function RegistrationPage() {
     lastName: "",
     email: "",
     password: "",
+    confirmationPassword :'',
     city: "",
     country: "",
   });
@@ -18,6 +19,7 @@ function RegistrationPage() {
     state.lastName ===""||
     state.email=== ""||
     state.password=== ""||
+    state.confirmationPassword !== state.password ||
     state.city=== ""||
     state.country=== ""
 
@@ -80,6 +82,17 @@ function RegistrationPage() {
               placeholder="Password"
               onChange={handleChange}
               value={state.password}
+            />
+          </Form.Group>
+
+          <Form.Group as={Col} controlId="formGridPassword">
+            <Form.Label>Confirmation Password</Form.Label>
+            <Form.Control
+              type="password"
+              name="confirmationPassword"
+              placeholder="Password"
+              onChange={handleChange}
+              value={state.confirmationPassword}
             />
           </Form.Group>
         </Form.Row>

@@ -24,7 +24,7 @@ function ReadMore() {
               <Card.Text style={style}>
                 Expected Salary {candidate.expectedSalary}
               </Card.Text>
-              <Button variant="primary">Check Profile</Button>
+              <Button variant="primary">Contact Candidate</Button>
             </div>
           );
         })}

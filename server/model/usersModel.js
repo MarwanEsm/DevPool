@@ -5,6 +5,7 @@ const UserSchema = new mongoose.Schema({
   lastName: { type: String },
   email: { type: String, validator : true, required: true },
   password: { type: String, required: true },
+  confirmationPassword : { type: String, required: true },
   city: { type: String, required: true },
   country: { type: String, required: true },
 //   owner: { type: String, required: true },
