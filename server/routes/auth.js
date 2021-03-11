@@ -36,7 +36,7 @@ router.post("/register", (req, res) => {
             newUser
               .save()
               .then((user) => {
-                res.send(user);
+                res.send('Your details have been submitted ');
               })
               .catch((err) => {
                 res.send(err);
