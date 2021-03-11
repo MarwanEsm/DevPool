@@ -13,15 +13,25 @@ function RegistrationPage() {
     country: "",
   });
 
+  const isInvalid = 
+    state.firstName ==="" ||
+    state.lastName ===""||
+    state.email=== ""||
+    state.password=== ""||
+    state.city=== ""||
+    state.country=== ""
+
   const handleChange = (e) => {
     e.preventDefault();
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
-  const submitDetails = () => {
+  // const submitDetails = (e) => {
+  //   e.preventDefault()
+  //   alert('Thank you, your details have been sbumitted')
 
 
-  };
+  // };
 
   return (
     <div style={divStyle}>
@@ -110,7 +120,7 @@ function RegistrationPage() {
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
 
-        <Button variant="primary" type="submit" onClick={submitDetails}>
+        <Button variant="primary" type="submit" disabled={isInvalid}>
           Submit
         </Button>
       </Form>
@@ -123,5 +133,10 @@ const divStyle = {
   marginLeft: "18%",
   marginRight: "18%",
 };
+
+
+
+
+
 
 export default RegistrationPage;

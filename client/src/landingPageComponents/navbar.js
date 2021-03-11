@@ -50,7 +50,7 @@ function Headbar() {
         <Nav.Link href="/Landingpage">Candidates</Nav.Link>
         <Nav.Link href="/RegistrationPage">Register</Nav.Link>
         <h5 style={h6Style}>|</h5>
-        <Nav.Link href="/Login">Login</Nav.Link>
+        <Nav.Link href="/LoginPage">Login</Nav.Link>
         </Nav>
       </div>
     </div>
