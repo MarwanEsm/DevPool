@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import Logo from "./Logo";
-import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Nav from "react-bootstrap/Nav";
-import { Link, useHistory } from "react-router-dom";
+import Col from "react-bootstrap/Col";
+// import { Link } from "react-router-dom";
 import { CandidatesContext } from "../CandidatesContext/CandidatesContextProvider";
 
 function Headbar() {
@@ -12,24 +12,28 @@ function Headbar() {
     CandidatesContext
   );
 
-  // const history= useHistory()
-  // const clickHandler = () =>{
-  //   history.push('/RegistrationPage')
-  // }
-
   return (
-    <div>
-      <Navbar bg="light" variant="light">
+    <div style={maindivStyle}>
+      <div>
         <Logo />
-        <Form style={formStyle}>
-          <div style={divStyle}>
-            <select>
-              {filteredCandidates.length &&
-                filteredCandidates.map((candidate) => {
-                  return <option>{candidate.location}</option>;
-                })}
-            </select>
+      </div>
+      <div style={rowdivStyle}>
+        <Form.Row>
+          <Form.Group as={Col} controlId="formGridCity">
+            <div style={div1Style}>
+              <div style={labelStyle}>
+                <Form.Label>Where</Form.Label>
+              </div>
+              <Form.Control as="select" defaultValue="Choose...">
+                {filteredCandidates.length &&
+                  filteredCandidates.map((candidate) => {
+                    return <option>{candidate.location}</option>;
+                  })}
+              </Form.Control>
+            </div>
+          </Form.Group>
 
+          <Form.Group as={Col} controlId="formGridCity">
             <FormControl
               type="text"
               name="what"
@@ -38,45 +42,44 @@ function Headbar() {
               value={searchTitle}
               onChange={(e) => setSearchTitle(e.target.name)}
             />
-          </div>
-        </Form>
-        <div style={div1Style}>
-          <Nav className="mr-auto" style={navStyle}>
-            <Link to="/Landingpage">Candidates </Link>
-            <Link to="/RegistrationPage" /*onClick={clickHandler}*/>Register</Link>
-            <h5 style={h6Style}>|</h5>
-            <Link to="/Login">Login</Link>
-          </Nav>
-        </div>
-      </Navbar>
-      <br />
+          </Form.Group>
+        </Form.Row>
+      </div>
+      <div>
+        <Nav>
+        <Nav.Link href="/Landingpage">Candidates</Nav.Link>
+        <Nav.Link href="/RegistrationPage">Register</Nav.Link>
+        <h5 style={h6Style}>|</h5>
+        <Nav.Link href="/Login">Login</Nav.Link>
+        </Nav>
+      </div>
     </div>
   );
 }
 
 const h6Style = {
+  marginTop: "3%",
+};
+
+const labelStyle = {
+  marginRight: "6%",
   marginTop: "4%",
 };
 
-const navStyle = {
-  marginLeft: "8%",
-};
-
-const formStyle = {
+const maindivStyle = {
   display: "flex",
   justifyContent: "space-around",
-  alighItems: "center",
-  width: "80%",
-};
-
-const divStyle = {
-  display: "flex",
-  justifyContent: "space-around",
+  marginTop: "1%",
 };
 
 const div1Style = {
   display: "flex",
-  justifyContent: "space-around",
+  justifyContent: "space-between",
+  marginRight: "8%",
+};
+
+const rowdivStyle = {
+  marginRight: "16%",
 };
 
 export default Headbar;
