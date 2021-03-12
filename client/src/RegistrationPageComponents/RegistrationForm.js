@@ -121,13 +121,13 @@ function RegistrationForm() {
             />
           </Form.Group>
 
-          {/* <Form.Group as={Col} controlId="formGridCity">
-            <Form.Label>Owner</Form.Label>
+          <Form.Group as={Col} controlId="formGridCity">
+            <Form.Label>Register as</Form.Label>
             <Form.Control as="select" defaultValue="Choose...">
               <option>Candidate</option>
               <option>Employer</option>
             </Form.Control>
-          </Form.Group> */}
+          </Form.Group> 
         </Form.Row>
 
         <Form.Group id="formGridCheckbox">
