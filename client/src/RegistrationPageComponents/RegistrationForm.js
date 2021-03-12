@@ -131,7 +131,7 @@ function RegistrationForm() {
         </Form.Row>
 
         <Form.Group id="formGridCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
+          <Form.Check type="checkbox" label="Agree to Terms and Conditions" />
         </Form.Group>
 
         <Button variant="primary" type="submit" disabled={isInvalid}>
