@@ -9,136 +9,158 @@ function RegistrationForm() {
     lastName: "",
     email: "",
     password: "",
-    confirmationPassword :'',
+    confirmationPassword: "",
     city: "",
     country: "",
+    owner: "candidate",
   });
 
-  const isInvalid = 
-    state.firstName ==="" ||
-    state.lastName ===""||
-    state.email=== ""||
-    state.password=== ""||
+  const isInvalid =
+    state.firstName === "" ||
+    state.lastName === "" ||
+    state.email === "" ||
+    state.password === "" ||
     state.confirmationPassword !== state.password ||
-    state.city=== ""||
-    state.country=== ""
+    state.city === "" ||
+    state.country === "" ||
+    state.owner === "";
 
   const handleChange = (e) => {
     e.preventDefault();
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
-  // const submitDetails = (e) => {
-  //   e.preventDefault()
-  //   alert('Thank you, your details have been sbumitted')
+  const handleDropDown = (e) => {
+    e.preventDefault();
+    setState({ ...state, owner: e.target.value });
+  };
 
-
-  // };
+  const submitDetails = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:5000/auth/register", {
+      method: "post",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(state),
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res));
+  };
 
   return (
     <div>
-    <div style={divStyle}>
-      <Form method = 'POST' action ='http://localhost:5000/auth/register'>
-        <Form.Row>
-          <Form.Group as={Col} controlId="formGridPassword">
-            <Form.Label>First Name</Form.Label>
-            <Form.Control
-              type="text"
-              name="firstName"
-              placeholder=" First Name"
-              onChange={handleChange}
-              value={state.firstName}
-            />
+      <div style={divStyle}>
+        <Form>
+          <Form.Row>
+            <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Label>First Name</Form.Label>
+              <Form.Control
+                type="text"
+                name="firstName"
+                placeholder=" First Name"
+                onChange={handleChange}
+                value={state.firstName}
+              />
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                type="text"
+                name="lastName"
+                placeholder=" Last Name"
+                onChange={handleChange}
+                value={state.lastName}
+              />
+            </Form.Group>
+          </Form.Row>
+
+          <Form.Row>
+            <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                name="email"
+                placeholder=" Email"
+                onChange={handleChange}
+                value={state.email}
+              />
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={handleChange}
+                value={state.password}
+              />
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Label>Password Confirmation</Form.Label>
+              <Form.Control
+                type="password"
+                name="confirmationPassword"
+                placeholder="Password"
+                onChange={handleChange}
+                value={state.confirmationPassword}
+              />
+            </Form.Group>
+          </Form.Row>
+
+          <Form.Row>
+            <Form.Group as={Col} controlId="formGridCity">
+              <Form.Label>City</Form.Label>
+              <Form.Control
+                type="text"
+                name="city"
+                placeholder="City"
+                onChange={handleChange}
+                value={state.city}
+              />
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formGridCity">
+              <Form.Label>Country</Form.Label>
+              <Form.Control
+                type="text"
+                name="country"
+                placeholder="Country"
+                onChange={handleChange}
+                value={state.country}
+              />
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formGridCity">
+              <Form.Label>Register as</Form.Label>
+              <Form.Control
+                name="owner"
+                as="select"
+                onChange={handleDropDown}
+                defaultValue="Choose..."
+              >
+                <option value="candidate">Candidate</option>
+                <option value="employer">Employer</option>
+              </Form.Control>
+            </Form.Group>
+          </Form.Row>
+
+          <Form.Group id="formGridCheckbox">
+            <Form.Check type="checkbox" label="Agree to Terms and Conditions" />
           </Form.Group>
-
-          <Form.Group as={Col} controlId="formGridPassword">
-            <Form.Label>Last Name</Form.Label>
-            <Form.Control
-              type="text"
-              name="lastName"
-              placeholder=" Last Name"
-              onChange={handleChange}
-              value={state.lastName}
-            />
-          </Form.Group>
-        </Form.Row>
-
-        <Form.Row>
-          <Form.Group as={Col} controlId="formGridEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="email"
-              name="email"
-              placeholder=" Email"
-              onChange={handleChange}
-              value={state.email}
-            />
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="formGridPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={handleChange}
-              value={state.password}
-            />
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="formGridPassword">
-            <Form.Label>Password Confirmation</Form.Label>
-            <Form.Control
-              type="password"
-              name="confirmationPassword"
-              placeholder="Password"
-              onChange={handleChange}
-              value={state.confirmationPassword}
-            />
-          </Form.Group>
-        </Form.Row>
-
-        <Form.Row>
-          <Form.Group as={Col} controlId="formGridCity">
-            <Form.Label>City</Form.Label>
-            <Form.Control
-              type="text"
-              name="city"
-              placeholder="City"
-              onChange={handleChange}
-              value={state.city}
-            />
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="formGridCity">
-            <Form.Label>Country</Form.Label>
-            <Form.Control
-              type="text"
-              name="country"
-              placeholder="Country"
-              onChange={handleChange}
-              value={state.country}
-            />
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="formGridCity">
-            <Form.Label>Register as</Form.Label>
-            <Form.Control as="select" defaultValue="Choose...">
-              <option>Candidate</option>
-              <option>Employer</option>
-            </Form.Control>
-          </Form.Group> 
-        </Form.Row>
-
-        <Form.Group id="formGridCheckbox">
-          <Form.Check type="checkbox" label="Agree to Terms and Conditions" />
-        </Form.Group>
-
-        <Button variant="primary" type="submit" disabled={isInvalid}>
-          Submit
-        </Button>
-      </Form>
-    </div>
+          <Button
+            variant="primary"
+            onClick={submitDetails}
+            disabled={isInvalid}
+          >
+            Submit
+          </Button>
+        </Form>
+      </div>
     </div>
   );
 }
@@ -148,10 +170,5 @@ const divStyle = {
   marginLeft: "18%",
   marginRight: "18%",
 };
-
-
-
-
-
 
 export default RegistrationForm;

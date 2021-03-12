@@ -2,9 +2,19 @@ import { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { CandidatesContext } from "../CandidatesContext/CandidatesContextProvider";
+import { useHistory } from "react-router";
 
 function ReadMore() {
   const { filteredCandidates } = useContext(CandidatesContext);
+  const history = useHistory();
+
+  const handleClick=(e)=>{
+    e.preventDefault();
+    history.push('/LoginPage')
+
+
+  }
+
 
   return (
     <div style={divStyle}>
@@ -24,7 +34,7 @@ function ReadMore() {
               <Card.Text style={style}>
                 Expected Salary {candidate.expectedSalary}
               </Card.Text>
-              <Button variant="primary">Contact Candidate</Button>
+              <Button variant="primary" onClick={handleClick}>Contact Candidate</Button>
             </div>
           );
         })}

@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import LoginNavBar from './NavBarLogIn';
+import {Link} from 'react-router-dom';
 
 function LoginPage() {
   const [state, setState] = useState({
@@ -17,11 +18,19 @@ function LoginPage() {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
-  // const submitDetails = (e) => {
-  //   e.preventDefault()
-  //   alert('Thank you, your details have been sbumitted')
+  const login = (e) => {
+    e.preventDefault()
+    fetch('http://localhost:5000/auth/login', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(state)
+    }).then(res => res.json())
+      .then(res => console.log(res));
 
-  // };
+  };
 
   return (
       <div>
@@ -29,7 +38,7 @@ function LoginPage() {
           <LoginNavBar/>
       </div>
     <div style={divStyle}>
-      <Form method='POST' action ='http://localhost:5000/user/all'>
+      <Form >
         <Form.Row>
           <Form.Group as={Col} controlId="formGridEmail">
             <Form.Label>Email</Form.Label>
@@ -62,9 +71,12 @@ function LoginPage() {
             </Form.Control>
           </Form.Group> */}
 
-        <Button variant="primary" type="submit" disabled={isInvalid}>
+        <Button variant="primary" disabled={isInvalid} onClick={login}>
           Login
         </Button>
+        <Form.Group id="link">
+          <Link to='/RegistrationPage' >Don't have an account? Register here </Link>
+        </Form.Group>
       </Form>
     </div>
     </div>
