@@ -37,7 +37,7 @@ function CandidateForm() {
   return (
     <div>
     <div style={divStyle}>
-      <Form method = 'POST' action ='http://localhost:5000/auth/register'>
+      <Form method = 'POST' action ='http://localhost:5000/new'>
         <Form.Row>
           <Form.Group as={Col} controlId="formGridPassword">
             <Form.Label>Full Name</Form.Label>
