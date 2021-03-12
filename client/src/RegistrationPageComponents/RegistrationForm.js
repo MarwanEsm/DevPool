@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import {useHistory} from 'react-router-dom';
 
 function RegistrationForm() {
   const [state, setState] = useState({
@@ -13,7 +14,9 @@ function RegistrationForm() {
     city: "",
     country: "",
     owner: "candidate",
+    checked: false,
   });
+  const history = useHistory();
 
   const isInvalid =
     state.firstName === "" ||
@@ -23,7 +26,8 @@ function RegistrationForm() {
     state.confirmationPassword !== state.password ||
     state.city === "" ||
     state.country === "" ||
-    state.owner === "";
+    state.owner === "" ||
+    state.checked === false
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -33,6 +37,11 @@ function RegistrationForm() {
   const handleDropDown = (e) => {
     e.preventDefault();
     setState({ ...state, owner: e.target.value });
+  };
+
+  const makeItChecked = (e) => {
+    e.preventDefault();
+    setState({ ...state, checked: !state.checked });
   };
 
   const submitDetails = (e) => {
@@ -46,7 +55,8 @@ function RegistrationForm() {
       body: JSON.stringify(state),
     })
       .then((res) => res.json())
-      .then((res) => console.log(res));
+      .then((res) => console.log(res))
+      .then(history.push('/LoginPage'))
   };
 
   return (
@@ -150,7 +160,12 @@ function RegistrationForm() {
           </Form.Row>
 
           <Form.Group id="formGridCheckbox">
-            <Form.Check type="checkbox" label="Agree to Terms and Conditions" />
+            <Form.Check
+              type="checkbox"
+              defaultChecked={state.checked}
+              onClick={makeItChecked}
+              label="Agree to Terms and Conditions"
+            />
           </Form.Group>
           <Button
             variant="primary"
