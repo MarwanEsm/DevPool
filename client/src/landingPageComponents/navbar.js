@@ -45,7 +45,7 @@ function Headbar() {
         </Form.Row>
       </div>
       <div style={navdiv}>
-        <Link to="/Landingpage">Candidates</Link>
+        <Link to="/">Candidates</Link>
         &nbsp;
         &nbsp;
         <Link to="/RegistrationPage">Register</Link>

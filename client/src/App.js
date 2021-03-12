@@ -4,6 +4,7 @@ import LandingPage from "./LandingPage/LandingPage";
 import CandidatesContextProvider from "./CandidatesContext/CandidatesContextProvider";
 import RegistrationPage from "./RegistrationPage/RegistrationPage";
 import LoginPage from "./LoginPage/LoginPage";
+import CandidateUserPage from './CandidatesPage/CandidatesUserPage';
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -21,6 +22,9 @@ function App() {
             </Route>
             <Route path="/LoginPage">
               <LoginPage />
+            </Route>
+            <Route path ='/CandidateUserPage'>
+              <CandidateUserPage/>
             </Route>
           </Switch>
         </CandidatesContextProvider>
