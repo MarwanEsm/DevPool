@@ -3,7 +3,7 @@ import Headbar from "../LandingPageComponents/Navbar";
 import ReadMore from "../LandingPageComponents/ReadMore";
 import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
-import { CandidatesContext } from "../CandidatesContext/CandidatesContextProvider";
+import { CandidatesContext } from '../ContextProvider/CandidatesContextProvider';
 
 function LandingPage() {
   const { filteredCandidates } = useContext(CandidatesContext);

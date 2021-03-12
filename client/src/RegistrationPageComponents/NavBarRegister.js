@@ -24,8 +24,8 @@ const maindivStyle = {
   display: "flex",
   justifyContent: "space-between",
   marginTop: "1%",
-  marginLeft :'2%',
-  marginRight:'2%'
+  marginLeft :'4%',
+  marginRight:'4%'
 };
 
 const navdiv = {

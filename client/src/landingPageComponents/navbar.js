@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
-import { CandidatesContext } from "../CandidatesContext/CandidatesContextProvider";
+import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
 function Headbar() {
   const { searchTitle, setSearchTitle, filteredCandidates } = useContext(

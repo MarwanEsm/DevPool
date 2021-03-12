@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LandingPage from "./LandingPage/LandingPage";
-import CandidatesContextProvider from "./CandidatesContext/CandidatesContextProvider";
+import CandidatesContextProvider from "./ContextProvider/CandidatesContextProvider";
+import UsersContextProvider from "./ContextProvider/UsersContextProvider";
 import RegistrationPage from "./RegistrationPage/RegistrationPage";
 import LoginPage from "./LoginPage/LoginPage";
 import CandidateUserPage from './CandidatesPage/CandidatesUserPage';
@@ -13,6 +14,7 @@ function App() {
     <Router>
       <div className="App">
         <CandidatesContextProvider>
+          <UsersContextProvider>
           <Switch>
             <Route exact path="/">
               <LandingPage />
@@ -27,6 +29,7 @@ function App() {
               <CandidateUserPage/>
             </Route>
           </Switch>
+          </UsersContextProvider>
         </CandidatesContextProvider>
       </div>
     </Router>

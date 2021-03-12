@@ -7,15 +7,9 @@ export const CandidatesContextProvider = ({ children }) => {
   const [candidates, setCandidates] = useState([]);
   const [searchlocation, setSearchLocation] = useState("");
   const [searchTitle, setSearchTitle] = useState("");
-
   const filteredCandidates = candidates.filter((candidate) => {
     return (candidate.location.toLowerCase().includes(searchlocation.toLowerCase()) &&
     candidate.title.toLowerCase().includes(searchTitle.toLowerCase()))})
-
-
-  // const filteredCandidates! = candidates.filter((candidate) =>
-  //   candidate.title.toLowerCase().includes(searchTitle.toLowerCase())
-  // );
 
   console.log(filteredCandidates);
   useEffect(() => {

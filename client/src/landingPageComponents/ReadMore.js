@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { CandidatesContext } from "../CandidatesContext/CandidatesContextProvider";
+import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 import { useHistory } from "react-router";
 
 function ReadMore() {
