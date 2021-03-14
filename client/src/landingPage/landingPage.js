@@ -27,23 +27,23 @@ function LandingPage() {
                     <Nav variant="pills" defaultActiveKey="#first">
                       <Nav.Item>
                         {/* Add function  */}
-                        <Nav.Link href="#first">Add to watchlist</Nav.Link>
+                        <Nav.Link href="#first" style={linkStyle}>Add to watchlist</Nav.Link>
                       </Nav.Item>
 
                       {/* Add function */}
                       <Nav.Item>
-                        <Nav.Link href="#link">Remove from watchlist</Nav.Link>
+                        <Nav.Link href="#link" style={linkStyle}>Remove from watchlist</Nav.Link>
                       </Nav.Item>
                     </Nav>
                   </Card.Header>
                   <Card.Body>
                     <Card.Title style={nameStyle}>
-                      Name {candidate.name}
+                      Name {candidate.fullName}
                     </Card.Title>
                     <Card.Text style={titleStyle}>
                       Title {candidate.title}
                     </Card.Text>
-                    <Card.Text style={style}>
+                    <Card.Text style={nameStyle}>
                       Location {candidate.location}
                     </Card.Text>
                     <Card.Text style={style} className="word">
@@ -58,35 +58,39 @@ function LandingPage() {
                   </Card.Body>
                 </Card>
               </div>
+             
             );
           })}
       </div>
     </div>
+    
   );
 }
 
 const divStyle = {
-  width: "27%",
+  width: "23%",
+  height :'20%',
   marginTop: "2%",
   marginLeft: "2%",
+  marginBottom :'2%'
 };
 
 const nameStyle = {
   fontFamily: "Consolas",
-  fontSize: 19,
+  fontSize: 15,
 };
 
 const titleStyle = {
   fontFamily: "Consolas",
-  fontSize: 18,
-  marginTop: "5%",
+  fontSize: 15,
+  marginTop: "2%",
   fontWeight: "bold",
 };
 
 const style = {
   fontFamily: "Consolas",
   fontSize: 17,
-  marginTop: "5%",
+  marginTop: "2%",
 };
 
 const spanStyle = {
@@ -95,6 +99,8 @@ const spanStyle = {
   fontSize: 13,
 };
 
-
+const linkStyle={
+  fontSize :13,
+}
 
 export default LandingPage;

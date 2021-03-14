@@ -183,7 +183,7 @@ function CandidateForm() {
             ></Form.Control>
             {/* {createUI(values)} */}
             {newInputs}
-            <button onClick={addNewInput}>Add more</button>
+            <Button onClick={addNewInput}>Add more</Button>
           </Form.Group>
 
           <Form.Row>
