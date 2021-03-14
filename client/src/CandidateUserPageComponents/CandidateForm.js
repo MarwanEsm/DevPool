@@ -27,33 +27,89 @@ function CandidateForm() {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
-  const [newInput, setNewInput] = useState("");
+  const submitDetails = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:5000/candidate/new", {
+      method: "post",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(state),
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res))
+      
+  };
+
+  const [newInputs, setNewInputs] = useState('');
   const addNewInput = (e) => {
     e.preventDefault();
-    setNewInput( 
-    <div>
-    <span>Remove</span>
-      <Form.Row>
-       
-        <Form.Group as={Col} controlId="formGridPassword">
-          <Form.Control
-            type="text"
-            name="workExperience"
-            placeholder="Work Experience"
-            onChange={handleChange}
-            value={state.workExperience}
-          ></Form.Control>
-        </Form.Group>
-      </Form.Row>
-      </div>
+    setNewInputs (
+      // <div>
+      //   {newInputs &&
+      //     newInputs.map((i) => {
+      //       return (
+              <div /*key={i}*/>
+                <Form.Row>
+                  <Form.Group as={Col} controlId="formGridPassword">
+                    <Form.Control
+                      type="text"
+                      name="workExperience"
+                      placeholder="Work Experience"
+                      onChange={handleChange}
+                      value ={state.workExperience}
+                      // value={el || ""}
+                    ></Form.Control>
+                  </Form.Group>
+                </Form.Row>
+              </div>
+      //       );
+      //     })}
+      // </div>
     );
   };
+
+  // const handleRemove= index => {
+  //   const list = [...state.workExperience];
+  //   list.splice(index, 1);
+  //   setState(list);
+  // };
+
+  // const [newInputs, setNewInputs] = useState('');
+  // const addNewInput = (e) => {
+  //   e.preventDefault();
+  //   const newInput = (
+  //     <div>
+  //       <button /*onClick={removeInput}*/>Remove</button>
+  //       <Form.Row>
+  //         <Form.Group as={Col} controlId="formGridPassword">
+  //           <Form.Control
+  //             type="text"
+  //             name="workExperience"
+  //             placeholder="Work Experience"
+  //             onChange={handleChange}
+  //             value={state.workExperience}
+  //           ></Form.Control>
+  //         </Form.Group>
+  //       </Form.Row>
+  //     </div>
+  //   );
+
+  //   setNewInputs(newInput);
+  // };
+
   // const submitDetails = (e) => {
   //   e.preventDefault()
   //   alert('Thank you, your details have been sbumitted')
 
   // };
 
+  // const addNewInput = (e) => {
+  //   e.preventDefault();
+  //   setValues(values)
+  // }
+  
   return (
     <div>
       <div style={divStyle}>
@@ -115,7 +171,7 @@ function CandidateForm() {
               />
             </Form.Group>
           </Form.Row>
-          {/* /Array input for work expereince*/}
+
           <Form.Group as={Col} controlId="formGridPassword">
             <Form.Label>Work Experience</Form.Label>
             <Form.Control
@@ -125,8 +181,9 @@ function CandidateForm() {
               onChange={handleChange}
               value={state.workExperience}
             ></Form.Control>
-            {newInput}
-            <button onClick={addNewInput}>+ add more</button>
+            {/* {createUI(values)} */}
+            {newInputs}
+            <button onClick={addNewInput}>Add more</button>
           </Form.Group>
 
           <Form.Row>
@@ -137,7 +194,7 @@ function CandidateForm() {
             <Form.Check type="checkbox" label="Agree to Terms and Conditions" />
           </Form.Group>
 
-          <Button variant="primary" disabled={isInvalid}>
+          <Button variant="primary" onClick ={submitDetails} disabled={isInvalid}>
             Submit
           </Button>
         </Form>
