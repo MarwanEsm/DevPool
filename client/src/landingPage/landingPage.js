@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import Headbar from "../LandingPageComponents/Navbar";
 import ReadMore from "../LandingPageComponents/ReadMore";
 import Card from "react-bootstrap/Card";
-import Nav from "react-bootstrap/Nav";
+// import Nav from "react-bootstrap/Nav";
 import { CandidatesContext } from '../ContextProvider/CandidatesContextProvider';
 
 function LandingPage() {
@@ -22,20 +22,21 @@ function LandingPage() {
           filteredCandidates.map((candidate) => {
             return (
               <div key={candidate._id}>
-                <Card>
-                  <Card.Header>
+                <Card style={cardStyle}>
+                  {/* <Card.Header>
                     <Nav variant="pills" defaultActiveKey="#first">
-                      <Nav.Item>
-                        {/* Add function  */}
-                        <Nav.Link href="#first" style={linkStyle}>Add to watchlist</Nav.Link>
-                      </Nav.Item>
+                      <Nav.Item> */}
+                        {/* Add function, do it later if time left  */ 
+                      }
+                        {/* <Nav.Link href="#first" style={linkStyle}>Add to watchlist</Nav.Link>
+                      </Nav.Item> */}
 
-                      {/* Add function */}
-                      <Nav.Item>
+                      {/* Add function do it later if time left  */}
+                      {/* <Nav.Item>
                         <Nav.Link href="#link" style={linkStyle}>Remove from watchlist</Nav.Link>
-                      </Nav.Item>
-                    </Nav>
-                  </Card.Header>
+                      </Nav.Item> */}
+                    {/* </Nav>
+                  </Card.Header> */}
                   <Card.Body>
                     <Card.Title style={nameStyle}>
                       Name {candidate.fullName}
@@ -99,8 +100,14 @@ const spanStyle = {
   fontSize: 13,
 };
 
-const linkStyle={
-  fontSize :13,
+const cardStyle={
+ border:'solid',
+  marginBottom :'3%',
+  borderWeigth :'solid '
 }
+
+// const linkStyle={
+//   fontSize :13,
+// }
 
 export default LandingPage;
