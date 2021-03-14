@@ -21,7 +21,7 @@ function LoginPage() {
   };
 
   const login = (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
     if (e.target.email === users) {
       fetch("http://localhost:5000/auth/login", {
         method: "post",
@@ -35,6 +35,7 @@ function LoginPage() {
         .then((res) => console.log(res))
         .then(history.push("/CandidatesUserPage"));
     }
+
   };
 
   return (

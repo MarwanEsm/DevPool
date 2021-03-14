@@ -26,7 +26,7 @@ function Headbar() {
               <Form.Control as="select" defaultValue="Choose...">
                 {filteredCandidates.length &&
                   filteredCandidates.map((candidate) => {
-                    return <option>{candidate.location}</option>;
+                    return <option key={candidate._id}>{candidate.location}</option>;
                   })}
               </Form.Control>
             </div>

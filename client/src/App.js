@@ -5,7 +5,7 @@ import CandidatesContextProvider from "./ContextProvider/CandidatesContextProvid
 import UsersContextProvider from "./ContextProvider/UsersContextProvider";
 import RegistrationPage from "./RegistrationPage/RegistrationPage";
 import LoginPage from "./LoginPage/LoginPage";
-import CandidateUserPage from './CandidatesPage/CandidatesUserPage';
+import CandidatesUserPage from './CandidatesPage/CandidatesUserPage';
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -25,8 +25,8 @@ function App() {
             <Route path="/LoginPage">
               <LoginPage />
             </Route>
-            <Route path ='/CandidateUserPage'>
-              <CandidateUserPage/>
+            <Route path ='/CandidatesUserPage'>
+              <CandidatesUserPage/>
             </Route>
           </Switch>
           </UsersContextProvider>
