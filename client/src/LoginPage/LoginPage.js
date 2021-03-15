@@ -22,7 +22,7 @@ function LoginPage() {
 
   const login = (e) => {
     e.preventDefault(); 
-    if (e.target.email === users) {
+    
       fetch("http://localhost:5000/auth/login", {
         method: "post",
         headers: {
@@ -32,9 +32,17 @@ function LoginPage() {
         body: JSON.stringify(state),
       })
         .then((res) => res.json())
-        .then((res) => console.log(res))
-        .then(history.push("/CandidatesUserPage"));
-    }
+        .then((user) =>{
+          console.log(user)
+        if(user.owner === 'candidate'){
+          history.push("/CandidatesUserPage");
+        }else{
+          history.push('/EmployerPage')
+        }}) 
+        .catch(err =>{
+          console.log(err);
+        })
+    
 
   };
 

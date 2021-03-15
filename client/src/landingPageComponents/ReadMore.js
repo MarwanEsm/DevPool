@@ -19,15 +19,15 @@ function ReadMore() {
 
   }
 
-
+console.log(filteredCandidates);
   return (
     <div style={divStyle}>
-      {filteredCandidates.length &&
+      {filteredCandidates && filteredCandidates.length &&
         filteredCandidates.map((candidate) => {
           return (
             <div key={candidate._id}>
               <ul>
-                {candidate.workExperiences.length &&
+                {candidate.workExperiences && candidate.workExperiences.length &&
                   candidate.workExperiences.map((workExperience) => {
                     return <li style={style}>{workExperience}</li>;
                   })}

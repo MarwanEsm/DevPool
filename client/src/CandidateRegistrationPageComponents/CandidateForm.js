@@ -9,7 +9,7 @@ function CandidateForm() {
     fullName: "",
     title: "",
     location: "",
-    workExperience: "",
+    workExperience: [],
     desiredPosition: "",
     expectedSalary: "",
     checked :false
@@ -19,7 +19,7 @@ function CandidateForm() {
     state.fullName === "" ||
     state.title === "" ||
     state.location === "" ||
-    state.workExperience === "" ||
+    state.workExperience === []||
     state.desiredPosition === "" ||
     state.expectedSalary === "" ||
     state.checked === false
@@ -31,6 +31,7 @@ function CandidateForm() {
 
   const submitDetails = (e) => {
     e.preventDefault();
+    console.log(JSON.stringify(state));
     fetch("http://localhost:5000/candidate/new", {
       method: "post",
       headers: {
@@ -46,22 +47,24 @@ function CandidateForm() {
   const [fields, setFields] = useState([{ value: null }]);
 
   function handleAdd() {
-    const values = [...fields];
-    values.push({ value: null });
-    setFields(values);
+    const values = [...state.workExperience];
+    values.push('');
+    setState({...state, workExperience : values});
   }
 
   function handleRemove(i) {
-    const values = [...fields];
+    const values = [...state.workExperience];
     values.splice(i, 1);
-    setFields(values);
+    setState({...state, workExperience : values});
   }
 
-  function handleChangeMore(i, event) {
-    const values = [...fields];
-    values[i].value = event.target.value;
-    setFields(values);
+  function handleChangeMore(i, e) {
+    e.preventDefault();
+    const values = [...state.workExperience];
+    values[i] = e.target.value;
+    setState({...state, workExperience : values});
   }
+console.log(state.workExperience);
 
   const makeItChecked = (e) => {
     e.preventDefault();
@@ -132,14 +135,14 @@ function CandidateForm() {
           <Form.Row>
             <Form.Group as={Col} controlId="formGridPassword">
               <Form.Label>Work Experience</Form.Label>
-              <Form.Control
+              {/* <Form.Control
                 type="text"
                 name="workExperience"
                 placeholder="Work Experience"
                 onChange={handleChange}
                 value={state.workExperience}
-              ></Form.Control>
-              {fields.map((field, idx) => {
+              ></Form.Control> */}
+              {state.workExperience.map((field, idx) => {
                 return (
                   <div key={`${field}-${idx}`} style={addMoreDiv}>
                     <Button type="button" onClick={() => handleRemove(idx)}>
@@ -149,6 +152,7 @@ function CandidateForm() {
                     <Form.Control
                       type="text"
                       placeholder="Work Experience"
+                      value={field}
                       onChange={(e) => handleChangeMore(idx, e)}
                     ></Form.Control>
                   </div>
