@@ -2,16 +2,20 @@ import { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
+import { UsersContext } from "../ContextProvider/UsersContextProvider";
 import { useHistory } from "react-router";
 
 function ReadMore() {
   const { filteredCandidates } = useContext(CandidatesContext);
+  const { users } = useContext(UsersContext);
   const history = useHistory();
 
   const handleClick=(e)=>{
     e.preventDefault();
+    if(users){history.push(/*push to the related candidate profile*/)
+    }else{
     history.push('/LoginPage')
-
+}
 
   }
 

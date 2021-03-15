@@ -2,8 +2,9 @@ import React, { useContext, useState } from "react";
 import Headbar from "../LandingPageComponents/Navbar";
 import ReadMore from "../LandingPageComponents/ReadMore";
 import Card from "react-bootstrap/Card";
-// import Nav from "react-bootstrap/Nav";
-import { CandidatesContext } from '../ContextProvider/CandidatesContextProvider';
+import Nav from "react-bootstrap/Nav";
+import Col from "react-bootstrap/Col";
+import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
 function LandingPage() {
   const { filteredCandidates } = useContext(CandidatesContext);
@@ -13,68 +14,74 @@ function LandingPage() {
     setText(!text);
   };
   const linkName = text ? "Read Less << " : "Read More >> ";
-  
+
   return (
     <div>
       <Headbar />
-      <div style={divStyle}>
-        {filteredCandidates.length &&
-          filteredCandidates.map((candidate) => {
-            return (
-              <div key={candidate._id}>
-                <Card style={cardStyle}>
-                  {/* <Card.Header>
+      <div style={mainDivStyle}>
+        <div>
+          {filteredCandidates.length &&
+            filteredCandidates.map((candidate) => {
+              return (
+                <div key={candidate._id}>
+                  <Col >
+                  <Card style={cardStyle}>
+                    <Card.Header>
                     <Nav variant="pills" defaultActiveKey="#first">
-                      <Nav.Item> */}
-                        {/* Add function, do it later if time left  */ 
-                      }
-                        {/* <Nav.Link href="#first" style={linkStyle}>Add to watchlist</Nav.Link>
-                      </Nav.Item> */}
+                      <Nav.Item>
+                    {/* Add function, do it later if time left  */}
+                    <Nav.Link href="#first" style={linkStyle}>Add to watchlist</Nav.Link>
+                      </Nav.Item> 
 
-                      {/* Add function do it later if time left  */}
-                      {/* <Nav.Item>
+                    {/* Add function do it later if time left  */}
+                    <Nav.Item>
                         <Nav.Link href="#link" style={linkStyle}>Remove from watchlist</Nav.Link>
-                      </Nav.Item> */}
-                    {/* </Nav>
-                  </Card.Header> */}
-                  <Card.Body>
-                    <Card.Title style={nameStyle}>
-                      Name {candidate.fullName}
-                    </Card.Title>
-                    <Card.Text style={titleStyle}>
-                      Title {candidate.title}
-                    </Card.Text>
-                    <Card.Text style={nameStyle}>
-                      Location {candidate.location}
-                    </Card.Text>
-                    <Card.Text style={style} className="word">
-                      Work Experience
-                    </Card.Text>
-                    <div>
-                      <span onClick={moreInfo} style={spanStyle}>
-                        {linkName}
-                        {text && <ReadMore />}
-                      </span>
-                    </div>
-                  </Card.Body>
-                </Card>
-              </div>
-             
-            );
-          })}
+                      </Nav.Item> 
+                    </Nav>
+                  </Card.Header>
+                    <Card.Body>
+                      <Card.Title style={nameStyle}>
+                        Name {candidate.fullName}
+                      </Card.Title>
+                      <Card.Text style={titleStyle}>
+                        Title {candidate.title}
+                      </Card.Text>
+                      <Card.Text style={nameStyle}>
+                        Location {candidate.location}
+                      </Card.Text>
+                      <Card.Text style={style} className="word">
+                        Work Experience
+                      </Card.Text>
+                      <div>
+                        <span onClick={moreInfo} style={spanStyle}>
+                          {linkName}
+                          {text && <ReadMore />}
+                        </span>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                  </Col>
+                </div>
+              );
+            })}
+        </div>
       </div>
     </div>
-    
   );
 }
 
-const divStyle = {
-  width: "23%",
-  height :'20%',
-  marginTop: "2%",
-  marginLeft: "2%",
-  marginBottom :'2%'
-};
+
+const mainDivStyle={
+  display:'flex',
+  justifyContent:'space-between',
+  alignItesm:'start',
+  flexWrap:'wrap',
+  flexFlow : 'column-wrap',
+  flexGrow : 2,
+  marginTop:'4%',
+  marginLeft: '3%'
+}
+
 
 const nameStyle = {
   fontFamily: "Consolas",
@@ -100,14 +107,14 @@ const spanStyle = {
   fontSize: 13,
 };
 
-const cardStyle={
- border:'solid',
-  marginBottom :'3%',
-  borderWeigth :'solid '
-}
+const cardStyle = {
+  border: "solid",
+  marginBottom: "6%",
+  borderWeigth: "solid ",
+};
 
-// const linkStyle={
-//   fontSize :13,
-// }
+const linkStyle={
+  fontSize :13,
+}
 
 export default LandingPage;
