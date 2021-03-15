@@ -10,7 +10,6 @@ export const CandidatesContextProvider = ({ children }) => {
   const filteredCandidates = candidates.filter((candidate) => {
     return (candidate.location/*.toLowerCase().includes(searchlocation.toLowerCase())*/ &&
     candidate.title.toLowerCase().includes(searchTitle.toLowerCase()))})
-
   console.log(filteredCandidates);
   useEffect(() => {
     fetch("http://localhost:5000/candidate/all")

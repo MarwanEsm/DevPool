@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import Headbar from "../LandingPageComponents/Navbar";
 import ReadMore from "../LandingPageComponents/ReadMore";
+import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
 import Col from "react-bootstrap/Col";
@@ -18,69 +19,87 @@ function LandingPage() {
   return (
     <div>
       <Headbar />
-      <div style={mainDivStyle}>
-        <div>
-          {filteredCandidates.length &&
-            filteredCandidates.map((candidate) => {
-              return (
-                <div key={candidate._id}>
-                  <Col >
-                  <Card style={cardStyle}>
-                    <Card.Header>
+
+      <div style={mainDivStyle}> 
+        {filteredCandidates &&
+          filteredCandidates.length &&
+          filteredCandidates.map((candidate) => {
+            return (
+              <Col key={candidate._id}>
+                <Card style={cardStyle}>
+                  <Card.Header>
                     <Nav variant="pills" defaultActiveKey="#first">
                       <Nav.Item>
-                    {/* Add function, do it later if time left  */}
-                    <Nav.Link href="#first" style={linkStyle}>Add to watchlist</Nav.Link>
-                      </Nav.Item> 
-
-                    {/* Add function do it later if time left  */}
-                    <Nav.Item>
-                        <Nav.Link href="#link" style={linkStyle}>Remove from watchlist</Nav.Link>
-                      </Nav.Item> 
+                        <Nav.Link href="#first" style={linkStyle}>
+                          Add to watchlist
+                        </Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item>
+                        <Nav.Link href="#link" style={linkStyle}>
+                          Remove from watchlist
+                        </Nav.Link>
+                      </Nav.Item>
                     </Nav>
                   </Card.Header>
-                    <Card.Body>
-                      <Card.Title style={nameStyle}>
-                        Name {candidate.fullName}
-                      </Card.Title>
-                      <Card.Text style={titleStyle}>
-                        Title {candidate.title}
-                      </Card.Text>
-                      <Card.Text style={nameStyle}>
-                        Location {candidate.location}
-                      </Card.Text>
-                      <Card.Text style={style} className="word">
-                        Work Experience
-                      </Card.Text>
-                      <div>
-                        <span onClick={moreInfo} style={spanStyle}>
-                          {linkName}
-                          {text && <ReadMore />}
-                        </span>
-                      </div>
-                    </Card.Body>
-                  </Card>
-                  </Col>
-                </div>
-              );
-            })}
-        </div>
+
+                  <Card.Body>
+                    <Card.Title style={nameStyle}>
+                      Name {candidate.fullName}
+                    </Card.Title>
+                    <Card.Text style={titleStyle}>
+                      Title {candidate.title}
+                    </Card.Text>
+                    <Card.Text style={nameStyle}>
+                      Location {candidate.location}
+                    </Card.Text>
+                    <Card.Text style={style} className="word">
+                      Work Experience
+                    </Card.Text>
+                    <div>
+                      <span onClick={moreInfo} style={spanStyle}>
+                        {linkName}
+                        {text}
+                      </span>
+                    </div>
+                    <Card.Text style={style}>
+                      Desired Position {candidate.desiredPosition}
+                    </Card.Text>
+                    <Card.Text style={style}>
+                      Expected Salary {candidate.expectedSalary}
+                    </Card.Text>
+                    <Card.Text style={style}>
+                      Work Expereinces
+                    </Card.Text>
+                    <ul>
+                      {candidate.workExpereinces && candidate.workExpereinces.length && candidate.workExpereinces.map((workExpereince)=>{
+                        return(
+                          <li style={listStyle}>- {workExpereince}</li>
+                        )
+                      }) }
+                    </ul>
+                  </Card.Body>
+                 <Button /*onClick={handleClick}*/ >Contact Candidate</Button>
+                  
+                </Card>
+              </Col>
+            );
+          })}
       </div>
     </div>
   );
 }
+const mainDivStyle = {
+  // display: "flex",
+  // justifyContent: "space-between",
+  // alignItesm: "start",
+  // flexWrap: "wrap",
+  // flexFlow: "column-wrap",
+  // flexGrow: 2,
+  marginTop: "4%",
+  marginLeft: "3%",
+  width : '100%'
+};
 
-
-const mainDivStyle={
-  display:'flex',
-  justifyContent:'space-between',
-  alignItesm:'start',
-  flexWrap:'wrap',
-  flexFlow : 'column-wrap',
-  flexGrow : 2,
-  marginTop:'4%',
-  marginLeft: '3%'
-}
 
 
 const nameStyle = {
@@ -111,10 +130,15 @@ const cardStyle = {
   border: "solid",
   marginBottom: "6%",
   borderWeigth: "solid ",
+  width:'23%'
 };
 
-const linkStyle={
-  fontSize :13,
+const linkStyle = {
+  fontSize: 13,
+};
+
+const listStyle={
+  listStyleType:'none'
 }
 
 export default LandingPage;
