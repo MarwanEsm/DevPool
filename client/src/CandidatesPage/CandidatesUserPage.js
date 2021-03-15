@@ -1,6 +1,6 @@
 import React from 'react';
-import CandidateNavBar from '../CandidateUserPageComponents/NavBarCandidate';
-import CandidateForm from '../CandidateUserPageComponents/CandidateForm';
+import CandidateNavBar from '../CandidateRegistrationPageComponents/NavBarCandidate';
+import CandidateForm from '../CandidateRegistrationPageComponents/CandidateForm';
 
 function CandidatesUserPage (){
     
