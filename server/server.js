@@ -28,6 +28,7 @@ app.use(cors());
 app.use("/candidate", require("./routes/candidate"));
 app.use('/user', require ('./routes/user'));
 app.use('/auth', require('./routes/auth'));
+app.use('/employer', require('./routes/employer'));
 
 // run app and listen to requests on port 5000
 app.listen(port, () => {
