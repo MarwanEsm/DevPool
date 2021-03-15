@@ -90,7 +90,10 @@ function EmployerForm() {
                 value={state.fieldOfBusiness}
               />
             </Form.Group>
-            <Form.Group as={Col} controlId="formGridCity">
+
+          </Form.Row>
+          <Form.Row>
+          <Form.Group as={Col} controlId="formGridCity">
               <Form.Label>Concerned Person Email</Form.Label>
               <Form.Control
                 type="text"
@@ -100,8 +103,6 @@ function EmployerForm() {
                 value={state.concernedPersonEmail}
               />
             </Form.Group>
-          </Form.Row>
-
           <Form.Group as={Col} controlId="formGridPassword">
             <Form.Label>Phone No</Form.Label>
             <Form.Control
@@ -112,6 +113,7 @@ function EmployerForm() {
               value={state.phoneNo}
             ></Form.Control>
           </Form.Group>
+          </Form.Row>
 
           <Form.Group id="formGridCheckbox">
             <Form.Check type="checkbox" label="Agree to Terms and Conditions" />
