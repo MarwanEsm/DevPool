@@ -6,6 +6,7 @@ import UsersContextProvider from "./ContextProvider/UsersContextProvider";
 import RegistrationPage from "./RegistrationPage/RegistrationPage";
 import LoginPage from "./LoginPage/LoginPage";
 import CandidatesUserPage from './CandidatesPage/CandidatesUserPage';
+import EmployerUsersPage from './EmployerPage/EmployersUserPage';
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -27,6 +28,9 @@ function App() {
             </Route>
             <Route path ='/CandidatesUserPage'>
               <CandidatesUserPage/>
+            </Route>
+            <Route path ='/EmployerUsersPage'>
+              <EmployerUsersPage/>
             </Route>
           </Switch>
           </UsersContextProvider>

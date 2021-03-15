@@ -3,71 +3,67 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
-
-function CandidateForm() {
+function EmployerForm() {
   const [state, setState] = useState({
-    fullName: "",
-    title: "",
+    employerName: "",
+    website: "",
     location: "",
-    workExperience: [],
-    desiredPosition: "",
-    expectedSalary: "",
+    fieldOfBusiness: "",
+    concernedPersonEmail: "",
+    phoneNo: "",
   });
 
   const isInvalid =
-    state.fullName === "" ||
-    state.title === "" ||
+    state.employerName === "" ||
+    state.website === "" ||
     state.location === "" ||
-    state.workExperience === "" ||
-    state.desiredPosition === "" ||
-    state.expectedSalary === "";
+    state.fieldOfBusiness === "" ||
+    state.concernedPersonEmail === "" ||
+    state.phoneNo === "";
 
   const handleChange = (e) => {
     e.preventDefault();
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
-//   const submitDetails = (e) => {
-//     e.preventDefault();
-//     fetch("http://localhost:5000/candidate/new", {
-//       method: "post",
-//       headers: {
-//         Accept: "application/json, text/plain, */*",
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify(state),
-//     })
-//       .then((res) => res.json())
-//       .then((res) => console.log(res))
-      
-//   };
+  const submitDetails = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:5000/employer/new", {
+      method: "post",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(state),
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res));
+  };
 
-  
-  
   return (
     <div>
       <div style={divStyle}>
         <Form>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label>Full Name</Form.Label>
+              <Form.Label>Employer Name</Form.Label>
               <Form.Control
                 type="text"
-                name="fullName"
-                placeholder=" Full Name"
+                name="employerName"
+                placeholder=" Employer Name"
                 onChange={handleChange}
-                value={state.fullName}
+                value={state.employerName}
               />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label>Title</Form.Label>
+              <Form.Label>Website</Form.Label>
               <Form.Control
                 type="text"
-                name="title"
-                placeholder=" Title"
+                name="website"
+                placeholder=" Website"
                 onChange={handleChange}
-                value={state.title}
+                value={state.website}
               />
             </Form.Group>
           </Form.Row>
@@ -85,46 +81,47 @@ function CandidateForm() {
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label>Desired Position</Form.Label>
+              <Form.Label>Field Of Business</Form.Label>
               <Form.Control
                 type="text"
-                name="desiredPosition"
-                placeholder="Desired Position"
+                name="fieldOfBusiness"
+                placeholder="Field Of Business"
                 onChange={handleChange}
-                value={state.desiredPosition}
+                value={state.fieldOfBusiness}
               />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridCity">
-              <Form.Label>Expected Salary</Form.Label>
+              <Form.Label>Concerned Person Email</Form.Label>
               <Form.Control
-                type="number"
-                name="expectedSalary"
-                placeholder="Expected Salary"
+                type="text"
+                name="concernedPersonEmail"
+                placeholder="Concerned Person Email"
                 onChange={handleChange}
-                value={state.expectedSalary}
+                value={state.concernedPersonEmail}
               />
             </Form.Group>
           </Form.Row>
 
           <Form.Group as={Col} controlId="formGridPassword">
-            <Form.Label>Work Experience</Form.Label>
+            <Form.Label>Phone No</Form.Label>
             <Form.Control
-              type="text"
-              name="workExperience"
-              placeholder="Work Experience"
+              type="number"
+              name="phoneNo"
+              placeholder="Phone No"
               onChange={handleChange}
-              value={state.workExperience}
+              value={state.phoneNo}
             ></Form.Control>
-            {/* {createUI(values)} */}
-            {newInputs}
-            <Button onClick={addNewInput}>Add more</Button>
           </Form.Group>
 
           <Form.Group id="formGridCheckbox">
             <Form.Check type="checkbox" label="Agree to Terms and Conditions" />
           </Form.Group>
 
-          <Button variant="primary" onClick ={submitDetails} disabled={isInvalid}>
+          <Button
+            variant="primary"
+            onClick={submitDetails}
+            disabled={isInvalid}
+          >
             Submit
           </Button>
         </Form>
@@ -144,4 +141,4 @@ const divStyle = {
 //   color: "blue",
 // };
 
-export default CandidateForm;
+export default EmployerForm;
