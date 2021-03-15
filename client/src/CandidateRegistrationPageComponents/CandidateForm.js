@@ -12,6 +12,7 @@ function CandidateForm() {
     workExperience: "",
     desiredPosition: "",
     expectedSalary: "",
+    checked :false
   });
 
   const isInvalid =
@@ -20,7 +21,8 @@ function CandidateForm() {
     state.location === "" ||
     state.workExperience === "" ||
     state.desiredPosition === "" ||
-    state.expectedSalary === "";
+    state.expectedSalary === "" ||
+    state.checked === false
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -60,6 +62,11 @@ function CandidateForm() {
     values[i].value = event.target.value;
     setFields(values);
   }
+
+  const makeItChecked = (e) => {
+    e.preventDefault();
+    setState({ ...state, checked: !state.checked });
+  };
 
   return (
     <div>
@@ -162,7 +169,8 @@ function CandidateForm() {
           </Form.Row>
 
           <Form.Group id="formGridCheckbox">
-            <Form.Check type="checkbox" label="Agree to Terms and Conditions" />
+            <label><input type="radio"  defaultChecked={state.checked}
+              onClick={makeItChecked}/>Agree to Terms and Conditions</label>
           </Form.Group>
 
           <Button

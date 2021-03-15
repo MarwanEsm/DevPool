@@ -11,6 +11,11 @@ function Headbar() {
     CandidatesContext
   );
 
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearchTitle(e.target.value);
+  };
+
   return (
     <div style={maindivStyle}>
       <div>
@@ -26,7 +31,9 @@ function Headbar() {
               <Form.Control as="select" defaultValue="Choose...">
                 {filteredCandidates.length &&
                   filteredCandidates.map((candidate) => {
-                    return <option key={candidate._id}>{candidate.location}</option>;
+                    return (
+                      <option key={candidate._id}>{candidate.location}</option>
+                    );
                   })}
               </Form.Control>
             </div>
@@ -39,28 +46,23 @@ function Headbar() {
               placeholder="What"
               className="mr-sm-2"
               value={searchTitle}
-              onChange={(e) => setSearchTitle(e.target.name)}
+              onChange={handleChange}
             />
           </Form.Group>
         </Form.Row>
       </div>
       <div style={navdiv}>
         <Link to="/">Candidates</Link>
-        &nbsp;
-        &nbsp;
+        &nbsp; &nbsp;
         <Link to="/RegistrationPage">Register</Link>
-        &nbsp;
-        &nbsp;
+        &nbsp; &nbsp;
         <h5>|</h5>
-        &nbsp;
-        &nbsp;
+        &nbsp; &nbsp;
         <Link to="/LoginPage">Login</Link>
       </div>
     </div>
   );
 }
-
-
 
 const labelStyle = {
   marginRight: "6%",
@@ -83,11 +85,9 @@ const rowdivStyle = {
   marginRight: "16%",
 };
 
-
-const navdiv ={
-  display : 'flex',
-  justifyContent :'space-around',
-
-}
+const navdiv = {
+  display: "flex",
+  justifyContent: "space-around",
+};
 
 export default Headbar;

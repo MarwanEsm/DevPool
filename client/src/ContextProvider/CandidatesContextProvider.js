@@ -8,7 +8,7 @@ export const CandidatesContextProvider = ({ children }) => {
   const [searchlocation, setSearchLocation] = useState("");
   const [searchTitle, setSearchTitle] = useState("");
   const filteredCandidates = candidates.filter((candidate) => {
-    return (candidate.location.toLowerCase().includes(searchlocation.toLowerCase()) &&
+    return (candidate.location/*.toLowerCase().includes(searchlocation.toLowerCase())*/ &&
     candidate.title.toLowerCase().includes(searchTitle.toLowerCase()))})
 
   console.log(filteredCandidates);

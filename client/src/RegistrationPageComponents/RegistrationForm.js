@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import {useHistory} from 'react-router-dom';
 
 function RegistrationForm() {
+  const history = useHistory();
   const [state, setState] = useState({
     firstName: "",
     lastName: "",
@@ -16,7 +17,7 @@ function RegistrationForm() {
     owner: "candidate",
     checked: false,
   });
-  const history = useHistory();
+  
 
   const isInvalid =
     state.firstName === "" ||
