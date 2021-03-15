@@ -44,7 +44,7 @@ function EmployerForm() {
     <div>
       <div style={divStyle}>
         <Form>
-          <Form.Row>
+          <Form.Row >
             <Form.Group as={Col} controlId="formGridPassword">
               <Form.Label>Employer Name</Form.Label>
               <Form.Control
@@ -90,10 +90,9 @@ function EmployerForm() {
                 value={state.fieldOfBusiness}
               />
             </Form.Group>
-
           </Form.Row>
           <Form.Row>
-          <Form.Group as={Col} controlId="formGridCity">
+            <Form.Group as={Col} controlId="formGridCity">
               <Form.Label>Concerned Person Email</Form.Label>
               <Form.Control
                 type="text"
@@ -103,16 +102,16 @@ function EmployerForm() {
                 value={state.concernedPersonEmail}
               />
             </Form.Group>
-          <Form.Group as={Col} controlId="formGridPassword">
-            <Form.Label>Phone No</Form.Label>
-            <Form.Control
-              type="number"
-              name="phoneNo"
-              placeholder="Phone No"
-              onChange={handleChange}
-              value={state.phoneNo}
-            ></Form.Control>
-          </Form.Group>
+            <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Label>Phone No</Form.Label>
+              <Form.Control
+                type="number"
+                name="phoneNo"
+                placeholder="Phone No"
+                onChange={handleChange}
+                value={state.phoneNo}
+              ></Form.Control>
+            </Form.Group>
           </Form.Row>
 
           <Form.Group id="formGridCheckbox">
@@ -138,9 +137,6 @@ const divStyle = {
   marginRight: "18%",
 };
 
-// const spanStyle = {
-//   textDecoration: "underline",
-//   color: "blue",
-// };
+
 
 export default EmployerForm;

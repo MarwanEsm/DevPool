@@ -9,7 +9,7 @@ function CandidateForm() {
     fullName: "",
     title: "",
     location: "",
-    workExperience: '',
+    workExperience: "",
     desiredPosition: "",
     expectedSalary: "",
   });
@@ -38,78 +38,29 @@ function CandidateForm() {
       body: JSON.stringify(state),
     })
       .then((res) => res.json())
-      .then((res) => console.log(res))
-      
+      .then((res) => console.log(res));
   };
 
-  const [newInputs, setNewInputs] = useState('');
-  const addNewInput = (e) => {
-    e.preventDefault();
-    setNewInputs (
-      // <div>
-      //   {newInputs &&
-      //     newInputs.map((i) => {
-      //       return (
-              <div /*key={i}*/>
-                <Form.Row>
-                  <Form.Group as={Col} controlId="formGridPassword">
-                    <Form.Control
-                      type="text"
-                      name="workExperience"
-                      placeholder="Work Experience"
-                      onChange={handleChange}
-                      value ={state.workExperience}
-                      // value={el || ""}
-                    ></Form.Control>
-                  </Form.Group>
-                </Form.Row>
-              </div>
-      //       );
-      //     })}
-      // </div>
-    );
-  };
+  const [fields, setFields] = useState([{ value: null }]);
 
-  // const handleRemove= index => {
-  //   const list = [...state.workExperience];
-  //   list.splice(index, 1);
-  //   setState(list);
-  // };
+  function handleAdd() {
+    const values = [...fields];
+    values.push({ value: null });
+    setFields(values);
+  }
 
-  // const [newInputs, setNewInputs] = useState('');
-  // const addNewInput = (e) => {
-  //   e.preventDefault();
-  //   const newInput = (
-  //     <div>
-  //       <button /*onClick={removeInput}*/>Remove</button>
-  //       <Form.Row>
-  //         <Form.Group as={Col} controlId="formGridPassword">
-  //           <Form.Control
-  //             type="text"
-  //             name="workExperience"
-  //             placeholder="Work Experience"
-  //             onChange={handleChange}
-  //             value={state.workExperience}
-  //           ></Form.Control>
-  //         </Form.Group>
-  //       </Form.Row>
-  //     </div>
-  //   );
+  function handleRemove(i) {
+    const values = [...fields];
+    values.splice(i, 1);
+    setFields(values);
+  }
 
-  //   setNewInputs(newInput);
-  // };
+  function handleChangeMore(i, event) {
+    const values = [...fields];
+    values[i].value = event.target.value;
+    setFields(values);
+  }
 
-  // const submitDetails = (e) => {
-  //   e.preventDefault()
-  //   alert('Thank you, your details have been sbumitted')
-
-  // };
-
-  // const addNewInput = (e) => {
-  //   e.preventDefault();
-  //   setValues(values)
-  // }
-  
   return (
     <div>
       <div style={divStyle}>
@@ -171,20 +122,40 @@ function CandidateForm() {
               />
             </Form.Group>
           </Form.Row>
+          <Form.Row>
+            <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Label>Work Experience</Form.Label>
+              <Form.Control
+                type="text"
+                name="workExperience"
+                placeholder="Work Experience"
+                onChange={handleChange}
+                value={state.workExperience}
+              ></Form.Control>
+              {fields.map((field, idx) => {
+                return (
+                  <div key={`${field}-${idx}`} style={addMoreDiv}>
+                    <Button type="button" onClick={() => handleRemove(idx)}>
+                      X
+                    </Button>
 
-          <Form.Group as={Col} controlId="formGridPassword">
-            <Form.Label>Work Experience</Form.Label>
-            <Form.Control
-              type="text"
-              name="workExperience"
-              placeholder="Work Experience"
-              onChange={handleChange}
-              value={state.workExperience}
-            ></Form.Control>
-            {/* {createUI(values)} */}
-            {newInputs}
-            <Button onClick={addNewInput}>Add more</Button>
-          </Form.Group>
+                    <Form.Control
+                      type="text"
+                      placeholder="Work Experience"
+                      onChange={(e) => handleChangeMore(idx, e)}
+                    ></Form.Control>
+                  </div>
+                );
+              })}
+              <Button
+                type="button"
+                onClick={() => handleAdd()}
+                style={buttonStyle}
+              >
+                Add more
+              </Button>
+            </Form.Group>
+          </Form.Row>
 
           <Form.Row>
             <ImageUplaod />
@@ -194,7 +165,11 @@ function CandidateForm() {
             <Form.Check type="checkbox" label="Agree to Terms and Conditions" />
           </Form.Group>
 
-          <Button variant="primary" onClick ={submitDetails} disabled={isInvalid}>
+          <Button
+            variant="primary"
+            onClick={submitDetails}
+            disabled={isInvalid}
+          >
             Submit
           </Button>
         </Form>
@@ -209,9 +184,13 @@ const divStyle = {
   marginRight: "18%",
 };
 
-// const spanStyle = {
-//   textDecoration: "underline",
-//   color: "blue",
-// };
+const addMoreDiv = {
+  display: "flex",
+  justifyContent: "space-between",
+};
+
+const buttonStyle = {
+  marginTop: "2%",
+};
 
 export default CandidateForm;
