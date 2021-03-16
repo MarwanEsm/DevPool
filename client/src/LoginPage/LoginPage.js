@@ -37,7 +37,7 @@ function LoginPage() {
         if(user.owner === 'candidate'){
           history.push("/CandidatesUserPage");
         }else{
-          history.push('/EmployerPage')
+          history.push('/EmployersUserPage')
         }}) 
         .catch(err =>{
           console.log(err);

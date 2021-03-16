@@ -2,7 +2,7 @@ import React from "react";
 import EmployerNavBar from "../EmployerRegistrationPageComponent/NavBarEmployer";
 import EmployerForm from "../EmployerRegistrationPageComponent/EmployerForm";
 
-function EmployerUsersPage() {
+function EmployersUsersPage() {
   return (
     <div>
       <EmployerNavBar />
@@ -11,4 +11,4 @@ function EmployerUsersPage() {
   );
 }
 
-export default EmployerUsersPage;
+export default EmployersUsersPage;
