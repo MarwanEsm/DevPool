@@ -10,10 +10,8 @@ function Headbar() {
   const {
     searchTitle,
     setSearchTitle,
-    selectLocation,
     setSelectLocation,
-    filteredCandidates,
-    candidates
+    candidates,
   } = useContext(CandidatesContext);
 
   const handleChange = (e) => {
@@ -21,10 +19,10 @@ function Headbar() {
     setSearchTitle(e.target.value);
   };
 
-  const changeLocation = (e) =>{
-    e.preventDefault()
-    setSelectLocation(e.target.value)
-  }
+  const changeLocation = (e) => {
+    e.preventDefault();
+    setSelectLocation(e.target.value);
+  };
 
   return (
     <div style={maindivStyle}>
@@ -38,21 +36,16 @@ function Headbar() {
               <div style={labelStyle}>
                 <Form.Label>Where</Form.Label>
               </div>
-              <Form.Control as="select" defaultValue="all" onChange={changeLocation}>
-              <option
-                        value="all"
-                        // onChange={changeLocation}
-                      >
-                        All
-                      </option>
+              <Form.Control
+                as="select"
+                defaultValue="all"
+                onChange={changeLocation}
+              >
+                <option value="all">All</option>
                 {candidates.length &&
-                 candidates.map((candidate) => {
+                  candidates.map((candidate) => {
                     return (
-                      <option
-                        key={candidate._id}
-                        value={candidate.location}
-                        // onChange={changeLocation}
-                      >
+                      <option key={candidate._id} value={candidate.location}>
                         {candidate.location}
                       </option>
                     );

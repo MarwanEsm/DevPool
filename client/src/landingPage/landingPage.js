@@ -1,17 +1,14 @@
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Headbar from "../LandingPageComponents/Navbar";
-// import ReadMore from "../LandingPageComponents/ReadMore";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Nav from "react-bootstrap/Nav";
 import Col from "react-bootstrap/Col";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
-import { UsersContext } from "../ContextProvider/UsersContextProvider";
+
 
 function LandingPage() {
   const { filteredCandidates } = useContext(CandidatesContext);
-  const { users } = useContext(UsersContext);
   const history = useHistory();
 
   const [text, setText] = useState(false);
@@ -149,12 +146,6 @@ const cardStyle = {
   width: "23%",
 };
 
-const linkStyle = {
-  fontSize: 13,
-};
 
-// const listStyle = {
-//   listStyleType: "none",
-// };
 
 export default LandingPage;
