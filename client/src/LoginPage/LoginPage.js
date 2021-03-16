@@ -1,13 +1,13 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import LoginNavBar from "./NavBarLogIn";
 import { Link, useHistory } from "react-router-dom";
-import {UsersContext} from '../ContextProvider/UsersContextProvider';
+// import {UsersContext} from '../ContextProvider/UsersContextProvider';
 
 function LoginPage() {
-  const {users} = useContext(UsersContext);
+  // const {users} = useContext(UsersContext);
   const [state, setState] = useState({
     email: "",
     password: "",

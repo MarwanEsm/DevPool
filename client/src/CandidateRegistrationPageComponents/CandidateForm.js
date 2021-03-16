@@ -44,7 +44,7 @@ function CandidateForm() {
       .then((res) => console.log(res));
   };
 
-  const [fields, setFields] = useState([{ value: null }]);
+  // const [fields, setFields] = useState([{ value: null }]);
 
   function handleAdd() {
     const values = [...state.workExperience];

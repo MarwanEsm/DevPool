@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import Headbar from "../LandingPageComponents/Navbar";
-import ReadMore from "../LandingPageComponents/ReadMore";
+// import ReadMore from "../LandingPageComponents/ReadMore";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
@@ -20,7 +20,7 @@ function LandingPage() {
     <div>
       <Headbar />
 
-      <div style={mainDivStyle}> 
+      <div style={mainDivStyle}>
         {filteredCandidates &&
           filteredCandidates.length &&
           filteredCandidates.map((candidate) => {
@@ -61,25 +61,21 @@ function LandingPage() {
                         {text}
                       </span>
                     </div>
+                    <ul>
+                      {candidate.workExpereinces &&
+                        candidate.workExpereinces.length &&
+                        candidate.workExpereinces.map((workExpereince) => {
+                          return <li style={listStyle}>- {workExpereince}</li>;
+                        })}
+                    </ul>
                     <Card.Text style={style}>
                       Desired Position {candidate.desiredPosition}
                     </Card.Text>
                     <Card.Text style={style}>
                       Expected Salary {candidate.expectedSalary}
                     </Card.Text>
-                    <Card.Text style={style}>
-                      Work Expereinces
-                    </Card.Text>
-                    <ul>
-                      {candidate.workExpereinces && candidate.workExpereinces.length && candidate.workExpereinces.map((workExpereince)=>{
-                        return(
-                          <li style={listStyle}>- {workExpereince}</li>
-                        )
-                      }) }
-                    </ul>
+                    <Button /*onClick={handleClick}*/ >Contact Candidate</Button>
                   </Card.Body>
-                 <Button /*onClick={handleClick}*/ >Contact Candidate</Button>
-                  
                 </Card>
               </Col>
             );
@@ -97,10 +93,8 @@ const mainDivStyle = {
   // flexGrow: 2,
   marginTop: "4%",
   marginLeft: "3%",
-  width : '100%'
+  width: "100%",
 };
-
-
 
 const nameStyle = {
   fontFamily: "Consolas",
@@ -130,15 +124,15 @@ const cardStyle = {
   border: "solid",
   marginBottom: "6%",
   borderWeigth: "solid ",
-  width:'23%'
+  width: "23%",
 };
 
 const linkStyle = {
   fontSize: 13,
 };
 
-const listStyle={
-  listStyleType:'none'
-}
+const listStyle = {
+  listStyleType: "none",
+};
 
 export default LandingPage;
