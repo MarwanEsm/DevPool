@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 import Headbar from "../LandingPageComponents/Navbar";
 // import ReadMore from "../LandingPageComponents/ReadMore";
 import Button from "react-bootstrap/Button";
@@ -6,15 +7,30 @@ import Card from "react-bootstrap/Card";
 import Nav from "react-bootstrap/Nav";
 import Col from "react-bootstrap/Col";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
+import { UsersContext } from "../ContextProvider/UsersContextProvider";
 
 function LandingPage() {
   const { filteredCandidates } = useContext(CandidatesContext);
+  const { users } = useContext(UsersContext);
+  const history = useHistory();
 
   const [text, setText] = useState(false);
   const moreInfo = () => {
     setText(!text);
   };
   const linkName = text ? "Read Less << " : "Read More >> ";
+
+  const handleContactCandidate = (e) => {
+    e.preventDefault();
+    history.push("/LoginPage");
+    // .then(user)
+    // if(user) {
+    //  /*it should happen after the user is logged in*/ history.push('/CandidatesPage/:id')
+
+    // }else{
+    //   alert('User is not registered, please register').then(history.push('/RegistrationPage'))
+    // }
+  };
 
   return (
     <div>
@@ -27,7 +43,7 @@ function LandingPage() {
             return (
               <Col key={candidate._id}>
                 <Card style={cardStyle}>
-                  <Card.Header>
+                  {/* <Card.Header>
                     <Nav variant="pills" defaultActiveKey="#first">
                       <Nav.Item>
                         <Nav.Link href="#first" style={linkStyle}>
@@ -40,7 +56,7 @@ function LandingPage() {
                         </Nav.Link>
                       </Nav.Item>
                     </Nav>
-                  </Card.Header>
+                  </Card.Header> */}
 
                   <Card.Body>
                     <Card.Title style={nameStyle}>
@@ -55,25 +71,32 @@ function LandingPage() {
                     <Card.Text style={style} className="word">
                       Work Experience
                     </Card.Text>
-                     <div>
+                    <div>
                       <span onClick={moreInfo} style={spanStyle}>
                         {linkName}
+                        {text}
                       </span>
-                    </div> 
-                    <ul>
-                      {candidate.workExperiences &&
-                        candidate.workExperiences.length &&
-                        candidate.workExperiences.map((workExperience) => {
-                          return <li style={listStyle}>- {workExperience}</li>;
-                        })}
-                    </ul>
-                    <Card.Text style={style}>
-                      Desired Position {candidate.desiredPosition}
-                    </Card.Text>
-                    <Card.Text style={style}>
-                      Expected Salary {candidate.expectedSalary}
-                    </Card.Text>
-                    <Button /*onClick={handleClick}*/ >Contact Candidate</Button>
+                    </div>
+                    {text && (
+                      <>
+                        <ul>
+                          {candidate.workExperiences &&
+                            candidate.workExperiences.length &&
+                            candidate.workExperiences.map((exp) => {
+                              return <li>{exp}</li>;
+                            })}
+                        </ul>
+                        <Card.Text style={style}>
+                          Desired Position {candidate.desiredPosition}
+                        </Card.Text>
+                        <Card.Text style={style}>
+                          Expected Salary {candidate.expectedSalary}
+                        </Card.Text>
+                      </>
+                    )}
+                    <Button onClick={handleContactCandidate}>
+                      Contact Candidate
+                    </Button>
                   </Card.Body>
                 </Card>
               </Col>
@@ -88,7 +111,7 @@ const mainDivStyle = {
   // justifyContent: "space-between",
   // alignItesm: "start",
   // flexWrap: "wrap",
-  // flexFlow: "column-wrap",
+  // flexFlow: "row-wrap",
   // flexGrow: 2,
   marginTop: "4%",
   marginLeft: "3%",
@@ -121,7 +144,7 @@ const spanStyle = {
 
 const cardStyle = {
   border: "solid",
-  marginBottom: "6%",
+  marginBottom: "3%",
   borderWeigth: "solid ",
   width: "23%",
 };
@@ -130,8 +153,8 @@ const linkStyle = {
   fontSize: 13,
 };
 
-const listStyle = {
-  listStyleType: "none",
-};
+// const listStyle = {
+//   listStyleType: "none",
+// };
 
 export default LandingPage;

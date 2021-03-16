@@ -5,11 +5,15 @@ const initContext = { candidates: [] };
 export const CandidatesContext = createContext(initContext);
 export const CandidatesContextProvider = ({ children }) => {
   const [candidates, setCandidates] = useState([]);
-  const [searchlocation, setSearchLocation] = useState("");
   const [searchTitle, setSearchTitle] = useState("");
+  const [selectLocation, setSelectLocation] = useState("all");
   const filteredCandidates = candidates.filter((candidate) => {
-    return (candidate.location/*.toLowerCase().includes(searchlocation.toLowerCase())*/ &&
-    candidate.title.toLowerCase().includes(searchTitle.toLowerCase()))})
+    return (candidate.title.toLowerCase().includes(searchTitle.toLowerCase())
+    && candidate.location ===selectLocation 
+    || selectLocation ==='all' );
+  });
+
+
   console.log(filteredCandidates);
   useEffect(() => {
     fetch("http://localhost:5000/candidate/all")
@@ -23,9 +27,10 @@ export const CandidatesContextProvider = ({ children }) => {
   return (
     <CandidatesContext.Provider
       value={{
+        candidates,
         filteredCandidates,
-        searchlocation,
-        setSearchLocation,
+        selectLocation,
+        setSelectLocation,
         searchTitle,
         setSearchTitle,
       }}

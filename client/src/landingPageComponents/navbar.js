@@ -7,14 +7,24 @@ import { Link } from "react-router-dom";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
 function Headbar() {
-  const { searchTitle, setSearchTitle, filteredCandidates } = useContext(
-    CandidatesContext
-  );
+  const {
+    searchTitle,
+    setSearchTitle,
+    selectLocation,
+    setSelectLocation,
+    filteredCandidates,
+    candidates
+  } = useContext(CandidatesContext);
 
   const handleChange = (e) => {
     e.preventDefault();
     setSearchTitle(e.target.value);
   };
+
+  const changeLocation = (e) =>{
+    e.preventDefault()
+    setSelectLocation(e.target.value)
+  }
 
   return (
     <div style={maindivStyle}>
@@ -28,11 +38,23 @@ function Headbar() {
               <div style={labelStyle}>
                 <Form.Label>Where</Form.Label>
               </div>
-              <Form.Control as="select" defaultValue="Choose...">
-                {filteredCandidates.length &&
-                  filteredCandidates.map((candidate) => {
+              <Form.Control as="select" defaultValue="all" onChange={changeLocation}>
+              <option
+                        value="all"
+                        // onChange={changeLocation}
+                      >
+                        All
+                      </option>
+                {candidates.length &&
+                 candidates.map((candidate) => {
                     return (
-                      <option key={candidate._id}>{candidate.location}</option>
+                      <option
+                        key={candidate._id}
+                        value={candidate.location}
+                        // onChange={changeLocation}
+                      >
+                        {candidate.location}
+                      </option>
                     );
                   })}
               </Form.Control>
@@ -42,7 +64,7 @@ function Headbar() {
           <Form.Group as={Col} controlId="formGridCity">
             <FormControl
               type="text"
-              name="what"
+              name="searchTitle"
               placeholder="What"
               className="mr-sm-2"
               value={searchTitle}
