@@ -55,17 +55,16 @@ function LandingPage() {
                     <Card.Text style={style} className="word">
                       Work Experience
                     </Card.Text>
-                    <div>
+                     <div>
                       <span onClick={moreInfo} style={spanStyle}>
                         {linkName}
-                        {text}
                       </span>
-                    </div>
+                    </div> 
                     <ul>
-                      {candidate.workExpereinces &&
-                        candidate.workExpereinces.length &&
-                        candidate.workExpereinces.map((workExpereince) => {
-                          return <li style={listStyle}>- {workExpereince}</li>;
+                      {candidate.workExperiences &&
+                        candidate.workExperiences.length &&
+                        candidate.workExperiences.map((workExperience) => {
+                          return <li style={listStyle}>- {workExperience}</li>;
                         })}
                     </ul>
                     <Card.Text style={style}>
