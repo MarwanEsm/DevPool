@@ -6,6 +6,7 @@ function CandidatesUserPage (){
     
     return(
         <div>
+       
             <CandidateNavBar/>
             <CandidateForm/>
         </div>

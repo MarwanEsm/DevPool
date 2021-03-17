@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import Headbar from "../LandingPageComponents/Navbar";
 import Button from "react-bootstrap/Button";
@@ -13,11 +13,11 @@ function LandingPage() {
   const { user } = useContext(AuthContext);
   const history = useHistory();
 
-  const [text, setText] = useState(false);
-  const moreInfo = () => {
-    setText(!text);
-  };
-  const linkName = text ? "Read Less << " : "Read More >> ";
+  // const [text, setText] = useState(false);
+  // const moreInfo = () => {
+  //   setText(!text);
+  // };
+  // const linkName = text ? "Read Less << " : "Read More >> ";
 
   const handleContactCandidate = (e) => {
     e.preventDefault();
@@ -116,17 +116,17 @@ const titleStyle = {
   fontWeight: "bold",
 };
 
-const style = {
-  fontFamily: "Consolas",
-  fontSize: 17,
-  marginTop: "2%",
-};
+// const style = {
+//   fontFamily: "Consolas",
+//   fontSize: 17,
+//   marginTop: "2%",
+// };
 
-const spanStyle = {
-  fontFamily: "Lucida Sans Unicode",
-  color: "blue",
-  fontSize: 13,
-};
+// const spanStyle = {
+//   fontFamily: "Lucida Sans Unicode",
+//   color: "blue",
+//   fontSize: 13,
+// };
 
 const cardStyle = {
   border: "solid",
@@ -139,10 +139,10 @@ const buttonStyle = {
   marginTop: "7%",
 };
 
-const listStyle = {
-  marginTop: "6%",
-  marginBottom: "6%",
-};
+// const listStyle = {
+//   marginTop: "6%",
+//   marginBottom: "6%",
+// };
 
 
 

@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import ImageUplaod from "./ImageUnplaoder";
+import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
+import { UsersContext } from "../ContextProvider/UsersContextProvider";
+import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function CandidateForm() {
+  const { filteredCandidates, candidates } = useContext(CandidatesContext);
+  const { user } = useContext(AuthContext);
+
   const [state, setState] = useState({
     fullName: "",
     title: "",
@@ -28,23 +34,24 @@ function CandidateForm() {
     e.preventDefault();
     setState({ ...state, [e.target.name]: e.target.value });
   };
-
+/*my question is here*/
   const submitDetails = (e) => {
     e.preventDefault();
-    console.log(JSON.stringify(state));
-    fetch("http://localhost:5000/candidate/new", {
-      method: "post",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(state),
-    })
-      .then((res) => res.json())
-      .then((res) => console.log(res));
+    if (!candidates.candidate) {
+      fetch("http://localhost:5000/candidate/new", {
+        method: "post",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(state),
+      })
+        .then((res) => res.json())
+        .then((res) => console.log(res));
+    } else {
+      alert("You can submit your details only one time");
+    }
   };
-
-  // const [fields, setFields] = useState([{ value: null }]);
 
   function handleAdd() {
     const values = [...state.workExperience];
@@ -64,7 +71,6 @@ function CandidateForm() {
     values[i] = e.target.value;
     setState({ ...state, workExperience: values });
   }
-  console.log(state.workExperience);
 
   const makeItChecked = (e) => {
     e.preventDefault();

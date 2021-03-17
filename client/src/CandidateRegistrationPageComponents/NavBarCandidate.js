@@ -11,7 +11,7 @@ function CandidateNavBar() {
       </div>
       <div style={navdiv}>
       {/* replace it with profile icon */}
-        <Link to="/">Profile </Link> 
+        <Link to="#">My Profile </Link> 
         &nbsp; &nbsp;
         <h5>|</h5>
         &nbsp; &nbsp;
