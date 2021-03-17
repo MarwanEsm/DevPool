@@ -13,6 +13,13 @@ const CandidateProfile = () => {
   const { user, setUser } = useContext(AuthContext);
   const { filteredCandidates } = useContext(CandidatesContext);
   const history = useHistory();
+
+  const contactCandidate = () =>{
+      /* if registered redirect to chat message or email screen
+      if not alert please register with a link to employer registration page */
+  }
+
+
   if (user && user.owner == "employer") {
     return (
       <div>
@@ -66,7 +73,7 @@ const CandidateProfile = () => {
                         <Card.Text style={style}>
                           Expected Salary {candidate.expectedSalary}
                         </Card.Text>
-                        <Button style={buttonStyle}>Contact Candidate</Button>
+                        <Button style={buttonStyle} onClick={contactCandidate}>Contact Candidate</Button>
                       </Card.Body>
                     </Card>
                   </Col>

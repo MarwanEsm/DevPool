@@ -49,7 +49,7 @@ function LandingPage() {
                       <Card.Text style={nameStyle}>
                         Location {candidate.location}
                       </Card.Text>
-                      <Card.Text style={style} className="word">
+                      {/* <Card.Text style={style} className="word">
                         Work Experience
                       </Card.Text>
                       <div>
@@ -74,7 +74,7 @@ function LandingPage() {
                             Expected Salary {candidate.expectedSalary}
                           </Card.Text>
                         </>
-                      )}
+                      )} */}
                       <Button
                         onClick={handleContactCandidate}
                         style={buttonStyle}
