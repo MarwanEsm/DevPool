@@ -4,11 +4,12 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import ImageUplaod from "./ImageUnplaoder";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
-import { UsersContext } from "../ContextProvider/UsersContextProvider";
+// import { UsersContext } from "../ContextProvider/UsersContextProvider";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function CandidateForm() {
-  const { filteredCandidates, candidates } = useContext(CandidatesContext);
+  // const { candidate } = useContext(CandidatesContext);
+
   const { user } = useContext(AuthContext);
 
   const [state, setState] = useState({
@@ -34,10 +35,10 @@ function CandidateForm() {
     e.preventDefault();
     setState({ ...state, [e.target.name]: e.target.value });
   };
-/*my question is here*/
+  /*my question is here*/
   const submitDetails = (e) => {
     e.preventDefault();
-    if (!candidates.candidate) {
+    
       fetch("http://localhost:5000/candidate/new", {
         method: "post",
         headers: {
@@ -47,10 +48,8 @@ function CandidateForm() {
         body: JSON.stringify(state),
       })
         .then((res) => res.json())
-        .then((res) => console.log(res));
-    } else {
-      alert("You can submit your details only one time");
-    }
+        .then((res) => console.log(res))
+        
   };
 
   function handleAdd() {
