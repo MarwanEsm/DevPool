@@ -12,17 +12,17 @@ function CandidateForm() {
     workExperience: [],
     desiredPosition: "",
     expectedSalary: "",
-    checked :false
+    checked: false,
   });
 
   const isInvalid =
     state.fullName === "" ||
     state.title === "" ||
     state.location === "" ||
-    state.workExperience === []||
+    state.workExperience === [] ||
     state.desiredPosition === "" ||
     state.expectedSalary === "" ||
-    state.checked === false
+    state.checked === false;
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -48,23 +48,23 @@ function CandidateForm() {
 
   function handleAdd() {
     const values = [...state.workExperience];
-    values.push('');
-    setState({...state, workExperience : values});
+    values.push("");
+    setState({ ...state, workExperience: values });
   }
 
   function handleRemove(i) {
     const values = [...state.workExperience];
     values.splice(i, 1);
-    setState({...state, workExperience : values});
+    setState({ ...state, workExperience: values });
   }
 
   function handleChangeMore(i, e) {
     e.preventDefault();
     const values = [...state.workExperience];
     values[i] = e.target.value;
-    setState({...state, workExperience : values});
+    setState({ ...state, workExperience: values });
   }
-console.log(state.workExperience);
+  console.log(state.workExperience);
 
   const makeItChecked = (e) => {
     e.preventDefault();
@@ -81,7 +81,6 @@ console.log(state.workExperience);
               <Form.Control
                 type="text"
                 name="fullName"
-                placeholder=" Full Name"
                 onChange={handleChange}
                 value={state.fullName}
               />
@@ -92,20 +91,18 @@ console.log(state.workExperience);
               <Form.Control
                 type="text"
                 name="title"
-                placeholder=" Title"
                 onChange={handleChange}
                 value={state.title}
               />
             </Form.Group>
           </Form.Row>
-
+          <br />
           <Form.Row>
             <Form.Group as={Col} controlId="formGridEmail">
               <Form.Label>Location</Form.Label>
               <Form.Control
                 type="text"
                 name="location"
-                placeholder=" Location"
                 onChange={handleChange}
                 value={state.location}
               />
@@ -116,7 +113,6 @@ console.log(state.workExperience);
               <Form.Control
                 type="text"
                 name="desiredPosition"
-                placeholder="Desired Position"
                 onChange={handleChange}
                 value={state.desiredPosition}
               />
@@ -126,22 +122,16 @@ console.log(state.workExperience);
               <Form.Control
                 type="number"
                 name="expectedSalary"
-                placeholder="Expected Salary"
                 onChange={handleChange}
                 value={state.expectedSalary}
               />
             </Form.Group>
           </Form.Row>
+          <br />
           <Form.Row>
             <Form.Group as={Col} controlId="formGridPassword">
               <Form.Label>Work Experience</Form.Label>
-              {/* <Form.Control
-                type="text"
-                name="workExperience"
-                placeholder="Work Experience"
-                onChange={handleChange}
-                value={state.workExperience}
-              ></Form.Control> */}
+              <br />
               {state.workExperience.map((field, idx) => {
                 return (
                   <div key={`${field}-${idx}`} style={addMoreDiv}>
@@ -173,8 +163,14 @@ console.log(state.workExperience);
           </Form.Row>
 
           <Form.Group id="formGridCheckbox">
-            <label><input type="radio"  defaultChecked={state.checked}
-              onClick={makeItChecked}/>Agree to Terms and Conditions</label>
+            <label>
+              <input
+                type="radio"
+                defaultChecked={state.checked}
+                onClick={makeItChecked}
+              />
+              Agree to Terms and Conditions
+            </label>
           </Form.Group>
 
           <Button

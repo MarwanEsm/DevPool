@@ -11,7 +11,6 @@ import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider"
 
 const CandidateProfile = () => {
   const { user, setUser } = useContext(AuthContext);
-  //   const { setUser } = useContext(AuthContext);
   const { filteredCandidates } = useContext(CandidatesContext);
   const history = useHistory();
   if (user && user.owner == "employer") {
@@ -78,7 +77,7 @@ const CandidateProfile = () => {
       </div>
     );
   } else {
-    history.push("/LoginPage");
+    history.push("/CandidatesUserPage");
   }
 };
 
@@ -93,6 +92,7 @@ const mainDivStyle = {
   // repeat:'1fr 1fr 1fr 1fr',
   marginTop: "4%",
   marginLeft: "3%",
+  width: "100%",
 };
 
 const nameStyle = {
@@ -131,6 +131,7 @@ const listStyle = {
 
 const linkStyle = {
   marginTop: "2%",
+  fontSize: 13,
 };
 
 export default CandidateProfile;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import {useHistory} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 function RegistrationForm() {
   const history = useHistory();
@@ -17,7 +17,6 @@ function RegistrationForm() {
     owner: "candidate",
     checked: false,
   });
-  
 
   const isInvalid =
     state.firstName === "" ||
@@ -28,7 +27,7 @@ function RegistrationForm() {
     state.city === "" ||
     state.country === "" ||
     state.owner === "" ||
-    state.checked === false
+    state.checked === false;
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -57,7 +56,7 @@ function RegistrationForm() {
     })
       .then((res) => res.json())
       .then((res) => console.log(res))
-      .then(history.push('/LoginPage'))
+      .then(history.push("/LoginPage"));
   };
 
   return (
@@ -70,7 +69,6 @@ function RegistrationForm() {
               <Form.Control
                 type="text"
                 name="firstName"
-                placeholder=" First Name"
                 onChange={handleChange}
                 value={state.firstName}
               />
@@ -81,20 +79,18 @@ function RegistrationForm() {
               <Form.Control
                 type="text"
                 name="lastName"
-                placeholder=" Last Name"
                 onChange={handleChange}
                 value={state.lastName}
               />
             </Form.Group>
           </Form.Row>
-
+<br/>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
                 name="email"
-                placeholder=" Email"
                 onChange={handleChange}
                 value={state.email}
               />
@@ -105,7 +101,6 @@ function RegistrationForm() {
               <Form.Control
                 type="password"
                 name="password"
-                placeholder="Password"
                 onChange={handleChange}
                 value={state.password}
               />
@@ -116,20 +111,18 @@ function RegistrationForm() {
               <Form.Control
                 type="password"
                 name="confirmationPassword"
-                placeholder="Password"
                 onChange={handleChange}
                 value={state.confirmationPassword}
               />
             </Form.Group>
           </Form.Row>
-
+          <br/>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridCity">
               <Form.Label>City</Form.Label>
               <Form.Control
                 type="text"
                 name="city"
-                placeholder="City"
                 onChange={handleChange}
                 value={state.city}
               />
@@ -140,7 +133,6 @@ function RegistrationForm() {
               <Form.Control
                 type="text"
                 name="country"
-                placeholder="Country"
                 onChange={handleChange}
                 value={state.country}
               />
@@ -159,7 +151,7 @@ function RegistrationForm() {
               </Form.Control>
             </Form.Group>
           </Form.Row>
-
+          <br/>
           <Form.Group id="formGridCheckbox">
             <Form.Check
               type="checkbox"
@@ -168,6 +160,7 @@ function RegistrationForm() {
               label="Agree to Terms and Conditions"
             />
           </Form.Group>
+          <br/>
           <Button
             variant="primary"
             onClick={submitDetails}
