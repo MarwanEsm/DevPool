@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LandingPage from "./LandingPage/LandingPage";
 import CandidatesContextProvider from "./ContextProvider/CandidatesContextProvider";
 import UsersContextProvider from "./ContextProvider/UsersContextProvider";
+import AuthContextProvider from "./ContextProvider/AuthContextProvider";
 import RegistrationPage from "./RegistrationPage/RegistrationPage";
 import LoginPage from "./LoginPage/LoginPage";
 import CandidatesUserPage from './CandidatesPage/CandidatesUserPage';
 import EmployersUserPage from './EmployerPage/EmployersUserPage';
+import CandidateProfile from './CandidateProfile/CandidateProfile';
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -14,6 +16,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <AuthContextProvider>
         <CandidatesContextProvider>
           <UsersContextProvider>
           <Switch>
@@ -32,9 +35,13 @@ function App() {
             <Route path ='/EmployersUserPage'>
               <EmployersUserPage/>
             </Route>
+            <Route path ='/CandidateProfile'>
+              <CandidateProfile/>
+            </Route>
           </Switch>
           </UsersContextProvider>
         </CandidatesContextProvider>
+        </AuthContextProvider>
       </div>
     </Router>
   );

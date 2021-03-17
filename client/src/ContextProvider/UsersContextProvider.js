@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext } from "react";
 
+
 const initContext = { users: [] };
 export const UsersContext = createContext(initContext);
 
@@ -11,7 +12,7 @@ export const UsersContextProvider = ({ children }) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setUsers(data);
+        setUsers(users);
       });
   }, []);
 

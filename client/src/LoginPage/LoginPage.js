@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import LoginNavBar from "./NavBarLogIn";
 import { Link, useHistory } from "react-router-dom";
-// import {UsersContext} from '../ContextProvider/UsersContextProvider';
+import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
-function LoginPage() {
-  // const {users} = useContext(UsersContext);
+const LoginPage = () => {
+  const { setUser } = useContext(AuthContext);
+
   const [state, setState] = useState({
     email: "",
     password: "",
   });
+
   const history = useHistory();
   const isInvalid = state.email === "" || state.password === "";
 
@@ -20,31 +22,66 @@ function LoginPage() {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
-  const login = (e) => {
-    e.preventDefault(); 
-    
-      fetch("http://localhost:5000/auth/login", {
-        method: "post",
-        headers: {
-          Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(state),
-      })
-        .then((res) => res.json())
-        .then((user) =>{
-          console.log(user)
-        if(user.owner === 'candidate'){
-          history.push("/CandidatesUserPage");
-        }else{
-          history.push('/EmployersUserPage')
-        }}) 
-        .catch(err =>{
-          console.log(err);
-        })
-    
+  function loginUser(e) {
+    e.preventDefault();
 
-  };
+    fetch("http://localhost:5000/auth/login", {
+      method: "post",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(state),
+    })
+      .then((res) => res.json())
+      .then((user) => {
+        console.log(user);
+        setUser(user);
+
+        if (user.owner === "candidate") {
+          history.push("/CandidatesUserPage");
+        } else {
+       
+          history.push('/CandidateProfile')
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  // const login = async e => {
+  //   e.preventDefault();
+  //   const token = await loginUser({
+  //     username,
+  //     password
+  //   });
+  //   setToken(token);
+  // }
+
+  //  const login = (e) => {
+  //     e.preventDefault();
+  //       fetch("http://localhost:5000/auth/login", {
+  //         method: "post",
+  //         headers: {
+  //           Accept: "application/json, text/plain, */*",
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(state),
+  //       })
+  //         .then((res) => res.json())
+  //         .then((user) =>{
+  //           console.log(user)
+  //         if(user.owner === 'candidate'){
+  //           history.push("/CandidatesUserPage");
+  //         }else{
+  //           history.push('/EmployersUserPage')
+  //         }})
+  //         .catch(err =>{
+  //           console.log(err);
+  //         })
+
+  //   };
 
   return (
     <div>
@@ -77,7 +114,7 @@ function LoginPage() {
             </Form.Group>
           </Form.Row>
           <br />
-          <Button variant="primary" disabled={isInvalid} onClick={login}>
+          <Button variant="primary" disabled={isInvalid} onClick={loginUser}>
             Login
           </Button>
           <br />
@@ -91,7 +128,7 @@ function LoginPage() {
       </div>
     </div>
   );
-}
+};
 
 const divStyle = {
   marginTop: "4%",
