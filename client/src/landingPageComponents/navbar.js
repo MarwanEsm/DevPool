@@ -10,6 +10,7 @@ function Headbar() {
   const {
     searchTitle,
     setSearchTitle,
+    selectLocation,
     setSelectLocation,
     candidates,
   } = useContext(CandidatesContext);
@@ -38,12 +39,12 @@ function Headbar() {
               </div>
               <Form.Control
                 as="select"
-                defaultValue="all"
+                defaultValue="all" 
                 onChange={changeLocation}
               >
-                <option value="all">All</option>
+                <option value='all'>All</option>
                 {candidates.length &&
-                  candidates.map((candidate) => {
+                 candidates.map((candidate) => {
                     return (
                       <option key={candidate._id} value={candidate.location}>
                         {candidate.location}
