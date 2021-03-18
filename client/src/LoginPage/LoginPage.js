@@ -7,7 +7,7 @@ import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 const LoginPage = () => {
-  const { setUser } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
 
   const [state, setState] = useState({
     email: "",
@@ -38,11 +38,13 @@ const LoginPage = () => {
         console.log(user);
         setUser(user);
 
-        if (user.owner === "candidate") {
+        if (!user) {
+          /*alert is not working*/
+          alert('User does not exist, please register')
+        } else if (user && user.owner === "candidate") {
           history.push("/CandidatesUserPage");
-        } else {
-       
-          history.push('/CandidateProfile')
+        } else if (user && user.owner === "employer") {
+          history.push("/CandidateProfile");
         }
       })
       .catch((err) => {

@@ -18,9 +18,9 @@ const CandidateProfile = () => {
 
   const contactCandidate = () => {
     if (!employers) {
-      history.push("/EmployersUserPage")
+      history.push("/ChatScreen")
     } else {
-      history.push("/ChatScreen");
+      alert('Please Register');
     }
     /* if registered redirect to chat message or email screen
       if not alert please register with a link to employer registration page */
