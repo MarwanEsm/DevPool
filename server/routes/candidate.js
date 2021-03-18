@@ -13,19 +13,27 @@ router.get("/all", (req, res) => {
 });
 
 router.post("/new", (req, res) => {
-  console.log("req.", req.body);
-  const newCandidate = new CandidateSchema(req.body);
-  newCandidate
-    .save()
-    .then((candidate) => {
-      console.log(candidate);
-      res.send(candidate);
-    })
-    .catch((err) => {
-      res.send(err);
-     
-    });
-});
+  const newEmail = req.body.email;
 
+  CandidateSchema.findOne({ email: newEmail }, (err, candidate) => {
+    if (err) {
+      res.send(err);
+    }
+    if (candidate) {
+      res.send({msg: "Candidate is already registered" });
+    } else {
+      const newCandidate = new CandidateSchema(req.body);
+      newCandidate
+        .save()
+        .then((candidate) => {
+          console.log(candidate);
+          res.send(candidate);
+        })
+        .catch((err) => {
+          res.send(err);
+        });
+    }
+  });
+});
 
 module.exports = router;

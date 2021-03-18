@@ -4,18 +4,18 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import ImageUplaod from "./ImageUnplaoder";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
-// import { UsersContext } from "../ContextProvider/UsersContextProvider";
+import { UsersContext } from "../ContextProvider/UsersContextProvider";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function CandidateForm() {
-  // const { candidate } = useContext(CandidatesContext);
-
+  const { candidate } = useContext(CandidatesContext);
+  const { users } = useContext(UsersContext);
   const { user } = useContext(AuthContext);
-
   const [state, setState] = useState({
     fullName: "",
     title: "",
     location: "",
+    email: '',
     workExperience: [],
     desiredPosition: "",
     expectedSalary: "",
@@ -33,23 +33,22 @@ function CandidateForm() {
 
   const handleChange = (e) => {
     e.preventDefault();
+
     setState({ ...state, [e.target.name]: e.target.value });
   };
   /*my question is here*/
   const submitDetails = (e) => {
     e.preventDefault();
-    
-      fetch("http://localhost:5000/candidate/new", {
-        method: "post",
-        headers: {
-          Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(state),
-      })
-        .then((res) => res.json())
-        .then((res) => console.log(res))
-        
+    fetch("http://localhost:5000/candidate/new", {
+      method: "post",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(state),
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res));
   };
 
   function handleAdd() {
@@ -101,8 +100,17 @@ function CandidateForm() {
               />
             </Form.Group>
           </Form.Row>
-          <br />
           <Form.Row>
+            <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                name="email"
+                onChange={handleChange}
+                value={state.email}
+                /*value=equal to the user's email*/
+              />
+            </Form.Group>
             <Form.Group as={Col} controlId="formGridEmail">
               <Form.Label>Location</Form.Label>
               <Form.Control
@@ -112,7 +120,9 @@ function CandidateForm() {
                 value={state.location}
               />
             </Form.Group>
-
+          </Form.Row>
+          <br />
+          <Form.Row>
             <Form.Group as={Col} controlId="formGridPassword">
               <Form.Label>Desired Position</Form.Label>
               <Form.Control
