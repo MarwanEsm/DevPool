@@ -13,15 +13,25 @@ router.get("/all", (req, res) => {
 });
 
 router.post("/new", (req, res) => {
-  const newEmployer = new EmployerSchema(req.body);
-  newEmployer
-    .save()
-    .then((newEmployer) => {
-      res.send(newEmployer);
-    })
-    .catch((err) => {
+  const emEmail = req.body.concernedPersonEmail;
+  EmployerSchema.findOne({ concernedPersonEmail: emEmail }, (err, employer) => {
+    if (err) {
       res.send(err);
-    });
+    }
+    if (employer) {
+      res.send({ msg: "Employer is already registered" });
+    } else {
+      const newEmployer = new EmployerSchema(req.body);
+      newEmployer
+        .save()
+        .then((newEmployer) => {
+          res.send(newEmployer);
+        })
+        .catch((err) => {
+          res.send(err);
+        });
+    }
+  });
 });
 
 module.exports = router;

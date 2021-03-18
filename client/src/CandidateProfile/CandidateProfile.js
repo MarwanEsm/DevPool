@@ -8,17 +8,23 @@ import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
+import { EmployerContext } from "../ContextProvider/EmployerContextProvider";
 
 const CandidateProfile = () => {
   const { user, setUser } = useContext(AuthContext);
   const { filteredCandidates } = useContext(CandidatesContext);
+  const { employers } = useContext(EmployerContext);
   const history = useHistory();
 
-  const contactCandidate = () =>{
-      /* if registered redirect to chat message or email screen
+  const contactCandidate = () => {
+    if (!employers) {
+      history.push("/EmployersUserPage")
+    } else {
+      history.push("/ChatScreen");
+    }
+    /* if registered redirect to chat message or email screen
       if not alert please register with a link to employer registration page */
-  }
-
+  };
 
   if (user && user.owner == "employer") {
     return (
@@ -73,7 +79,9 @@ const CandidateProfile = () => {
                         <Card.Text style={style}>
                           Expected Salary {candidate.expectedSalary}
                         </Card.Text>
-                        <Button style={buttonStyle} onClick={contactCandidate}>Contact Candidate</Button>
+                        <Button style={buttonStyle} onClick={contactCandidate}>
+                          Contact Candidate
+                        </Button>
                       </Card.Body>
                     </Card>
                   </Col>

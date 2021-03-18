@@ -20,7 +20,7 @@ router.post("/new", (req, res) => {
       res.send(err);
     }
     if (candidate) {
-      res.send({msg: "Candidate is already registered" });
+      res.send({ msg: "Candidate is already registered" });
     } else {
       const newCandidate = new CandidateSchema(req.body);
       newCandidate

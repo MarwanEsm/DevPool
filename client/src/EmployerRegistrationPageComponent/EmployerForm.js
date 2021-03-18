@@ -100,6 +100,7 @@ function EmployerForm() {
                 placeholder="Concerned Person Email"
                 onChange={handleChange}
                 value={state.concernedPersonEmail}
+                /*email should be retrieved automatically from registered employer*/
               />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridPassword">

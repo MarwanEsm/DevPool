@@ -108,7 +108,7 @@ function CandidateForm() {
                 name="email"
                 onChange={handleChange}
                 value={state.email}
-                /*value=equal to the user's email*/
+                /*value should be retrived automatically and be equal to the user's email*/
               />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridEmail">
