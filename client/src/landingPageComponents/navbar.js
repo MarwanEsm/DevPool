@@ -38,7 +38,7 @@ function Headbar() {
                 as="select"
                 defaultValue="all"
                 onChange={changeLocation}
-                style={optionStyle}
+                style={selectStyle}
               >
                 <option value="all">All</option>
                 {candidates.length &&
@@ -61,17 +61,17 @@ function Headbar() {
               className="mr-sm-2"
               value={searchTitle}
               onChange={handleChange}
-              style={optionStyle}
+              style={selectStyle}
             />
           </Form.Group>
         </Form.Row>
       </div>
       <div style={navdiv}>
-        <Link to="/RegistrationPage">Register</Link>
+        <Link to="/RegistrationPage" style={linkStyle}>Register</Link>
         &nbsp; &nbsp;
         <h5>|</h5>
         &nbsp; &nbsp;
-        <Link to="/LoginPage">Login</Link>
+        <Link to="/LoginPage" style={linkStyle}>Login</Link>
       </div>
     </div>
   );
@@ -106,10 +106,16 @@ const navdiv = {
   justifyContent: "space-around",
 };
 
-const optionStyle = {
+const selectStyle = {
   borderRadius: 14,
   border: "bold",
   borderColor: "black",
+  fontFamily:'Courier, monospace',
+  fontSize:15
 };
+
+const linkStyle={
+  fontFamily:'Zapf Chancery, cursive',
+}
 
 export default Headbar;

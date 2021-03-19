@@ -7,25 +7,25 @@ import { useHistory } from "react-router-dom";
 function RegistrationForm() {
   const history = useHistory();
   const [state, setState] = useState({
-    firstName: "",
-    lastName: "",
+    // firstName: "",
+    // lastName: "",
     email: "",
     password: "",
     confirmationPassword: "",
-    city: "",
-    country: "",
+    // city: "",
+    // country: "",
     owner: "candidate",
     checked: false,
   });
 
   const isInvalid =
-    state.firstName === "" ||
-    state.lastName === "" ||
+    // state.firstName === "" ||
+    // state.lastName === "" ||
     state.email === "" ||
     state.password === "" ||
     state.confirmationPassword !== state.password ||
-    state.city === "" ||
-    state.country === "" ||
+    // state.city === "" ||
+    // state.country === "" ||
     state.owner === "" ||
     state.checked === false;
 
@@ -63,9 +63,9 @@ function RegistrationForm() {
     <div>
       <div style={divStyle}>
         <Form>
-          <Form.Row>
+          {/* <Form.Row>
             <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label>First Name</Form.Label>
+              <Form.Label style={textStyle}>First Name</Form.Label>
               <Form.Control
                 type="text"
                 name="firstName"
@@ -75,7 +75,7 @@ function RegistrationForm() {
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label>Last Name</Form.Label>
+              <Form.Label style={textStyle}>Last Name</Form.Label>
               <Form.Control
                 type="text"
                 name="lastName"
@@ -83,42 +83,46 @@ function RegistrationForm() {
                 value={state.lastName}
               />
             </Form.Group>
-          </Form.Row>
-<br/>
+          </Form.Row> */}
+          {/* <br /> */}
           <Form.Row>
             <Form.Group as={Col} controlId="formGridEmail">
-              <Form.Label>Email</Form.Label>
+              <Form.Label style={textStyle}>Email</Form.Label>
               <Form.Control
                 type="email"
                 name="email"
                 onChange={handleChange}
                 value={state.email}
+                style={inputtStyle}
               />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label>Password</Form.Label>
+              <Form.Label style={textStyle}>Password</Form.Label>
               <Form.Control
                 type="password"
                 name="password"
                 onChange={handleChange}
                 value={state.password}
+                style={inputtStyle}
               />
             </Form.Group>
-
+          </Form.Row>
+          <Form.Row>
             <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label>Password Confirmation</Form.Label>
+              <Form.Label style={textStyle}>Password Confirmation</Form.Label>
               <Form.Control
                 type="password"
                 name="confirmationPassword"
                 onChange={handleChange}
                 value={state.confirmationPassword}
+                style={inputtStyle}
               />
             </Form.Group>
-          </Form.Row>
-          <br/>
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGridCity">
+
+            <br />
+            {/* <Form.Row> */}
+            {/* <Form.Group as={Col} controlId="formGridCity">
               <Form.Label>City</Form.Label>
               <Form.Control
                 type="text"
@@ -136,35 +140,40 @@ function RegistrationForm() {
                 onChange={handleChange}
                 value={state.country}
               />
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group as={Col} controlId="formGridCity">
-              <Form.Label>Register as</Form.Label>
+              <Form.Label style={textStyle}>Register as</Form.Label>
               <Form.Control
                 name="owner"
                 as="select"
                 onChange={handleDropDown}
                 defaultValue="Choose..."
+                style={optionStye}
+                style={inputtStyle}
               >
-                <option value="candidate">Candidate</option>
-                <option value="employer">Employer</option>
+                <option value="candidate" >Candidate</option>
+                <option value="employer" >Employer</option>
               </Form.Control>
             </Form.Group>
           </Form.Row>
-          <br/>
+          <br />
           <Form.Group id="formGridCheckbox">
             <Form.Check
               type="checkbox"
               defaultChecked={state.checked}
               onClick={makeItChecked}
               label="Agree to Terms and Conditions"
+              style={agreeTextStyle}
+            
             />
           </Form.Group>
-          <br/>
+          <br />
           <Button
-            variant="primary"
+           variant="primary"
             onClick={submitDetails}
             disabled={isInvalid}
+            style={buttonStyle}
           >
             Submit
           </Button>
@@ -176,8 +185,40 @@ function RegistrationForm() {
 
 const divStyle = {
   marginTop: "4%",
-  marginLeft: "18%",
-  marginRight: "18%",
+  marginLeft: "27%",
+  // marginRight: "18%",
+  width:'40%'
 };
 
+const textStyle = {
+  fontFamily: "Zapf Chancery, cursive",
+};
+
+const agreeTextStyle = {
+  fontFamily: "Courier, monospace",
+  fontSize:14,
+  fontWeight:'bold'
+};
+
+const optionStye = { 
+  fontFamily: "Courier, monospace",
+  fontSize:14
+};
+
+
+const inputtStyle = {
+  borderRadius: 14,
+  border: "bold",
+  borderColor: "black",
+  fontFamily:'Courier, monospace',
+  fontSize:15
+};
+
+
+const buttonStyle={
+  fontFamily :'Courier, monospace',
+  fontSize:14,
+  cursor: 'pointer',
+  boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)'
+}
 export default RegistrationForm;

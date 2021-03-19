@@ -40,7 +40,7 @@ const LoginPage = () => {
 
         if (!user) {
           /*alert is not working*/
-          alert('User does not exist, please register')
+          alert("User does not exist, please register");
         } else if (user && user.owner === "candidate") {
           history.push("/CandidatesUserPage");
         } else if (user && user.owner === "employer") {
@@ -94,35 +94,37 @@ const LoginPage = () => {
         <Form>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridEmail">
-              <Form.Label>Email</Form.Label>
+              <Form.Label style={textStyle}>Email</Form.Label>
               <Form.Control
                 type="email"
                 name="email"
                 placeholder=" Email"
                 onChange={handleChange}
                 value={state.email}
+                style={inputtStyle}
               />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label>Password</Form.Label>
+              <Form.Label style={textStyle}>Password</Form.Label>
               <Form.Control
                 type="password"
                 name="password"
                 placeholder="Password"
                 onChange={handleChange}
                 value={state.password}
+                style={inputtStyle}
               />
             </Form.Group>
           </Form.Row>
           <br />
-          <Button variant="primary" disabled={isInvalid} onClick={loginUser}>
+          <Button variant="primary" disabled={isInvalid} onClick={loginUser} style={buttonStyle}>
             Login
           </Button>
           <br />
           <br />
           <Form.Group id="link">
-            <Link to="/RegistrationPage">
+            <Link to="/RegistrationPage" style={linkStyle}>
               Don't have an account? Register here{" "}
             </Link>
           </Form.Group>
@@ -134,8 +136,33 @@ const LoginPage = () => {
 
 const divStyle = {
   marginTop: "4%",
-  marginLeft: "18%",
-  marginRight: "18%",
+  marginLeft: "23%",
+  width: "50%",
 };
+
+const textStyle = {
+  fontFamily: "Zapf Chancery, cursive",
+};
+
+const inputtStyle = {
+  borderRadius: 14,
+  border: "bold",
+  borderColor: "black",
+  fontFamily: "Courier, monospace",
+  fontSize: 15,
+};
+
+const linkStyle={
+  fontFamily:'Coronetscript, cursive',
+  fontSize:14,
+  color:'gray'
+}
+
+const buttonStyle={
+  fontFamily :'Courier, monospace',
+  fontSize:14,
+  cursor: 'pointer',
+  boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)'
+}
 
 export default LoginPage;
