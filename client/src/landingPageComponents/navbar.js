@@ -34,17 +34,15 @@ function Headbar() {
         <Form.Row>
           <Form.Group as={Col} controlId="formGridCity">
             <div style={div1Style}>
-              <div style={labelStyle}>
-                <Form.Label>Where</Form.Label>
-              </div>
               <Form.Control
                 as="select"
-                defaultValue="all" 
+                defaultValue="all"
                 onChange={changeLocation}
+                style={optionStyle}
               >
-                <option value='all'>All</option>
+                <option value="all">All</option>
                 {candidates.length &&
-                 candidates.map((candidate) => {
+                  candidates.map((candidate) => {
                     return (
                       <option key={candidate._id} value={candidate.location}>
                         {candidate.location}
@@ -63,6 +61,7 @@ function Headbar() {
               className="mr-sm-2"
               value={searchTitle}
               onChange={handleChange}
+              style={optionStyle}
             />
           </Form.Group>
         </Form.Row>
@@ -87,6 +86,9 @@ const maindivStyle = {
   display: "flex",
   justifyContent: "space-around",
   marginTop: "1%",
+  backgroundColor:'#F0FFF0',
+  paddingTop:'1%',
+  marginTop:'0%'
 };
 
 const div1Style = {
@@ -102,6 +104,12 @@ const rowdivStyle = {
 const navdiv = {
   display: "flex",
   justifyContent: "space-around",
+};
+
+const optionStyle = {
+  borderRadius: 14,
+  border: "bold",
+  borderColor: "black",
 };
 
 export default Headbar;
