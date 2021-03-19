@@ -38,16 +38,23 @@ function LandingPage() {
             filteredCandidates.map((candidate) => {
               return (
                 <Col key={candidate._id}>
+                  
                   <Card style={cardStyle}>
+                    <Card.Img
+                      variant="top"
+                      src="holder.js/100px180?text=Image cap"
+                    />
+                     <Card.Header style={cardHeader}>{candidate.fullName}</Card.Header>
+                    {/* <Card style={cardStyle}> */}
                     <Card.Body>
-                      <Card.Title style={nameStyle}>
+                      {/* <Card.Title style={nameStyle}>
                         Name {candidate.fullName}
-                      </Card.Title>
+                      </Card.Title> */}
                       <Card.Text style={titleStyle}>
-                        Title {candidate.title}
+                        {candidate.title}
                       </Card.Text>
                       <Card.Text style={nameStyle}>
-                        Location {candidate.location}
+                        {candidate.location}
                       </Card.Text>
                       {/* <Card.Text style={style} className="word">
                         Work Experience
@@ -105,15 +112,16 @@ const mainDivStyle = {
 };
 
 const nameStyle = {
-  fontFamily: "Consolas",
+  fontFamily: "Andale Mono, monospace",
   fontSize: 15,
+  // fontWeight:'bold'
 };
 
 const titleStyle = {
-  fontFamily: "Consolas",
+  fontFamily: 'Andale Mono, monospace',
   fontSize: 15,
   marginTop: "2%",
-  fontWeight: "bold",
+  // fontWeight: "bold",
 };
 
 // const style = {
@@ -129,21 +137,32 @@ const titleStyle = {
 // };
 
 const cardStyle = {
-  border: "solid",
+  // border: "gray",
   marginBottom: "3%",
-  borderWeigth: "solid ",
   width: "23%",
+  width: "18rem",
 };
 
-const buttonStyle = {
-  marginTop: "7%",
-};
+// const buttonStyle = {
+//   marginTop: "7%",
+// };
 
 // const listStyle = {
 //   marginTop: "6%",
 //   marginBottom: "6%",
 // };
 
+const cardHeader={
+  fontFamily:'Courier New, monospace',
+  fontWeight: "bold",
+}
 
+const buttonStyle={
+  marginTop: "7%",
+  fontFamily :'Courier, monospace',
+  fontSize:14,
+  cursor: 'pointer',
+  boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)'
+}
 
 export default LandingPage;
