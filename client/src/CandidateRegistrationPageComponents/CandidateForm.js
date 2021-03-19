@@ -15,7 +15,7 @@ function CandidateForm() {
     fullName: "",
     title: "",
     location: "",
-    email: '',
+    email: "",
     workExperience: [],
     desiredPosition: "",
     expectedSalary: "",
@@ -79,7 +79,7 @@ function CandidateForm() {
     <div>
       <div style={divStyle}>
         <Form>
-          <Form.Row>
+          <Form.Row style={rowStyle}>
             <Form.Group as={Col} controlId="formGridPassword">
               <Form.Label style={textStyle}>Full Name</Form.Label>
               <Form.Control
@@ -156,7 +156,11 @@ function CandidateForm() {
               {state.workExperience.map((field, idx) => {
                 return (
                   <div key={`${field}-${idx}`} style={addMoreDiv}>
-                    <Button type="button" onClick={() => handleRemove(idx)}>
+                    <Button
+                      type="button"
+                      onClick={() => handleRemove(idx)}
+                      style={removeButtonStyle}
+                    >
                       X
                     </Button>
 
@@ -170,7 +174,8 @@ function CandidateForm() {
                   </div>
                 );
               })}
-              <Button variant="outline-primary"
+              <Button
+                variant="outline-primary"
                 type="button"
                 onClick={() => handleAdd()}
                 style={buttonStyle}
@@ -185,14 +190,12 @@ function CandidateForm() {
           </Form.Row>
 
           <Form.Group id="formGridCheckbox">
-            <label>
-              <input
-                type="radio"
-                defaultChecked={state.checked}
-                onClick={makeItChecked}
-              />
-              Agree to Terms and Conditions
-            </label>
+            <input
+              type="radio"
+              defaultChecked={state.checked}
+              onClick={makeItChecked}
+            />{" "}
+            &nbsp;<label>Agree to Terms and Conditions</label>
           </Form.Group>
 
           <Button
@@ -211,8 +214,9 @@ function CandidateForm() {
 
 const divStyle = {
   marginTop: "4%",
-  marginLeft: "18%",
-  marginRight: "18%",
+  marginLeft: "30%",
+  // marginRight: "18%",
+  width: "35%",
 };
 
 const addMoreDiv = {
@@ -228,21 +232,33 @@ const inputtStyle = {
   borderRadius: 14,
   border: "bold",
   borderColor: "black",
-  fontFamily:'Courier, monospace',
-  fontSize:15,
-  marginBottom:'3%'
+  fontFamily: "Courier, monospace",
+  fontSize: 15,
+  // marginBottom: "3%",
 };
 
-
-const buttonStyle={
-  fontFamily :'Courier, monospace',
-  fontSize:14,
-  cursor: 'pointer',
-  boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)'
-}
+const buttonStyle = {
+  fontFamily: "Courier, monospace",
+  fontSize: 14,
+  cursor: "pointer",
+  boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
+};
 
 const textStyle = {
   fontFamily: "Zapf Chancery, cursive",
+};
+
+const removeButtonStyle = {
+  width: "6%",
+  height: "3%",
+};
+
+const rowStyle={
+  marginBottom:'3%'
+}
+
+const logoStyle = {
+  marginRight: "43%",
 };
 
 export default CandidateForm;
