@@ -81,71 +81,77 @@ function CandidateForm() {
         <Form>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label>Full Name</Form.Label>
+              <Form.Label style={textStyle}>Full Name</Form.Label>
               <Form.Control
                 type="text"
                 name="fullName"
                 onChange={handleChange}
                 value={state.fullName}
+                style={inputtStyle}
               />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label>Title</Form.Label>
+              <Form.Label style={textStyle}>Title</Form.Label>
               <Form.Control
                 type="text"
                 name="title"
                 onChange={handleChange}
                 value={state.title}
+                style={inputtStyle}
               />
             </Form.Group>
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridEmail">
-              <Form.Label>Email</Form.Label>
+              <Form.Label style={textStyle}>Email</Form.Label>
               <Form.Control
                 type="email"
                 name="email"
                 onChange={handleChange}
                 value={state.email}
+                style={inputtStyle}
                 /*value should be retrived automatically and be equal to the user's email*/
               />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridEmail">
-              <Form.Label>Location</Form.Label>
+              <Form.Label style={textStyle}>Location</Form.Label>
               <Form.Control
                 type="text"
                 name="location"
                 onChange={handleChange}
                 value={state.location}
+                style={inputtStyle}
               />
             </Form.Group>
           </Form.Row>
           <br />
           <Form.Row>
             <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label>Desired Position</Form.Label>
+              <Form.Label style={textStyle}>Desired Position</Form.Label>
               <Form.Control
                 type="text"
                 name="desiredPosition"
                 onChange={handleChange}
                 value={state.desiredPosition}
+                style={inputtStyle}
               />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridCity">
-              <Form.Label>Expected Salary</Form.Label>
+              <Form.Label style={textStyle}>Expected Salary</Form.Label>
               <Form.Control
                 type="number"
                 name="expectedSalary"
                 onChange={handleChange}
                 value={state.expectedSalary}
+                style={inputtStyle}
               />
             </Form.Group>
           </Form.Row>
           <br />
           <Form.Row>
             <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label>Work Experience</Form.Label>
+              <Form.Label style={textStyle}>Work Experience</Form.Label>
               <br />
               {state.workExperience.map((field, idx) => {
                 return (
@@ -159,11 +165,12 @@ function CandidateForm() {
                       placeholder="Work Experience"
                       value={field}
                       onChange={(e) => handleChangeMore(idx, e)}
+                      style={inputtStyle}
                     ></Form.Control>
                   </div>
                 );
               })}
-              <Button
+              <Button variant="outline-primary"
                 type="button"
                 onClick={() => handleAdd()}
                 style={buttonStyle}
@@ -192,6 +199,7 @@ function CandidateForm() {
             variant="primary"
             onClick={submitDetails}
             disabled={isInvalid}
+            style={buttonStyle}
           >
             Submit
           </Button>
@@ -212,8 +220,29 @@ const addMoreDiv = {
   justifyContent: "space-between",
 };
 
-const buttonStyle = {
-  marginTop: "2%",
+// const buttonStyle = {
+//   marginTop: "2%",
+// };
+
+const inputtStyle = {
+  borderRadius: 14,
+  border: "bold",
+  borderColor: "black",
+  fontFamily:'Courier, monospace',
+  fontSize:15,
+  marginBottom:'3%'
+};
+
+
+const buttonStyle={
+  fontFamily :'Courier, monospace',
+  fontSize:14,
+  cursor: 'pointer',
+  boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)'
+}
+
+const textStyle = {
+  fontFamily: "Zapf Chancery, cursive",
 };
 
 export default CandidateForm;
