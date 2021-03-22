@@ -6,6 +6,7 @@ import Card from "react-bootstrap/Card";
 import Grid from "@react-css/grid";
 import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
+import Footer from "../LandingPageComponents/Footer";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 import { EmployerContext } from "../ContextProvider/EmployerContextProvider";
@@ -18,13 +19,19 @@ const CandidateProfile = () => {
 
   const contactCandidate = () => {
     if (!employers) {
-      history.push("/ChatScreen")
+      history.push("/ChatScreen");
     } else {
-      alert('Please Register');
+      alert("Please Register");
     }
     /* if registered redirect to chat message or email screen
       if not alert please register with a link to employer registration page */
   };
+
+  const [text, setText] = useState(false);
+  const moreInfo = () => {
+    setText(!text);
+  };
+  const linkName = text ? "Read Less << " : "Read More >> ";
 
   if (user && user.owner == "employer") {
     return (
@@ -54,34 +61,47 @@ const CandidateProfile = () => {
                       </Card.Header>
 
                       <Card.Body>
-                        <Card.Title style={nameStyle}>
+                        <Card.Title style={titleStyle}>
                           Name {candidate.fullName}
                         </Card.Title>
                         <Card.Text style={titleStyle}>
                           Title {candidate.title}
                         </Card.Text>
-                        <Card.Text style={nameStyle}>
+                        <Card.Text style={titleStyle}>
                           Location {candidate.location}
                         </Card.Text>
-                        <Card.Text style={style} className="word">
+                        <Card.Text style={titleStyle} className="word">
                           Work Experience
                         </Card.Text>
-                        <ul style={listStyle}>
-                          {candidate.workExperiences &&
-                            candidate.workExperiences.length &&
-                            candidate.workExperiences.map((exp) => {
-                              return <li>{exp}</li>;
-                            })}
-                        </ul>
-                        <Card.Text style={style}>
-                          Desired Position {candidate.desiredPosition}
-                        </Card.Text>
-                        <Card.Text style={style}>
-                          Expected Salary {candidate.expectedSalary}
-                        </Card.Text>
-                        <Button style={buttonStyle} onClick={contactCandidate}>
+                        <div>
+                        <span onClick={moreInfo}>
+                          {linkName}
+                          {text}
+                        </span>
+                      </div>
+                      {text && (
+                        <>
+                          <ul style={listStyle}>
+                            {candidate.workExperiences &&
+                              candidate.workExperiences.length &&
+                              candidate.workExperiences.map((exp) => {
+                                return <li>{exp}</li>;
+                              })}
+                          </ul>
+                          <Card.Text style={titleStyle} >
+                            Desired Position {candidate.desiredPosition}
+                          </Card.Text>
+                          <Card.Text style={titleStyle} >
+                            Expected Salary {candidate.expectedSalary}
+                          </Card.Text>
+                          <Button
+                          onClick={contactCandidate}
+                          style={buttonStyle}
+                        >
                           Contact Candidate
                         </Button>
+                        </>
+                      )} 
                       </Card.Body>
                     </Card>
                   </Col>
@@ -89,6 +109,10 @@ const CandidateProfile = () => {
               })}
           </div>
         </Grid>
+
+        <div>
+          <Footer />
+        </div>
       </div>
     );
   } else {
@@ -108,18 +132,6 @@ const mainDivStyle = {
   marginTop: "4%",
   marginLeft: "3%",
   width: "100%",
-};
-
-const nameStyle = {
-  fontFamily: "Consolas",
-  fontSize: 15,
-};
-
-const titleStyle = {
-  fontFamily: "Consolas",
-  fontSize: 15,
-  marginTop: "2%",
-  fontWeight: "bold",
 };
 
 const style = {
@@ -142,12 +154,20 @@ const buttonStyle = {
 const listStyle = {
   marginTop: "6%",
   marginBottom: "6%",
-  
+  listStyleType: "none",
+  fontFamily: "Andale Mono, monospace",
+  fontSize: 15,
 };
 
 const linkStyle = {
   marginTop: "2%",
   fontSize: 13,
+};
+
+const titleStyle = {
+  fontFamily: "Andale Mono, monospace",
+  fontSize: 15,
+  marginTop: "2%",
 };
 
 export default CandidateProfile;

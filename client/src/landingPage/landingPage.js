@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import Headbar from "../LandingPageComponents/Navbar";
-import Footer from '../LandingPageComponents/Footer';
+import Footer from "../LandingPageComponents/Footer";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
@@ -39,26 +39,27 @@ function LandingPage() {
             filteredCandidates.map((candidate) => {
               return (
                 <div style={divColStyle}>
-                <Col key={candidate._id}>
-                  
-                  <Card style={cardStyle}>
-                    <Card.Img
-                      variant="top"
-                      src="holder.js/100px180?text=Image cap"
-                    />
-                     <Card.Header style={cardHeader}>{candidate.fullName}</Card.Header>
-                    {/* <Card style={cardStyle}> */}
-                    <Card.Body>
-                      {/* <Card.Title style={nameStyle}>
+                  <Col key={candidate._id}>
+                    <Card style={cardStyle}>
+                      <Card.Img
+                        variant="top"
+                        src="holder.js/100px180?text=Image cap"
+                      />
+                      <Card.Header style={cardHeader}>
+                        {candidate.fullName}
+                      </Card.Header>
+                      {/* <Card style={cardStyle}> */}
+                      <Card.Body>
+                        {/* <Card.Title style={nameStyle}>
                         Name {candidate.fullName}
                       </Card.Title> */}
-                      <Card.Text style={titleStyle}>
-                        {candidate.title}
-                      </Card.Text>
-                      <Card.Text style={nameStyle}>
-                        {candidate.location}
-                      </Card.Text>
-                      {/* <Card.Text style={style} className="word">
+                        <Card.Text style={titleStyle}>
+                          {candidate.title}
+                        </Card.Text>
+                        <Card.Text style={nameStyle}>
+                          {candidate.location}
+                        </Card.Text>
+                        {/* <Card.Text style={style} className="word">
                         Work Experience
                       </Card.Text>
                       <div>
@@ -84,35 +85,29 @@ function LandingPage() {
                           </Card.Text>
                         </>
                       )} */}
-                      <Button
-                        onClick={handleContactCandidate}
-                        style={buttonStyle}
-                      >
-                        See Full Profile
-                      </Button>
-                    </Card.Body>
-                  </Card>
-                </Col>
+                        <Button
+                          onClick={handleContactCandidate}
+                          style={buttonStyle}
+                        >
+                          See Full Profile
+                        </Button>
+                      </Card.Body>
+                    </Card>
+                  </Col>
                 </div>
               );
             })}
         </div>
       </Grid>
       <div>
-      <Footer/>
+        <Footer />
       </div>
     </div>
   );
 }
 const mainDivStyle = {
-  // flexDiretion :'row',
-  // alignItesm: "start",
   flexWrap: "wrap",
-  // flexFlow: "row-wrap",
-  // flexGrow: 2,
   display: "grid",
-  // gridTemplate: 'row',
-  // repeat:'1fr 1fr 1fr 1fr',
   marginTop: "4%",
   marginLeft: "3%",
 };
@@ -120,60 +115,34 @@ const mainDivStyle = {
 const nameStyle = {
   fontFamily: "Andale Mono, monospace",
   fontSize: 15,
-  // fontWeight:'bold'
 };
 
 const titleStyle = {
-  fontFamily: 'Andale Mono, monospace',
+  fontFamily: "Andale Mono, monospace",
   fontSize: 15,
   marginTop: "2%",
- 
 };
-
-// const style = {
-//   fontFamily: "Consolas",
-//   fontSize: 17,
-//   marginTop: "2%",
-// };
-
-// const spanStyle = {
-//   fontFamily: "Lucida Sans Unicode",
-//   color: "blue",
-//   fontSize: 13,
-// };
 
 const cardStyle = {
-  // border: "gray",
   marginBottom: "3%",
   width: "23%",
-
 };
 
-// const buttonStyle = {
-//   marginTop: "7%",
-// };
-
-// const listStyle = {
-//   marginTop: "6%",
-//   marginBottom: "6%",
-// };
-
-const cardHeader={
-  fontFamily:'Courier New, monospace',
+const cardHeader = {
+  fontFamily: "Courier New, monospace",
   fontWeight: "bold",
-}
+};
 
-const buttonStyle={
+const buttonStyle = {
   marginTop: "7%",
-  fontFamily :'Courier, monospace',
-  fontSize:14,
-  cursor: 'pointer',
-  boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)'
-}
+  fontFamily: "Courier, monospace",
+  fontSize: 14,
+  cursor: "pointer",
+  boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
+};
 
-const divColStyle={
-  display:'inline',
- 
-}
+const divColStyle = {
+  display: "inline",
+};
 
 export default LandingPage;
