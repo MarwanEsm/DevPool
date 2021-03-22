@@ -14,8 +14,6 @@ function LandingPage() {
   const { user } = useContext(AuthContext);
   const history = useHistory();
 
-  
-
   const handleContactCandidate = (e) => {
     e.preventDefault();
     if (!user) {
@@ -27,45 +25,42 @@ function LandingPage() {
 
   return (
     <div>
-      <Headbar />
-      <Grid>
-        <div style={mainDivStyle}>
-          {filteredCandidates &&
-            filteredCandidates.length &&
-            filteredCandidates.map((candidate) => {
-              return (
-                <div style={divColStyle}>
-                  <Col key={candidate._id}>
-                    <Card style={cardStyle}>
-                      <Card.Img
-                        variant="top"
-                        src="holder.js/100px180?text=Image cap"
-                      />
-                      <Card.Header style={cardHeader}>
-                        {candidate.fullName}
-                      </Card.Header>
+      <div>
+        <Headbar />
+      </div>
+      <div style={mainDivStyle}>
+        {filteredCandidates &&
+          filteredCandidates.length &&
+          filteredCandidates.map((candidate) => {
+            return (
+              <Col key={candidate._id}>
+                <Card style={cardStyle} key={candidate._id}>
+                  <Card.Img
+                    variant="top"
+                    src="holder.js/100px180?text=Image cap"
+                  />
+                  <Card.Header style={cardHeader}>
+                    {candidate.fullName}
+                  </Card.Header>
 
-                      <Card.Body>
-                        <Card.Text style={titleStyle}>
-                          {candidate.title}
-                        </Card.Text>
-                        <Card.Text style={nameStyle}>
-                          {candidate.location}
-                        </Card.Text>
-                        <Button
-                          onClick={handleContactCandidate}
-                          style={buttonStyle}
-                        >
-                          See Full Profile
-                        </Button>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                </div>
-              );
-            })}
-        </div>
-      </Grid>
+                  <Card.Body>
+                    <Card.Text style={titleStyle}>{candidate.title}</Card.Text>
+                    <Card.Text style={nameStyle}>
+                      {candidate.location}
+                    </Card.Text>
+                    <Button
+                      onClick={handleContactCandidate}
+                      style={buttonStyle}
+                    >
+                      See Full Profile
+                    </Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            );
+          })}
+      </div>
+
       <div>
         <Footer />
       </div>
@@ -73,9 +68,10 @@ function LandingPage() {
   );
 }
 const mainDivStyle = {
+  display: "flex",
   flexWrap: "wrap",
-  display: "grid",
-  marginTop: "4%",
+  // flexGrrow:'2',
+  marginTop: "6%",
   marginLeft: "3%",
 };
 
@@ -92,7 +88,7 @@ const titleStyle = {
 
 const cardStyle = {
   marginBottom: "3%",
-  width: "23%",
+  width: "60%",
 };
 
 const cardHeader = {
