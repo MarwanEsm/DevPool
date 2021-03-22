@@ -7,7 +7,7 @@ import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 const LoginPage = () => {
-  const { user, setUser } = useContext(AuthContext);
+  const {setUser } = useContext(AuthContext);
 
   const [state, setState] = useState({
     email: "",

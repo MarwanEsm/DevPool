@@ -10,7 +10,6 @@ function Headbar() {
   const {
     searchTitle,
     setSearchTitle,
-    selectLocation,
     setSelectLocation,
     candidates,
   } = useContext(CandidatesContext);
@@ -77,15 +76,10 @@ function Headbar() {
   );
 }
 
-const labelStyle = {
-  marginRight: "6%",
-  marginTop: "4%",
-};
 
 const maindivStyle = {
   display: "flex",
   justifyContent: "space-around",
-  marginTop: "1%",
   backgroundColor:'#F0FFF0',
   paddingTop:'1%',
   marginTop:'0%'

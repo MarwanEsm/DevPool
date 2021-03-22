@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import Headbar from "../LandingPageComponents/Navbar";
+import Footer from '../LandingPageComponents/Footer';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
@@ -37,6 +38,7 @@ function LandingPage() {
             filteredCandidates.length &&
             filteredCandidates.map((candidate) => {
               return (
+                <div style={divColStyle}>
                 <Col key={candidate._id}>
                   
                   <Card style={cardStyle}>
@@ -91,17 +93,21 @@ function LandingPage() {
                     </Card.Body>
                   </Card>
                 </Col>
+                </div>
               );
             })}
         </div>
       </Grid>
+      <div>
+      <Footer/>
+      </div>
     </div>
   );
 }
 const mainDivStyle = {
   // flexDiretion :'row',
   // alignItesm: "start",
-  // flexWrap: "wrap",
+  flexWrap: "wrap",
   // flexFlow: "row-wrap",
   // flexGrow: 2,
   display: "grid",
@@ -121,7 +127,7 @@ const titleStyle = {
   fontFamily: 'Andale Mono, monospace',
   fontSize: 15,
   marginTop: "2%",
-  // fontWeight: "bold",
+ 
 };
 
 // const style = {
@@ -140,7 +146,7 @@ const cardStyle = {
   // border: "gray",
   marginBottom: "3%",
   width: "23%",
-  width: "18rem",
+
 };
 
 // const buttonStyle = {
@@ -163,6 +169,11 @@ const buttonStyle={
   fontSize:14,
   cursor: 'pointer',
   boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)'
+}
+
+const divColStyle={
+  display:'inline',
+ 
 }
 
 export default LandingPage;

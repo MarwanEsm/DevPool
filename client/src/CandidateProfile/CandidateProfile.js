@@ -142,6 +142,7 @@ const buttonStyle = {
 const listStyle = {
   marginTop: "6%",
   marginBottom: "6%",
+  
 };
 
 const linkStyle = {

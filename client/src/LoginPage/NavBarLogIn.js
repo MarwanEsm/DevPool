@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 function LoginNavBar() {
   return (
     <div style={maindivStyle}>
-      <div>
-        <Logo />
+      <div style={logoStyle}>
+        <Logo  />
       </div>
       <div style={navdiv}>
         <Link to="/">Home</Link>
@@ -15,17 +15,31 @@ function LoginNavBar() {
   );
 }
 
+
 const maindivStyle = {
   display: "flex",
   justifyContent: "space-between",
-  marginTop: "1%",
-  marginLeft: "4%",
-  marginRight: "4%",
+  backgroundColor:'#F0FFF0',
+  paddingTop:'1%',
+  paddingBottom:'1%',
+  marginTop:'0%'
+};
+
+const div1Style = {
+  display: "flex",
+  justifyContent: "space-between",
+  marginRight: "8%",
 };
 
 const navdiv = {
-  display: "flex",
-  justifyContent: "space-around",
+  paddingRight:'4%'
 };
+
+
+const logoStyle={
+  paddingLeft: "3%",
+}
+
+
 
 export default LoginNavBar;

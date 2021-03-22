@@ -149,7 +149,7 @@ function RegistrationForm() {
                 as="select"
                 onChange={handleDropDown}
                 defaultValue="Choose..."
-                style={optionStye}
+                
                 style={inputtStyle}
               >
                 <option value="candidate" >Candidate</option>
@@ -200,10 +200,7 @@ const agreeTextStyle = {
   fontWeight:'bold'
 };
 
-const optionStye = { 
-  fontFamily: "Courier, monospace",
-  fontSize:14
-};
+
 
 
 const inputtStyle = {
