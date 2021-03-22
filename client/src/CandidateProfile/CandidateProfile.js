@@ -64,19 +64,24 @@ const CandidateProfile = () => {
                       </Card.Header>
 
                       <Card.Body>
-                        <Card.Text style={titleStyle}>
-                          Name {candidate.fullName}
-                        </Card.Text>
-                        <Card.Text style={titleStyle}>
-                          Title {candidate.title}
-                        </Card.Text>
-                        <Card.Text style={titleStyle}>
-                          Location {candidate.location}
-                        </Card.Text>
-                        <Card.Text style={titleStyle} className="word">
-                          Work Experience
-                        </Card.Text>
                         <div>
+                          {" "}
+                          <span style={title1Style}>Name :</span>{" "}
+                          <span style={titleStyle}>{candidate.fullName}</span>
+                        </div>
+
+                        <div>
+                          <span style={title1Style}>Title :</span>{" "}
+                          <span style={titleStyle}>{candidate.title}</span>
+                        </div>
+                        <div>
+                          <span style={title1Style}>Location :</span>{" "}
+                          <span style={titleStyle}>{candidate.location}</span>
+                        </div>
+                        <div>
+                          <span style={title1Style}>Work Experience :</span>{" "}
+                        </div>
+                        <div style={divSpanStyle}>
                           <span onClick={moreInfo} style={spanStyle}>
                             {linkName}
                             {text}
@@ -88,15 +93,24 @@ const CandidateProfile = () => {
                               {candidate.workExperiences &&
                                 candidate.workExperiences.length &&
                                 candidate.workExperiences.map((exp) => {
-                                  return <li>{exp}</li>;
+                                  return <li key={candidate.exp}>{exp}</li>;
                                 })}
                             </ul>
-                            <Card.Text style={titleStyle}>
-                              Desired Position {candidate.desiredPosition}
-                            </Card.Text>
-                            <Card.Text style={titleStyle}>
-                              Expected Salary {candidate.expectedSalary}
-                            </Card.Text>
+                            <div>
+                              <span style={title1Style}>
+                                Desired Position :
+                              </span>{" "}
+                              <span style={titleStyle}>
+                                {candidate.desiredPosition}
+                              </span>
+                            </div>
+                            <div>
+                              <span style={title1Style}>Expected Salary :</span>{" "}
+                              <span style={titleStyle}>
+                                {candidate.expectedSalary}
+                              </span>
+                            </div>
+
                             <Button
                               onClick={contactCandidate}
                               style={buttonStyle}
@@ -144,6 +158,7 @@ const buttonStyle = {
 const listStyle = {
   marginTop: "6%",
   marginBottom: "6%",
+  marginRight: "11%",
   listStyleType: "none",
   fontFamily: "Andale Mono, monospace",
   fontSize: 15,
@@ -160,6 +175,13 @@ const titleStyle = {
   marginTop: "2%",
 };
 
+const title1Style = {
+  fontFamily: "Andale Mono, monospace",
+  fontSize: 15,
+  marginTop: "2%",
+  fontWeight: "bold",
+};
+
 const spanStyle = {
   fontFamily: "Zapf Chancery, cursive",
   fontSize: 13,
@@ -167,4 +189,7 @@ const spanStyle = {
   textDecoration: "underline",
 };
 
+const divSpanStyle={
+  marginTop:'4%'
+}
 export default CandidateProfile;
