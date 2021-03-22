@@ -111,7 +111,7 @@ const CandidateProfile = () => {
                               </span>
                             </div>
 
-                            <Button
+                            <Button variant='primary'
                               onClick={contactCandidate}
                               style={buttonStyle}
                             >
@@ -151,10 +151,6 @@ const cardStyle = {
   width: "23%",
 };
 
-const buttonStyle = {
-  marginTop: "7%",
-};
-
 const listStyle = {
   marginTop: "6%",
   marginBottom: "6%",
@@ -192,4 +188,15 @@ const spanStyle = {
 const divSpanStyle={
   marginTop:'4%'
 }
+
+
+const buttonStyle = {
+  fontFamily: "Courier, monospace",
+  fontSize: 14,
+  cursor: "pointer",
+  boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
+  marginTop: "7%",
+};
+
+
 export default CandidateProfile;
