@@ -34,12 +34,12 @@ const maindivStyle = {
 
 const navdiv = {
   display: "flex",
-  justifyContent: "space-around",
-  marginRight: "3%",
+  justifyContent: "space-between",
+
 };
 
 const logoStyle = {
-  marginRight: "43%",
+  marginRight: "54%",
 };
 
 const linkStyle = {

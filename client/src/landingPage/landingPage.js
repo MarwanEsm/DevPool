@@ -5,6 +5,7 @@ import Footer from "../LandingPageComponents/Footer";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import Grid from "@react-css/grid";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
@@ -28,20 +29,19 @@ function LandingPage() {
       <div>
         <Headbar />
       </div>
-      <div style={mainDivStyle}>
+      <div>
+      <Row style={rowStyle}>
         {filteredCandidates &&
           filteredCandidates.length &&
           filteredCandidates.map((candidate) => {
             return (
-              <Col key={candidate._id}>
-                <Card style={cardStyle} key={candidate._id}>
+              <Col xs={12} md={7} lg={3} key={candidate._id}>
+                <Card key={candidate._id} style={cardStyle}>
                   <Card.Img
                     variant="top"
                     src="holder.js/100px180?text=Image cap"
                   />
-                  <Card.Header style={cardHeader}>
-                    {candidate.fullName}
-                  </Card.Header>
+                  <Card.Header style={cardHeader}>{candidate.fullName}</Card.Header>
 
                   <Card.Body>
                     <Card.Text style={titleStyle}>{candidate.title}</Card.Text>
@@ -59,21 +59,20 @@ function LandingPage() {
               </Col>
             );
           })}
+      </Row>
       </div>
-
       <div>
         <Footer />
       </div>
     </div>
   );
 }
-const mainDivStyle = {
-  display: "flex",
-  flexWrap: "wrap",
-  // flexGrrow:'2',
+const rowStyle = {
   marginTop: "6%",
-  marginLeft: "3%",
+  marginLeft: "1%",
 };
+
+
 
 const nameStyle = {
   fontFamily: "Andale Mono, monospace",
@@ -87,8 +86,8 @@ const titleStyle = {
 };
 
 const cardStyle = {
-  marginBottom: "3%",
-  width: "60%",
+  marginBottom: "8%",
+  width: "88%",
 };
 
 const cardHeader = {
@@ -104,8 +103,5 @@ const buttonStyle = {
   boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
 };
 
-const divColStyle = {
-  display: "inline",
-};
 
 export default LandingPage;

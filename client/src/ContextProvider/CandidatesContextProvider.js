@@ -8,12 +8,13 @@ export const CandidatesContextProvider = ({ children }) => {
   const [searchTitle, setSearchTitle] = useState("");
   const [selectLocation, setSelectLocation] = useState("all");
   const filteredCandidates = candidates.filter((candidate) => {
+    console.log(selectLocation);
     return (
       /*candidate.title.toLowerCase().includes(searchTitle.toLowerCase())*/ (candidate.title
         .toLowerCase()
         .includes(searchTitle.toLowerCase()) &&
         candidate.location === selectLocation) ||
-        selectLocation === "all"
+        selectLocation === "all" && candidate.title.toLowerCase().includes(searchTitle.toLowerCase())
 
       // || selectLocation ==='all' || candidate.title.toLowerCase().includes(searchTitle.toLowerCase())
     );

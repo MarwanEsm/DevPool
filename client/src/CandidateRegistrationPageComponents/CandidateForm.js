@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import  { useHistory } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
@@ -8,9 +9,12 @@ import { UsersContext } from "../ContextProvider/UsersContextProvider";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function CandidateForm() {
+  const history = useHistory()
   // const { candidate } = useContext(CandidatesContext);
   // const { users } = useContext(UsersContext);
   // const { user } = useContext(AuthContext);
+  const [workEx, setWorkEx] = useState([]);
+
   const [state, setState] = useState({
     fullName: "",
     title: "",
@@ -31,6 +35,7 @@ function CandidateForm() {
     state.expectedSalary === "" ||
     state.checked === false;
 
+    
   const handleChange = (e) => {
     e.preventDefault();
 
@@ -48,26 +53,30 @@ function CandidateForm() {
       body: JSON.stringify(state),
     })
       .then((res) => res.json())
-      .then((res) => console.log(res));
+      .then((res) => console.log(res))
+      .then(history.push('/LoginPage'))
   };
 
   function handleAdd() {
     const values = [...state.workExperience];
     values.push("");
-    setState({ ...state, workExperience: values });
+    setWorkEx([...workEx,'']);
   }
 
   function handleRemove(i) {
     const values = [...state.workExperience];
     values.splice(i, 1);
-    setState({ ...state, workExperience: values });
+    setWorkEx(workEx.slice(i, 1));
   }
 
   function handleChangeMore(i, e) {
-    e.preventDefault();
-    const values = [...state.workExperience];
+    const values = [...workEx];
     values[i] = e.target.value;
-    setState({ ...state, workExperience: values });
+    setWorkEx(values)
+    // e.preventDefault();
+    // const values = [...state.workExperience];
+    // values[i] = e.target.value;
+    // setState({ ...state, workExperience: values });
   }
 
   const makeItChecked = (e) => {
@@ -153,9 +162,10 @@ function CandidateForm() {
             <Form.Group as={Col} controlId="formGridPassword">
               <Form.Label style={textStyle}>Work Experience</Form.Label>
               <br />
-              {state.workExperience.map((field, idx) => {
+              {workEx.map((field, idx) => {
+
                 return (
-                  <div key={`${field}-${idx}`} style={addMoreDiv}>
+                  <div key={`${field}`} style={addMoreDiv}>
                     <Button
                       type="button"
                       onClick={() => handleRemove(idx)}

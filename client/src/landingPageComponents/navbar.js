@@ -95,7 +95,9 @@ const div1Style = {
 };
 
 const rowdivStyle = {
-  marginRight: "16%",
+  display:'flex',
+  alignItems:'center',
+  marginRight:'27%'
 };
 
 const navdiv = {

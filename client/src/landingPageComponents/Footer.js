@@ -53,14 +53,14 @@ function Footer() {
                   </div>
                 </li>
                 <li>
-                  <div class="thumb-content">
+                  <div className="thumb-content">
                     <Link to="#." style={titleStyle}>
                       Lifestyle
                     </Link>
                   </div>
                 </li>
                 <li>
-                  <div class="thumb-content">
+                  <div className="thumb-content">
                     <Link to="#." style={titleStyle}>
                       About
                     </Link>
@@ -72,12 +72,12 @@ function Footer() {
         </div>
 
         <div>
-          <div class="widget no-box">
-            <h5 class="widget-title" style={headerStyle}>
+          <div className="widget no-box">
+            <h5 className="widget-title" style={headerStyle}>
               Get Started<span></span>
             </h5>
             <p style={titleStyle}>Get access</p>
-            <a class="btn" href="#." target="_blank" style={titleStyle}>
+            <a className="btn" href="#." target="_blank" style={titleStyle}>
               Register Now
             </a>
           </div>
