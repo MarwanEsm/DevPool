@@ -9,7 +9,7 @@ function LoginNavBar() {
         <Logo  />
       </div>
       <div style={navdiv}>
-        <Link to="/">Home</Link>
+        <Link to="/" style={linkStyle}>Home</Link>
       </div>
     </div>
   );
@@ -40,6 +40,8 @@ const logoStyle={
   paddingLeft: "3%",
 }
 
-
+const linkStyle={
+  fontFamily:'Zapf Chancery, cursive',
+}
 
 export default LoginNavBar;

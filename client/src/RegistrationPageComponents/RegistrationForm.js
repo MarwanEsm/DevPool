@@ -149,11 +149,10 @@ function RegistrationForm() {
                 as="select"
                 onChange={handleDropDown}
                 defaultValue="Choose..."
-                
                 style={inputtStyle}
               >
-                <option value="candidate" >Candidate</option>
-                <option value="employer" >Employer</option>
+                <option value="candidate">Candidate</option>
+                <option value="employer">Employer</option>
               </Form.Control>
             </Form.Group>
           </Form.Row>
@@ -165,12 +164,11 @@ function RegistrationForm() {
               onClick={makeItChecked}
               label="Agree to Terms and Conditions"
               style={agreeTextStyle}
-            
             />
           </Form.Group>
           <br />
           <Button
-           variant="primary"
+            variant="primary"
             onClick={submitDetails}
             disabled={isInvalid}
             style={buttonStyle}
@@ -187,7 +185,7 @@ const divStyle = {
   marginTop: "4%",
   marginLeft: "27%",
   // marginRight: "18%",
-  width:'40%'
+  width: "40%",
 };
 
 const textStyle = {
@@ -196,26 +194,24 @@ const textStyle = {
 
 const agreeTextStyle = {
   fontFamily: "Courier, monospace",
-  fontSize:14,
-  fontWeight:'bold'
+  fontSize: 14,
+  fontWeight: "bold",
 };
-
-
-
 
 const inputtStyle = {
   borderRadius: 14,
   border: "bold",
   borderColor: "black",
-  fontFamily:'Courier, monospace',
-  fontSize:15
+  fontFamily: "Courier, monospace",
+  fontSize: 15,
+};
+
+const buttonStyle = {
+  fontFamily: "Courier, monospace",
+  fontSize: 14,
+  cursor: "pointer",
+  boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
 };
 
 
-const buttonStyle={
-  fontFamily :'Courier, monospace',
-  fontSize:14,
-  cursor: 'pointer',
-  boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)'
-}
 export default RegistrationForm;

@@ -33,13 +33,14 @@ function CandidatePageNavBar() {
         <Form.Row>
           <Form.Group as={Col} controlId="formGridCity">
             <div style={div1Style}>
-              <div style={labelStyle}>
-                <Form.Label>Where</Form.Label>
+              <div>
+                <Form.Label style={labelStyle}>Where</Form.Label>
               </div>
               <Form.Control
                 as="select"
                 defaultValue="all"
                 onChange={changeLocation}
+                style={selectStyle}
               >
                 <option value="all">All</option>
                 {candidates.length &&
@@ -62,33 +63,32 @@ function CandidatePageNavBar() {
               className="mr-sm-2"
               value={searchTitle}
               onChange={handleChange}
+              style={selectStyle}
             />
           </Form.Group>
         </Form.Row>
       </div>
       <div style={navdiv}>
-        
-        
-        <Link to="#">My Profile</Link>
+        <Link to="#" style={linkStyle}>
+          My Profile
+        </Link>
         &nbsp; &nbsp;
         <h5>|</h5>
         &nbsp; &nbsp;
-        <Link to="/">Log out</Link>
-        
+        <Link to="/" style={linkStyle}>
+          Log out
+        </Link>
       </div>
     </div>
   );
 }
 
-const labelStyle = {
-  marginRight: "6%",
-  marginTop: "4%",
-};
-
 const maindivStyle = {
   display: "flex",
   justifyContent: "space-around",
-  marginTop: "1%",
+  backgroundColor: "#F0FFF0",
+  paddingTop: "1%",
+  marginTop: "0%",
 };
 
 const div1Style = {
@@ -105,5 +105,25 @@ const navdiv = {
   display: "flex",
   justifyContent: "space-around",
 };
+
+const selectStyle = {
+  borderRadius: 14,
+  border: "bold",
+  borderColor: "black",
+  fontFamily: "Courier, monospace",
+  fontSize: 15,
+};
+
+const linkStyle = {
+  fontFamily: "Zapf Chancery, cursive",
+};
+
+const labelStyle={
+  fontFamily:'Zapf Chancery, cursive',
+  fontSize:15,
+  paddingTop:7,
+  paddingRight:8
+}
+
 
 export default CandidatePageNavBar;

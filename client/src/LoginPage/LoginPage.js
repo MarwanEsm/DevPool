@@ -5,9 +5,10 @@ import Button from "react-bootstrap/Button";
 import LoginNavBar from "./NavBarLogIn";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
+import Footer from "../LandingPageComponents/Footer";
 
 const LoginPage = () => {
-  const {setUser } = useContext(AuthContext);
+  const { setUser } = useContext(AuthContext);
 
   const [state, setState] = useState({
     email: "",
@@ -52,39 +53,6 @@ const LoginPage = () => {
       });
   }
 
-  // const login = async e => {
-  //   e.preventDefault();
-  //   const token = await loginUser({
-  //     username,
-  //     password
-  //   });
-  //   setToken(token);
-  // }
-
-  //  const login = (e) => {
-  //     e.preventDefault();
-  //       fetch("http://localhost:5000/auth/login", {
-  //         method: "post",
-  //         headers: {
-  //           Accept: "application/json, text/plain, */*",
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify(state),
-  //       })
-  //         .then((res) => res.json())
-  //         .then((user) =>{
-  //           console.log(user)
-  //         if(user.owner === 'candidate'){
-  //           history.push("/CandidatesUserPage");
-  //         }else{
-  //           history.push('/EmployersUserPage')
-  //         }})
-  //         .catch(err =>{
-  //           console.log(err);
-  //         })
-
-  //   };
-
   return (
     <div>
       <div>
@@ -118,7 +86,12 @@ const LoginPage = () => {
             </Form.Group>
           </Form.Row>
           <br />
-          <Button variant="primary" disabled={isInvalid} onClick={loginUser} style={buttonStyle}>
+          <Button
+            variant="primary"
+            disabled={isInvalid}
+            onClick={loginUser}
+            style={buttonStyle}
+          >
             Login
           </Button>
           <br />
@@ -129,6 +102,9 @@ const LoginPage = () => {
             </Link>
           </Form.Group>
         </Form>
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );
@@ -152,17 +128,18 @@ const inputtStyle = {
   fontSize: 15,
 };
 
-const linkStyle={
-  fontFamily:'Coronetscript, cursive',
-  fontSize:14,
-  color:'gray'
-}
+const linkStyle = {
+  fontFamily: "Coronetscript, cursive",
+  fontSize: 14,
+  color: "gray",
+};
 
-const buttonStyle={
-  fontFamily :'Courier, monospace',
-  fontSize:14,
-  cursor: 'pointer',
-  boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)'
-}
+const buttonStyle = {
+  fontFamily: "Courier, monospace",
+  fontSize: 14,
+  cursor: "pointer",
+  boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
+};
+
 
 export default LoginPage;
