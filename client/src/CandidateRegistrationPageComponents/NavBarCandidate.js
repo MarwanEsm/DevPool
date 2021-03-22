@@ -32,7 +32,6 @@ const navdiv = {
 const maindivStyle = {
   display: "flex",
   justifyContent: "space-between",
-  marginTop: "1%",
   backgroundColor:'#F0FFF0',
   paddingTop:'1%',
   marginTop:'0%',

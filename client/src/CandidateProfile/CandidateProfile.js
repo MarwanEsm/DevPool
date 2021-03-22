@@ -12,16 +12,16 @@ import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider"
 import { EmployerContext } from "../ContextProvider/EmployerContextProvider";
 
 const CandidateProfile = () => {
-  const { user, setUser } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const { filteredCandidates } = useContext(CandidatesContext);
   const { employers } = useContext(EmployerContext);
   const history = useHistory();
 
   const contactCandidate = () => {
-    if (!employers) {
+    if (employers) {
       history.push("/ChatScreen");
     } else {
-      alert("Please Register");
+      history.push("/EmployersUserPage");
     }
     /* if registered redirect to chat message or email screen
       if not alert please register with a link to employer registration page */
@@ -33,7 +33,7 @@ const CandidateProfile = () => {
   };
   const linkName = text ? "Read Less << " : "Read More >> ";
 
-  if (user && user.owner == "employer") {
+  if (user && user.owner === "employer") {
     return (
       <div>
         <CandidatePageNavBar />
@@ -61,9 +61,9 @@ const CandidateProfile = () => {
                       </Card.Header>
 
                       <Card.Body>
-                        <Card.Title style={titleStyle}>
+                        <Card.Text style={titleStyle}>
                           Name {candidate.fullName}
-                        </Card.Title>
+                        </Card.Text>
                         <Card.Text style={titleStyle}>
                           Title {candidate.title}
                         </Card.Text>
@@ -125,12 +125,6 @@ const mainDivStyle = {
   marginTop: "4%",
   marginLeft: "3%",
   width: "100%",
-};
-
-const style = {
-  fontFamily: "Consolas",
-  fontSize: 17,
-  marginTop: "2%",
 };
 
 const cardStyle = {

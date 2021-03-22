@@ -25,12 +25,6 @@ const maindivStyle = {
   marginTop:'0%'
 };
 
-const div1Style = {
-  display: "flex",
-  justifyContent: "space-between",
-  marginRight: "8%",
-};
-
 const navdiv = {
   paddingRight:'4%'
 };

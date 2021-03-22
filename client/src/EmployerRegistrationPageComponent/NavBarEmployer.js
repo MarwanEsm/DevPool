@@ -5,19 +5,16 @@ import { Link } from "react-router-dom";
 function EmployerNavBar() {
   return (
     <div style={maindivStyle}>
-      <div>
+      <div style={logoStyle}>
         <Logo />
       </div>
       <div style={navdiv}>
-        {/* display the list of Candidates and allow contacting them directly */}
-        <Link to="#" /*replace the path*/>Candidates</Link>
-        &nbsp; &nbsp;
         {/* replace it with profile icon */}
-        <Link to="#" /*replace the path*/>Profile </Link>
+        <Link to="#" /*replace the path*/ style={linkStyle}>Profile </Link>
         &nbsp; &nbsp;
         <h5>|</h5>
         &nbsp; &nbsp;
-        <Link to="/">Logout</Link>
+        <Link to="/" style={linkStyle}>Logout</Link>
       </div>
     </div>
   );
@@ -26,14 +23,24 @@ function EmployerNavBar() {
 const maindivStyle = {
   display: "flex",
   justifyContent: "space-between",
-  marginTop: "1%",
-  marginLeft: "2%",
-  marginRight: "2%",
+  backgroundColor: "#F0FFF0",
+  paddingTop: "1%",
+  paddingBottom: "1%",
+  marginTop: "0%",
 };
 
 const navdiv = {
   display: "flex",
   justifyContent: "space-around",
+  paddingRight: "4%",
+};
+
+const logoStyle = {
+  paddingLeft: "3%",
+};
+
+const linkStyle = {
+  fontFamily: "Zapf Chancery, cursive",
 };
 
 export default EmployerNavBar;

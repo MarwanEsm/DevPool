@@ -36,6 +36,7 @@ function CandidatePageNavBar() {
               <div>
                 <Form.Label style={labelStyle}>Where</Form.Label>
               </div>
+              &nbsp;
               <Form.Control
                 as="select"
                 defaultValue="all"

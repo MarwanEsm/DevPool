@@ -1,6 +1,6 @@
 import React,{useState, useEffect, createContext} from 'react';
 
-const initContext = {employer:[]};
+const initContext = {employers:[]};
 export const EmployerContext = createContext(initContext);
 export const EmployerContextProvider = ({children})=>{
     const [employers, setEmployers] = useState();
@@ -12,7 +12,7 @@ export const EmployerContextProvider = ({children})=>{
         })
     })
     return(
-        <EmployerContext.Provider value = {employers, setEmployers}>{children}</EmployerContext.Provider>
+        <EmployerContext.Provider value = {{employers, setEmployers}}>{children}</EmployerContext.Provider>
     )
 }
 

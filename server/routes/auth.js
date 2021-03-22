@@ -5,12 +5,8 @@ const router = express.Router();
 
 router.post("/register", (req, res) => {
   console.log(req.body);
-  // const reqfirstName = req.body.firstName;
-  // const reqlastName = req.body.lastName;
   const reqemail = req.body.email;
   const reqpassword = req.body.password;
-  // const reqcity = req.body.city;
-  // const reqcountry = req.body.country;
   const reqowner = req.body.owner;
 
   UserSchema.findOne({ email: reqemail }, (err, user) => {
@@ -26,12 +22,8 @@ router.post("/register", (req, res) => {
             res.send(err);
           } else {
             const newUser = new UserSchema({
-              // firstName: reqfirstName,
-              // lastName: reqlastName,
               email: reqemail,
               password: hash,
-              // city: reqcity,
-              // country: reqcountry,
               owner: reqowner,
             });
             newUser

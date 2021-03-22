@@ -11,6 +11,7 @@ function EmployerForm() {
     fieldOfBusiness: "",
     concernedPersonEmail: "",
     phoneNo: "",
+    checked: false,
   });
 
   const isInvalid =
@@ -19,7 +20,8 @@ function EmployerForm() {
     state.location === "" ||
     state.fieldOfBusiness === "" ||
     state.concernedPersonEmail === "" ||
-    state.phoneNo === "";
+    state.phoneNo === "" ||
+    state.checked === false;
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -40,89 +42,100 @@ function EmployerForm() {
       .then((res) => console.log(res));
   };
 
+  const makeItChecked = (e) => {
+    e.preventDefault();
+    setState({ ...state, checked: !state.checked });
+  };
+
   return (
     <div>
       <div style={divStyle}>
         <Form>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label>Employer Name</Form.Label>
+              <Form.Label style={textStyle}>Employer Name</Form.Label>
               <Form.Control
                 type="text"
                 name="employerName"
-                placeholder=" Employer Name"
                 onChange={handleChange}
                 value={state.employerName}
+                style={inputtStyle}
               />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label>Website</Form.Label>
+              <Form.Label style={textStyle}>Website</Form.Label>
               <Form.Control
                 type="text"
                 name="website"
-                placeholder=" Website"
                 onChange={handleChange}
                 value={state.website}
+                style={inputtStyle}
               />
             </Form.Group>
           </Form.Row>
 
           <Form.Row>
             <Form.Group as={Col} controlId="formGridEmail">
-              <Form.Label>Location</Form.Label>
+              <Form.Label style={textStyle}>Location</Form.Label>
               <Form.Control
                 type="text"
                 name="location"
-                placeholder=" Location"
                 onChange={handleChange}
                 value={state.location}
+                style={inputtStyle}
               />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label>Field Of Business</Form.Label>
+              <Form.Label style={textStyle}>Field Of Business</Form.Label>
               <Form.Control
                 type="text"
                 name="fieldOfBusiness"
-                placeholder="Field Of Business"
                 onChange={handleChange}
                 value={state.fieldOfBusiness}
+                style={inputtStyle}
               />
             </Form.Group>
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridCity">
-              <Form.Label>Concerned Person Email</Form.Label>
+              <Form.Label style={textStyle}>Concerned Person Email</Form.Label>
               <Form.Control
                 type="text"
                 name="concernedPersonEmail"
-                placeholder="Concerned Person Email"
                 onChange={handleChange}
                 value={state.concernedPersonEmail}
+                style={inputtStyle}
                 /*email should be retrieved automatically from registered employer*/
               />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label>Phone No</Form.Label>
+              <Form.Label style={textStyle}>Phone No</Form.Label>
               <Form.Control
                 type="number"
                 name="phoneNo"
-                placeholder="Phone No"
                 onChange={handleChange}
                 value={state.phoneNo}
+                style={inputtStyle}
               ></Form.Control>
             </Form.Group>
           </Form.Row>
 
           <Form.Group id="formGridCheckbox">
-            <Form.Check type="checkbox" label="Agree to Terms and Conditions" />
+            <input
+              type="radio"
+              defaultChecked={state.checked}
+              onClick={makeItChecked}
+            />{" "}
+            &nbsp;<label>Agree to Terms and Conditions</label>
           </Form.Group>
 
           <Button
             variant="primary"
             onClick={submitDetails}
             disabled={isInvalid}
+            style={buttonStyle}
           >
             Submit
           </Button>
@@ -134,8 +147,26 @@ function EmployerForm() {
 
 const divStyle = {
   marginTop: "4%",
-  marginLeft: "18%",
-  marginRight: "18%",
+  marginLeft: "30%",
+  width: "40%",
+};
+const inputtStyle = {
+  borderRadius: 14,
+  border: "bold",
+  borderColor: "black",
+  fontFamily: "Courier, monospace",
+  fontSize: 15,
+};
+
+const buttonStyle = {
+  fontFamily: "Courier, monospace",
+  fontSize: 14,
+  cursor: "pointer",
+  boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
+};
+
+const textStyle = {
+  fontFamily: "Zapf Chancery, cursive",
 };
 
 export default EmployerForm;

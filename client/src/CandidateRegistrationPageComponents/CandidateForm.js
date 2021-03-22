@@ -8,9 +8,9 @@ import { UsersContext } from "../ContextProvider/UsersContextProvider";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function CandidateForm() {
-  const { candidate } = useContext(CandidatesContext);
-  const { users } = useContext(UsersContext);
-  const { user } = useContext(AuthContext);
+  // const { candidate } = useContext(CandidatesContext);
+  // const { users } = useContext(UsersContext);
+  // const { user } = useContext(AuthContext);
   const [state, setState] = useState({
     fullName: "",
     title: "",
