@@ -7,25 +7,17 @@ import { useHistory } from "react-router-dom";
 function RegistrationForm() {
   const history = useHistory();
   const [state, setState] = useState({
-    // firstName: "",
-    // lastName: "",
     email: "",
     password: "",
     confirmationPassword: "",
-    // city: "",
-    // country: "",
     owner: "candidate",
     checked: false,
   });
 
   const isInvalid =
-    // state.firstName === "" ||
-    // state.lastName === "" ||
     state.email === "" ||
     state.password === "" ||
     state.confirmationPassword !== state.password ||
-    // state.city === "" ||
-    // state.country === "" ||
     state.owner === "" ||
     state.checked === false;
 
@@ -63,28 +55,6 @@ function RegistrationForm() {
     <div>
       <div style={divStyle}>
         <Form>
-          {/* <Form.Row>
-            <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label style={textStyle}>First Name</Form.Label>
-              <Form.Control
-                type="text"
-                name="firstName"
-                onChange={handleChange}
-                value={state.firstName}
-              />
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label style={textStyle}>Last Name</Form.Label>
-              <Form.Control
-                type="text"
-                name="lastName"
-                onChange={handleChange}
-                value={state.lastName}
-              />
-            </Form.Group>
-          </Form.Row> */}
-          {/* <br /> */}
           <Form.Row>
             <Form.Group as={Col} controlId="formGridEmail">
               <Form.Label style={textStyle}>Email</Form.Label>
@@ -121,26 +91,6 @@ function RegistrationForm() {
             </Form.Group>
 
             <br />
-            {/* <Form.Row> */}
-            {/* <Form.Group as={Col} controlId="formGridCity">
-              <Form.Label>City</Form.Label>
-              <Form.Control
-                type="text"
-                name="city"
-                onChange={handleChange}
-                value={state.city}
-              />
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridCity">
-              <Form.Label>Country</Form.Label>
-              <Form.Control
-                type="text"
-                name="country"
-                onChange={handleChange}
-                value={state.country}
-              />
-            </Form.Group> */}
 
             <Form.Group as={Col} controlId="formGridCity">
               <Form.Label style={textStyle}>Register as</Form.Label>
@@ -184,7 +134,6 @@ function RegistrationForm() {
 const divStyle = {
   marginTop: "4%",
   marginLeft: "27%",
-  // marginRight: "18%",
   width: "40%",
 };
 
@@ -212,6 +161,5 @@ const buttonStyle = {
   cursor: "pointer",
   boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
 };
-
 
 export default RegistrationForm;

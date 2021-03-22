@@ -74,34 +74,34 @@ const CandidateProfile = () => {
                           Work Experience
                         </Card.Text>
                         <div>
-                        <span onClick={moreInfo}>
-                          {linkName}
-                          {text}
-                        </span>
-                      </div>
-                      {text && (
-                        <>
-                          <ul style={listStyle}>
-                            {candidate.workExperiences &&
-                              candidate.workExperiences.length &&
-                              candidate.workExperiences.map((exp) => {
-                                return <li>{exp}</li>;
-                              })}
-                          </ul>
-                          <Card.Text style={titleStyle} >
-                            Desired Position {candidate.desiredPosition}
-                          </Card.Text>
-                          <Card.Text style={titleStyle} >
-                            Expected Salary {candidate.expectedSalary}
-                          </Card.Text>
-                          <Button
-                          onClick={contactCandidate}
-                          style={buttonStyle}
-                        >
-                          Contact Candidate
-                        </Button>
-                        </>
-                      )} 
+                          <span onClick={moreInfo} style={spanStyle}>
+                            {linkName}
+                            {text}
+                          </span>
+                        </div>
+                        {text && (
+                          <>
+                            <ul style={listStyle}>
+                              {candidate.workExperiences &&
+                                candidate.workExperiences.length &&
+                                candidate.workExperiences.map((exp) => {
+                                  return <li>{exp}</li>;
+                                })}
+                            </ul>
+                            <Card.Text style={titleStyle}>
+                              Desired Position {candidate.desiredPosition}
+                            </Card.Text>
+                            <Card.Text style={titleStyle}>
+                              Expected Salary {candidate.expectedSalary}
+                            </Card.Text>
+                            <Button
+                              onClick={contactCandidate}
+                              style={buttonStyle}
+                            >
+                              Contact Candidate
+                            </Button>
+                          </>
+                        )}
                       </Card.Body>
                     </Card>
                   </Col>
@@ -121,14 +121,7 @@ const CandidateProfile = () => {
 };
 
 const mainDivStyle = {
-  // flexDiretion :'row',
-  // alignItesm: "start",
-  // flexWrap: "wrap",
-  // flexFlow: "row-wrap",
-  // flexGrow: 2,
   display: "grid",
-  // gridTemplate: 'row',
-  // repeat:'1fr 1fr 1fr 1fr',
   marginTop: "4%",
   marginLeft: "3%",
   width: "100%",
@@ -168,6 +161,13 @@ const titleStyle = {
   fontFamily: "Andale Mono, monospace",
   fontSize: 15,
   marginTop: "2%",
+};
+
+const spanStyle = {
+  fontFamily: "Zapf Chancery, cursive",
+  fontSize: 13,
+  color: "blue",
+  textDecoration: "underline",
 };
 
 export default CandidateProfile;

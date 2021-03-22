@@ -37,14 +37,14 @@ function EmployerForm() {
       body: JSON.stringify(state),
     })
       .then((res) => res.json())
-      .then((res) => console.log(res))
+      .then((res) => console.log(res));
   };
 
   return (
     <div>
       <div style={divStyle}>
         <Form>
-          <Form.Row >
+          <Form.Row>
             <Form.Group as={Col} controlId="formGridPassword">
               <Form.Label>Employer Name</Form.Label>
               <Form.Control
@@ -137,7 +137,5 @@ const divStyle = {
   marginLeft: "18%",
   marginRight: "18%",
 };
-
-
 
 export default EmployerForm;

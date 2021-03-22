@@ -14,11 +14,7 @@ function LandingPage() {
   const { user } = useContext(AuthContext);
   const history = useHistory();
 
-  // const [text, setText] = useState(false);
-  // const moreInfo = () => {
-  //   setText(!text);
-  // };
-  // const linkName = text ? "Read Less << " : "Read More >> ";
+  
 
   const handleContactCandidate = (e) => {
     e.preventDefault();
@@ -48,43 +44,14 @@ function LandingPage() {
                       <Card.Header style={cardHeader}>
                         {candidate.fullName}
                       </Card.Header>
-                      {/* <Card style={cardStyle}> */}
+
                       <Card.Body>
-                        {/* <Card.Title style={nameStyle}>
-                        Name {candidate.fullName}
-                      </Card.Title> */}
                         <Card.Text style={titleStyle}>
                           {candidate.title}
                         </Card.Text>
                         <Card.Text style={nameStyle}>
                           {candidate.location}
                         </Card.Text>
-                        {/* <Card.Text style={style} className="word">
-                        Work Experience
-                      </Card.Text>
-                      <div>
-                        <span onClick={moreInfo} style={spanStyle}>
-                          {linkName}
-                          {text}
-                        </span>
-                      </div>
-                      {text && (
-                        <>
-                          <ul style={listStyle}>
-                            {candidate.workExperiences &&
-                              candidate.workExperiences.length &&
-                              candidate.workExperiences.map((exp) => {
-                                return <li>{exp}</li>;
-                              })}
-                          </ul>
-                          <Card.Text style={style}>
-                            Desired Position {candidate.desiredPosition}
-                          </Card.Text>
-                          <Card.Text style={style}>
-                            Expected Salary {candidate.expectedSalary}
-                          </Card.Text>
-                        </>
-                      )} */}
                         <Button
                           onClick={handleContactCandidate}
                           style={buttonStyle}

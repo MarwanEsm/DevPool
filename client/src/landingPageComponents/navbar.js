@@ -66,23 +66,26 @@ function Headbar() {
         </Form.Row>
       </div>
       <div style={navdiv}>
-        <Link to="/RegistrationPage" style={linkStyle}>Register</Link>
+        <Link to="/RegistrationPage" style={linkStyle}>
+          Register
+        </Link>
         &nbsp; &nbsp;
         <h5>|</h5>
         &nbsp; &nbsp;
-        <Link to="/LoginPage" style={linkStyle}>Login</Link>
+        <Link to="/LoginPage" style={linkStyle}>
+          Login
+        </Link>
       </div>
     </div>
   );
 }
 
-
 const maindivStyle = {
   display: "flex",
   justifyContent: "space-around",
-  backgroundColor:'#F0FFF0',
-  paddingTop:'1%',
-  marginTop:'0%'
+  backgroundColor: "#F0FFF0",
+  paddingTop: "1%",
+  marginTop: "0%",
 };
 
 const div1Style = {
@@ -104,12 +107,12 @@ const selectStyle = {
   borderRadius: 14,
   border: "bold",
   borderColor: "black",
-  fontFamily:'Courier, monospace',
-  fontSize:15
+  fontFamily: "Courier, monospace",
+  fontSize: 15,
 };
 
-const linkStyle={
-  fontFamily:'Zapf Chancery, cursive',
-}
+const linkStyle = {
+  fontFamily: "Zapf Chancery, cursive",
+};
 
 export default Headbar;

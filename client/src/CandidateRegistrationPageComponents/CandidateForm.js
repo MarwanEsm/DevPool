@@ -215,7 +215,6 @@ function CandidateForm() {
 const divStyle = {
   marginTop: "4%",
   marginLeft: "30%",
-  // marginRight: "18%",
   width: "35%",
 };
 
@@ -224,17 +223,12 @@ const addMoreDiv = {
   justifyContent: "space-between",
 };
 
-// const buttonStyle = {
-//   marginTop: "2%",
-// };
-
 const inputtStyle = {
   borderRadius: 14,
   border: "bold",
   borderColor: "black",
   fontFamily: "Courier, monospace",
   fontSize: 15,
-  // marginBottom: "3%",
 };
 
 const buttonStyle = {
@@ -253,12 +247,10 @@ const removeButtonStyle = {
   height: "3%",
 };
 
-const rowStyle={
-  marginBottom:'3%'
-}
-
-const logoStyle = {
-  marginRight: "43%",
+const rowStyle = {
+  marginBottom: "3%",
 };
+
+
 
 export default CandidateForm;
