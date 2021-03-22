@@ -18,19 +18,22 @@ const CandidateProfile = () => {
   const history = useHistory();
 
   const contactCandidate = () => {
-    if (employers) {
-      history.push("/ChatScreen");
-    } else {
+    if (!employers) {
       history.push("/EmployersUserPage");
+    } else {
+      history.push("/ChatScreen");
     }
+
     /* if registered redirect to chat message or email screen
-      if not alert please register with a link to employer registration page */
+      if not alert please register with a link to employer registration page 
+      it always redirect to Chat Screen*/
   };
 
   const [text, setText] = useState(false);
   const moreInfo = () => {
     setText(!text);
   };
+
   const linkName = text ? "Read Less << " : "Read More >> ";
 
   if (user && user.owner === "employer") {

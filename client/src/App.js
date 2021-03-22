@@ -9,6 +9,7 @@ import LoginPage from "./LoginPage/LoginPage";
 import CandidatesUserPage from './CandidatesPage/CandidatesUserPage';
 import EmployersUserPage from './EmployerPage/EmployersUserPage';
 import CandidateProfile from './CandidateProfile/CandidateProfile';
+import ChatScreen from './ChatScreen/ChatScreen';
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -37,6 +38,9 @@ function App() {
             </Route>
             <Route path ='/CandidateProfile'>
               <CandidateProfile/>
+            </Route>
+            <Route path='/ChatScreen'>
+              <ChatScreen/>
             </Route>
           </Switch>
           </UsersContextProvider>
