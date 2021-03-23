@@ -6,7 +6,6 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Grid from "@react-css/grid";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 

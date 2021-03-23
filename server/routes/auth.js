@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const UserSchema = require("../model/usersModel");
 const router = express.Router();
 
-router.post("/register", (req, res) => {
+router.post("/register",  (req, res) => {
   console.log(req.body);
   const reqemail = req.body.email;
   const reqpassword = req.body.password;

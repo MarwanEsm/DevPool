@@ -1,6 +1,10 @@
 const express = require("express");
 const CandidateSchema = require("../model/candidatesModel");
 const router = express.Router();
+const multer = require("multer");
+
+
+const upload = multer({ dest: "uploads/" });
 
 router.get("/all", (req, res) => {
   CandidateSchema.find({}, (err, candidates) => {
@@ -12,9 +16,8 @@ router.get("/all", (req, res) => {
   });
 });
 
-router.post("/new", (req, res) => {
+router.post("/new",upload.single("file"), (req, res) => {
   const newEmail = req.body.email;
-
   CandidateSchema.findOne({ email: newEmail }, (err, candidate) => {
     if (err) {
       res.send(err);

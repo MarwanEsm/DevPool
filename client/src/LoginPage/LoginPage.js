@@ -55,8 +55,9 @@ const LoginPage = () => {
 
   return (
     <div>
-      <LoginNavBar />
-
+      <div>
+        <LoginNavBar />
+      </div>
       <div style={divStyle}>
         <Form>
           <Form.Row>
@@ -65,7 +66,6 @@ const LoginPage = () => {
               <Form.Control
                 type="email"
                 name="email"
-                placeholder=" Email"
                 onChange={handleChange}
                 value={state.email}
                 style={inputtStyle}
@@ -77,7 +77,6 @@ const LoginPage = () => {
               <Form.Control
                 type="password"
                 name="password"
-                placeholder="Password"
                 onChange={handleChange}
                 value={state.password}
                 style={inputtStyle}

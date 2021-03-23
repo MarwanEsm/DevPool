@@ -7,6 +7,8 @@ import ImageUplaod from "./ImageUnplaoder";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 import { UsersContext } from "../ContextProvider/UsersContextProvider";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
+import ImageUploader from "react-images-upload";
+
 
 function CandidateForm() {
   const history = useHistory()
@@ -35,6 +37,13 @@ function CandidateForm() {
     state.expectedSalary === "" ||
     state.checked === false;
 
+    const [image, setImage] = useState();
+    const uploadImage = (img) => {
+    
+    
+       console.log(img);
+      setImage(img[0]);
+    };
     
   const handleChange = (e) => {
     e.preventDefault();
@@ -44,13 +53,22 @@ function CandidateForm() {
   /*my question is here*/
   const submitDetails = (e) => {
     e.preventDefault();
+    var data = new FormData();
+   
+    data.append("data", image);
+
+    Object.keys(state).forEach(key =>{
+      data.append(key, state[key]);
+    })
+
+
     fetch("http://localhost:5000/candidate/new", {
       method: "post",
       headers: {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(state),
+      body: data,
     })
       .then((res) => res.json())
       .then((res) => console.log(res))
@@ -196,7 +214,17 @@ function CandidateForm() {
           </Form.Row>
 
           <Form.Row>
-            <ImageUplaod />
+          <ImageUploader
+        style={imageUploaderStyle}
+        buttonText="Choose images"
+        onChange={uploadImage}
+        imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+        maxFileSize={5242880}
+        type="image"
+        value={image}
+        name="myImage"
+        accept=".jpg"
+      />
           </Form.Row>
 
           <Form.Group id="formGridCheckbox">
@@ -261,6 +289,10 @@ const rowStyle = {
   marginBottom: "3%",
 };
 
+
+const imageUploaderStyle = {
+  marginLeft: "80%",
+};
 
 
 export default CandidateForm;
