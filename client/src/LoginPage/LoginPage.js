@@ -37,15 +37,18 @@ const LoginPage = () => {
       .then((user) => {
         console.log(user);
         setUser(user);
-
         if (!user) {
-          /*alert is not working*/
-          alert("User does not exist, please register");
-        } else if (user && user.owner === "candidate") {
+          alert("User does not exist");
+        } else {
           history.push("/CandidatesUserPage");
-        } else if (user && user.owner === "employer") {
-          history.push("/CandidateProfile");
         }
+        // if (!user) {
+        //   alert("User does not exist");
+        // } else if (user && user.owner === "candidate") {
+        //   history.push("/CandidatesUserPage");
+        // } else {
+        //   history.push("/CandidateProfile");
+        // }
       })
       .catch((err) => {
         console.log(err);

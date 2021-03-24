@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import CandidateNavBar from "../CandidateRegistrationPageComponents/NavBarCandidate";
 import CandidateForm from "../CandidateRegistrationPageComponents/CandidateForm";
 import Footer from "../LandingPageComponents/Footer";
+import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function CandidatesUserPage() {
-  return (
-    <div>
-      <CandidateNavBar />
-      <CandidateForm />
-      <Footer />
-    </div>
-  );
+  const { user } = useContext(AuthContext);
+  const history = useHistory();
+  if (user && user.owner === "candidate") {
+    return (
+      <div>
+        <CandidateNavBar />
+        <CandidateForm />
+        <Footer />
+      </div>
+    );
+  }else{
+    history.push('CandidateProfile')
+  }
 }
-
-
 
 export default CandidatesUserPage;
