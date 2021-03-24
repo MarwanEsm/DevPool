@@ -15,15 +15,13 @@ mongoose
   .catch((err) => console.log(err));
 
 // middlewares
-// app.use(bodyParser.json());
-// app.use(
-//   bodyParser.urlencoded({
-//     extended: true,
-//   })
-// );
-  app.use(cors());      
- app.use(bodyParser.json({limit:'50mb'}));
-  app.use(bodyParser.urlencoded({extended:true, limit:'50mb'}));
+app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+app.use(cors());
 
 
 
@@ -33,6 +31,10 @@ app.use("/user", require("./routes/user"));
 app.use("/auth", require("./routes/auth"));
 app.use("/employer", require("./routes/employer"));
 app.use("/photo", require("./routes/photo"));
+
+
+//use to serve statically the upload folder to diplay img in the client 
+app.use('/uploads', express.static('uploads'))
 
 // run app and listen to requests on port 5000
 app.listen(port, () => {

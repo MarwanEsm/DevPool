@@ -18,33 +18,33 @@ function App() {
     <Router>
       <div className="App">
         <AuthContextProvider>
-        <CandidatesContextProvider>
-          <UsersContextProvider>
-          <Switch>
-            <Route exact path="/">
-              <LandingPage />
-            </Route>
-            <Route exact path="/RegistrationPage">
-              <RegistrationPage />
-            </Route>
-            <Route path="/LoginPage">
-              <LoginPage />
-            </Route>
-            <Route path ='/CandidatesUserPage'>
-              <CandidatesUserPage/>
-            </Route>
-            <Route path ='/EmployersUserPage'>
-              <EmployersUserPage/>
-            </Route>
-            <Route path ='/CandidateProfile'>
-              <CandidateProfile/>
-            </Route>
-            <Route path='/ChatScreen'>
-              <ChatScreen/>
-            </Route>
-          </Switch>
-          </UsersContextProvider>
-        </CandidatesContextProvider>
+          <CandidatesContextProvider>
+            <UsersContextProvider>
+              <Switch>
+                <Route exact path="/">
+                  <LandingPage />
+                </Route>
+                <Route exact path="/RegistrationPage">
+                  <RegistrationPage />
+                </Route>
+                <Route path="/LoginPage">
+                  <LoginPage />
+                </Route>
+                <Route path='/CandidatesUserPage'>
+                  <CandidatesUserPage />
+                </Route>
+                <Route path='/EmployersUserPage'>
+                  <EmployersUserPage />
+                </Route>
+                <Route path='/CandidateProfile'>
+                  <CandidateProfile />
+                </Route>
+                <Route path='/ChatScreen'>
+                  <ChatScreen />
+                </Route>
+              </Switch>
+            </UsersContextProvider>
+          </CandidatesContextProvider>
         </AuthContextProvider>
       </div>
     </Router>

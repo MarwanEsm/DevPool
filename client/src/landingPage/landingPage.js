@@ -29,36 +29,36 @@ function LandingPage() {
         <Headbar />
       </div>
       <div>
-      <Row style={rowStyle}>
-        {filteredCandidates &&
-          filteredCandidates.length &&
-          filteredCandidates.map((candidate) => {
-            return (
-              <Col xs={12} md={7} lg={3} key={candidate._id}>
-                <Card key={candidate._id} style={cardStyle}>
-                  <Card.Img
-                    variant="top"
-                    src="holder.js/100px180?text=Image cap"
-                  />
-                  <Card.Header style={cardHeader}>{candidate.fullName}</Card.Header>
+        <Row style={rowStyle}>
+          {filteredCandidates &&
+            filteredCandidates.length &&
+            filteredCandidates.map((candidate) => {
+              return (
+                <Col xs={12} md={7} lg={3} key={candidate._id}>
+                  <Card key={candidate._id} style={cardStyle}>
+                    <Card.Img
+                      variant="top"
+                      src={`http://localhost:5000/${candidate.img}`}
+                    />
+                    <Card.Header style={cardHeader}>{candidate.fullName}</Card.Header>
 
-                  <Card.Body>
-                    <Card.Text style={titleStyle}>{candidate.title}</Card.Text>
-                    <Card.Text style={nameStyle}>
-                      {candidate.location}
-                    </Card.Text>
-                    <Button
-                      onClick={handleContactCandidate}
-                      style={buttonStyle}
-                    >
-                      See Full Profile
+                    <Card.Body>
+                      <Card.Text style={titleStyle}>{candidate.title}</Card.Text>
+                      <Card.Text style={nameStyle}>
+                        {candidate.location}
+                      </Card.Text>
+                      <Button
+                        onClick={handleContactCandidate}
+                        style={buttonStyle}
+                      >
+                        See Full Profile
                     </Button>
-                  </Card.Body>
-                </Card>
-              </Col>
-            );
-          })}
-      </Row>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              );
+            })}
+        </Row>
       </div>
       <div>
         <Footer />

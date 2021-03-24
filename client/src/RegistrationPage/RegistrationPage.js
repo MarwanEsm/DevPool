@@ -4,15 +4,15 @@ import RegistrationForm from '../RegistrationPageComponents/RegistrationForm';
 import Footer from '../LandingPageComponents/Footer';
 
 function RegistrationPage() {
-  return(
+  return (
     <div>
-      <RegissterNavBar/>
-      <RegistrationForm/>
-      <Footer/>
+      <RegissterNavBar />
+      <RegistrationForm />
+      <Footer />
     </div>
   )
 }
-  
+
 
 
 export default RegistrationPage;

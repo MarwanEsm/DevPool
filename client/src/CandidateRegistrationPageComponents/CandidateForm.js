@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import  { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
@@ -37,14 +37,14 @@ function CandidateForm() {
     state.expectedSalary === "" ||
     state.checked === false;
 
-    const [image, setImage] = useState();
-    const uploadImage = (img) => {
-    
-    
-       console.log(img);
-      setImage(img[0]);
-    };
-    
+  const [image, setImage] = useState();
+  const uploadImage = (img) => {
+
+
+    console.log(img);
+    setImage(img[0]);
+  };
+
   const handleChange = (e) => {
     e.preventDefault();
 
@@ -54,20 +54,18 @@ function CandidateForm() {
   const submitDetails = (e) => {
     e.preventDefault();
     var data = new FormData();
-   
-    data.append("data", image);
 
-    Object.keys(state).forEach(key =>{
+    console.log(`image`, image)
+    data.append("file", image);
+    data.append('filename', 'img');
+
+    Object.keys(state).forEach(key => {
       data.append(key, state[key]);
     })
 
-
+    //remove the JSON header for image uppload
     fetch("http://localhost:5000/candidate/new", {
       method: "post",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
       body: data,
     })
       .then((res) => res.json())
@@ -76,19 +74,19 @@ function CandidateForm() {
   };
 
   function handleAdd() {
-    const values = [...state.workExperience];
-    values.push("");
-    setWorkEx([...workEx,'']);
+    //removed unused code (calues array)
+    setWorkEx([...workEx, '']);
   }
 
   function handleRemove(i) {
-    const values = [...state.workExperience];
-    values.splice(i, 1);
-    setWorkEx(workEx.slice(i, 1));
+    const values = workEx.splice(i, 1);
+    // fixed confusion between slice and splice functions
+    setWorkEx(values);
   }
 
   function handleChangeMore(i, e) {
-    const values = [...workEx];
+
+    let values = [...workEx];
     values[i] = e.target.value;
     setWorkEx(values)
     // e.preventDefault();
@@ -138,7 +136,7 @@ function CandidateForm() {
                 onChange={handleChange}
                 value={state.email}
                 style={inputtStyle}
-                /*value should be retrived automatically and be equal to the user's email*/
+              /*value should be retrived automatically and be equal to the user's email*/
               />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridEmail">
@@ -181,9 +179,9 @@ function CandidateForm() {
               <Form.Label style={textStyle}>Work Experience</Form.Label>
               <br />
               {workEx.map((field, idx) => {
-
+                /* components was losing focus as you were using 'fied' as key thus trigerring a rerender of the input at ever update */
                 return (
-                  <div key={`${field}`} style={addMoreDiv}>
+                  <div key={idx} style={addMoreDiv}>
                     <Button
                       type="button"
                       onClick={() => handleRemove(idx)}
@@ -214,17 +212,17 @@ function CandidateForm() {
           </Form.Row>
 
           <Form.Row>
-          <ImageUploader
-        style={imageUploaderStyle}
-        buttonText="Choose images"
-        onChange={uploadImage}
-        imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-        maxFileSize={5242880}
-        type="image"
-        value={image}
-        name="myImage"
-        accept=".jpg"
-      />
+            <ImageUploader
+              style={imageUploaderStyle}
+              buttonText="Choose images"
+              onChange={uploadImage}
+              imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+              maxFileSize={5242880}
+              type="image"
+              value={image}
+              name="myImage"
+              accept=".jpg"
+            />
           </Form.Row>
 
           <Form.Group id="formGridCheckbox">
