@@ -1,9 +1,11 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const UserSchema = require("../model/usersModel");
+const keys = require("../Config.js");
+const jwt = require("jsonwebtoken");
 const router = express.Router();
 
-router.post("/register",  (req, res) => {
+router.post("/register", (req, res) => {
   console.log(req.body);
   const reqemail = req.body.email;
   const reqpassword = req.body.password;
@@ -42,45 +44,39 @@ router.post("/register",  (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-  console.log(req.body);
-
   const reqemail = req.body.email;
   const reqpassword = req.body.password;
 
   UserSchema.findOne({ email: reqemail }, (err, user) => {
     if (err) {
       res.send(err);
-    }
-    if (!user) {
-      res.send({ msg: "user does not exist" });
+    } else if (!user) {
+      res.send({ msg: "User does not exist" });
     } else {
-      bcrypt.compare(reqpassword, user.password, function (err, result) {
+      bcrypt.compare(reqpassword, user.password, (err, result) => {
         if (err) {
           res.send(err);
+        } else if (result == true) {
+          const payload = {
+            id: user.id,
+            email: user.email,
+          };
+
+          jwt.sign(payload, keys.secretOrKey, (err, token) => {
+            if (err) {
+              res.send(err);
+            } else {
+              res.status(200).json({ success: true, token: token });
+            }
+          });
         } else {
-          if (result == true) {
-
-            // const payload={
-            //   id: user.id,
-            //   email:user.email
-            // } 
-
-            // jwt.sign(payload, keys.secretOrkey, (err, token)=>{
-              // if(err){
-                res.send(user)
-              // }
-            // })
-           
-
-
-          
-          } else {
-            res.send({ msg: "wrong password" });
-          }
+          res.send({ msg: "Wrong Password" });
         }
       });
     }
   });
 });
+
+
 
 module.exports = router;
