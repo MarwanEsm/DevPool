@@ -37,6 +37,7 @@ function LandingPage() {
                 <Col xs={12} md={7} lg={3} key={candidate._id}>
                   <Card key={candidate._id} style={cardStyle}>
                     <Card.Img
+                    style={imgStyle}
                       variant="top"
                       src={`http://localhost:5000/${candidate.img}`}
                     />
@@ -86,7 +87,7 @@ const titleStyle = {
 
 const cardStyle = {
   marginBottom: "8%",
-  width: "88%",
+  width: "80%",
 };
 
 const cardHeader = {
@@ -102,5 +103,12 @@ const buttonStyle = {
   boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
 };
 
+
+const imgStyle ={
+  width:'60%',
+  marginLeft:'25%',
+  marginTop:'7%',
+  marginBottom :'3%'
+}
 
 export default LandingPage;

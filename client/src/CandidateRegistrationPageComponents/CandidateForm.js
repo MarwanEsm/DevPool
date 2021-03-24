@@ -3,18 +3,11 @@ import { useHistory } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import ImageUplaod from "./ImageUnplaoder";
-import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
-import { UsersContext } from "../ContextProvider/UsersContextProvider";
-import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import ImageUploader from "react-images-upload";
 
 
 function CandidateForm() {
   const history = useHistory()
-  // const { candidate } = useContext(CandidatesContext);
-  // const { users } = useContext(UsersContext);
-  // const { user } = useContext(AuthContext);
   const [workEx, setWorkEx] = useState([]);
 
   const [state, setState] = useState({
@@ -49,7 +42,7 @@ function CandidateForm() {
 
     setState({ ...state, [e.target.name]: e.target.value });
   };
-  /*my question is here*/
+  
   const submitDetails = (e) => {
     e.preventDefault();
     var data = new FormData();
@@ -62,7 +55,7 @@ function CandidateForm() {
       data.append(key, state[key]);
     })
 
-    //remove the JSON header for image uppload
+    
     fetch("http://localhost:5000/candidate/new", {
       method: "post",
       body: data,
@@ -73,25 +66,18 @@ function CandidateForm() {
   };
 
   function handleAdd() {
-    //removed unused code (calues array)
     setWorkEx([...workEx, '']);
   }
 
   function handleRemove(i) {
     const values = workEx.splice(i, 1);
-    // fixed confusion between slice and splice functions
     setWorkEx(values);
   }
 
   function handleChangeMore(i, e) {
-
-    let values = [...workEx];
+    const values = [...workEx];
     values[i] = e.target.value;
     setWorkEx(values)
-    // e.preventDefault();
-    // const values = [...state.workExperience];
-    // values[i] = e.target.value;
-    // setState({ ...state, workExperience: values });
   }
 
   const makeItChecked = (e) => {
@@ -178,8 +164,6 @@ function CandidateForm() {
               <Form.Label style={textStyle}>Work Experience</Form.Label>
               <br />
               {workEx.map((field, idx) => {
-                /* components was losing focus as you were using 'fied' as 
-                key thus trigerring a rerender of the input at ever update */
                 return (
                   <div key={idx} style={addMoreDiv}>
                     <Button
