@@ -3,8 +3,15 @@ const CandidateSchema = require("../model/candidatesModel");
 const router = express.Router();
 const multer = require("multer");
 
+const storage = multer.diskStorage({
+  destination: "uploads/",
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+})
 
-const upload = multer({ dest: "uploads/" });
+const upload = multer({ storage: storage })
+
 
 router.get("/all", (req, res) => {
   CandidateSchema.find({}, (err, candidates) => {
@@ -16,7 +23,8 @@ router.get("/all", (req, res) => {
   });
 });
 
-router.post("/new",upload.single("file"), (req, res) => {
+router.post("/new", upload.single("file"), (req, res) => {
+  ;
   const newEmail = req.body.email;
   CandidateSchema.findOne({ email: newEmail }, (err, candidate) => {
     if (err) {
@@ -25,7 +33,8 @@ router.post("/new",upload.single("file"), (req, res) => {
     if (candidate) {
       res.send({ msg: "Candidate is already registered" });
     } else {
-      const newCandidate = new CandidateSchema(req.body);
+      const body = { ...req.body, img: `uploads/${req.file.originalname}` }
+      const newCandidate = new CandidateSchema(body);
       newCandidate
         .save()
         .then((candidate) => {
