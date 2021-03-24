@@ -8,7 +8,7 @@ import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import Footer from "../LandingPageComponents/Footer";
 
 const LoginPage = () => {
-  const { setUser } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
 
   const [state, setState] = useState({
     email: "",
@@ -22,7 +22,6 @@ const LoginPage = () => {
     e.preventDefault();
     setState({ ...state, [e.target.name]: e.target.value });
   };
-
   function loginUser(e) {
     e.preventDefault();
 
