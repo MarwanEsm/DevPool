@@ -6,19 +6,13 @@ import Footer from "../LandingPageComponents/Footer";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function CandidatesUserPage() {
-  const { user } = useContext(AuthContext);
-  const history = useHistory();
-  if (user && user.owner === "candidate") {
-    return (
-      <div>
-        <CandidateNavBar />
-        <CandidateForm />
-        <Footer />
-      </div>
-    );
-  }else{
-    history.push('CandidateProfile')
-  }
+  return (
+    <div>
+      <CandidateNavBar />
+      <CandidateForm />
+      <Footer />
+    </div>
+  );
 }
 
 export default CandidatesUserPage;

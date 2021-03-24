@@ -5,10 +5,13 @@ import Button from "react-bootstrap/Button";
 import LoginNavBar from "./NavBarLogIn";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
+// import { UsersContext } from "../ContextProvider/UsersContextProvider";
 import Footer from "../LandingPageComponents/Footer";
 
 const LoginPage = () => {
   const { user, setUser } = useContext(AuthContext);
+ 
+  // const { user } = useContext(UsersContext);
 
   const [state, setState] = useState({
     email: "",
@@ -22,7 +25,8 @@ const LoginPage = () => {
     e.preventDefault();
     setState({ ...state, [e.target.name]: e.target.value });
   };
-  function loginUser(e) {
+
+  const loginUser = (e) => {
     e.preventDefault();
 
     fetch("http://localhost:5000/auth/login", {
@@ -37,23 +41,17 @@ const LoginPage = () => {
       .then((user) => {
         console.log(user);
         setUser(user);
-        if (!user) {
-          alert("User does not exist");
-        } else {
+
+        if (user && user.owner === "candidate") {
           history.push("/CandidatesUserPage");
+        } else if (user && user.owner === "employer") {
+          history.push("/CandidateProfile");
         }
-        // if (!user) {
-        //   alert("User does not exist");
-        // } else if (user && user.owner === "candidate") {
-        //   history.push("/CandidatesUserPage");
-        // } else {
-        //   history.push("/CandidateProfile");
-        // }
       })
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
   return (
     <div>
@@ -125,7 +123,6 @@ const inputtStyle = {
   border: "bold",
   borderColor: "black",
   fontFamily: "Courier, monospace",
-  fontSize: 15,
 };
 
 const linkStyle = {
