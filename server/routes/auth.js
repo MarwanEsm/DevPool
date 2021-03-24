@@ -66,7 +66,7 @@ router.post("/login", (req, res) => {
             if (err) {
               res.send(err);
             } else {
-              res.status(200).json({ success: true, token: token });
+              res.status(200).json({ success: true, token: token, user:user });
             }
           });
         } else {
@@ -76,7 +76,5 @@ router.post("/login", (req, res) => {
     }
   });
 });
-
-
 
 module.exports = router;

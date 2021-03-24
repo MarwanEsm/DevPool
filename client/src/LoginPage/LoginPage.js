@@ -9,8 +9,8 @@ import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import Footer from "../LandingPageComponents/Footer";
 
 const LoginPage = () => {
-  const { user, setUser } = useContext(AuthContext);
- 
+  const { setUser } = useContext(AuthContext);
+
   // const { user } = useContext(UsersContext);
 
   const [state, setState] = useState({
@@ -38,10 +38,10 @@ const LoginPage = () => {
       body: JSON.stringify(state),
     })
       .then((res) => res.json())
-      .then((user) => {
-        console.log(user);
+      .then((res) => {
+        const {user, token}= res
+        localStorage.setItem('token',token);
         setUser(user);
-
         if (user && user.owner === "candidate") {
           history.push("/CandidatesUserPage");
         } else if (user && user.owner === "employer") {
