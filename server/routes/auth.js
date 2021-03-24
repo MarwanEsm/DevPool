@@ -60,16 +60,16 @@ router.post("/login", (req, res) => {
         } else {
           if (result == true) {
 
-            const payload={
-              id: user.id,
-              email:user.email
-            } 
+            // const payload={
+            //   id: user.id,
+            //   email:user.email
+            // } 
 
-            jwt.sign(payload, keys.secretOrkey, (err, token)=>{
-              if(err){
-                res.send(err)
-              }
-            })
+            // jwt.sign(payload, keys.secretOrkey, (err, token)=>{
+              // if(err){
+                res.send(user)
+              // }
+            // })
            
 
 

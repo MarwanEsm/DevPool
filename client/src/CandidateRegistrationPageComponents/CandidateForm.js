@@ -69,7 +69,7 @@ function CandidateForm() {
     })
       .then((res) => res.json())
       .then((res) => console.log(res))
-      .then(history.push('/LoginPage'))
+      // .then(history.push('/LoginPage')) then push to the his / her profile
   };
 
   function handleAdd() {
