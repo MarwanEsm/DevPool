@@ -44,25 +44,6 @@ router.post(
 
 
 
-// const payload = {
-//   sub: UserSchema.id,
-//   email: UserSchema.email,
-// };
 
-// const option = { expiresIn: 3600 };
-
-// jwt.sign(payload, secretOrKey, option, (err, token) => {
-//   if (err) {
-//     res.json({
-//       success: false,
-//       token: "There was an error",
-//     });
-//   } else {
-//     res.json({
-//       sucess: true,
-//       token: token,
-//     });
-//   }
-// });
 
 module.exports = router;

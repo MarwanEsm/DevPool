@@ -8,8 +8,8 @@ function Footer() {
       <Grid columns={" 1fr 2fr 1fr"}>
         <div style={divStyle}>
           <div>
-            <div class="widget subscribe no-box">
-              <h5 class="widget-title" style={headerStyle}>
+            <div className="widget subscribe no-box">
+              <h5 className="widget-title" style={headerStyle}>
                 COMPANY NAME<span></span>
               </h5>
               <p style={titleStyle}>About the company</p>
@@ -19,34 +19,34 @@ function Footer() {
 
         <div>
           <div style={divListStyle}>
-            <div class="widget no-box">
-              <h5 class="widget-title">
+            <div className="widget no-box">
+              <h5 className="widget-title">
                 Quick Links<span></span>
               </h5>
-              <ul class="thumbnail-widget" style={liStyle}>
+              <ul className="thumbnail-widget" style={liStyle}>
                 <li>
-                  <div class="thumb-content">
+                  <div className="thumb-content">
                     <a href="#." style={titleStyle}>
                       Get Started
                     </a>
                   </div>
                 </li>
                 <li>
-                  <div class="thumb-content">
+                  <div className="thumb-content">
                     <Link to="#." style={titleStyle}>
                       Top Leaders
                     </Link>
                   </div>
                 </li>
                 <li>
-                  <div class="thumb-content">
+                  <div className="thumb-content">
                     <Link to="#." style={titleStyle}>
                       Success Stories
                     </Link>
                   </div>
                 </li>
                 <li>
-                  <div class="thumb-content">
+                  <div className="thumb-content">
                     <a href="#." style={titleStyle}>
                       Event/Tickets
                     </a>

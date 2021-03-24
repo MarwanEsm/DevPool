@@ -37,13 +37,12 @@ function CandidateForm() {
     state.expectedSalary === "" ||
     state.checked === false;
 
-  const [image, setImage] = useState();
-  const uploadImage = (img) => {
-
-
-    console.log(img);
-    setImage(img[0]);
-  };
+    const [image, setImage] = useState();
+    const uploadImage = (img) => {
+      console.log(img);
+      setImage(img[0]);
+    };
+  
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -179,7 +178,8 @@ function CandidateForm() {
               <Form.Label style={textStyle}>Work Experience</Form.Label>
               <br />
               {workEx.map((field, idx) => {
-                /* components was losing focus as you were using 'fied' as key thus trigerring a rerender of the input at ever update */
+                /* components was losing focus as you were using 'fied' as 
+                key thus trigerring a rerender of the input at ever update */
                 return (
                   <div key={idx} style={addMoreDiv}>
                     <Button

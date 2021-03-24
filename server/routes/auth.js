@@ -59,7 +59,21 @@ router.post("/login", (req, res) => {
           res.send(err);
         } else {
           if (result == true) {
-            res.send(user);
+
+            const payload={
+              id: user.id,
+              email:user.email
+            } 
+
+            jwt.sign(payload, keys.secretOrkey, (err, token)=>{
+              if(err){
+                res.send(err)
+              }
+            })
+           
+
+
+          
           } else {
             res.send({ msg: "wrong password" });
           }

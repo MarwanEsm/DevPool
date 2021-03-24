@@ -10,13 +10,11 @@ export const CandidatesContextProvider = ({ children }) => {
   const filteredCandidates = candidates.filter((candidate) => {
     console.log(selectLocation);
     return (
-      /*candidate.title.toLowerCase().includes(searchTitle.toLowerCase())*/ (candidate.title
+      (candidate.title
         .toLowerCase()
         .includes(searchTitle.toLowerCase()) &&
         candidate.location === selectLocation) ||
         selectLocation === "all" && candidate.title.toLowerCase().includes(searchTitle.toLowerCase())
-
-      // || selectLocation ==='all' || candidate.title.toLowerCase().includes(searchTitle.toLowerCase())
     );
   });
 
