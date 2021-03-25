@@ -33,10 +33,6 @@ function CandidatePageNavBar() {
         <Form.Row>
           <Form.Group as={Col} controlId="formGridCity">
             <div style={div1Style}>
-              <div>
-                <Form.Label style={labelStyle}>Where</Form.Label>
-              </div>
-              &nbsp;
               <Form.Control
                 as="select"
                 defaultValue="all"

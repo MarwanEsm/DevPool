@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import CandidatePageNavBar from "./NavBarCandidate";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Grid from "@react-css/grid";
+import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Footer from "../LandingPageComponents/Footer";
@@ -39,15 +39,17 @@ const CandidateProfile = () => {
   if (user && user.owner === "employer") {
     return (
       <div>
-        <CandidatePageNavBar />
-        <Grid>
-          <div style={mainDivStyle}>
+        <div>
+          <CandidatePageNavBar />
+        </div>
+        <div>
+          <Row style={rowStyle}>
             {filteredCandidates &&
               filteredCandidates.length &&
               filteredCandidates.map((candidate) => {
                 return (
-                  <Col key={candidate._id}>
-                    <Card style={cardStyle}>
+                  <Col xs={12} md={7} lg={3} key={candidate._id}>
+                    <Card key={candidate._id} style={cardStyle}>
                       <Card.Header>
                         <Nav variant="pills" defaultActiveKey="#first">
                           <Nav.Item>
@@ -62,6 +64,11 @@ const CandidateProfile = () => {
                           </Nav.Item>
                         </Nav>
                       </Card.Header>
+                      <Card.Img
+                        style={imgStyle}
+                        variant="top"
+                        src={`http://localhost:5000/${candidate.img}`}
+                      />
 
                       <Card.Body>
                         <div>
@@ -111,7 +118,8 @@ const CandidateProfile = () => {
                               </span>
                             </div>
 
-                            <Button variant='primary'
+                            <Button
+                              variant="primary"
                               onClick={contactCandidate}
                               style={buttonStyle}
                             >
@@ -124,8 +132,8 @@ const CandidateProfile = () => {
                   </Col>
                 );
               })}
-          </div>
-        </Grid>
+          </Row>
+        </div>
 
         <div>
           <Footer />
@@ -137,19 +145,46 @@ const CandidateProfile = () => {
   }
 };
 
-const mainDivStyle = {
-  display: "grid",
-  marginTop: "4%",
-  marginLeft: "3%",
-  width: "100%",
+const rowStyle = {
+  marginTop: "6%",
+  marginLeft: "1%",
+};
+
+
+const titleStyle = {
+  fontFamily: "Andale Mono, monospace",
+  fontSize: 15,
+  marginTop: "2%",
 };
 
 const cardStyle = {
-  border: "solid",
-  marginBottom: "3%",
-  borderWeigth: "solid ",
-  width: "23%",
+  marginBottom: "8%",
+  width: "95%",
 };
+
+
+
+const buttonStyle = {
+  marginTop: "7%",
+  fontFamily: "Courier, monospace",
+  fontSize: 14,
+  cursor: "pointer",
+  boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
+};
+
+const imgStyle = {
+  width: "60%",
+  marginLeft: "25%",
+  marginTop: "7%",
+  marginBottom: "3%",
+};
+// const mainDivStyle = {
+//   display: "grid",
+//   marginTop: "4%",
+//   marginLeft: "3%",
+//   width: "100%",
+// };
+
 
 const listStyle = {
   marginTop: "6%",
@@ -165,11 +200,11 @@ const linkStyle = {
   fontSize: 13,
 };
 
-const titleStyle = {
-  fontFamily: "Andale Mono, monospace",
-  fontSize: 15,
-  marginTop: "2%",
-};
+// const titleStyle = {
+//   fontFamily: "Andale Mono, monospace",
+//   fontSize: 15,
+//   marginTop: "2%",
+// };
 
 const title1Style = {
   fontFamily: "Andale Mono, monospace",
@@ -185,18 +220,16 @@ const spanStyle = {
   textDecoration: "underline",
 };
 
-const divSpanStyle={
-  marginTop:'4%'
-}
-
-
-const buttonStyle = {
-  fontFamily: "Courier, monospace",
-  fontSize: 14,
-  cursor: "pointer",
-  boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
-  marginTop: "7%",
+const divSpanStyle = {
+  marginTop: "4%",
 };
 
+// const buttonStyle = {
+//   fontFamily: "Courier, monospace",
+//   fontSize: 14,
+//   cursor: "pointer",
+//   boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
+//   marginTop: "7%",
+// };
 
 export default CandidateProfile;
