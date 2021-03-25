@@ -94,8 +94,14 @@ const div1Style = {
   marginRight: "8%",
 };
 
+// const rowdivStyle = {
+//   marginRight: "16%",
+// };
+
 const rowdivStyle = {
-  marginRight: "16%",
+  display:'flex',
+  alignItems:'center',
+  marginRight:'27%'
 };
 
 const navdiv = {

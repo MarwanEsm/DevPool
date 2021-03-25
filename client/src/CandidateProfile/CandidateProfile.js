@@ -48,21 +48,23 @@ const CandidateProfile = () => {
               filteredCandidates.length &&
               filteredCandidates.map((candidate) => {
                 return (
-                  <Col xs={12} md={7} lg={3} key={candidate._id}>
+                  <Col xs={10} md={6} lg={4} key={candidate._id}>
                     <Card key={candidate._id} style={cardStyle}>
                       <Card.Header>
-                        <Nav variant="pills" defaultActiveKey="#first">
-                          <Nav.Item>
-                            <Nav.Link href="#first" style={linkStyle}>
-                              Add to watchlist
-                            </Nav.Link>
-                          </Nav.Item>
-                          <Nav.Item>
-                            <Nav.Link href="#link" style={linkStyle}>
-                              Remove from watchlist
-                            </Nav.Link>
-                          </Nav.Item>
-                        </Nav>
+                        <div style={divNavStyle}>
+                          <Nav variant="pills" defaultActiveKey="#first">
+                            <Nav.Item>
+                              <Nav.Link href="#first" style={linkStyle}>
+                                Add to watchlist
+                              </Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                              <Nav.Link href="#link" style={linkStyle}>
+                                Remove from watchlist
+                              </Nav.Link>
+                            </Nav.Item>
+                          </Nav>
+                        </div>
                       </Card.Header>
                       <Card.Img
                         style={imgStyle}
@@ -150,7 +152,6 @@ const rowStyle = {
   marginLeft: "1%",
 };
 
-
 const titleStyle = {
   fontFamily: "Andale Mono, monospace",
   fontSize: 15,
@@ -159,10 +160,9 @@ const titleStyle = {
 
 const cardStyle = {
   marginBottom: "8%",
-  width: "95%",
+  marginLeft: "4%",
+  width: "85%",
 };
-
-
 
 const buttonStyle = {
   marginTop: "7%",
@@ -178,13 +178,6 @@ const imgStyle = {
   marginTop: "7%",
   marginBottom: "3%",
 };
-// const mainDivStyle = {
-//   display: "grid",
-//   marginTop: "4%",
-//   marginLeft: "3%",
-//   width: "100%",
-// };
-
 
 const listStyle = {
   marginTop: "6%",
@@ -195,16 +188,14 @@ const listStyle = {
   fontSize: 15,
 };
 
+
+
+
 const linkStyle = {
   marginTop: "2%",
   fontSize: 13,
 };
 
-// const titleStyle = {
-//   fontFamily: "Andale Mono, monospace",
-//   fontSize: 15,
-//   marginTop: "2%",
-// };
 
 const title1Style = {
   fontFamily: "Andale Mono, monospace",
@@ -224,12 +215,11 @@ const divSpanStyle = {
   marginTop: "4%",
 };
 
-// const buttonStyle = {
-//   fontFamily: "Courier, monospace",
-//   fontSize: 14,
-//   cursor: "pointer",
-//   boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
-//   marginTop: "7%",
-// };
+const divNavStyle = {
+  display: "flex",
+  justifyContent: "space-around",
+};
+
+
 
 export default CandidateProfile;
