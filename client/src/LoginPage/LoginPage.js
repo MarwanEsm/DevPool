@@ -5,11 +5,13 @@ import Button from "react-bootstrap/Button";
 import LoginNavBar from "./NavBarLogIn";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
+import {CandidatesContext} from '../ContextProvider/CandidatesContextProvider';
 // import { UsersContext } from "../ContextProvider/UsersContextProvider";
 import Footer from "../LandingPageComponents/Footer";
 
 const LoginPage = () => {
   const { setUser } = useContext(AuthContext);
+  // const { candidate } = useContext(CandidatesContext);
 
   // const { user } = useContext(UsersContext);
 
@@ -39,13 +41,18 @@ const LoginPage = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        const {user, token}= res
-        localStorage.setItem('token',token);
+        const { user, token } = res;
+        localStorage.setItem("token", token);
         setUser(user);
         if (user && user.owner === "candidate") {
-          history.push("/CandidatesUserPage");
+          history.push(
+            "/CandidatesUserPage"
+          ); 
         } else if (user && user.owner === "employer") {
           history.push("/CandidateProfile");
+        } 
+        else {
+          alert("User does not exist");
         }
       })
       .catch((err) => {

@@ -14,14 +14,10 @@ function LandingPage() {
   const { user } = useContext(AuthContext);
   const history = useHistory();
 
-  const handleContactCandidate = (e) => {
-    e.preventDefault();
-    if (!user) {
+  const handelFullProfile = (e) => {
+    e.preventDefault();  
       history.push("/LoginPage");
-    } else {
-      history.push("/CandidateProfile");
-    }
-  };
+  }
 
   return (
     <div>
@@ -49,7 +45,7 @@ function LandingPage() {
                         {candidate.location}
                       </Card.Text>
                       <Button
-                        onClick={handleContactCandidate}
+                        onClick={handelFullProfile}
                         style={buttonStyle}
                       >
                         See Full Profile
@@ -106,7 +102,7 @@ const buttonStyle = {
 
 const imgStyle ={
   width:'60%',
-  marginLeft:'25%',
+  marginLeft:'20%',
   marginTop:'7%',
   marginBottom :'3%'
 }

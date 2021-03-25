@@ -14,14 +14,14 @@ import { EmployerContext } from "../ContextProvider/EmployerContextProvider";
 const CandidateProfile = () => {
   const { user } = useContext(AuthContext);
   const { filteredCandidates } = useContext(CandidatesContext);
-  const { employers } = useContext(EmployerContext);
+  const { employer } = useContext(EmployerContext);
   const history = useHistory();
 
   const contactCandidate = () => {
-    if (!employers) {
-      history.push("/EmployersUserPage");
-    } else {
+    if (employer) {
       history.push("/ChatScreen");
+    } else {
+      history.push("/EmployersUserPage");
     }
 
     /* if registered redirect to chat message or email screen
@@ -36,115 +36,109 @@ const CandidateProfile = () => {
 
   const linkName = text ? "Read Less << " : "Read More >> ";
 
-  if (user && user.owner === "employer") {
-    return (
+  return (
+    <div>
       <div>
-        <div>
-          <CandidatePageNavBar />
-        </div>
-        <div>
-          <Row style={rowStyle}>
-            {filteredCandidates &&
-              filteredCandidates.length &&
-              filteredCandidates.map((candidate) => {
-                return (
-                  <Col xs={10} md={6} lg={4} key={candidate._id}>
-                    <Card key={candidate._id} style={cardStyle}>
-                      <Card.Header>
-                        <div style={divNavStyle}>
-                          <Nav variant="pills" defaultActiveKey="#first">
-                            <Nav.Item>
-                              <Nav.Link href="#first" style={linkStyle}>
-                                Add to watchlist
-                              </Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                              <Nav.Link href="#link" style={linkStyle}>
-                                Remove from watchlist
-                              </Nav.Link>
-                            </Nav.Item>
-                          </Nav>
-                        </div>
-                      </Card.Header>
-                      <Card.Img
-                        style={imgStyle}
-                        variant="top"
-                        src={`http://localhost:5000/${candidate.img}`}
-                      />
-
-                      <Card.Body>
-                        <div>
-                          {" "}
-                          <span style={title1Style}>Name :</span>{" "}
-                          <span style={titleStyle}>{candidate.fullName}</span>
-                        </div>
-
-                        <div>
-                          <span style={title1Style}>Title :</span>{" "}
-                          <span style={titleStyle}>{candidate.title}</span>
-                        </div>
-                        <div>
-                          <span style={title1Style}>Location :</span>{" "}
-                          <span style={titleStyle}>{candidate.location}</span>
-                        </div>
-                        <div>
-                          <span style={title1Style}>Work Experience :</span>{" "}
-                        </div>
-                        <div style={divSpanStyle}>
-                          <span onClick={moreInfo} style={spanStyle}>
-                            {linkName}
-                            {text}
-                          </span>
-                        </div>
-                        {text && (
-                          <>
-                            <ul style={listStyle}>
-                              {candidate.workExperiences &&
-                                candidate.workExperiences.length &&
-                                candidate.workExperiences.map((exp) => {
-                                  return <li key={candidate.exp}>{exp}</li>;
-                                })}
-                            </ul>
-                            <div>
-                              <span style={title1Style}>
-                                Desired Position :
-                              </span>{" "}
-                              <span style={titleStyle}>
-                                {candidate.desiredPosition}
-                              </span>
-                            </div>
-                            <div>
-                              <span style={title1Style}>Expected Salary :</span>{" "}
-                              <span style={titleStyle}>
-                                {candidate.expectedSalary}
-                              </span>
-                            </div>
-
-                            <Button
-                              variant="primary"
-                              onClick={contactCandidate}
-                              style={buttonStyle}
-                            >
-                              Contact Candidate
-                            </Button>
-                          </>
-                        )}
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                );
-              })}
-          </Row>
-        </div>
-
-        <div>
-          <Footer />
-        </div>
+        <CandidatePageNavBar />
       </div>
-    );
-  } else {
-    history.push("/CandidatesUserPage");
-  }
+      <div>
+        <Row style={rowStyle}>
+          {filteredCandidates &&
+            filteredCandidates.length &&
+            filteredCandidates.map((candidate) => {
+              return (
+                <Col xs={10} md={6} lg={4} key={candidate._id}>
+                  <Card key={candidate._id} style={cardStyle}>
+                    <Card.Header>
+                      <div style={divNavStyle}>
+                        <Nav variant="pills" defaultActiveKey="#first">
+                          <Nav.Item>
+                            <Nav.Link href="#first" style={linkStyle}>
+                              Add to watchlist
+                            </Nav.Link>
+                          </Nav.Item>
+                          <Nav.Item>
+                            <Nav.Link href="#link" style={linkStyle}>
+                              Remove from watchlist
+                            </Nav.Link>
+                          </Nav.Item>
+                        </Nav>
+                      </div>
+                    </Card.Header>
+                    <Card.Img
+                      style={imgStyle}
+                      variant="top"
+                      src={`http://localhost:5000/${candidate.img}`}
+                    />
+
+                    <Card.Body>
+                      <div>
+                        {" "}
+                        <span style={title1Style}>Name :</span>{" "}
+                        <span style={titleStyle}>{candidate.fullName}</span>
+                      </div>
+
+                      <div>
+                        <span style={title1Style}>Title :</span>{" "}
+                        <span style={titleStyle}>{candidate.title}</span>
+                      </div>
+                      <div>
+                        <span style={title1Style}>Location :</span>{" "}
+                        <span style={titleStyle}>{candidate.location}</span>
+                      </div>
+                      <div>
+                        <span style={title1Style}>Work Experience :</span>{" "}
+                      </div>
+                      <div style={divSpanStyle}>
+                        <span onClick={moreInfo} style={spanStyle}>
+                          {linkName}
+                          {text}
+                        </span>
+                      </div>
+                      {text && (
+                        <>
+                          <ul style={listStyle}>
+                            {candidate.workExperiences &&
+                              candidate.workExperiences.length &&
+                              candidate.workExperiences.map((exp) => {
+                                return <li key={candidate.exp}>{exp}</li>;
+                              })}
+                          </ul>
+                          <div>
+                            <span style={title1Style}>Desired Position :</span>{" "}
+                            <span style={titleStyle}>
+                              {candidate.desiredPosition}
+                            </span>
+                          </div>
+                          <div>
+                            <span style={title1Style}>Expected Salary :</span>{" "}
+                            <span style={titleStyle}>
+                              {candidate.expectedSalary}
+                            </span>
+                          </div>
+
+                          <Button
+                            variant="primary"
+                            onClick={contactCandidate}
+                            style={buttonStyle}
+                          >
+                            Contact Candidate
+                          </Button>
+                        </>
+                      )}
+                    </Card.Body>
+                  </Card>
+                </Col>
+              );
+            })}
+        </Row>
+      </div>
+
+      <div>
+        <Footer />
+      </div>
+    </div>
+  );
 };
 
 const rowStyle = {
@@ -174,7 +168,7 @@ const buttonStyle = {
 
 const imgStyle = {
   width: "60%",
-  marginLeft: "25%",
+  marginLeft: "20%",
   marginTop: "7%",
   marginBottom: "3%",
 };
@@ -188,14 +182,10 @@ const listStyle = {
   fontSize: 15,
 };
 
-
-
-
 const linkStyle = {
   marginTop: "2%",
   fontSize: 13,
 };
-
 
 const title1Style = {
   fontFamily: "Andale Mono, monospace",
@@ -219,7 +209,5 @@ const divNavStyle = {
   display: "flex",
   justifyContent: "space-around",
 };
-
-
 
 export default CandidateProfile;

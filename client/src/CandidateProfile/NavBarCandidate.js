@@ -94,9 +94,7 @@ const div1Style = {
   marginRight: "8%",
 };
 
-// const rowdivStyle = {
-//   marginRight: "16%",
-// };
+
 
 const rowdivStyle = {
   display:'flex',
