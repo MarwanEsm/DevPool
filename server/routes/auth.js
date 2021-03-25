@@ -3,6 +3,8 @@ const bcrypt = require("bcrypt");
 const UserSchema = require("../model/usersModel");
 const keys = require("../Config.js");
 const jwt = require("jsonwebtoken");
+// const passport = require("passport");
+// const localStrategy = require('passport-local').Strategy;
 const router = express.Router();
 
 router.post("/register", (req, res) => {
@@ -23,6 +25,16 @@ router.post("/register", (req, res) => {
           if (err) {
             res.send(err);
           } else {
+            
+            // passport.use(
+            //   "/register",
+            //   new localStrategy({
+            //     email: reqemail,
+            //     password: hash,
+            //     owner: reqowner,
+            //   })
+            // );
+
             const newUser = new UserSchema({
               email: reqemail,
               password: hash,
@@ -33,6 +45,17 @@ router.post("/register", (req, res) => {
               .then((user) => {
                 res.send(user);
               })
+              // .then(
+              //   passport.use(
+              //     "/register",
+              //     new localStrategy({
+              //       email: reqemail,
+              //       password: hash,
+              //       owner: reqowner,
+              //     })
+              //   )
+              // )
+
               .catch((err) => {
                 res.send(err);
               });
@@ -66,7 +89,7 @@ router.post("/login", (req, res) => {
             if (err) {
               res.send(err);
             } else {
-              res.status(200).json({ success: true, token: token, user:user });
+              res.status(200).json({ success: true, token: token, user: user });
             }
           });
         } else {

@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const passport = require("passport");
 const mongoose = require("mongoose");
 const mongoURI = require("./Config.js").mongoURI;
 
@@ -31,6 +32,8 @@ app.use("/user", require("./routes/user"));
 app.use("/auth", require("./routes/auth"));
 app.use("/employer", require("./routes/employer"));
 app.use("/photo", require("./routes/photo"));
+app.use(passport.initialize());
+require('./passport');
 
 
 //use to serve statically the upload folder to diplay img in the client 

@@ -6,10 +6,12 @@ import UsersContextProvider from "./ContextProvider/UsersContextProvider";
 import AuthContextProvider from "./ContextProvider/AuthContextProvider";
 import RegistrationPage from "./RegistrationPage/RegistrationPage";
 import LoginPage from "./LoginPage/LoginPage";
-import CandidatesUserPage from './CandidatesPage/CandidatesUserPage';
-import EmployersUserPage from './EmployerPage/EmployersUserPage';
-import CandidateProfile from './CandidateProfile/CandidateProfile';
-import ChatScreen from './ChatScreen/ChatScreen';
+import CandidatesUserPage from "./CandidatesPage/CandidatesUserPage";
+import EmployersUserPage from "./EmployerPage/EmployersUserPage";
+import CandidateProfile from "./CandidateProfile/CandidateProfile";
+import ChatScreen from "./ChatScreen/ChatScreen";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import PublicRoute from "./PublicRoute/PublicRoute";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -21,6 +23,17 @@ function App() {
           <CandidatesContextProvider>
             <UsersContextProvider>
               <Switch>
+                {/* <PrivateRoute
+                  component={CandidatesUserPage}
+                  path="/CandidatesUserPage"
+                />
+                <PrivateRoute  component={EmployersUserPage} path="/EmployersUserPage" />
+                <PrivateRoute  component={CandidateProfile} path="/CandidateProfile" />
+                <PrivateRoute  component={ChatScreen} path="/ChatScreen" />
+                <PublicRoute restricted={true} component={LoginPage} path="/LoginPage"  />
+                <PublicRoute restricted={false} component={LandingPage} path="/LandingPage"  />
+                <PublicRoute restricted={true} component={RegistrationPage} path="/RegistrationPage"  /> */}
+
                 <Route exact path="/">
                   <LandingPage />
                 </Route>
@@ -30,16 +43,16 @@ function App() {
                 <Route path="/LoginPage">
                   <LoginPage />
                 </Route>
-                <Route path='/CandidatesUserPage'>
+                <Route path="/CandidatesUserPage">
                   <CandidatesUserPage />
                 </Route>
-                <Route path='/EmployersUserPage'>
+                <Route path="/EmployersUserPage">
                   <EmployersUserPage />
                 </Route>
-                <Route path='/CandidateProfile'>
+                <Route path="/CandidateProfile">
                   <CandidateProfile />
                 </Route>
-                <Route path='/ChatScreen'>
+                <Route path="/ChatScreen">
                   <ChatScreen />
                 </Route>
               </Switch>

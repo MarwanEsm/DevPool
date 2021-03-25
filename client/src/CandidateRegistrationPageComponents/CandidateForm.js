@@ -4,17 +4,18 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import ImageUploader from "react-images-upload";
-
+import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function CandidateForm() {
-  const history = useHistory()
+  const history = useHistory();
   const [workEx, setWorkEx] = useState([]);
+  const { user } = useContext(AuthContext);
 
   const [state, setState] = useState({
     fullName: "",
     title: "",
     location: "",
-    email: "",
+    email: '',
     workExperience: [],
     desiredPosition: "",
     expectedSalary: "",
@@ -30,43 +31,40 @@ function CandidateForm() {
     state.expectedSalary === "" ||
     state.checked === false;
 
-    const [image, setImage] = useState();
-    const uploadImage = (img) => {
-      console.log(img);
-      setImage(img[0]);
-    };
-  
+  const [image, setImage] = useState();
+  const uploadImage = (img) => {
+    console.log(img);
+    setImage(img[0]);
+  };
 
   const handleChange = (e) => {
     e.preventDefault();
 
     setState({ ...state, [e.target.name]: e.target.value });
   };
-  
+
   const submitDetails = (e) => {
     e.preventDefault();
     var data = new FormData();
 
-    console.log(`image`, image)
+    console.log(`image`, image);
     data.append("file", image);
-    data.append('filename', 'img');
+    data.append("filename", "img");
 
-    Object.keys(state).forEach(key => {
+    Object.keys(state).forEach((key) => {
       data.append(key, state[key]);
-    })
+    });
 
-    
     fetch("http://localhost:5000/candidate/new", {
       method: "post",
       body: data,
     })
       .then((res) => res.json())
-      .then((res) => console.log(res))
-      // .then(history.push('/LoginPage')) then push to the his / her profile
+      .then((res) => console.log(res));
   };
 
   function handleAdd() {
-    setWorkEx([...workEx, '']);
+    setWorkEx([...workEx, ""]);
   }
 
   function handleRemove(i) {
@@ -77,7 +75,7 @@ function CandidateForm() {
   function handleChangeMore(i, e) {
     const values = [...workEx];
     values[i] = e.target.value;
-    setWorkEx(values)
+    setWorkEx(values);
   }
 
   const makeItChecked = (e) => {
@@ -121,7 +119,7 @@ function CandidateForm() {
                 onChange={handleChange}
                 value={state.email}
                 style={inputtStyle}
-              /*value should be retrived automatically and be equal to the user's email*/
+                /*value should be retrived automatically and be equal to the user's email*/
               />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridEmail">
@@ -197,7 +195,6 @@ function CandidateForm() {
 
           <Form.Row>
             <ImageUploader
-              style={imageUploaderStyle}
               buttonText="Choose images"
               onChange={uploadImage}
               imgExtension={[".jpg", ".gif", ".png", ".gif"]}
@@ -270,11 +267,5 @@ const removeButtonStyle = {
 const rowStyle = {
   marginBottom: "3%",
 };
-
-
-const imageUploaderStyle = {
-  marginLeft: "80%",
-};
-
 
 export default CandidateForm;

@@ -6,12 +6,11 @@ const multer = require("multer");
 const storage = multer.diskStorage({
   destination: "uploads/",
   filename: function (req, file, cb) {
-    cb(null, file.originalname)
-  }
-})
+    cb(null, file.originalname);
+  },
+});
 
-const upload = multer({ storage: storage })
-
+const upload = multer({ storage: storage });
 
 router.get("/all", (req, res) => {
   CandidateSchema.find({}, (err, candidates) => {
@@ -24,8 +23,22 @@ router.get("/all", (req, res) => {
 });
 
 router.post("/new", upload.single("file"), (req, res) => {
-  ;
-  const newEmail = req.body.email;
+  //  jwt.encode(token, (err, payload)=>{
+  //   if (err) {
+  //     res.send(err)
+  //   }else{
+  //     const payload={
+
+  //       id : user.id,
+  //       email : user.email
+  //     }
+
+  //   }
+  // })
+
+  const newEmail =
+    req.body
+      .email; /*compare the email from the encoded token with  entered email*/
   CandidateSchema.findOne({ email: newEmail }, (err, candidate) => {
     if (err) {
       res.send(err);
@@ -33,7 +46,7 @@ router.post("/new", upload.single("file"), (req, res) => {
     if (candidate) {
       res.send({ msg: "Candidate is already registered" });
     } else {
-      const body = { ...req.body, img: `uploads/${req.file.originalname}` }
+      const body = { ...req.body, img: `uploads/${req.file.originalname}` };
       const newCandidate = new CandidateSchema(body);
       newCandidate
         .save()

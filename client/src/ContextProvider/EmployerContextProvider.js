@@ -1,6 +1,6 @@
 import React,{useState, useEffect, createContext} from 'react';
 
-const initContext = {employer:''};
+const initContext = {employer:[]};
 export const EmployerContext = createContext(initContext);
 export const EmployerContextProvider = ({children})=>{
     const [employer, setEmployer] = useState();

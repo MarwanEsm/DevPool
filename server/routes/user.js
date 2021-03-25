@@ -3,6 +3,7 @@ const { body, validationResult } = require("express-validator");
 const secretOrKey = require("../Config.js").secretOrKey;
 const jwt = require("jsonwebtoken");
 const UserSchema = require("../model/usersModel");
+const passport = require("passport");
 const router = express.Router();
 
 router.get("/all", (req, res) => {
@@ -11,6 +12,17 @@ router.get("/all", (req, res) => {
       res.send(err);
     } else {
       res.send(users);
+    }
+  });
+});
+
+router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+  User.findById(req.user.id, function(err, user) {
+    if (err) {
+      res.status(404).json({ error: 'User does not exist!' });
+    } else {
+      console.log(user.pets);
+      res.send(user);
     }
   });
 });
