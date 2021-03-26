@@ -15,7 +15,7 @@ function CandidateForm() {
     fullName: "",
     title: "",
     location: "",
-    email: '',
+    email: "",
     workExperience: [],
     desiredPosition: "",
     expectedSalary: "",
@@ -55,12 +55,25 @@ function CandidateForm() {
       data.append(key, state[key]);
     });
 
-    fetch("http://localhost:5000/candidate/new", {
-      method: "post",
+    const token = localStorage.getItem('token')
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      redirect: "follow",
       body: data,
-    })
+    };
+    fetch("http://localhost:5000/candidate/new", requestOptions)
       .then((res) => res.json())
-      .then((res) => console.log(res));
+      .then((res) => {
+        if(res.sucess){
+          alert(res.msg)
+        }else{
+          alert(res.msg)
+        }
+      });
   };
 
   function handleAdd() {
