@@ -29,44 +29,20 @@ router.post(
   "/new",
   passport.authenticate("jwt", { session: false }),
   upload.single("file"),
-  (req, res) => { console.log(req.user);
-    //  jwt.encode(token, (err, payload)=>{
-    //   if (err) {
-    //     res.send(err)
-    //   }else{
-    //     const payload={
-
-    //       id : user.id,
-    //       email : user.email
-    //     }
-
-    //   }
-    // })
-
-    // try findOne {email} if not then change it to ({email :user.email})
-    // UserSchema.findOne( {email :user.email}),
-    //   (err, user) => {
-    // if (err) {
-    //   res.send({ msg: "User does not exist" });
-    // } else if (user) {
-    //   const newEmail =
-    //     user.email;
-    /*compare the email from the encoded token with  entered email*/
-
+  (req, res) => {
+    console.log(req.user);
     const reqEmail = req.body.email;
-
     CandidateSchema.findOne({ email: reqEmail }, (err, candidate) => {
       if (err) {
         res.send(err);
       } else if (reqEmail !== req.user.email) {
-        res.send({ success :false, msg: " Email does not match the registered email" });
+        res.send({
+          success: false,
+          msg: " Email does not match the registered email",
+        });
       } else if (candidate) {
-        res.send({ success :false, msg: "Candidate is already registered" });
+        res.send({ success: false, msg: "Candidate is already registered" });
       } else {
-        ///--------
-
-        ///-------
-
         const body = {
           ...req.body,
           img: `uploads/${req.file.originalname}`,
@@ -76,15 +52,13 @@ router.post(
           .save()
           .then((candidate) => {
             console.log(candidate);
-            res.send({sucess:true, msg:'Details weres submitted'});
+            res.send({ sucess: true, msg: "Details weres submitted" });
           })
           .catch((err) => {
             res.send(err);
           });
       }
     });
-    // }
-    // };
   }
 );
 

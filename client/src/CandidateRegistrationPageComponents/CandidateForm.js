@@ -56,7 +56,7 @@ function CandidateForm() {
     });
 
     const token = localStorage.getItem('token')
-    var myHeaders = new Headers();
+    const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
 
     var requestOptions = {
