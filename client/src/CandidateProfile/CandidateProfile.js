@@ -18,10 +18,11 @@ const CandidateProfile = () => {
   const history = useHistory();
 
   const contactCandidate = () => {
-    if (employer) {
-      history.push("/ChatScreen");
-    } else {
+
+    if (!employer) {
       history.push("/EmployersUserPage");
+    } else {
+      history.push("/ChatScreen");
     }
 
     /* if registered redirect to chat message or email screen

@@ -68,7 +68,7 @@ function CandidateForm() {
     fetch("http://localhost:5000/candidate/new", requestOptions)
       .then((res) => res.json())
       .then((res) => {
-        if(res.sucess){
+        if(res.success){
           alert(res.msg)
         }else{
           alert(res.msg)

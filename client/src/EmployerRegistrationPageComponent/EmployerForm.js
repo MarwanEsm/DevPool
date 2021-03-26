@@ -30,16 +30,27 @@ function EmployerForm() {
 
   const submitDetails = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/employer/new", {
-      method: "post",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
+
+    const token = localStorage.getItem("token");
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      redirect: "follow",
       body: JSON.stringify(state),
-    })
+    };
+    fetch("http://localhost:5000/employer/new", requestOptions)
       .then((res) => res.json())
-      .then((res) => console.log(res));
+      .then((res) => {
+        if (res.success) {
+          alert(res.msg);
+        } else {
+          alert(res.msg);
+        }
+        console.log(res);
+      });
   };
 
   const makeItChecked = (e) => {

@@ -3,8 +3,8 @@ const CandidateSchema = require("../model/candidatesModel");
 const router = express.Router();
 const passport = require("passport");
 const multer = require("multer");
-
 const usersModel = require("../model/usersModel");
+
 
 const storage = multer.diskStorage({
   destination: "uploads/",
@@ -52,7 +52,7 @@ router.post(
           .save()
           .then((candidate) => {
             console.log(candidate);
-            res.send({ sucess: true, msg: "Details weres submitted" });
+            res.send({ success: true, msg: "Details weres submitted" });
           })
           .catch((err) => {
             res.send(err);

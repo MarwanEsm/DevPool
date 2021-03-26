@@ -1,6 +1,8 @@
 const express = require("express");
 const EmployerSchema = require("../model/employersModel");
+const passport = require("passport");
 const router = express.Router();
+const usersModel = require("../model/usersModel");
 
 router.get("/all", (req, res) => {
   EmployerSchema.find({}, (err, employers) => {
@@ -12,26 +14,44 @@ router.get("/all", (req, res) => {
   });
 });
 
-router.post("/new", (req, res) => {
-  const emEmail = req.body.concernedPersonEmail;
-  EmployerSchema.findOne({ concernedPersonEmail: emEmail }, (err, employer) => {
-    if (err) {
-      res.send(err);
-    }
-    if (employer) {
-      res.send({ msg: "Employer is already registered" });
-    } else {
-      const newEmployer = new EmployerSchema(req.body);
-      newEmployer
-        .save()
-        .then((newEmployer) => {
-          res.send(newEmployer);
-        })
-        .catch((err) => {
-          res.send(err);
+
+
+router.post(
+  "/new",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const emEmail = req.body.concernedPersonEmail;
+    EmployerSchema.findOne({ email: emEmail }, (err, employer) => {
+      if (err) {
+        res.send(err);
+      } else if (employer) {
+        res.send({
+          success: false,
+          msg: "Employer is already registered",
         });
-    }
-  });
-});
+      } else if (emEmail !== req.user.email) {
+        res.send({
+          success: false,
+          msg: "Email does not match with registered email",
+        });
+      } else {
+        const newEmployer = new EmployerSchema(req, body);
+        newEmployer
+          .save()
+          .then((employer) => {
+            res.send({
+              success: true,
+              msg: " Details were submitted",
+            });
+          })
+          .catch((err) => {
+            res.send(err);
+          });
+      }
+    });
+  }
+);
+
+
 
 module.exports = router;
