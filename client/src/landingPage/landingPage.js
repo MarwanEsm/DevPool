@@ -15,9 +15,9 @@ function LandingPage() {
   const history = useHistory();
 
   const handelFullProfile = (e) => {
-    e.preventDefault();  
-      history.push("/LoginPage");
-  }
+    e.preventDefault();
+    history.push("/LoginPage");
+  };
 
   return (
     <div>
@@ -33,23 +33,24 @@ function LandingPage() {
                 <Col xs={12} md={7} lg={3} key={candidate._id}>
                   <Card key={candidate._id} style={cardStyle}>
                     <Card.Img
-                    style={imgStyle}
+                      style={imgStyle}
                       variant="top"
                       src={`http://localhost:5000/${candidate.img}`}
                     />
-                    <Card.Header style={cardHeader}>{candidate.fullName}</Card.Header>
+                    <Card.Header style={cardHeader}>
+                      {candidate.fullName}
+                    </Card.Header>
 
                     <Card.Body>
-                      <Card.Text style={titleStyle}>{candidate.title}</Card.Text>
+                      <Card.Text style={titleStyle}>
+                        {candidate.title}
+                      </Card.Text>
                       <Card.Text style={nameStyle}>
                         {candidate.location}
                       </Card.Text>
-                      <Button
-                        onClick={handelFullProfile}
-                        style={buttonStyle}
-                      >
+                      <Button onClick={handelFullProfile} style={buttonStyle}>
                         See Full Profile
-                    </Button>
+                      </Button>
                     </Card.Body>
                   </Card>
                 </Col>
@@ -67,8 +68,6 @@ const rowStyle = {
   marginTop: "6%",
   marginLeft: "1%",
 };
-
-
 
 const nameStyle = {
   fontFamily: "Andale Mono, monospace",
@@ -99,12 +98,11 @@ const buttonStyle = {
   boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
 };
 
-
-const imgStyle ={
-  width:'60%',
-  marginLeft:'20%',
-  marginTop:'7%',
-  marginBottom :'3%'
-}
+const imgStyle = {
+  width: "60%",
+  marginLeft: "20%",
+  marginTop: "7%",
+  marginBottom: "3%",
+};
 
 export default LandingPage;

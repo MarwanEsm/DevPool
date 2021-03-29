@@ -10,8 +10,9 @@ import CandidatesUserPage from "./CandidatesPage/CandidatesUserPage";
 import EmployersUserPage from "./EmployerPage/EmployersUserPage";
 import CandidateProfile from "./CandidateProfile/CandidateProfile";
 import ChatScreen from "./ChatScreen/ChatScreen";
-import PrivateRoute from "./PrivateRoute/PrivateRoute";
-import PublicRoute from "./PublicRoute/PublicRoute";
+import MyProfile from './Myprofile/MyProfile';
+// import PrivateRoute from "./PrivateRoute/PrivateRoute";
+// import PublicRoute from "./PublicRoute/PublicRoute";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -55,6 +56,12 @@ function App() {
                 <Route path="/ChatScreen">
                   <ChatScreen />
                 </Route>
+
+                <Route path="/MyProfile">
+                  <MyProfile />
+                </Route>
+
+
               </Switch>
             </UsersContextProvider>
           </CandidatesContextProvider>
