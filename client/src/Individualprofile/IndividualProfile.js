@@ -1,7 +1,20 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
 function IndividualProfile() {
+  const { candidates } = useContext(CandidatesContext);
+//   const { candidate } = useParams();
+  const [candidate, setCandidate] = useState();
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/candidate/${candidate}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setCandidate(data);
+      });
+  }, []);
   return (
     <div>
       <div className="container">
@@ -12,33 +25,61 @@ function IndividualProfile() {
                 <a href="#">Home</a>
               </li>
               <li className="breadcrumb-item">
-                <a href="#">User</a>
-              </li>
-              <li className="breadcrumb-item active" aria-current="page">
-                User Profile
+                <Link to="/">Logout</Link>
               </li>
             </ol>
           </nav>
 
-          <div className="row gutters-sm">
-            <div className="col-md-4 mb-3">
-              <div className="card">
-                <div className="card-body">
-                  <div className="d-flex flex-column align-items-center text-center">
-                    <img
-                      src="client\src\logo.svg"
-                      alt="Admin"
-                      className="rounded-circle"
-                      width="150"
-                    />
-                    <div className="mt-3">
-                      <h4>John Doe</h4>
-                      <p className="text-secondary mb-1">Full Stack Developer</p>
-                      <p className="text-muted font-size-sm">
-                        Bay Area, San Francisco, CA
-                      </p>
-                      <button className="btn btn-primary">Follow</button>
-                      <button className="btn btn-outline-primary">Message</button>
+          <div>
+            <div>
+              {candidates &&
+                candidates.map((candidate) => {
+                  <div className="row gutters-sm">
+                    <div className="col-md-4 mb-3">
+                      <div className="card">
+                        <div className="card-body">
+                          <div className="d-flex flex-column align-items-center text-center">
+                            <img
+                              src="client\src\logo.svg"
+                              className="rounded-circle"
+                              width="150"
+                            />
+                            <div className="mt-3">
+                              <h4>{`${candidate.fullName}`}</h4>
+                              <p className="text-secondary mb-1">
+                                {`${candidate.title}`}
+                              </p>
+                              <p className="text-muted font-size-sm">
+                                {`${candidate.location}`}
+                              </p>
+
+                              <button className="btn btn-outline-primary">
+                                Message
+                              </button>
+                              <div className="row">
+                                <div className="col-sm-3">
+                                  <h6 className="mb-0">{`${candidate.email}`}</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>;
+                })}
+            </div>
+
+            <div>
+              <div className="col-md-8">
+                <div className="card mb-3">
+                  <div className="card-body">
+                    <div className="row"></div>
+
+                    <div className="row">
+                      {/* <div className="col-sm-3">
+                        <h6 className="mb-0">{`${candidate.phoneNumber}`}</h6>
+                      </div> */}
                     </div>
                   </div>
                 </div>
@@ -161,50 +202,7 @@ function IndividualProfile() {
             </ul>
           </div>
 
-          <div className="col-md-8">
-            <div className="card mb-3">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h6 className="mb-0">Full Name</h6>
-                  </div>
-                  <div className="col-sm-9 text-secondary">Kenneth Valdez</div>
-                </div>
-
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h6 className="mb-0">Email</h6>
-                  </div>
-                  <div className="col-sm-9 text-secondary">fip@jukmuh.al</div>
-                </div>
-
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h6 className="mb-0">Phone</h6>
-                  </div>
-                  <div className="col-sm-9 text-secondary">(239) 816-9029</div>
-                </div>
-
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h6 className="mb-0">Mobile</h6>
-                  </div>
-                  <div className="col-sm-9 text-secondary">(320) 380-4539</div>
-                </div>
-
-                <div className="row">
-                  <div className="col-sm-3">
-                    <h6 className="mb-0">Address</h6>
-                  </div>
-                  <div className="col-sm-9 text-secondary">
-                    Bay Area, San Francisco, CA
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="row gutters-sm">
+          {/* <div className="row gutters-sm">
             <div className="col-sm-6 mb-3">
               <div className="card h-100">
                 <div className="card-body">
@@ -334,69 +332,77 @@ function IndividualProfile() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </div> */}
         </div>
       </div>
     </div>
   );
 }
 
+const svgStyle145 = {
+  width: "24",
+  height: "24",
+};
 
-const svgStyle145={
-    width:"24",
-    height:"24"
-}
+const div220Style = {
+  width: "80%",
+};
 
+const div216Style = {
+  height: 5,
+};
 
-const div220Style={
-    width: '80%',
-    
-}
+const div227Style = {
+  width: "72%",
+};
 
-const div216Style={
-    height: 5
-}
+const div241Style = {
+  width: "89%",
+};
 
-const div227Style={
-    width: '72%'
-}
+const div263Style = {
+  width: "66%",
+};
 
-const div241Style={
-    width: '89%'
-}
+const div284Style = {
+  width: "80%",
+};
 
-const div263Style={
-    width: '66%'
-}
+const div295Style = {
+  width: "72%",
+};
 
-const div284Style={
-    width: '80%'
-}
+const div317Style = {
+  width: "55%",
+};
 
-const div295Style={
-    width: '72%'
-}
+const div328Style = {
+  width: "66%",
+};
 
-const div317Style={
-    width: '55%'
-}
+const div238Style = {
+  height: 5,
+};
 
-const div328Style={
-    width: '66%'
-}
+const div253Style = {
+  width: "55%",
+};
 
-const div238Style={
-    height: 5
-}
+const firstDivStyle = {
+  display: "flex",
+  justifyContent: "space-around",
+};
 
-const div253Style={
-    width: '55%'
-}
-
-
-
-
-
+// const cardStyle = {
+//     position: 'relative',
+//     display: 'flex',
+//     flexDirection: 'column',
+//     minWidth: 0,
+//     wordWrap: 'break-word',
+//     backgroundColor: '#fff',
+//     backgroundClip: 'border-box',
+//     border: '0 solid rgba(0,0,0,.125)',
+//     borderRadius: '.25rem'
+// }
 
 export default IndividualProfile;

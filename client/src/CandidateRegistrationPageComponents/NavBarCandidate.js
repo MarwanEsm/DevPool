@@ -1,9 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
 import Logo from "../LandingPageComponents/Logo";
 import { Link } from "react-router-dom";
+import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
 
 function CandidateNavBar() {
+  const { candidate } = useContext(CandidatesContext);
+  
   return (
     <div style={maindivStyle}>
       <div style={logoStyle}>
@@ -11,7 +14,7 @@ function CandidateNavBar() {
       </div>
       <div style={navdiv}>
       {/* replace it with profile icon */}
-        <Link to="#" style={linkStyle}>My Profile </Link> 
+        <Link to = {`/IndividualProfile/${candidate}`} style={linkStyle}> My Profile </Link> 
         &nbsp; &nbsp;
         <h5>|</h5>
         &nbsp; &nbsp;
