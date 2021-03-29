@@ -1,13 +1,15 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+// const CandidateSchema = require('../model/candidatesModel');
 
 const UserSchema = new mongoose.Schema({
-  // firstName: { type: String },
-  // lastName: { type: String },
   email: { type: String, validator : true, required: true },
   password: { type: String, required: true },
-  // city: { type: String, required: true },
-  // country: { type: String, required: true },
   owner: { type: String, required: true },
+  id_ : Schema.Types.ObjectId,
+  
 });
+
+// const Candidate = mongoose.model('Candidate', CandidateSchema);
 
 module.exports = mongoose.model("user", UserSchema);

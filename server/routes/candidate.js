@@ -25,6 +25,18 @@ router.get("/all", (req, res) => {
   });
 });
 
+router.get('/:id', (req, res) => {
+  let candidateId = req.params.id;
+  CandidateSchema.findById(candidateId, function(err, candidate) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(candidate);
+    }
+  });
+});
+
+
 router.post(
   "/new",
   passport.authenticate("jwt", { session: false }),

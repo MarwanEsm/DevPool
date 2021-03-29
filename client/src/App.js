@@ -57,7 +57,7 @@ function App() {
                   <ChatScreen />
                 </Route>
 
-                <Route path="/IndividualProfile">
+                <Route path="/IndividualProfile/:id">
                   <IndividualProfile />
                 </Route>
 

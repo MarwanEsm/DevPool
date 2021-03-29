@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
 function IndividualProfile() {
-  const { candidates } = useContext(CandidatesContext);
-//   const { candidate } = useParams();
+  //   const { candidates } = useContext(CandidatesContext);
+  const { id } = useParams();
   const [candidate, setCandidate] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/candidate/${candidate}`)
+    fetch(`http://localhost:5000/candidate/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -32,42 +32,42 @@ function IndividualProfile() {
 
           <div>
             <div>
-              {candidates &&
-                candidates.map((candidate) => {
-                  <div className="row gutters-sm">
-                    <div className="col-md-4 mb-3">
-                      <div className="card">
-                        <div className="card-body">
-                          <div className="d-flex flex-column align-items-center text-center">
-                            <img
-                              src="client\src\logo.svg"
-                              className="rounded-circle"
-                              width="150"
-                            />
-                            <div className="mt-3">
-                              <h4>{`${candidate.fullName}`}</h4>
-                              <p className="text-secondary mb-1">
+              <div className="row gutters-sm">
+                <div className="col-md-4 mb-3">
+                  <div className="card">
+                    <div className="card-body">
+                      <div className="d-flex flex-column align-items-center text-center">
+                        <img
+                          src="client\src\logo.svg"
+                          className="rounded-circle"
+                          width="150"
+                        />
+                        <div className="mt-3">
+                          {candidate && <h4>{candidate.fullName}</h4>}
+
+                          {/* <h4>{`${candidate.fullName}`}</h4> */}
+                          {/* <p className="text-secondary mb-1">
                                 {`${candidate.title}`}
                               </p>
                               <p className="text-muted font-size-sm">
                                 {`${candidate.location}`}
-                              </p>
+                              </p> */}
 
-                              <button className="btn btn-outline-primary">
-                                Message
-                              </button>
-                              <div className="row">
+                          <button className="btn btn-outline-primary">
+                            Message
+                          </button>
+                          {/* <div className="row">
                                 <div className="col-sm-3">
                                   <h6 className="mb-0">{`${candidate.email}`}</h6>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                                </div> */}
+                          {/* </div> */}
                         </div>
                       </div>
                     </div>
-                  </div>;
-                })}
+                  </div>
+                </div>
+              </div>
+              ;
             </div>
 
             <div>
