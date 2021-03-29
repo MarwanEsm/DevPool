@@ -3,12 +3,19 @@ import { Link, useParams } from "react-router-dom";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
 function IndividualProfile() {
-  //   const { candidates } = useContext(CandidatesContext);
   const { id } = useParams();
   const [candidate, setCandidate] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/candidate/${id}`)
+    const token = localStorage.getItem("token");
+    fetch(`http://localhost:5000/candidate/me`, {
+      method: "get",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

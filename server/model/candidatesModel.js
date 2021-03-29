@@ -11,7 +11,7 @@ const CandidateSchema = new mongoose.Schema({
   desiredPosition: String,
   expectedSalary: Number,
   email: { type: String, required: true },
-  id:{ type: Schema.Types.ObjectId, ref: 'user' }
+  userId:{ type: Schema.Types.ObjectId, ref: 'user' }
 });
 
 module.exports = mongoose.model("candidate", CandidateSchema);

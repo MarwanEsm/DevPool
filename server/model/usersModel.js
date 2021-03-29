@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-// const CandidateSchema = require('../model/candidatesModel');
+
 
 const UserSchema = new mongoose.Schema({
   email: { type: String, validator : true, required: true },
@@ -10,6 +10,6 @@ const UserSchema = new mongoose.Schema({
   
 });
 
-// const Candidate = mongoose.model('Candidate', CandidateSchema);
+
 
 module.exports = mongoose.model("user", UserSchema);
