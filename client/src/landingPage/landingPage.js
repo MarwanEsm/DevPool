@@ -14,7 +14,7 @@ function LandingPage() {
   const { user } = useContext(AuthContext);
   const history = useHistory();
 
-  const handelFullProfile = (e) => {
+  const handelReadMore = (e) => {
     e.preventDefault();
     history.push("/LoginPage");
   };
@@ -48,8 +48,8 @@ function LandingPage() {
                       <Card.Text style={nameStyle}>
                         {candidate.location}
                       </Card.Text>
-                      <Button onClick={handelFullProfile} style={buttonStyle}>
-                        See Full Profile
+                      <Button onClick={handelReadMore} style={buttonStyle}>
+                        Read More
                       </Button>
                     </Card.Body>
                   </Card>

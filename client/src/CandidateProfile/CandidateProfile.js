@@ -17,17 +17,10 @@ const CandidateProfile = () => {
   const { employer } = useContext(EmployerContext);
   const history = useHistory();
 
-  const contactCandidate = () => {
-
-    if (!employer) {
-      history.push("/EmployersUserPage");
-    } else {
-      history.push("/ChatScreen");
-    }
-
-    /* if registered redirect to chat message or email screen
-      if not alert please register with a link to employer registration page 
-      it always redirect to Chat Screen*/
+  const CheckFullProfile = () => {
+    history.push(
+      "/IndividualProfile"
+    ); /* It should be redirected to the profile of the candidate on which the employer clicked*/
   };
 
   const [text, setText] = useState(false);
@@ -120,10 +113,10 @@ const CandidateProfile = () => {
 
                           <Button
                             variant="primary"
-                            onClick={contactCandidate}
+                            onClick={CheckFullProfile}
                             style={buttonStyle}
                           >
-                            Contact Candidate
+                            Check Full Profile
                           </Button>
                         </>
                       )}

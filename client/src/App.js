@@ -10,7 +10,7 @@ import CandidatesUserPage from "./CandidatesPage/CandidatesUserPage";
 import EmployersUserPage from "./EmployerPage/EmployersUserPage";
 import CandidateProfile from "./CandidateProfile/CandidateProfile";
 import ChatScreen from "./ChatScreen/ChatScreen";
-import MyProfile from './Myprofile/MyProfile';
+import IndividualProfile from './Individualprofile/IndividualProfile';
 // import PrivateRoute from "./PrivateRoute/PrivateRoute";
 // import PublicRoute from "./PublicRoute/PublicRoute";
 import "./App.css";
@@ -57,8 +57,8 @@ function App() {
                   <ChatScreen />
                 </Route>
 
-                <Route path="/MyProfile">
-                  <MyProfile />
+                <Route path="/IndividualProfile">
+                  <IndividualProfile />
                 </Route>
 
 

@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function MyProfile() {
+function IndividualProfile() {
   return (
     <div>
       <div className="container">
@@ -399,4 +399,4 @@ const div253Style={
 
 
 
-export default MyProfile;
+export default IndividualProfile;
