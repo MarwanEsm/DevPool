@@ -44,21 +44,18 @@ function IndividualProfile() {
                   <div className="card">
                     <div className="card-body">
                       <div className="d-flex flex-column align-items-center text-center">
-                        <img
-                          src="client\src\logo.svg"
-                          className="rounded-circle"
-                          width="150"
-                        />
+                     
                         <div className="mt-3">
+                          {candidate && (
+                            <img
+                              style={imgStyle}
+                              variant="top"
+                              src={`http://localhost:5000/${candidate.img}`}
+                            />
+                          )}
                           {candidate && <h4>{candidate.fullName}</h4>}
-
-                          {/* <h4>{`${candidate.fullName}`}</h4> */}
-                          {/* <p className="text-secondary mb-1">
-                                {`${candidate.title}`}
-                              </p>
-                              <p className="text-muted font-size-sm">
-                                {`${candidate.location}`}
-                              </p> */}
+                          {candidate && <h5>{candidate.title}</h5>}
+                          {candidate && <h5>{candidate.location}</h5>}
 
                           <button className="btn btn-outline-primary">
                             Message
@@ -66,15 +63,15 @@ function IndividualProfile() {
                           {/* <div className="row">
                                 <div className="col-sm-3">
                                   <h6 className="mb-0">{`${candidate.email}`}</h6>
-                                </div> */}
-                          {/* </div> */}
+                                </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              ;
+            
             </div>
 
             <div>
@@ -84,9 +81,10 @@ function IndividualProfile() {
                     <div className="row"></div>
 
                     <div className="row">
-                      {/* <div className="col-sm-3">
-                        <h6 className="mb-0">{`${candidate.phoneNumber}`}</h6>
-                      </div> */}
+                      <div className="col-sm-3">
+                        {candidate && <h6 className="mb-0">{candidate.email}</h6>}
+                        /// add phone number and other hobbies//
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -411,5 +409,13 @@ const firstDivStyle = {
 //     border: '0 solid rgba(0,0,0,.125)',
 //     borderRadius: '.25rem'
 // }
+
+
+const imgStyle = {
+    width: "60%",
+    marginLeft: "20%",
+    marginTop: "7%",
+    marginBottom: "3%",
+  };
 
 export default IndividualProfile;
