@@ -16,6 +16,31 @@ router.get("/all", (req, res) => {
 
 
 
+router.get('/me', passport.authenticate("jwt", { session: false }),(req, res) => {
+  
+  console.log(req.user);
+  EmployerSchema.findOne({userId:req.user._id}, function(err, employer) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(employer);
+    }
+  });
+});
+
+
+router.get('/:id', (req, res) => {
+  const employerId = req.params.id;
+  CandidateSchema.findById(employerId, function(err, employer) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(employer);
+    }
+  });
+});
+
+
 router.post(
   "/new",
   passport.authenticate("jwt", { session: false }),
