@@ -1,10 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
+import IndividualCandidateNavBar from "./NavBarIndividualCandidate";
 
 function IndividualProfile() {
   const { id } = useParams();
+  const history = useHistory();
   const [candidate, setCandidate] = useState();
+
+  const handleClick = () => {
+    history.push("/ChatScreen");
+  };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -22,69 +28,115 @@ function IndividualProfile() {
         setCandidate(data);
       });
   }, []);
+
   return (
     <div>
-      <div className="container">
-        <div className="main-body">
-          <nav aria-label="breadcrumb" className="main-breadcrumb">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item">
-                <a href="#">Home</a>
-              </li>
-              <li className="breadcrumb-item">
-                <Link to="/">Logout</Link>
-              </li>
-            </ol>
-          </nav>
+      <IndividualCandidateNavBar />
 
-          <div>
-            <div>
-              <div className="row gutters-sm">
-                <div className="col-md-4 mb-3">
-                  <div className="card">
-                    <div className="card-body">
-                      <div className="d-flex flex-column align-items-center text-center">
-                     
-                        <div className="mt-3">
-                          {candidate && (
-                            <img
-                              style={imgStyle}
-                              variant="top"
-                              src={`http://localhost:5000/${candidate.img}`}
-                            />
-                          )}
-                          {candidate && <h4>{candidate.fullName}</h4>}
-                          {candidate && <h5>{candidate.title}</h5>}
-                          {candidate && <h5>{candidate.location}</h5>}
+      <div style={mainDivStyle}>
+        <div>
+          <div className="row gutters-sm">
+            <div className="col-md-4 mb-3">
+              <div className="card" style={cardStyle}>
+                <div className="card-body">
+                  <div className="d-flex flex-column align-items-center text-center">
+                    <div className="mt-3">
+                      {candidate && (
+                        <img
+                          style={imgStyle}
+                          variant="top"
+                          src={`http://localhost:5000/${candidate.img}`}
+                        />
+                      )}
+                      {candidate && (
+                        <h4 style={nameStyle}>{candidate.fullName}</h4>
+                      )}
+                      {candidate && (
+                        <p class="text-secondary mb-1" style={titleAndLocation}>
+                          {candidate.title}
+                        </p>
+                      )}
+                      {candidate && (
+                        <p
+                          class="text-muted font-size-sm"
+                          style={titleAndLocation}
+                        >
+                          {candidate.location}
+                        </p>
+                      )}
 
-                          <button className="btn btn-outline-primary">
-                            Message
-                          </button>
-                          {/* <div className="row">
-                                <div className="col-sm-3">
-                                  <h6 className="mb-0">{`${candidate.email}`}</h6>
-                                </div>
-                          </div> */}
-                        </div>
-                      </div>
+                      <button
+                        className="btn btn-outline-primary"
+                        onClick={handleClick}
+                      >
+                        Message
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
-            
             </div>
 
-            <div>
-              <div className="col-md-8">
-                <div className="card mb-3">
-                  <div className="card-body">
-                    <div className="row"></div>
+            <div className="col-md-8">
+              <div className="card mb-3" style={rowDetailsStyle}>
+                <div className="card-body">
+                  <div className="row"></div>
 
-                    <div className="row">
-                      <div className="col-sm-3">
-                        {candidate && <h6 className="mb-0">{candidate.email}</h6>}
-                        /// add phone number and other hobbies//
-                      </div>
+                  <div className="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Full Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {candidate && candidate.fullName}
+                    </div>
+                  </div>
+
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {candidate && candidate.email}
+                    </div>
+                  </div>
+                  <hr />
+
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {candidate && candidate.MobileNumber}
+                    </div>
+                  </div>
+                  <hr />
+
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Hobbies</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {candidate && candidate.hobbies}
+                    </div>
+                  </div>
+                  <hr />
+
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0"> Address</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {candidate && candidate.address}
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0"> Others</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {candidate && candidate.others}
                     </div>
                   </div>
                 </div>
@@ -410,12 +462,42 @@ const firstDivStyle = {
 //     borderRadius: '.25rem'
 // }
 
-
 const imgStyle = {
-    width: "60%",
-    marginLeft: "20%",
-    marginTop: "7%",
-    marginBottom: "3%",
-  };
+  width: "85%",
+  height: "100%",
+  marginBottom: "8%",
+  borderRadius: "50%",
+};
 
+const cardStyle = {
+  width: "85%",
+  border: "solid",
+  borderColor: "gray",
+};
+
+const nameStyle = {
+  fontFamily: "Courier New, monospace",
+  fontSize: 19,
+  fontWeight: "bold",
+};
+
+const titleAndLocation = {
+  fontFamily: "Florence, cursive",
+  fontSize: 15,
+};
+
+const mainDivStyle = {
+  marginTop: "5%",
+  marginLeft: "15%",
+  marginRight: "15%",
+  marginBottom :'15%'
+};
+
+const rowDetailsStyle = {
+  fontSize: 19,
+  fontFamily: "Lucidatypewriter, monospace",
+  border: "solid",
+  borderColor: "gray",
+  height: "95%",
+};
 export default IndividualProfile;
