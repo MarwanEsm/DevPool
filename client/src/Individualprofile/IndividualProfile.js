@@ -133,10 +133,10 @@ function IndividualProfile() {
                   <hr />
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0"> Others</h6>
+                      <h6 class="mb-0"> Languages</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      {candidate && candidate.others}
+                      {candidate && candidate.languages}
                     </div>
                   </div>
                 </div>
@@ -144,6 +144,7 @@ function IndividualProfile() {
             </div>
           </div>
 
+<div style={socialMediaDiv}>
           <div className="card mt-3">
             <ul className="list-group list-group-flush">
               <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -258,6 +259,8 @@ function IndividualProfile() {
               </li>
             </ul>
           </div>
+
+          <br />
 
           {/* <div className="row gutters-sm">
             <div className="col-sm-6 mb-3">
@@ -392,6 +395,7 @@ function IndividualProfile() {
             </div> */}
         </div>
       </div>
+      </div>
     </div>
   );
 }
@@ -490,7 +494,7 @@ const mainDivStyle = {
   marginTop: "5%",
   marginLeft: "15%",
   marginRight: "15%",
-  marginBottom :'15%'
+  marginBottom: "15%",
 };
 
 const rowDetailsStyle = {
@@ -500,4 +504,17 @@ const rowDetailsStyle = {
   borderColor: "gray",
   height: "95%",
 };
+
+const socialMediaDiv ={
+  width:'40%',
+  border: "solid",
+  borderColor: "gray",
+
+}
+
+
+
+
+
+
 export default IndividualProfile;
