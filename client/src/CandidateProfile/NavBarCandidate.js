@@ -5,8 +5,10 @@ import FormControl from "react-bootstrap/FormControl";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
+import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function CandidatePageNavBar() {
+  const { user } = useContext(AuthContext);
   const {
     searchTitle,
     setSearchTitle,
@@ -66,7 +68,7 @@ function CandidatePageNavBar() {
         </Form.Row>
       </div>
       <div style={navdiv}>
-        <Link to="#" style={linkStyle}>
+        <Link to= {`/EmployerIndividualProfile/${user._id}`} style={linkStyle}>
           My Profile
         </Link>
         &nbsp; &nbsp;

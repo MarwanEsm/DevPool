@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import CandidatePageNavBar from "./NavBarCandidate";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -16,11 +16,17 @@ const CandidateProfile = () => {
   const { filteredCandidates } = useContext(CandidatesContext);
   const { employer } = useContext(EmployerContext);
   const history = useHistory();
-
-  const CheckFullProfile = () => {
-    history.push(
-      "/IndividualProfile"
-    ); /* It should be redirected to the profile of the candidate on which the employer clicked*/
+  const { id } = useParams();
+  
+  //______________
+  const checkFullProfile = () => {
+    // if(employer){
+    //   history.push('/IndividualProfile')
+    // }else{
+    //   history.push('/EmployersUserPage')
+    // }
+    
+    
   };
 
   const [text, setText] = useState(false);
@@ -113,7 +119,7 @@ const CandidateProfile = () => {
 
                           <Button
                             variant="primary"
-                            onClick={CheckFullProfile}
+                            onClick={checkFullProfile}
                             style={buttonStyle}
                           >
                             Check Full Profile

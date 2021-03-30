@@ -10,6 +10,7 @@ function IndividualCandidateNavBar() {
       </div>
       <div style={navdiv}>
         <Link to="/" style={linkStyle}>
+          
           Edit Profile
         </Link>
         &nbsp; &nbsp;

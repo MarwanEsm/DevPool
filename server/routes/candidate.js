@@ -3,8 +3,8 @@ const CandidateSchema = require("../model/candidatesModel");
 const router = express.Router();
 const passport = require("passport");
 const multer = require("multer");
-const usersModel = require("../model/usersModel");
-const { route } = require("./user");
+
+
 
 
 const storage = multer.diskStorage({
@@ -51,6 +51,8 @@ router.get('/:id', (req, res) => {
     }
   });
 });
+
+
 
 router.post(
   "/new",

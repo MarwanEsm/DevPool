@@ -5,6 +5,7 @@ import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function EmployerNavBar() {
   const { user } = useContext(AuthContext);
+  console.log(user);
   return (
     <div style={maindivStyle}>
       <div style={logoStyle}>

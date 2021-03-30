@@ -4,7 +4,6 @@ import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider"
 import IndividualCandidateNavBar from "./NavBarIndividualCandidate";
 
 function IndividualProfile() {
-  const { id } = useParams();
   const history = useHistory();
   const [candidate, setCandidate] = useState();
 
