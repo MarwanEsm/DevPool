@@ -34,13 +34,15 @@ function EmployerForm() {
     const token = localStorage.getItem("token");
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-    var requestOptions = {
+    const requestOptions = {
       method: "POST",
       headers: myHeaders,
       redirect: "follow",
       body: JSON.stringify(state),
     };
+    
     fetch("http://localhost:5000/employer/new", requestOptions)
       .then((res) => res.json())
       .then((res) => {

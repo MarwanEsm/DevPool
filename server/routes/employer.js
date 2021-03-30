@@ -20,7 +20,10 @@ router.post(
   "/new",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    
     const emEmail = req.body.concernedPersonEmail;
+    console.log(req.user.email);
+    console.log(req.body);
     EmployerSchema.findOne({ email: emEmail }, (err, employer) => {
       if (err) {
         res.send(err);
@@ -35,7 +38,7 @@ router.post(
           msg: "Email does not match with registered email",
         });
       } else {
-        const newEmployer = new EmployerSchema(req, body);
+        const newEmployer = new EmployerSchema(req.body);
         newEmployer
           .save()
           .then((employer) => {
