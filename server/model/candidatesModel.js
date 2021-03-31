@@ -17,6 +17,12 @@ const CandidateSchema = new mongoose.Schema({
   facebook: String,
   twitter: String,
   shortStoryAboutme: String,
+  phoneNo: Number,
+  hobbies: String,
+  address: String,
+
+
+
 });
 
 module.exports = mongoose.model("candidate", CandidateSchema);

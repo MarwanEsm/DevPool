@@ -4,15 +4,23 @@ import CandidateNavBar from "../CandidateRegistrationPageComponents/NavBarCandid
 import CandidateForm from "../CandidateRegistrationPageComponents/CandidateForm";
 import Footer from "../LandingPageComponents/Footer";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
+import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
 function CandidatesUserPage() {
-  return (
-    <div>
-      <CandidateNavBar />
-      <CandidateForm />
-      <Footer />
-    </div>
-  );
+  const history = useHistory();
+  const { candidate } = useContext(CandidatesContext);
+  const {user} =useContext(AuthContext)
+  if (!candidate) {
+    return (
+      <div>
+        <CandidateNavBar />
+        <CandidateForm />
+        <Footer />
+      </div>
+    );
+  } else {
+    history.push(`/individualProfile/${user._id}`);
+  }
 }
 
 export default CandidatesUserPage;

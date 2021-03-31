@@ -283,6 +283,7 @@ function IndividualProfile() {
               <div style={storyOfMe}>
                 <div className="card mt-3">
                   <p>Short story about me</p>
+                  {candidate && (<p>{candidate.shortStoryAboutme}</p>)}
                 </div>
               </div>
             </div>

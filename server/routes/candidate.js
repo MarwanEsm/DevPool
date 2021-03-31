@@ -101,7 +101,7 @@ router.put(
         res.send(err);
       } else  {
         console.log(candidate);
-        res.send(candidate)
+        res.send({msg : 'Changes were submitted'})
         // const body = {
         //   ...req.body,
         // };

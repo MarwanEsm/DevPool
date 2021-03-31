@@ -6,23 +6,9 @@ import Button from "react-bootstrap/Button";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function EditProfieCanForm() {
-  //   const history = useHistory();
-    const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-  const [state, setState] = useState({
-    website: "",
-    twitter: "",
-    facebook: "",
-    github: "",
-    instagram: "",
-    shortStoryAboutme: "",
-    languages: "",
-    fullName: "",
-    title: "",
-    location: "",
-    desiredPosition: "",
-    expectedSalary: "",
-  });
+  const [state, setState] = useState({});
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -31,10 +17,10 @@ function EditProfieCanForm() {
 
   const submitDetails = (e) => {
     e.preventDefault();
-
+    console.log(state);
     const token = localStorage.getItem("token");
-console.log(token);
-    fetch('http://localhost:5000/candidate/me', {
+    console.log(token);
+    fetch("http://localhost:5000/candidate/me", {
       method: "put",
       headers: {
         Accept: "application/json, text/plain, */*",
@@ -42,10 +28,10 @@ console.log(token);
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(state),
-      
     })
       .then((res) => res.json())
-      .then((res) => {console.log(state);
+      .then((res) => {
+        console.log(state);
         if (res.success) {
           alert(res.msg);
         } else {
@@ -59,8 +45,7 @@ console.log(token);
     <div>
       <div style={divStyle}>
         <Form>
-
-        <Form.Row style={rowStyle}>
+          <Form.Row style={rowStyle}>
             <Form.Group as={Col} controlId="formGridPassword">
               <Form.Label style={textStyle}>Full Name</Form.Label>
               <Form.Control
@@ -82,20 +67,30 @@ console.log(token);
                 style={inputtStyle}
               />
             </Form.Group>
+            <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Label style={textStyle}>Hobbies</Form.Label>
+              <Form.Control
+                type="text"
+                name="hobbies"
+                onChange={handleChange}
+                value={state.hobbies}
+                style={inputtStyle}
+              />
+            </Form.Group>
           </Form.Row>
 
           <Form.Row>
-            {/* <Form.Group as={Col} controlId="formGridEmail">
-              <Form.Label style={textStyle}>Email</Form.Label>
+            <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Label style={textStyle}>Phone No</Form.Label>
               <Form.Control
-                type="email"
-                name="email"
+                type="number"
+                name="phoneNo"
                 onChange={handleChange}
-                value={state.email}
+                value={state.phoneNo}
                 style={inputtStyle}
-                
               />
-            </Form.Group> */}
+            </Form.Group>
+
             <Form.Group as={Col} controlId="formGridEmail">
               <Form.Label style={textStyle}>Location</Form.Label>
               <Form.Control
@@ -103,6 +98,16 @@ console.log(token);
                 name="location"
                 onChange={handleChange}
                 value={state.location}
+                style={inputtStyle}
+              />
+            </Form.Group>
+            <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Label style={textStyle}>Address</Form.Label>
+              <Form.Control
+                type="text"
+                name="address"
+                onChange={handleChange}
+                value={state.address}
                 style={inputtStyle}
               />
             </Form.Group>
@@ -129,9 +134,17 @@ console.log(token);
                 style={inputtStyle}
               />
             </Form.Group>
+            <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Label style={textStyle}>Github</Form.Label>
+              <Form.Control
+                type="text"
+                name="github"
+                onChange={handleChange}
+                value={state.github}
+                style={inputtStyle}
+              />
+            </Form.Group>
           </Form.Row>
-
-
 
           <Form.Row style={rowStyle}>
             <Form.Group as={Col} controlId="formGridPassword">
@@ -144,19 +157,6 @@ console.log(token);
                 style={inputtStyle}
               />
             </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label style={textStyle}>Github</Form.Label>
-              <Form.Control
-                type="text"
-                name="github"
-                onChange={handleChange}
-                value={state.github}
-                style={inputtStyle}
-              />
-            </Form.Group>
-          </Form.Row>
-          <Form.Row>
             <Form.Group as={Col} controlId="formGridEmail">
               <Form.Label style={textStyle}>Twitter</Form.Label>
               <Form.Control
@@ -177,8 +177,13 @@ console.log(token);
                 style={inputtStyle}
               />
             </Form.Group>
+
+            
           </Form.Row>
-          <br />
+          <Form.Row>
+            
+          </Form.Row>
+         
           <Form.Row>
             <Form.Group as={Col} controlId="formGridPassword">
               <Form.Label style={textStyle}>Instagram</Form.Label>
@@ -226,8 +231,9 @@ console.log(token);
 
 const divStyle = {
   marginTop: "4%",
-  marginLeft: "30%",
-  width: "35%",
+  marginLeft: "13%",
+  width: "65%",
+  marginBottom:'20%'
 };
 
 const inputtStyle = {
