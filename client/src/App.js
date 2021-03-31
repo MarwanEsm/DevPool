@@ -52,7 +52,7 @@ function App() {
                 <Route path="/EmployerIndividualProfile/:id">
                   <EmployerIndividualProfile />
                 </Route>
-                <Route path="/EditProfileCandidate">
+                <Route path="/EditProfileCandidate/:id">
                   <EditProfileCandidate />
                 </Route>
               </Switch>

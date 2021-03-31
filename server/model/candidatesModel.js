@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const CandidateSchema = new mongoose.Schema({
-  
   img: { type: String, required: false },
   fullName: { type: String, required: true },
   title: { type: String, required: true },
@@ -11,7 +10,13 @@ const CandidateSchema = new mongoose.Schema({
   desiredPosition: String,
   expectedSalary: Number,
   email: { type: String, required: true },
-  userId:{ type: Schema.Types.ObjectId, ref: 'user' }
+  userId: { type: Schema.Types.ObjectId, ref: "user" },
+  website: String,
+  github: String,
+  instagram: String,
+  facebook: String,
+  twitter: String,
+  shortStoryAboutme: String,
 });
 
 module.exports = mongoose.model("candidate", CandidateSchema);

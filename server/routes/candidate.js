@@ -4,9 +4,6 @@ const router = express.Router();
 const passport = require("passport");
 const multer = require("multer");
 
-
-
-
 const storage = multer.diskStorage({
   destination: "uploads/",
   filename: function (req, file, cb) {
@@ -26,24 +23,28 @@ router.get("/all", (req, res) => {
   });
 });
 
-
-
-router.get('/me', passport.authenticate("jwt", { session: false }),(req, res) => {
-  
-  console.log(req.user);
-  CandidateSchema.findOne({userId:req.user._id}, function(err, candidate) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(candidate);
-    }
-  });
-});
+router.get(
+  "/me",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    console.log(req.user);
+    CandidateSchema.findOne(
+      { userId: req.user._id },
+      function (err, candidate) {
+        if (err) {
+          console.log(err);
+        } else {
+          res.send(candidate);
+        }
+      }
+    );
+  }
+);
 
 /// can be used to fetch once a recruiter wants to check a candidate profile//
-router.get('/:id', (req, res) => {
+router.get("/:id", (req, res) => {
   const candidateId = req.params.id;
-  CandidateSchema.findById(candidateId, function(err, candidate) {
+  CandidateSchema.findById(candidateId, function (err, candidate) {
     if (err) {
       console.log(err);
     } else {
@@ -51,8 +52,6 @@ router.get('/:id', (req, res) => {
     }
   });
 });
-
-
 
 router.post(
   "/new",
@@ -75,13 +74,38 @@ router.post(
         const body = {
           ...req.body,
           img: `uploads/${req.file.originalname}`,
-          userId:req.user._id
+          userId: req.user._id,
         };
         const newCandidate = new CandidateSchema(body);
         newCandidate
           .save()
           .then((candidate) => {
             console.log(candidate);
+            res.send({ success: true, msg: "Details weres submitted" });
+          })
+          .catch((err) => {
+            res.send(err);
+          });
+      }
+    });
+  }
+);
+
+router.put(
+  "/me",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    CandidateSchema.findById({userId: req.user._id}, (err, body) => {
+      if (err) {
+        res.send(err);
+      } else if (userId == req.user._id) {
+        const body = {
+          ...req.body,
+        };
+        console.log(req.body);
+        CandidateSchema.save()
+          .then((body) => {
+            console.log(body);
             res.send({ success: true, msg: "Details weres submitted" });
           })
           .catch((err) => {

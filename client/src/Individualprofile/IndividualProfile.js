@@ -30,7 +30,7 @@ function IndividualProfile() {
 
   return (
     <div>
-      <IndividualCandidateNavBar />
+      <IndividualCandidateNavBar/>
 
       <div style={mainDivStyle}>
         <div>
@@ -51,13 +51,13 @@ function IndividualProfile() {
                         <h4 style={nameStyle}>{candidate.fullName}</h4>
                       )}
                       {candidate && (
-                        <p class="text-secondary mb-1" style={titleAndLocation}>
+                        <p className="text-secondary mb-1" style={titleAndLocation}>
                           {candidate.title}
                         </p>
                       )}
                       {candidate && (
                         <p
-                          class="text-muted font-size-sm"
+                        className="text-muted font-size-sm"
                           style={titleAndLocation}
                         >
                           {candidate.location}
@@ -82,59 +82,59 @@ function IndividualProfile() {
                   <div className="row"></div>
 
                   <div className="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Full Name</h6>
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Full Name</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">
+                    <div className="col-sm-9 text-secondary">
                       {candidate && candidate.fullName}
                     </div>
                   </div>
 
                   <hr />
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Email</h6>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Email</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">
+                    <div className="col-sm-9 text-secondary">
                       {candidate && candidate.email}
                     </div>
                   </div>
                   <hr />
 
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Phone</h6>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Phone</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">
+                    <div className="col-sm-9 text-secondary">
                       {candidate && candidate.MobileNumber}
                     </div>
                   </div>
                   <hr />
 
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Hobbies</h6>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0">Hobbies</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">
+                    <div className="col-sm-9 text-secondary">
                       {candidate && candidate.hobbies}
                     </div>
                   </div>
                   <hr />
 
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0"> Address</h6>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0"> Address</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">
+                    <div className="col-sm-9 text-secondary">
                       {candidate && candidate.address}
                     </div>
                   </div>
                   <hr />
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0"> Languages</h6>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <h6 className="mb-0"> Languages</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">
+                    <div className="col-sm-9 text-secondary">
                       {candidate && candidate.languages}
                     </div>
                   </div>
@@ -480,17 +480,6 @@ const divStyle = {
   flexDirection: "row",
 };
 
-// const cardStyle = {
-//     position: 'relative',
-//     display: 'flex',
-//     flexDirection: 'column',
-//     minWidth: 0,
-//     wordWrap: 'break-word',
-//     backgroundColor: '#fff',
-//     backgroundClip: 'border-box',
-//     border: '0 solid rgba(0,0,0,.125)',
-//     borderRadius: '.25rem'
-// }
 
 const imgStyle = {
   width: "85%",
@@ -538,5 +527,11 @@ const storyOfMe = {
   width: "120%",
   height: "120%",
 };
+
+// const navStyle = {
+//   marginLeft :'3%',
+//   marginRight :'3%',
+
+// }
 
 export default IndividualProfile;

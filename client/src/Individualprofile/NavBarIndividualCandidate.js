@@ -1,17 +1,18 @@
 import React, { useContext } from "react";
 import Logo from "../LandingPageComponents/Logo";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 
 function NavBarEditProfileCan() {
-
+  const { user } = useContext(AuthContext);
   return (
     <div style={maindivStyle}>
       <div style={logoStyle}>
         <Logo />
       </div>
       <div style={navdiv}>
-        <Link to="/EditProfileCandidate" style={linkStyle}>
+        <Link to={`/EditProfileCandidate/${user._id}`} style={linkStyle}>
           
           Edit Profile
         </Link>

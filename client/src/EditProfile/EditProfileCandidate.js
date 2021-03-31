@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBarEditProfileCan from './NavBarEditProfileCand';
+import EditProfieCanForm from './EditProfileCanForm';
 
 function EditProfileCandidate(){
     return(
@@ -7,6 +8,9 @@ function EditProfileCandidate(){
             <div>
                 <NavBarEditProfileCan/>
 
+            </div>
+            <div>
+                <EditProfieCanForm/>
             </div>
         </div>
     )
