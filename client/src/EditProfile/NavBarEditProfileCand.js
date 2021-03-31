@@ -1,9 +1,14 @@
 import React, { useContext } from "react";
 import Logo from "../LandingPageComponents/Logo";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
-
-function NavBarEditProfileCan() {
+function IndividualCandidateNavBar() {
+  const { user } = useContext(AuthContext);
+  const history = useHistory();
+  const handleClick = () => {
+    history.goBack();
+  };
 
   return (
     <div style={maindivStyle}>
@@ -11,9 +16,8 @@ function NavBarEditProfileCan() {
         <Logo />
       </div>
       <div style={navdiv}>
-        <Link to="/EditProfileCandidate" style={linkStyle}>
-          
-          Edit Profile
+        <Link to="" onClick={handleClick} style={linkStyle}>
+          My Profile
         </Link>
         &nbsp; &nbsp;
         <h5>|</h5>
@@ -38,7 +42,6 @@ const maindivStyle = {
 const navdiv = {
   display: "flex",
   justifyContent: "space-between",
-
 };
 
 const logoStyle = {
@@ -49,6 +52,4 @@ const linkStyle = {
   fontFamily: "Zapf Chancery, cursive",
 };
 
-
-
-export default NavBarEditProfileCan;
+export default IndividualCandidateNavBar;
