@@ -95,22 +95,27 @@ router.put(
   "/me",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    CandidateSchema.findById({userId: req.user._id}, (err, body) => {
+    console.log(req.body);
+    CandidateSchema.findOneAndUpdate({userId : req.user.id},req.body, (err, candidate) => {
       if (err) {
         res.send(err);
-      } else if (userId == req.user._id) {
-        const body = {
-          ...req.body,
-        };
-        console.log(req.body);
-        CandidateSchema.save()
-          .then((body) => {
-            console.log(body);
-            res.send({ success: true, msg: "Details weres submitted" });
-          })
-          .catch((err) => {
-            res.send(err);
-          });
+      } else  {
+        console.log(candidate);
+        res.send(candidate)
+        // const body = {
+        //   ...req.body,
+        // };
+        // // const newCandidate = new CandidateSchema(body);
+        // // newCandidate
+        // // console.log(req.body);
+        // candidate.save()
+        //   .then((body) => {
+        //     console.log(body);
+        //     res.send({ success: true, msg: "Details weres submitted" });
+        //   })
+        //   .catch((err) => {
+        //     res.send(err);
+        //   });
       }
     });
   }

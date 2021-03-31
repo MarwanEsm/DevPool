@@ -7,7 +7,7 @@ import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function EditProfieCanForm() {
   //   const history = useHistory();
-  //   const { user } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
   const [state, setState] = useState({
     website: "",
@@ -33,8 +33,8 @@ function EditProfieCanForm() {
     e.preventDefault();
 
     const token = localStorage.getItem("token");
-
-    fetch("http://localhost:5000/candidate/me", {
+console.log(token);
+    fetch('http://localhost:5000/candidate/me', {
       method: "put",
       headers: {
         Accept: "application/json, text/plain, */*",
