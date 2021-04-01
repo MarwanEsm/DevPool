@@ -28,6 +28,7 @@ router.post("/register", (req, res) => {
               email: reqemail,
               password: hash,
               owner: reqowner,
+              isRegistered:false
             });
             newUser
               .save()
@@ -62,6 +63,7 @@ router.post("/login", (req, res) => {
           const payload = {
             id: user.id,
             email: user.email,
+            // isRegistered : user.isRegistered
           };
           jwt.sign(payload, keys.secretOrKey, (err, token) => {
             if (err) {

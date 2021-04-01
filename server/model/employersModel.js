@@ -9,6 +9,7 @@ const EmployerSchema = new mongoose.Schema({
   concernedPersonEmail: { type: String, required: true , unique:true},
   phoneNo: { type: Number, required: true },
   userId:{ type: Schema.Types.ObjectId, ref: 'user' }
+  
 });
 
 module.exports = mongoose.model("employer", EmployerSchema);

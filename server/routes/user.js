@@ -16,17 +16,20 @@ router.get("/all", (req, res) => {
   });
 });
 
-router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-  User.findById(req.user.id, function(err, user) {
-    if (err) {
-      res.status(404).json({ error: 'User does not exist!' });
-    } else {
-      console.log(user.pets);
-      res.send(user);
-    }
-  });
-});
-
+router.get(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    User.findById(req.user.id, function (err, users) {
+      if (err) {
+        res.status(404).json({ error: "User does not exist!" });
+      } else {
+        console.log(users);
+        res.send(users);
+      }
+    });
+  }
+);
 
 router.post(
   "/new",
@@ -54,16 +57,14 @@ router.post(
   }
 );
 
-router.get("/isRegistered", (req, res) => {
-  UserSchema.find({isRegistered:true}, (err, users) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.send(users);
-    }
-  });
-});
-
-
+// router.get("/isRegistered", (req, res) => {
+//   UserSchema.find({ isRegistered: true }, (err, users) => {
+//     if (err) {
+//       res.send(err);
+//     } else {
+//       res.send(users);
+//     }
+//   });
+// });
 
 module.exports = router;

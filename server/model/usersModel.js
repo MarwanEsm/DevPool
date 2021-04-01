@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
   password: { type: String, required: true },
   owner: { type: String, required: true },
   id_: Schema.Types.ObjectId,
-  isRegistered: { type: Schema.Types.Boolean, ref: "candidate" },
+  // isRegistered: { type: Schema.Types.Boolean, ref: "candidate" },
 });
 
 module.exports = mongoose.model("user", UserSchema);

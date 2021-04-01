@@ -23,15 +23,16 @@ router.get("/all", (req, res) => {
   });
 });
 
-// router.get("/isRegistered", (req, res) => {
-//   CandidateSchema.find({isRegistered:true}, (err, candidates) => {
-//     if (err) {
-//       res.send(err);
-//     } else {
-//       res.send(candidates);
-//     }
-//   });
-// });
+router.get("/isRegistered", (req, res) => {
+  CandidateSchema.find({isRegistered:true}, (err, candidates) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(candidates);
+      console.log(candidates);
+    }
+  });
+});
 
 
 

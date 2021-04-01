@@ -1,16 +1,16 @@
 import React, { useState, useEffect, createContext } from "react";
 
-const initContext = { isRegistered: false };
+const initContext = { isRegistered: [] };
 export const RegisterContext = createContext(initContext);
 export const RegisterContextProvider = ({ children }) => {
   const [isRegistered, setIsRegistered] = useState();
   useEffect(() => {
-    fetch("http://localhost:5000/user/isRegistered")
+    fetch("http://localhost:5000/candidate/isRegistered")
       .then((res) => res.json())
-      .then((data) => setIsRegistered(true));
+      .then((data) => setIsRegistered(data));
   });
   return (
-    <RegisterContext.Provider value={(isRegistered, setIsRegistered)}>
+    <RegisterContext.Provider value={{isRegistered, setIsRegistered}}>
       {children}
     </RegisterContext.Provider>
   );

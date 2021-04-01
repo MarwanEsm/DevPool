@@ -7,15 +7,14 @@ import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 import { UsersContext } from "../ContextProvider/UsersContextProvider";
-import {RegisterContext} from '../ContextProvider/RegisterContextProvider';
+import { RegisterContext } from "../ContextProvider/RegisterContextProvider";
 import Footer from "../LandingPageComponents/Footer";
 
 const LoginPage = () => {
   const { setUser } = useContext(AuthContext);
   const { candidate } = useContext(CandidatesContext);
   const { user } = useContext(UsersContext);
-  const {isRegistered} = useContext(RegisterContext)
-
+  const { isRegistered } = useContext(RegisterContext);
 
   const [state, setState] = useState({
     email: "",
@@ -46,17 +45,42 @@ const LoginPage = () => {
         const { user, token } = res;
         localStorage.setItem("token", token);
         setUser(user);
-        if(isRegistered){
-          history.push(`/individualProfile/${user._id}`)
+
+        if (isRegistered) {
+          history.push(`/individualProfile/${user._id}`);
         }
+
+        // if (isRegistered) {
+        //   if (user && user.owner === "candidate") {
+        //     history.push(`/individualProfile/${user._id}`);
+        //   }else {
+        //   history.push("/CandidatesUserPage");
+        // }
+
+        // }
+        // else if (!isRegistered) {
+        //   if (user && user.owner === "candidate") {
+        //     history.push("/CandidatesUserPage");
+        //   } else {
+        //     history.push("/CandidateProfile");
+        //   }
+        // }
+        // else {
+        //   history.push("/CandidateProfile");
+        // }
+
+        // if(user.isRegistered ===true){
+        //   history.push(`/individualProfile/${user._id}`)
+        // }
         // if (user.id === candidate.userId) {
         //   history.push(`/individualProfile/${user._id}`);
-        // } 
-         if (user && user.owner === "employer") {
-          history.push("/CandidateProfile");
-        } else if (user && user.owner === "candidate" ) {
-          history.push('/CandidatesUserPage');
-        } else {
+        // }
+        // if (user && user.owner === "employer" && !isRegistered) {
+        //   history.push("/CandidateProfile");
+        // } else if (user && user.owner === "candidate") {
+        //   history.push("/CandidatesUserPage");
+        // }
+        else {
           alert("User does not exist");
         }
       })
