@@ -5,7 +5,7 @@ export const EmployerContext = createContext(initContext);
 export const EmployerContextProvider = ({children})=>{
     const [employer, setEmployer] = useState();
     useEffect(()=>{
-        fetch('"http://localhost:5000/employer/all"')
+        fetch("http://localhost:5000/employer/all")
         .then(res=> res.json())
         .then(data=>{console.log();
             setEmployer(data)

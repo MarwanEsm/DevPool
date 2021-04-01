@@ -23,6 +23,18 @@ router.get("/all", (req, res) => {
   });
 });
 
+// router.get("/isRegistered", (req, res) => {
+//   CandidateSchema.find({isRegistered:true}, (err, candidates) => {
+//     if (err) {
+//       res.send(err);
+//     } else {
+//       res.send(candidates);
+//     }
+//   });
+// });
+
+
+
 router.get(
   "/me",
   passport.authenticate("jwt", { session: false }),
@@ -81,7 +93,7 @@ router.post(
           .save()
           .then((candidate) => {
             console.log(candidate);
-            res.send({ success: true, msg: "Details weres submitted" });
+            res.send({ success: true,  msg: "Details weres submitted" });
           })
           .catch((err) => {
             res.send(err);
