@@ -7,14 +7,12 @@ import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 import { UsersContext } from "../ContextProvider/UsersContextProvider";
-// import { RegisterContext } from "../ContextProvider/RegisterContextProvider";
 import Footer from "../LandingPageComponents/Footer";
 
-const LoginPage = () => {
+  const LoginPage = () => {
   const { setUser } = useContext(AuthContext);
   const { candidate } = useContext(CandidatesContext);
   const { user } = useContext(UsersContext);
-  // const { isRegistered } = useContext(RegisterContext);
 
   const [state, setState] = useState({
     email: "",
@@ -47,43 +45,28 @@ const LoginPage = () => {
         setUser(user);
         console.log(user);
 
-        if ( user && user.isRegistered && user.owner === "candidate") {
-          history.push(`/individualProfile/${user._id}`);
-        }
-
-        // if (isRegistered) {
-        //   if (user && user.owner === "candidate") {
-        //     history.push(`/individualProfile/${user._id}`);
-        //   }else {
+        if (user && user.isRegistered && user.owner === "candidate") {
+          history.push(`/IndividualProfile/${user._id}`);
+        } else if (user && user.isRegistered && user.owner === "employer") {
+          history.push(`/EmployerIndividualProfile/${user._id}`);
+        // } else if (
+        //   user && !user.isRegistered &&
+        //   user.owner === "candidate"
+        // ) {
         //   history.push("/CandidatesUserPage");
-        // }
-
-        // }
-        // else if (!isRegistered) {
-        //   if (user && user.owner === "candidate") {
-        //     history.push("/CandidatesUserPage");
-        //   } else {
-        //     history.push("/CandidateProfile");
-        //   }
-        // }
+        // } 
+        
+      }else if (
+          user &&
+          !user.isRegistered  &&
+          user.owner === "employer"
+        ) {
+          history.push("/CandidateProfile");
+        } 
+        
         // else {
-        //   history.push("/CandidateProfile");
+        //   alert("User does not exist");
         // }
-
-        // if(user.isRegistered ===true){
-        //   history.push(`/individualProfile/${user._id}`)
-        // }
-        // if (user.id === candidate.userId) {
-        //   history.push(`/individualProfile/${user._id}`);
-        // }
-        // if (user && user.owner === "employer" && !isRegistered) {
-        //   history.push("/CandidateProfile");
-        // } else if (user && user.owner === "candidate") {
-        //   history.push("/CandidatesUserPage");
-        // }
-        else {
-          alert("User does not exist");
-        }
       })
       .catch((err) => {
         console.log(err);

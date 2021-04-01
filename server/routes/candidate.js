@@ -1,5 +1,6 @@
 const express = require("express");
 const CandidateSchema = require("../model/candidatesModel");
+const UserSchema = require("../model/usersModel");
 const router = express.Router();
 const passport = require("passport");
 const multer = require("multer");

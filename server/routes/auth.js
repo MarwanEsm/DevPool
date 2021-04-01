@@ -28,7 +28,7 @@ router.post("/register", (req, res) => {
               email: reqemail,
               password: hash,
               owner: reqowner,
-              isRegistered:false
+              isRegistered: false,
             });
             newUser
               .save()
@@ -49,16 +49,14 @@ router.post("/register", (req, res) => {
 router.post("/login", (req, res) => {
   const reqemail = req.body.email;
   const reqpassword = req.body.password;
-console.log(reqemail);
+  console.log(reqemail);
   UserSchema.findOne({ email: reqemail }, (err, user) => {
     console.log(user);
     if (err) {
       res.send(err);
-    } 
-    // else if (!user) {
-    //   res.send({ msg: "User does not exist" });
-    // } 
-    else {
+    } else if (!user) {
+      res.send({ msg: "User does not exist" });
+    } else {
       bcrypt.compare(reqpassword, user.password, (err, result) => {
         if (err) {
           res.send(err);
@@ -66,13 +64,11 @@ console.log(reqemail);
           const payload = {
             id: user.id,
             email: user.email,
-            // isRegistered : user.isRegistered
           };
           jwt.sign(payload, keys.secretOrKey, (err, token) => {
             if (err) {
               res.send(err);
             } else {
-              console.log(user);
               res.status(200).json({ success: true, token: token, user: user });
 
               ////////-----------------------

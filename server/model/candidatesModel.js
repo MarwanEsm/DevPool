@@ -20,6 +20,7 @@ const CandidateSchema = new mongoose.Schema({
   phoneNo: Number,
   hobbies: String,
   address: String,
+  languages: String,
  
   
 

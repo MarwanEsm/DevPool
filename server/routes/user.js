@@ -57,14 +57,6 @@ router.post(
   }
 );
 
-// router.get("/isRegistered", (req, res) => {
-//   UserSchema.find({ isRegistered: true }, (err, users) => {
-//     if (err) {
-//       res.send(err);
-//     } else {
-//       res.send(users);
-//     }
-//   });
-// });
+
 
 module.exports = router;
