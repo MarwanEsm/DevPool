@@ -121,11 +121,6 @@ const linkStyle = {
   fontFamily: "Zapf Chancery, cursive",
 };
 
-const labelStyle = {
-  fontFamily: "Zapf Chancery, cursive",
-  fontSize: 15,
-  paddingTop: 7,
-  paddingRight: 8,
-};
+
 
 export default CandidatePageNavBar;

@@ -431,49 +431,49 @@ const svgStyle145 = {
   height: "24",
 };
 
-const div220Style = {
-  width: "80%",
-};
+// const div220Style = {
+//   width: "80%",
+// };
 
-const div216Style = {
-  height: 5,
-};
+// const div216Style = {
+//   height: 5,
+// };
 
-const div227Style = {
-  width: "72%",
-};
+// const div227Style = {
+//   width: "72%",
+// };
 
-const div241Style = {
-  width: "89%",
-};
+// const div241Style = {
+//   width: "89%",
+// };
 
-const div263Style = {
-  width: "66%",
-};
+// const div263Style = {
+//   width: "66%",
+// };
 
-const div284Style = {
-  width: "80%",
-};
+// const div284Style = {
+//   width: "80%",
+// };
 
-const div295Style = {
-  width: "72%",
-};
+// const div295Style = {
+//   width: "72%",
+// };
 
-const div317Style = {
-  width: "55%",
-};
+// const div317Style = {
+//   width: "55%",
+// };
 
-const div328Style = {
-  width: "66%",
-};
+// const div328Style = {
+//   width: "66%",
+// };
 
-const div238Style = {
-  height: 5,
-};
+// const div238Style = {
+//   height: 5,
+// };
 
-const div253Style = {
-  width: "55%",
-};
+// const div253Style = {
+//   width: "55%",
+// };
 
 const divStyle = {
   display: "flex",

@@ -7,9 +7,9 @@ import ImageUploader from "react-images-upload";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function CandidateForm() {
-  const history = useHistory();
+  // const history = useHistory();
   const [workEx, setWorkEx] = useState([]);
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
 
   const [state, setState] = useState({
     fullName: "",

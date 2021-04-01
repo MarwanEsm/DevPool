@@ -94,6 +94,7 @@ router.post(
           .save()
           .then((candidate) => {
             console.log(candidate);
+            UserSchema.findOneAndUpdate({email: user.email},{isRegistered:true} )
             res.send({ success: true,  msg: "Details weres submitted" });
           })
           .catch((err) => {

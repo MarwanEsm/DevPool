@@ -7,14 +7,14 @@ import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 import { UsersContext } from "../ContextProvider/UsersContextProvider";
-import { RegisterContext } from "../ContextProvider/RegisterContextProvider";
+// import { RegisterContext } from "../ContextProvider/RegisterContextProvider";
 import Footer from "../LandingPageComponents/Footer";
 
 const LoginPage = () => {
   const { setUser } = useContext(AuthContext);
   const { candidate } = useContext(CandidatesContext);
   const { user } = useContext(UsersContext);
-  const { isRegistered } = useContext(RegisterContext);
+  // const { isRegistered } = useContext(RegisterContext);
 
   const [state, setState] = useState({
     email: "",
@@ -45,8 +45,9 @@ const LoginPage = () => {
         const { user, token } = res;
         localStorage.setItem("token", token);
         setUser(user);
+        console.log(user);
 
-        if (isRegistered) {
+        if ( user && user.isRegistered && user.owner === "candidate") {
           history.push(`/individualProfile/${user._id}`);
         }
 

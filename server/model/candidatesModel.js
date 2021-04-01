@@ -20,7 +20,7 @@ const CandidateSchema = new mongoose.Schema({
   phoneNo: Number,
   hobbies: String,
   address: String,
-  isRegistered : {type: Schema.Types.Boolean, default :true}
+ 
   
 
 });

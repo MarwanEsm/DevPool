@@ -12,11 +12,11 @@ import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider"
 import { EmployerContext } from "../ContextProvider/EmployerContextProvider";
 
 const CandidateProfile = () => {
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
   const { filteredCandidates } = useContext(CandidatesContext);
-  const { employer } = useContext(EmployerContext);
-  const history = useHistory();
-  const { id } = useParams();
+  // const { employer } = useContext(EmployerContext);
+  // const history = useHistory();
+  // const { id } = useParams();
   
   //______________
   const checkFullProfile = () => {
