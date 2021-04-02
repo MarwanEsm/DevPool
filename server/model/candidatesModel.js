@@ -21,9 +21,6 @@ const CandidateSchema = new mongoose.Schema({
   hobbies: String,
   address: String,
   languages: String,
- 
-  
-
 });
 
 module.exports = mongoose.model("candidate", CandidateSchema);

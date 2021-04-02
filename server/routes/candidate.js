@@ -24,16 +24,16 @@ router.get("/all", (req, res) => {
   });
 });
 
-router.get("/isRegistered", (req, res) => {
-  CandidateSchema.find({ isRegistered: true }, (err, candidates) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.send(candidates);
-      console.log(candidates);
-    }
-  });
-});
+// router.get("/isRegistered", (req, res) => {
+//   CandidateSchema.find({ isRegistered: true }, (err, candidates) => {
+//     if (err) {
+//       res.send(err);
+//     } else {
+//       res.send(candidates);
+//       console.log(candidates);
+//     }
+//   });
+// });
 
 router.get(
   "/me",
@@ -91,13 +91,14 @@ router.post(
         const newCandidate = new CandidateSchema(body);
         newCandidate
           .save()
-          .then((candidate) => {
-            console.log(candidate);
+          .then((user) => {
             UserSchema.findOneAndUpdate(
-              { email: req.user.email },
+              { email: user.email },
               // it did not update the status//
-               {isRegistered: true }
-            );
+              { isRegistered: true }
+            ).then((user) => {
+              user.save();
+            });
             res.send({ msg: "Details weres submitted" });
           })
           .catch((err) => {

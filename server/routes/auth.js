@@ -28,7 +28,7 @@ router.post("/register", (req, res) => {
               email: reqemail,
               password: hash,
               owner: reqowner,
-              isRegistered: false,
+           
             });
             newUser
               .save()
