@@ -25,7 +25,7 @@ router.get("/all", (req, res) => {
 });
 
 router.get("/isRegistered", (req, res) => {
-  CandidateSchema.find({isRegistered:true}, (err, candidates) => {
+  CandidateSchema.find({ isRegistered: true }, (err, candidates) => {
     if (err) {
       res.send(err);
     } else {
@@ -34,8 +34,6 @@ router.get("/isRegistered", (req, res) => {
     }
   });
 });
-
-
 
 router.get(
   "/me",
@@ -95,8 +93,12 @@ router.post(
           .save()
           .then((candidate) => {
             console.log(candidate);
-            UserSchema.findOneAndUpdate({email: user.email},{isRegistered:true} )
-            res.send({ success: true,  msg: "Details weres submitted" });
+            UserSchema.findOneAndUpdate(
+              { email: req.user.email },
+              // it did not update the status//
+               {isRegistered: true }
+            );
+            res.send({ msg: "Details weres submitted" });
           })
           .catch((err) => {
             res.send(err);
@@ -111,28 +113,32 @@ router.put(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     console.log(req.body);
-    CandidateSchema.findOneAndUpdate({userId : req.user.id},req.body, (err, candidate) => {
-      if (err) {
-        res.send(err);
-      } else  {
-        console.log(candidate);
-        res.send({msg : 'Changes were submitted'})
-        // const body = {
-        //   ...req.body,
-        // };
-        // // const newCandidate = new CandidateSchema(body);
-        // // newCandidate
-        // // console.log(req.body);
-        // candidate.save()
-        //   .then((body) => {
-        //     console.log(body);
-        //     res.send({ success: true, msg: "Details weres submitted" });
-        //   })
-        //   .catch((err) => {
-        //     res.send(err);
-        //   });
+    CandidateSchema.findOneAndUpdate(
+      { userId: req.user.id },
+      req.body,
+      (err, candidate) => {
+        if (err) {
+          res.send(err);
+        } else {
+          console.log(candidate);
+          res.send({ msg: "Changes were submitted" });
+          // const body = {
+          //   ...req.body,
+          // };
+          // // const newCandidate = new CandidateSchema(body);
+          // // newCandidate
+          // // console.log(req.body);
+          // candidate.save()
+          //   .then((body) => {
+          //     console.log(body);
+          //     res.send({ success: true, msg: "Details weres submitted" });
+          //   })
+          //   .catch((err) => {
+          //     res.send(err);
+          //   });
+        }
       }
-    });
+    );
   }
 );
 

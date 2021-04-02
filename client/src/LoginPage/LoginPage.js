@@ -9,7 +9,7 @@ import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider"
 import { UsersContext } from "../ContextProvider/UsersContextProvider";
 import Footer from "../LandingPageComponents/Footer";
 
-  const LoginPage = () => {
+const LoginPage = () => {
   const { setUser } = useContext(AuthContext);
   const { candidate } = useContext(CandidatesContext);
   const { user } = useContext(UsersContext);
@@ -45,28 +45,37 @@ import Footer from "../LandingPageComponents/Footer";
         setUser(user);
         console.log(user);
 
-        if (user && user.isRegistered && user.owner === "candidate") {
-          history.push(`/IndividualProfile/${user._id}`);
-        } else if (user && user.isRegistered && user.owner === "employer") {
-          history.push(`/EmployerIndividualProfile/${user._id}`);
+        if (user.isRegistered == true) {
+          if (user && user.owner === "candidate") {
+            history.push(`/IndividualProfile/${user._id}`);
+          } else {
+            history.push("/CandidateProfile");
+          }
+        } else if (user.isRegistered == false) {
+          if (user && user.owner === "candidate") {
+            history.push("/CandidatesUserPage");
+          } else {
+            history.push("/EmployersUserPage");
+          }
+        }
+
+        // if (user && user.isRegistered && user.owner === "candidate") {
+        //   history.push(`/IndividualProfile/${user._id}`);
+        // }
+
+        // else if (user && user.isRegistered && user.owner === "employer") {
+        //   history.push(`/EmployerIndividualProfile/${user._id}`);
         // } else if (
         //   user && !user.isRegistered &&
         //   user.owner === "candidate"
         // ) {
         //   history.push("/CandidatesUserPage");
-        // } 
-        
-      }else if (
-          user &&
-          !user.isRegistered  &&
-          user.owner === "employer"
-        ) {
-          history.push("/CandidateProfile");
-        } 
-        
-        // else {
-        //   alert("User does not exist");
         // }
+
+        // }
+        else {
+          alert("User does not exist");
+        }
       })
       .catch((err) => {
         console.log(err);
