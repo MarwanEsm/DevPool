@@ -7,10 +7,10 @@ import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
 function CandidatesUserPage() {
-  const history = useHistory();
-  const { candidate } = useContext(CandidatesContext);
-  const {user} =useContext(AuthContext)
-  if (!candidate) {
+  // const history = useHistory();
+  // const { candidate } = useContext(CandidatesContext);
+  // const {user} =useContext(AuthContext)
+  
     return (
       <div>
         <CandidateNavBar />
@@ -18,9 +18,7 @@ function CandidatesUserPage() {
         <Footer />
       </div>
     );
-  } else {
-    history.push(`/individualProfile/${user._id}`);
-  }
-}
+  } 
+
 
 export default CandidatesUserPage;

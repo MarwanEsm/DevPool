@@ -7,9 +7,7 @@ function IndividualProfile() {
   const history = useHistory();
   const [candidate, setCandidate] = useState();
 
-  const handleClick = () => {
-    history.push("/ChatScreen");
-  };
+  
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -64,12 +62,7 @@ function IndividualProfile() {
                         </p>
                       )}
 
-                      <button
-                        className="btn btn-outline-primary"
-                        onClick={handleClick}
-                      >
-                        Message
-                      </button>
+                 
                     </div>
                   </div>
                 </div>

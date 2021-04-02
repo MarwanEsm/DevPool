@@ -45,15 +45,17 @@ const LoginPage = () => {
         setUser(user);
         console.log(user);
 
-        if ( user && user.isRegistered === true && user.owner === "candidate") {
-      
-            history.push(`/IndividualProfile/${user._id}`);
-          } 
-          
-          else{
-            history.push("/CandidatesUserPage")
-          }
-          
+        if (user && user.isRegistered === true && user.owner === "candidate") {
+          history.push(`/IndividualProfile/${user._id}`);
+        } else if(user && user.isRegistered === true && user.owner === "emplyoer") {
+          history.push(`/EmployerIndividualEmployer/${user._id}`);
+        }else if(user && user.isRegistered === false && user.owner==='candidate') {
+          history.push('/CandidatesUserPage')
+        }else if(user && user.isRegistered === false && user.owner==='employer'){
+          history.push('/EmployersUserPage')
+
+        }
+
         //   else {
         //     history.push("/CandidateProfile");
         //   }
@@ -63,7 +65,6 @@ const LoginPage = () => {
         //   } else {
         //     history.push("/EmployersUserPage");
         //   }
-       
 
         // if (user && user.isRegistered && user.owner === "candidate") {
         //   history.push(`/IndividualProfile/${user._id}`);
@@ -79,9 +80,9 @@ const LoginPage = () => {
         // }
 
         // }
-        // else {
-        //   alert("User does not exist");
-        // }
+        else {
+          alert("User does not exist");
+        }
       })
       .catch((err) => {
         console.log(err);

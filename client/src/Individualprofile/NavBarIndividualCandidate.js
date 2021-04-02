@@ -12,8 +12,13 @@ function NavBarEditProfileCan() {
         <Logo />
       </div>
       <div style={navdiv}>
-        <Link to={`/EditProfileCandidate/${user._id}`} style={linkStyle}>
+      <Link to='/ChatScreen' style={linkStyle}>
           
+          Messages
+        </Link>
+        &nbsp; &nbsp;
+        <h5>|</h5>
+       <Link to={`/EditProfileCandidate/${user._id}`} style={linkStyle}>
           Edit Profile
         </Link>
         &nbsp; &nbsp;

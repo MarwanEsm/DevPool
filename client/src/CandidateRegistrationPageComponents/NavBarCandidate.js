@@ -13,7 +13,7 @@ function CandidateNavBar() {
       </div>
       <div style={navdiv}>
         {/* replace it with profile icon */}
-        <Link to='/' /*{`/IndividualProfile/${user._id}`}*/ style={linkStyle}>
+        <Link to= {`/IndividualProfile/${user._id}`} style={linkStyle}>
           {" "}
           My Profile{" "}
         </Link>

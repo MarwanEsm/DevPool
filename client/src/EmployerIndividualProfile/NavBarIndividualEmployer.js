@@ -9,6 +9,9 @@ function IndividualEmplyoerNavBar() {
         <Logo />
       </div>
       <div style={navdiv}>
+      <Link to="/CandidateProfile" style={linkStyle}>
+         Candidates
+        </Link>
         <Link to="/" style={linkStyle}>
           Edit Profile
         </Link>
