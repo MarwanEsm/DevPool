@@ -70,17 +70,6 @@ router.post("/login", (req, res) => {
               res.send(err);
             } else {
               res.status(200).json({ success: true, token: token, user: user });
-
-              ////////-----------------------
-
-              // .then(CandidateSchema.findOne({userId : req.user.id}), (err, candidate)=>{
-              //   if(err){
-              //     res.send(err)
-              //   }else{
-              //     res.status(200).json({ success: true,  candidate: candidate })
-              //   }
-
-              // });
             }
           });
         } else {

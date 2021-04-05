@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import CandidatePageNavBar from "./NavBarCandidate";
 import Button from "react-bootstrap/Button";
@@ -12,21 +12,16 @@ import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider"
 import { EmployerContext } from "../ContextProvider/EmployerContextProvider";
 
 const CandidateProfile = () => {
-  // const { user } = useContext(AuthContext);
-  const { filteredCandidates } = useContext(CandidatesContext);
+  const { user } = useContext(AuthContext);
+  const { filteredCandidates, candidate } = useContext(CandidatesContext);
   // const { employer } = useContext(EmployerContext);
-  // const history = useHistory();
-  // const { id } = useParams();
+  const history = useHistory();
+  const { id } = useParams();
+
   
-  //______________
+
   const checkFullProfile = () => {
-    // if(employer){
-    //   history.push('/IndividualProfile')
-    // }else{
-    //   history.push('/EmployersUserPage')
-    // }
-    
-    
+   history.push(`/CandidateIndividualForEmployers/${candidate._id}`)
   };
 
   const [text, setText] = useState(false);

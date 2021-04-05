@@ -48,7 +48,7 @@ const LoginPage = () => {
         if (user && user.isRegistered === true && user.owner === "candidate") {
           history.push(`/IndividualProfile/${user._id}`);
         } else if(user && user.isRegistered === true && user.owner === "employer") {
-          history.push(`/EmployerIndividualEmployer/${user._id}`);
+          history.push(`/EmployerIndividualProfile/${user._id}`);
         }else if(user && user.isRegistered === false && user.owner==='candidate') {
           history.push('/CandidatesUserPage')
         }else if(user && user.isRegistered === false && user.owner==='employer'){

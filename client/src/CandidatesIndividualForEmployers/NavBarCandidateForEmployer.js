@@ -1,22 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import Logo from "../LandingPageComponents/Logo";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
-function IndividualEmplyoerNavBar() {
+function NavBarCandidateForEmployer() {
+ 
   return (
     <div style={maindivStyle}>
       <div style={logoStyle}>
         <Logo />
       </div>
       <div style={navdiv}>
-      <Link to="/CandidateProfile" style={linkStyle}>
-         Candidates
-        </Link>
-        &nbsp; &nbsp;
-        <h5>|</h5>
-        &nbsp; &nbsp;
-        <Link to="/" style={linkStyle}>
-          Edit Profile
+        <Link to="/ChatScreen" style={linkStyle}>
+          Messages
         </Link>
         &nbsp; &nbsp;
         <h5>|</h5>
@@ -41,7 +37,6 @@ const maindivStyle = {
 const navdiv = {
   display: "flex",
   justifyContent: "space-between",
-
 };
 
 const logoStyle = {
@@ -52,6 +47,4 @@ const linkStyle = {
   fontFamily: "Zapf Chancery, cursive",
 };
 
-
-
-export default IndividualEmplyoerNavBar;
+export default NavBarCandidateForEmployer;

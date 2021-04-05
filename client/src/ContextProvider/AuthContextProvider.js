@@ -5,7 +5,7 @@ export const AuthContext = createContext(initContext);
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   useEffect(() => {
-    fetch("http://localhost:5000/candidate/all")
+    fetch("http://localhost:5000/user/all")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
