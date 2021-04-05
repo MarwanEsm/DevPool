@@ -99,7 +99,7 @@ function IndividualProfile() {
                       <h6 className="mb-0">Phone</h6>
                     </div>
                     <div className="col-sm-9 text-secondary">
-                      {candidate && candidate.MobileNumber}
+                      {candidate && candidate.phoneNo}
                     </div>
                   </div>
                   <hr />

@@ -9,7 +9,7 @@ function EmployerForm() {
     website: "",
     location: "",
     fieldOfBusiness: "",
-    concernedPersonEmail: "",
+    email : "",
     phoneNo: "",
     checked: false,
   });
@@ -19,7 +19,7 @@ function EmployerForm() {
     state.website === "" ||
     state.location === "" ||
     state.fieldOfBusiness === "" ||
-    state.concernedPersonEmail === "" ||
+    state.email === "" ||
     state.phoneNo === "" ||
     state.checked === false;
 
@@ -113,10 +113,10 @@ function EmployerForm() {
             <Form.Group as={Col} controlId="formGridCity">
               <Form.Label style={textStyle}>Concerned Person Email</Form.Label>
               <Form.Control
-                type="text"
-                name="concernedPersonEmail"
+                type="email"
+                name="email"
                 onChange={handleChange}
-                value={state.concernedPersonEmail}
+                value={state.email}
                 style={inputtStyle}
                 /*email should be retrieved automatically from registered employer*/
               />

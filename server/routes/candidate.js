@@ -94,7 +94,6 @@ router.post(
           .then((user) => {
             UserSchema.findOneAndUpdate(
               { email: user.email },
-              // it did not update the status//
               { isRegistered: true }
             ).then((user) => {
               user.save();

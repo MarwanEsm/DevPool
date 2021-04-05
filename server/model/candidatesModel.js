@@ -9,7 +9,7 @@ const CandidateSchema = new mongoose.Schema({
   workExperience: { type: Array, required: true },
   desiredPosition: String,
   expectedSalary: Number,
-  email: { type: String, required: true },
+  email: { type: String, required: true,  unique:true },
   userId: { type: Schema.Types.ObjectId, ref: "user" },
   website: String,
   github: String,
