@@ -118,7 +118,7 @@ function EmployerForm() {
                 onChange={handleChange}
                 value={state.email}
                 style={inputtStyle}
-                /*email should be retrieved automatically from registered employer*/
+               
               />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridPassword">

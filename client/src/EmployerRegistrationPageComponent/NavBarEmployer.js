@@ -13,7 +13,7 @@ function EmployerNavBar() {
       </div>
       <div style={navdiv}>
         {/* replace it with profile icon */}
-        <Link to = '/'/*{`/EmployerIndividualProfile/${user._id}`}*/ style={linkStyle}>My Profile </Link>
+        <Link to = {`/EmployerIndividualProfile/${user._id}`} style={linkStyle}>My Profile </Link>
         &nbsp; &nbsp;
         <h5>|</h5>
         &nbsp; &nbsp;
