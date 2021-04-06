@@ -6,7 +6,7 @@ const EmployerSchema = new mongoose.Schema({
   website: { type: String, required: true },
   location: { type: String },
   fieldOfBusiness: { type: String, required: true },
-  email: { type: String, required: true , unique:true},
+  email: { type: String, required: true },
   phoneNo: { type: Number, required: true },
   userId:{ type: Schema.Types.ObjectId, ref: 'user' }
   

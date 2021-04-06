@@ -9,7 +9,7 @@ function EmployerForm() {
     website: "",
     location: "",
     fieldOfBusiness: "",
-    email : "",
+    email: "",
     phoneNo: "",
     checked: false,
   });
@@ -30,18 +30,28 @@ function EmployerForm() {
 
   const submitDetails = (e) => {
     e.preventDefault();
+    var data = new FormData();
 
     const token = localStorage.getItem("token");
+    // const myHeaders = new Headers();
+    // myHeaders.append("Authorization", `Bearer ${token}`);
+    // var requestOptions = {
+    //   method: "POST",
+    //   headers: myHeaders,
+    //   redirect: "follow",
+    //   body: state,
+    // };
 
-    fetch("http://localhost:5000/employer/new", {
-      method: "post",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(state),
-    })
+    // fetch("http://localhost:5000/employer/new", requestOptions)
+      fetch("http://localhost:5000/employer/new", {
+        method: "post",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(state),
+      })
       .then((res) => res.json())
       .then((res) => {
         if (res.success) {
@@ -118,7 +128,6 @@ function EmployerForm() {
                 onChange={handleChange}
                 value={state.email}
                 style={inputtStyle}
-               
               />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridPassword">
