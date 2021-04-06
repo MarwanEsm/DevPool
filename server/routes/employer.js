@@ -90,4 +90,39 @@ router.post(
   }
 );
 
+
+router.put(
+  "/me",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    console.log(req.body);
+    EmployerSchema.findOneAndUpdate(
+      { userId: req.user.id },
+      req.body,
+      (err, employer) => {
+        if (err) {
+          res.send(err);
+        } else {
+          console.log(employer);
+          res.send({ msg: "Changes were submitted" });
+          // const body = {
+          //   ...req.body,
+          // };
+          // // const newCandidate = new CandidateSchema(body);
+          // // newCandidate
+          // // console.log(req.body);
+          // candidate.save()
+          //   .then((body) => {
+          //     console.log(body);
+          //     res.send({ success: true, msg: "Details weres submitted" });
+          //   })
+          //   .catch((err) => {
+          //     res.send(err);
+          //   });
+        }
+      }
+    );
+  }
+);
+
 module.exports = router;

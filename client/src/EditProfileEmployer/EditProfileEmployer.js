@@ -1,9 +1,16 @@
 import React from 'react';
+import EditProfieEmpForm from './EditProfileEmployerForm';
+import IndividualEmployerNavBar from './NavBarEditProfileEmp';
 
 function EditProfileEmployer () {
     return (
         <div>
-            <h2>Hi</h2>
+            <div>
+                <IndividualEmployerNavBar/>
+            </div>
+            <div>
+                <EditProfieEmpForm/>
+            </div>
         </div>
     )
 }
