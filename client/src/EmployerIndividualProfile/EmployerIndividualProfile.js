@@ -29,10 +29,74 @@ function EmployerIndividualProfile() {
       <div>
         <IndividualEmplyoerNavBar />
       </div>
+      <div className="col-md-8">
+        <div className="card mb-3" style={rowDetailsStyle}>
+          <div className="card-body">
+            <div className="row"></div>
 
-      <div>{employer && <h4>{employer.name}</h4>}</div>
+            <div className="row">
+              <div className="col-sm-3">
+                <h6 className="mb-0">Employer Name</h6>
+              </div>
+              <div className="col-sm-9 text-secondary">
+                {employer && employer.employerName}
+              </div>
+            </div>
+
+            <hr />
+            <div className="row">
+              <div className="col-sm-3">
+                <h6 className="mb-0">Website</h6>
+              </div>
+              <div className="col-sm-9 text-secondary">
+                {employer && employer.website}
+              </div>
+            </div>
+            <hr />
+
+            <div className="row">
+              <div className="col-sm-3">
+                <h6 className="mb-0">Location</h6>
+              </div>
+              <div className="col-sm-9 text-secondary">
+                {employer && employer.location}
+              </div>
+            </div>
+            <hr />
+
+            <div className="row">
+              <div className="col-sm-3">
+                <h6 className="mb-0">Field Of Business</h6>
+              </div>
+              <div className="col-sm-9 text-secondary">
+                {employer && employer.fieldOfBusiness}
+              </div>
+            </div>
+            <hr />
+
+            <div className="row">
+              <div className="col-sm-3">
+                <h6 className="mb-0"> Email</h6>
+              </div>
+              <div className="col-sm-9 text-secondary">
+                {employer && employer.phoneNo}
+              </div>
+            </div>
+            <hr />
+          </div>
+        </div>
+      </div>
+
+      <div></div>
     </div>
   );
 }
 
+
+const rowDetailsStyle = {
+  fontSize: 19,
+  fontFamily: "Lucidatypewriter, monospace",
+  borderColor: "gray",
+  height: "95%",
+};
 export default EmployerIndividualProfile;

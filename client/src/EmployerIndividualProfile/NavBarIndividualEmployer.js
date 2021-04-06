@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import Logo from "../LandingPageComponents/Logo";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function IndividualEmplyoerNavBar() {
+  const { user } = useContext(AuthContext);
   return (
     <div style={maindivStyle}>
       <div style={logoStyle}>
@@ -15,7 +17,7 @@ function IndividualEmplyoerNavBar() {
         &nbsp; &nbsp;
         <h5>|</h5>
         &nbsp; &nbsp;
-        <Link to="/" style={linkStyle}>
+        <Link to={`/EditProfileEmployer/${user._id}`} style={linkStyle}>
           Edit Profile
         </Link>
         &nbsp; &nbsp;

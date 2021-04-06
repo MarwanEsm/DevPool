@@ -12,9 +12,9 @@ import CandidateProfile from "./CandidateProfile/CandidateProfile";
 import ChatScreen from "./ChatScreen/ChatScreen";
 import IndividualProfile from "./Individualprofile/IndividualProfile";
 import EmployerIndividualProfile from './EmployerIndividualProfile/EmployerIndividualProfile';
-import EditProfileCandidate from './EditProfile/EditProfileCandidate'
-import CandidateIndividualForEmployers from './CandidatesIndividualForEmployers/CandidatesIndividualForEmployers'
-
+import EditProfileCandidate from './EditProfile/EditProfileCandidate';
+import CandidateIndividualForEmployers from './CandidatesIndividualForEmployers/CandidatesIndividualForEmployers';
+import EditProfileEmployer from './EditProfileEmployer/EditProfileEmployer';
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -58,6 +58,9 @@ function App() {
                 </Route>
                 <Route path="/CandidateIndividualForEmployers/:id">
                   <CandidateIndividualForEmployers />
+                </Route>
+                <Route path="/EditProfileEmployer/:id">
+                  <EditProfileEmployer />
                 </Route>
               </Switch>
             </UsersContextProvider>
