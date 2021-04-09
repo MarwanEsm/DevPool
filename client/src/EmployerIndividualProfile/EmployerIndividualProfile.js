@@ -79,10 +79,18 @@ function EmployerIndividualProfile() {
                 <h6 className="mb-0"> Email</h6>
               </div>
               <div className="col-sm-9 text-secondary">
-                {employer && employer.phoneNo}
+                {employer && employer.email}
               </div>
             </div>
             <hr />
+            <div className="row">
+              <div className="col-sm-3">
+                <h6 className="mb-0"> Phone No.</h6>
+              </div>
+              <div className="col-sm-9 text-secondary">
+                {employer && employer.phoneNo}
+              </div>
+            </div>
           </div>
         </div>
       </div>
