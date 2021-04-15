@@ -120,6 +120,7 @@ const selectStyle = {
   borderColor: "black",
   fontFamily: "Courier, monospace",
   fontSize: 15,
+  
 };
 
 const linkStyle = {
