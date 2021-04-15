@@ -9,20 +9,18 @@ import Nav from "react-bootstrap/Nav";
 import Footer from "../LandingPageComponents/Footer";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
-import { IdContext } from "../ContextProvider/IdContextProvider";
+// import { IdContext } from "../ContextProvider/IdContextProvider";
 
 const CandidateProfile = () => {
   const { user } = useContext(AuthContext);
   const { filteredCandidates, candidate } = useContext(CandidatesContext);
   // const { employer } = useContext(EmployerContext);
-  const {id} = useContext(IdContext)
+  // const { id } = useContext(IdContext);
   const history = useHistory();
-  // const { id } = useParams();
+  const { id } = useParams();
 
-  
-
-  const checkFullProfile = () => {
-   history.push(`/CandidateIndividualForEmployer/${id}`)
+  const checkFullProfile = (candidateId) => {
+    history.push(`/CandidateIndividualForEmployer/${candidateId}`);
   };
 
   const [text, setText] = useState(false);
@@ -115,8 +113,9 @@ const CandidateProfile = () => {
 
                           <Button
                             variant="primary"
-                            onClick={checkFullProfile}
+                            onClick={()=> checkFullProfile(candidate._id)}
                             style={buttonStyle}
+
                           >
                             Check Full Profile
                           </Button>

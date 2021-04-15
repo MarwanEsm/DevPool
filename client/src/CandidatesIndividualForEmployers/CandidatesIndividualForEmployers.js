@@ -6,22 +6,46 @@ import NavBarCandidateForEmployer from "./NavBarCandidateForEmployer";
 function CandidateIndividualForEmployer() {
   const history = useHistory();
   const { id } = useParams();
-  const { candidate, setCandidate } = useContext(CandidatesContext);
+  // const { candidate, setCandidate } = useContext(CandidatesContext);
   //   const [candidate, setCandidate] = useState();
 
   const handelClick = () => {
     history.push("/ChatScreen");
   };
 
+  // const history = useHistory();
+  const [candidate, setCandidate] = useState();
+  
+
+  
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    fetch(`http://localhost:5000/candidate/${id}`, {
+      method: "get",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setCandidate(data);
+      });
+  }, []);
+
   return (
     <div>
       <NavBarCandidateForEmployer />
 
+      {candidate &&
       <div style={mainDivStyle}>
         <div>
           <div className="row gutters-sm">
             <div className="col-md-4 mb-3">
-              <div className="card" style={cardStyle}>
+              <div className="card" key ={candidate._id} style={cardStyle}>
                 <div className="card-body">
                   <div className="d-flex flex-column align-items-center text-center">
                     <div className="mt-3">
@@ -405,6 +429,7 @@ function CandidateIndividualForEmployer() {
           </div>
         </div>
       </div>
+      }
     </div>
   );
 }
