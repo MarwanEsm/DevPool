@@ -20,7 +20,7 @@ const CandidateProfile = () => {
   const { id } = useParams();
 
   const checkFullProfile = (candidateId) => {
-    history.push(`/CandidateIndividualForEmployer/${candidateId}`);
+    history.push(`/CandidateIndividualForEmployers/${candidateId}`);
   };
 
   const [text, setText] = useState(false);

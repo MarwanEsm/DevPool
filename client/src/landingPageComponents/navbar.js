@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import Logo from "./Logo";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Col from "react-bootstrap/Col";
-import { Link } from "react-router-dom";
+import Badge from "react-bootstrap/Badge";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
 function Headbar() {
@@ -14,6 +15,8 @@ function Headbar() {
     candidates,
   } = useContext(CandidatesContext);
 
+  const history = useHistory();
+
   const handleChange = (e) => {
     e.preventDefault();
     setSearchTitle(e.target.value);
@@ -22,6 +25,14 @@ function Headbar() {
   const changeLocation = (e) => {
     e.preventDefault();
     setSelectLocation(e.target.value);
+  };
+
+  const handleClick = () => {
+    history.push("/RegistrationPage");
+  };
+
+  const handleClick1 = () => {
+    history.push("/LoginPage");
   };
 
   return (
@@ -66,15 +77,13 @@ function Headbar() {
         </Form.Row>
       </div>
       <div style={navdiv}>
-        <Link to="/RegistrationPage" style={linkStyle}>
+        <Badge style={badg} variant="primary" onClick={handleClick}>
           Register
-        </Link>
+        </Badge>
         &nbsp; &nbsp;
-        <h5>|</h5>
-        &nbsp; &nbsp;
-        <Link to="/LoginPage" style={linkStyle}>
+        <Badge style={badg} variant="primary" onClick={handleClick1}>
           Login
-        </Link>
+        </Badge>
       </div>
     </div>
   );
@@ -83,7 +92,6 @@ function Headbar() {
 const maindivStyle = {
   display: "flex",
   justifyContent: "space-around",
-  backgroundColor: "#F0FFF0",
   paddingTop: "1%",
   marginTop: "0%",
 };
@@ -95,14 +103,15 @@ const div1Style = {
 };
 
 const rowdivStyle = {
-  display:'flex',
-  alignItems:'center',
-  marginRight:'27%'
+  display: "flex",
+  alignItems: "center",
+  marginRight: "18%",
 };
 
 const navdiv = {
   display: "flex",
   justifyContent: "space-around",
+  marginRight: "1%",
 };
 
 const selectStyle = {
@@ -114,7 +123,18 @@ const selectStyle = {
 };
 
 const linkStyle = {
-  fontFamily: "Zapf Chancery, cursive",
+  fontFamily: "Courier, monospace",
+  fontWeight: "bold",
+};
+
+const badg = {
+  height: 30,
+  width:120,
+  fontSize: 15,
+  cursor: "pointer",
+  borderRadius: 12,
+  padding: 7,
+  alignText: "center",
 };
 
 export default Headbar;

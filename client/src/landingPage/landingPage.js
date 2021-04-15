@@ -24,6 +24,10 @@ function LandingPage() {
       <div>
         <Headbar />
       </div>
+      
+      
+      
+      
       <div>
         <Row style={rowStyle}>
           {filteredCandidates &&
