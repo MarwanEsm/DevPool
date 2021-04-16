@@ -24,6 +24,10 @@ a:hover {
   border-radius: 0 !important;
 }
 
+::-webkit-input-placeholder {
+  color: #1565c0!important
+}
+
 ::-moz-placeholder {
   color: #e1f5fe !important;
 }

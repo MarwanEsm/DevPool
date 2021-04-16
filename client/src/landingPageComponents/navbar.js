@@ -117,10 +117,11 @@ const navdiv = {
 const selectStyle = {
   borderRadius: 14,
   border: "bold",
-  borderColor: "black",
+  borderColor: "gray",
   fontFamily: "Courier, monospace",
   fontSize: 15,
-  fontColor: "black",
+  fontWeight:'bold',
+  color: '#1565c0 '
 };
 
 const badg = {

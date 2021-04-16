@@ -110,7 +110,7 @@ const divStyle = {
 };
 
 const div1Style = {
-  marginTop: "7%",
+  marginTop: "8%",
   marginRight: "50%",
 };
 
