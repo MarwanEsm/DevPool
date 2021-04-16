@@ -120,17 +120,12 @@ const selectStyle = {
   borderColor: "black",
   fontFamily: "Courier, monospace",
   fontSize: 15,
-  
-};
-
-const linkStyle = {
-  fontFamily: "Courier, monospace",
-  fontWeight: "bold",
+  fontColor: "black",
 };
 
 const badg = {
   height: 30,
-  width:120,
+  width: 120,
   fontSize: 15,
   cursor: "pointer",
   borderRadius: 12,
