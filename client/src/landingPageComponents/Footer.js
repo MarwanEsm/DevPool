@@ -18,7 +18,7 @@ function Footer() {
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="box" style={divStyle}>
+                <div class="box" style={div1Style}>
                   <h5 class="mb-0">Berlin Office</h5>
                   <p>Adolfstraße 24 13347 </p>
                   <br />
@@ -105,9 +105,15 @@ const button = {
 };
 
 const divStyle = {
-  marginTop: "13%",
-  marginRight: "45%",
+  marginTop: "10%",
+  marginRight: "50%",
 };
+
+const div1Style = {
+  marginTop: "7%",
+  marginRight: "50%",
+};
+
 
 const inputStyle = {
   width: "20%",
