@@ -48,8 +48,7 @@ function RegistrationForm() {
       body: JSON.stringify(state),
     })
       .then((res) => res.json())
-      .then((res) => console.log(res))
-      .then(history.push("/LoginPage"));
+      .then((res) => console.log(res));
   };
 
   return (
@@ -130,26 +129,8 @@ function RegistrationForm() {
             </div>
 
             <Form.Group id="formGridCheckbox">
-              <div class="custom-control custom-checkbox custom-control-inline">
-                <input
-                  id="chk1"
-                  type="checkbox"
-                  name="chk"
-                  class="custom-control-input"
-                  onClick={makeItChecked}
-                  checked='checked'
-                  
-                />
-                <label
-                  for="chk1"
-                  class="custom-control-label consent"
-                  style={label1Style}
-                >
-                  Accept Terms and Condition
-                </label>
-              </div>
+              <input type="checkBox" name="chk" style={checkBox}/><label style={label1Style}>Accept Terms and Condition</label>
             </Form.Group>
-
             <button
               class="btn btn-primary btn-block"
               onClick={submitDetails}
@@ -157,7 +138,7 @@ function RegistrationForm() {
             >
               Create Account
             </button>
-
+            <br/>
             <p class="text-center">
               Have an account? <a href="/LoginPage">Log In</a>
             </p>
@@ -172,22 +153,9 @@ const divStyle = {
   marginTop: "4%",
 };
 
-const buttonStyle = {
-  fontFamily: "Courier New, monospace",
-  fontSize: 13,
-  cursor: "pointer",
-  boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
-  width: "40%",
-  backgroundColor: "#1565c0",
-  color: "white",
-  marginBottom: "5%",
-  marginLeft: "30%",
-};
-
 const labelStyle = {
   fontFamily: "Andale Mono, monospace",
   fontSize: 16,
-
   color: "#666666",
 };
 
@@ -196,13 +164,15 @@ const label1Style = {
   fontSize: 14,
   textDecoration: "underline",
   color: "#666666",
+
 };
 
+const checkBox={
+  marginTop:'4%',
+  marginRight:'1%',
+ 
+}
 const articleStyle = {
-  width: 400,
-};
-
-const selectStyle = {
   width: 400,
 };
 
