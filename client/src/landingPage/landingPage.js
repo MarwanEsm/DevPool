@@ -26,13 +26,12 @@ function LandingPage() {
         <Headbar />
       </div>
       <div>
-     
         {filteredCandidates &&
           filteredCandidates.length &&
           filteredCandidates.map((candidate) => {
             return (
               <div>
-                <Col xs={12} md={7} lg={3} style={colStyle}>
+                <Col xs={14} sm={10} md={6} lg={3} style={colStyle}>
                   <Card
                     className="p-3"
                     border="primary"
@@ -44,9 +43,13 @@ function LandingPage() {
                       variant="top"
                       src={`http://localhost:5000/${candidate.img}`}
                     />
-                    <Card.Text style={textStyle}> Name: {candidate.fullName}
+                    <Card.Text style={textStyle}>
+                      {" "}
+                      Name: {candidate.fullName}
                     </Card.Text>
-                    <Card.Text style={text2Style}>Title: {candidate.title}</Card.Text>
+                    <Card.Text style={text2Style}>
+                      Title: {candidate.title}
+                    </Card.Text>
                     <Button onClick={handelReadMore} style={buttonStyle}>
                       Read More
                     </Button>
@@ -55,7 +58,6 @@ function LandingPage() {
               </div>
             );
           })}
-         
       </div>
       <div>
         <Footer />
@@ -65,9 +67,9 @@ function LandingPage() {
 }
 
 const buttonStyle = {
-  marginTop: "7%",
+ 
   fontFamily: "Courier New, monospace",
-  fontSize: 12,
+  fontSize: 13,
   fontWeight: "bold",
   cursor: "pointer",
   boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
@@ -78,9 +80,7 @@ const buttonStyle = {
 };
 
 const imgStyle = {
-  width: "80%",
-  marginLeft: "10%",
-  marginTop: "7%",
+  width: "100%",
   marginBottom: "3%",
 };
 
@@ -89,9 +89,8 @@ const cardStyle = {
   width: "80%",
   justifyContent: "space-between",
   alignItems: "space-betweent",
-  // backgroundColor: "#6495ED",
+  backgroundColor: "#f2f2f2",
   textAlign: "center",
-  margin: 6,
 };
 
 const colStyle = {
@@ -118,6 +117,5 @@ const text2Style = {
 const rowStyle = {
   marginLeft: "1%",
 };
-
 
 export default LandingPage;
