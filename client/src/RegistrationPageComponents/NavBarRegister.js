@@ -1,49 +1,57 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import Badge from "react-bootstrap/Badge";
 import Logo from "../LandingPageComponents/Logo";
-import { Link } from "react-router-dom";
 
 function RegissterNavBar() {
+  const history = useHistory();
+  const handleClick = () => {
+    history.push("/");
+  };
+
+  const handleClick1 = () => {
+    history.push("/LoginPage");
+  };
+
   return (
     <div style={maindivStyle}>
-      <div style={logoStyle}>
+      <div>
         <Logo />
       </div>
       <div style={navdiv}>
-        <Link to="/" style={linkStyle}>
+        <Badge style={badg} variant="primary" onClick={handleClick}>
           Home
-        </Link>
+        </Badge>
         &nbsp; &nbsp;
-        <h5>|</h5>
-        &nbsp; &nbsp;
-        <Link to="/LoginPage" style={linkStyle}>
+        <Badge style={badg} variant="primary" onClick={handleClick1}>
           Login
-        </Link>
+        </Badge>
       </div>
     </div>
   );
 }
 
-const maindivStyle = {
-  display: "flex",
-  justifyContent: "space-around",
-  backgroundColor: "#F0FFF0",
-  paddingTop: "1%",
-  marginTop: "0%",
-  paddingBottom: "1%",
+const badg = {
+  height: 30,
+  width: 120,
+  fontSize: 15,
+  cursor: "pointer",
+  borderRadius: 12,
+  padding: 7,
+  alignText: "center",
 };
 
+const maindivStyle = {
+  display: "flex",
+  justifyContent: "space-between",
+  paddingTop: "1%",
+  marginTop: "0%",
+  marginRight: "3%",
+  marginLeft: "1.3%",
+};
 const navdiv = {
   display: "flex",
   justifyContent: "space-between",
-
-};
-
-const logoStyle = {
-  marginRight: "54%",
-};
-
-const linkStyle = {
-  fontFamily: "Zapf Chancery, cursive",
 };
 
 

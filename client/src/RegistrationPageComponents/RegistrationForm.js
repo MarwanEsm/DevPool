@@ -57,52 +57,54 @@ function RegistrationForm() {
         <Form>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridEmail">
-              <Form.Label style={textStyle}>Email</Form.Label>
+              <Form.Label style={labelStyle}>Email</Form.Label>
               <Form.Control
                 type="email"
                 name="email"
                 onChange={handleChange}
                 value={state.email}
-                style={inputtStyle}
+                style={selectStyle}
               />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label style={textStyle}>Password</Form.Label>
+              <Form.Label style={labelStyle}>Password</Form.Label>
               <Form.Control
                 type="password"
                 name="password"
                 onChange={handleChange}
                 value={state.password}
-                style={inputtStyle}
+                style={selectStyle}
               />
             </Form.Group>
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label style={textStyle}>Password Confirmation</Form.Label>
+              <Form.Label style={labelStyle}>Password Confirmation</Form.Label>
               <Form.Control
                 type="password"
                 name="confirmationPassword"
                 onChange={handleChange}
                 value={state.confirmationPassword}
-                style={inputtStyle}
+                style={selectStyle}
               />
             </Form.Group>
-
             <br />
-
             <Form.Group as={Col} controlId="formGridCity">
-              <Form.Label style={textStyle}>Register as</Form.Label>
+              <Form.Label style={labelStyle}>Register as</Form.Label>
               <Form.Control
                 name="owner"
                 as="select"
                 onChange={handleDropDown}
                 defaultValue="Choose..."
-                style={inputtStyle}
+                style={selectStyle}
               >
-                <option value="candidate">Candidate</option>
-                <option value="employer">Employer</option>
+                <option value="candidate" style={selectStyle}>
+                  Candidate
+                </option>
+                <option value="employer" style={selectStyle}>
+                  Employer
+                </option>
               </Form.Control>
             </Form.Group>
           </Form.Row>
@@ -113,7 +115,7 @@ function RegistrationForm() {
               defaultChecked={state.checked}
               onClick={makeItChecked}
               label="Agree to Terms and Conditions"
-              style={agreeTextStyle}
+              style={label1Style}
             />
           </Form.Group>
           <br />
@@ -137,29 +139,39 @@ const divStyle = {
   width: "40%",
 };
 
-const textStyle = {
-  fontFamily: "Zapf Chancery, cursive",
+const buttonStyle = {
+  fontFamily: "Courier New, monospace",
+  fontSize: 13,
+  fontWeight: "bold",
+  cursor: "pointer",
+  boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
+  width: "20%",
+  backgroundColor: "#1565c0",
+  color: "white",
+  marginBottom :'5%'
 };
 
-const agreeTextStyle = {
+const selectStyle = {
+  borderRadius: 14,
+  border: "bold",
+  borderColor: "gray",
+  fontFamily: "Courier, monospace",
+  fontSize: 15,
+  color: "#737373",
+};
+
+const labelStyle = {
+  fontFamily: "Andale Mono, monospace",
+  fontSize: 17,
+  fontWeight: "bold",
+  color: "#666666",
+};
+
+const label1Style = {
   fontFamily: "Courier, monospace",
   fontSize: 14,
   fontWeight: "bold",
-};
-
-const inputtStyle = {
-  borderRadius: 14,
-  border: "bold",
-  borderColor: "black",
-  fontFamily: "Courier, monospace",
-  fontSize: 15,
-};
-
-const buttonStyle = {
-  fontFamily: "Courier, monospace",
-  fontSize: 14,
-  cursor: "pointer",
-  boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
+  color: "#666666",
 };
 
 export default RegistrationForm;
