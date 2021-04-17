@@ -110,13 +110,21 @@ function RegistrationForm() {
           </Form.Row>
           <br />
           <Form.Group id="formGridCheckbox">
-            <Form.Check
-              type="checkbox"
-              defaultChecked={state.checked}
-              onClick={makeItChecked}
-              label="Agree to Terms and Conditions"
-              style={label1Style}
-            />
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input
+                id="chk1"
+                type="checkbox"
+                name="chk"
+                class="custom-control-input"
+              />
+              <label
+                for="chk1"
+                class="custom-control-label consent"
+                style={label1Style}
+              >
+                Accept Terms and Condition
+              </label>
+            </div>
           </Form.Group>
           <br />
           <Button
@@ -142,13 +150,12 @@ const divStyle = {
 const buttonStyle = {
   fontFamily: "Courier New, monospace",
   fontSize: 13,
-  fontWeight: "bold",
   cursor: "pointer",
   boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
   width: "20%",
   backgroundColor: "#1565c0",
   color: "white",
-  marginBottom :'5%'
+  marginBottom: "5%",
 };
 
 const selectStyle = {
@@ -168,9 +175,9 @@ const labelStyle = {
 };
 
 const label1Style = {
-  fontFamily: "Courier, monospace",
+  fontFamily: "Andale Mono, monospace",
   fontSize: 14,
-  fontWeight: "bold",
+  textDecoration : 'underline',
   color: "#666666",
 };
 

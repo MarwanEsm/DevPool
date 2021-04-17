@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import Headbar from "../LandingPageComponents/Navbar";
 import Footer from "../LandingPageComponents/Footer";
 import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import "react-flex/index.css";
@@ -67,10 +66,9 @@ function LandingPage() {
 }
 
 const buttonStyle = {
- 
   fontFamily: "Courier New, monospace",
   fontSize: 13,
-  fontWeight: "bold",
+
   cursor: "pointer",
   boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
   width: "40%",
@@ -112,10 +110,6 @@ const text2Style = {
   fontFamily: "Andale Mono, monospace",
   color: "#1565c0",
   fontWeight: "bold",
-};
-
-const rowStyle = {
-  marginLeft: "1%",
 };
 
 export default LandingPage;
