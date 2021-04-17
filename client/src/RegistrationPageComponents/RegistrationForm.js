@@ -129,7 +129,8 @@ function RegistrationForm() {
             </div>
 
             <Form.Group id="formGridCheckbox">
-              <input type="checkBox" name="chk" style={checkBox}/><label style={label1Style}>Accept Terms and Condition</label>
+              <input type="checkBox" name="chk" style={checkBox} onClick={makeItChecked} defaultChecked='' />
+              <label style={label1Style}>Accept Terms and Condition</label>
             </Form.Group>
             <button
               class="btn btn-primary btn-block"
@@ -138,7 +139,7 @@ function RegistrationForm() {
             >
               Create Account
             </button>
-            <br/>
+            <br />
             <p class="text-center">
               Have an account? <a href="/LoginPage">Log In</a>
             </p>
@@ -164,14 +165,12 @@ const label1Style = {
   fontSize: 14,
   textDecoration: "underline",
   color: "#666666",
-
 };
 
-const checkBox={
-  marginTop:'4%',
-  marginRight:'1%',
- 
-}
+const checkBox = {
+  marginTop: "4%",
+  marginRight: "1%",
+};
 const articleStyle = {
   width: 400,
 };
