@@ -136,6 +136,9 @@ function RegistrationForm() {
                   type="checkbox"
                   name="chk"
                   class="custom-control-input"
+                  onClick={makeItChecked}
+                  checked='checked'
+                  
                 />
                 <label
                   for="chk1"
@@ -147,19 +150,16 @@ function RegistrationForm() {
               </div>
             </Form.Group>
 
-            <div class="form-group">
-              <button
-                type="submit"
-                class="btn btn-primary btn-block"
-                onClick={submitDetails}
-                disabled={isInvalid}
-              
-              >
-                Create Account
-              </button>
-            </div>
+            <button
+              class="btn btn-primary btn-block"
+              onClick={submitDetails}
+              disabled={isInvalid}
+            >
+              Create Account
+            </button>
+
             <p class="text-center">
-              Have an account? <a href="">Log In</a>{" "}
+              Have an account? <a href="/LoginPage">Log In</a>
             </p>
           </form>
         </article>
