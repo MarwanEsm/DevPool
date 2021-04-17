@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import { useHistory } from "react-router-dom";
+import {Link, useHistory } from "react-router-dom";
 import "./RegistrationStyle.css";
 
 function RegistrationForm() {
@@ -141,7 +141,7 @@ function RegistrationForm() {
             </button>
             <br />
             <p class="text-center">
-              Have an account? <a href="/LoginPage">Log In</a>
+              Have an account? <Link to="/LoginPage">Log In</Link>
             </p>
           </form>
         </article>
