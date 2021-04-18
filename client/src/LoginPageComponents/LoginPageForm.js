@@ -12,7 +12,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const LoginPageForm = () => {
   const { setUser } = useContext(AuthContext);
- 
 
   const [state, setState] = useState({
     email: "",
@@ -118,6 +117,7 @@ const LoginPageForm = () => {
             autoComplete="email"
             autoFocus
             onChange={handleChange}
+           
           />
           <TextField
             variant="outlined"
@@ -140,12 +140,14 @@ const LoginPageForm = () => {
           >
             Sign In
           </button>
-          <Grid container>
-            <Grid item xs>
+          <Grid container style={container1}>
+            <Grid>
               <Link href="#" variant="body2" style={linkStyle}>
                 Forgot password?
               </Link>
             </Grid>
+          </Grid>
+          <Grid container style={container2}>
             <Grid item>
               <Link to="/RegistrationPage" variant="body2" style={linkStyle}>
                 {"Don't have an account? Sign Up"}
@@ -176,5 +178,15 @@ const buttonStyle = {
   marginLeft: "25%",
   borderRadius: 10,
 };
+
+const container1 = {
+  marginLeft: "32%",
+};
+
+const container2 = {
+  marginLeft: "18%",
+  marginTop: "5%",
+};
+
 
 export default LoginPageForm;
