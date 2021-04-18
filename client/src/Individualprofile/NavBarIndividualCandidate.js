@@ -12,10 +12,6 @@ function NavBarEditProfileCan() {
     history.push("/ChatScreen");
   };
 
-  const handleClick1 = () => {
-    history.push(`/EditProfileCandidate/${user._id}`);
-  };
-
   const handleClick2 = () => {
     history.push("/");
   };
@@ -28,10 +24,6 @@ function NavBarEditProfileCan() {
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
           Messages
-        </Badge>
-        &nbsp; &nbsp;
-        <Badge style={badg} variant="primary" onClick={handleClick1}>
-          Edit Profile
         </Badge>
         &nbsp; &nbsp;
         <Badge style={badg} variant="primary" onClick={handleClick2}>
