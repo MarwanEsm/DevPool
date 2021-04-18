@@ -114,7 +114,6 @@ const div1Style = {
   marginRight: "50%",
 };
 
-
 const inputStyle = {
   width: "20%",
 };

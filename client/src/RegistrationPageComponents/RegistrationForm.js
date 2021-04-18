@@ -1,26 +1,23 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 import { Link, useHistory } from "react-router-dom";
 import "./RegistrationStyle.css";
 
 function RegistrationForm() {
-  const history = useHistory();
   const [state, setState] = useState({
     email: "",
     password: "",
     confirmationPassword: "",
     owner: "candidate",
-    checked: false,
+    // checked: false,
   });
 
   const isInvalid =
     state.email === "" ||
     state.password === "" ||
     state.confirmationPassword !== state.password ||
-    state.owner === ""||
-  state.checked === false;
+    state.owner === "" 
+    
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -139,13 +136,17 @@ function RegistrationForm() {
                   type="checkbox"
                   name="chk"
                   class="custom-control-input"
-                  checked={state.checked} onClick={makeItChecked}
+                  default={state.checked}
+                  
                 />
-                <label for="chk1" class="custom-control-label consent"  style={label1Style}>
+                <label
+                  for="chk1"
+                  class="custom-control-label consent"
+                  style={label1Style}
+                >
                   Agree to terms and conditions
                 </label>
               </div>
-              
             </Form.Group>
             <button
               class="btn btn-primary btn-block"
@@ -185,24 +186,23 @@ const label1Style = {
 
 const checkBox = {
   marginTop: "4%",
- 
 };
 const articleStyle = {
   width: 400,
 };
 
-const creatAccount ={
-  fontSize:14,
-  fontFamily:'Gill Sans, sans-serif'
-}
+const creatAccount = {
+  fontSize: 14,
+  fontFamily: "Andale Mono, monospace",
+};
 
-const buttonStyle={
-  width:'45%',
-  fontSize:13,
-  fontFamily:'Gill Sans, sans-serif',
-  marginLeft:'28%',
-  marginTop:'7%'
-
-}
+const buttonStyle = {
+  width: "45%",
+  fontSize: 14,
+  fontFamily: "Andale Mono, monospace",
+  marginLeft: "28%",
+  marginTop: "7%",
+  borderRadius:10
+};
 
 export default RegistrationForm;
