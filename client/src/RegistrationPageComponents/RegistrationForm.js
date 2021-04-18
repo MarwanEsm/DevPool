@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import {Link, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./RegistrationStyle.css";
 
 function RegistrationForm() {
@@ -19,8 +19,8 @@ function RegistrationForm() {
     state.email === "" ||
     state.password === "" ||
     state.confirmationPassword !== state.password ||
-    state.owner === "" ||
-    state.checked === false;
+    state.owner === ""||
+  state.checked === false;
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -122,6 +122,7 @@ function RegistrationForm() {
                 as="select"
                 onChange={handleDropDown}
                 defaultValue="Choose..."
+                style={labelStyle}
               >
                 <option value="candidate">Candidate</option>
                 <option value="employer">Employer</option>
@@ -129,18 +130,33 @@ function RegistrationForm() {
             </div>
 
             <Form.Group id="formGridCheckbox">
-              <input type="checkBox" name="chk" style={checkBox} onClick={makeItChecked} defaultChecked='' />
-              <label style={label1Style}>Accept Terms and Condition</label>
+              <div
+                class="custom-control custom-checkbox custom-control-inline"
+                style={checkBox}
+              >
+                <input
+                  id="chk1"
+                  type="checkbox"
+                  name="chk"
+                  class="custom-control-input"
+                  checked={state.checked} onClick={makeItChecked}
+                />
+                <label for="chk1" class="custom-control-label consent"  style={label1Style}>
+                  Agree to terms and conditions
+                </label>
+              </div>
+              
             </Form.Group>
             <button
               class="btn btn-primary btn-block"
               onClick={submitDetails}
               disabled={isInvalid}
+              style={buttonStyle}
             >
               Create Account
             </button>
             <br />
-            <p class="text-center">
+            <p class="text-center" style={creatAccount}>
               Have an account? <Link to="/LoginPage">Log In</Link>
             </p>
           </form>
@@ -156,23 +172,37 @@ const divStyle = {
 
 const labelStyle = {
   fontFamily: "Andale Mono, monospace",
-  fontSize: 16,
+  fontSize: 14,
   color: "#666666",
 };
 
 const label1Style = {
   fontFamily: "Andale Mono, monospace",
-  fontSize: 14,
+  fontSize: 13,
   textDecoration: "underline",
   color: "#666666",
 };
 
 const checkBox = {
   marginTop: "4%",
-  marginRight: "1%",
+ 
 };
 const articleStyle = {
   width: 400,
 };
+
+const creatAccount ={
+  fontSize:14,
+  fontFamily:'Gill Sans, sans-serif'
+}
+
+const buttonStyle={
+  width:'45%',
+  fontSize:13,
+  fontFamily:'Gill Sans, sans-serif',
+  marginLeft:'28%',
+  marginTop:'7%'
+
+}
 
 export default RegistrationForm;
