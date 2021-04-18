@@ -9,7 +9,6 @@ function LoginNavBar() {
     history.push("/");
   };
 
-  
   return (
     <div style={maindivStyle}>
       <div>
@@ -19,38 +18,8 @@ function LoginNavBar() {
         <Badge style={badg} variant="primary" onClick={handleClick}>
           Home
         </Badge>
-        
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // <div style={maindivStyle}>
     //   <div style={logoStyle}>
@@ -62,7 +31,6 @@ function LoginNavBar() {
     // </div>
   );
 }
-
 
 const badg = {
   height: 30,
@@ -86,7 +54,5 @@ const navdiv = {
   display: "flex",
   justifyContent: "space-between",
 };
-
-
 
 export default LoginNavBar;

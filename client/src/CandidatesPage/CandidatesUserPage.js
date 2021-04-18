@@ -7,9 +7,7 @@ import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
 function CandidatesUserPage() {
-  // const history = useHistory();
-  // const { candidate } = useContext(CandidatesContext);
-  // const {user} =useContext(AuthContext)
+
   
     return (
       <div>
