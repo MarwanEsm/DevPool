@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
-import { Link, useHistory } from "react-router-dom";
 import "./RegistrationStyle.css";
 
 function RegistrationForm() {
@@ -16,8 +15,7 @@ function RegistrationForm() {
     state.email === "" ||
     state.password === "" ||
     state.confirmationPassword !== state.password ||
-    state.owner === "" 
-    
+    state.owner === "";
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -29,10 +27,10 @@ function RegistrationForm() {
     setState({ ...state, owner: e.target.value });
   };
 
-  const makeItChecked = (e) => {
-    e.preventDefault();
-    setState({ ...state, checked: !state.checked });
-  };
+  // const makeItChecked = (e) => {
+  //   e.preventDefault();
+  //   setState({ ...state, checked: !state.checked });
+  // };
 
   const submitDetails = (e) => {
     e.preventDefault();
@@ -137,7 +135,6 @@ function RegistrationForm() {
                   name="chk"
                   class="custom-control-input"
                   default={state.checked}
-                  
                 />
                 <label
                   for="chk1"
@@ -157,9 +154,6 @@ function RegistrationForm() {
               Create Account
             </button>
             <br />
-            <p class="text-center" style={creatAccount}>
-              Have an account? <Link to="/LoginPage">Log In</Link>
-            </p>
           </form>
         </article>
       </div>
@@ -191,18 +185,13 @@ const articleStyle = {
   width: 400,
 };
 
-const creatAccount = {
-  fontSize: 14,
-  fontFamily: "Andale Mono, monospace",
-};
-
 const buttonStyle = {
   width: "45%",
   fontSize: 14,
   fontFamily: "Andale Mono, monospace",
   marginLeft: "28%",
   marginTop: "7%",
-  borderRadius:10
+  borderRadius: 10,
 };
 
 export default RegistrationForm;

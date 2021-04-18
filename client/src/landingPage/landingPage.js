@@ -7,11 +7,10 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import "react-flex/index.css";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
-import { AuthContext } from "../ContextProvider/AuthContextProvider";
+
 
 function LandingPage() {
   const { filteredCandidates } = useContext(CandidatesContext);
-  const { user } = useContext(AuthContext);
   const history = useHistory();
 
   const handelReadMore = (e) => {
