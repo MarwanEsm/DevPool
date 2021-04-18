@@ -8,10 +8,7 @@ import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import "./CandidateUserStyle.css";
 
 function CandidateForm() {
-  // const history = useHistory();
   const [workEx, setWorkEx] = useState([]);
-  // const { user } = useContext(AuthContext);
-
   const [state, setState] = useState({
     fullName: "",
     title: "",
@@ -20,7 +17,6 @@ function CandidateForm() {
     workExperience: [],
     desiredPosition: "",
     expectedSalary: "",
-    checked: false,
   });
 
   const isInvalid =
@@ -29,8 +25,7 @@ function CandidateForm() {
     state.location === "" ||
     state.workExperience === [] ||
     state.desiredPosition === "" ||
-    state.expectedSalary === "" ||
-    state.checked === false;
+    state.expectedSalary === "";
 
   const [image, setImage] = useState();
   const uploadImage = (img) => {
@@ -91,11 +86,6 @@ function CandidateForm() {
     values[i] = e.target.value;
     setWorkEx(values);
   }
-
-  const makeItChecked = (e) => {
-    e.preventDefault();
-    setState({ ...state, checked: !state.checked });
-  };
 
   return (
     <div class="container register">
@@ -213,7 +203,6 @@ function CandidateForm() {
                               </Button>
                               <Form.Control
                                 type="text"
-                                placeholder="Work Experience"
                                 value={field}
                                 onChange={(e) => handleChangeMore(idx, e)}
                               ></Form.Control>
@@ -226,7 +215,7 @@ function CandidateForm() {
                           onClick={() => handleAdd()}
                           style={buttonStyle}
                         >
-                          Add more
+                          Add Work Experience
                         </Button>
                       </Form.Group>
                     </Form.Row>
