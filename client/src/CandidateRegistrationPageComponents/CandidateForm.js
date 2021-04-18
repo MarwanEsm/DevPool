@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import ImageUploader from "react-images-upload";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
-import './CandidateUserStyle.css'
+import "./CandidateUserStyle.css";
 
 function CandidateForm() {
   // const history = useHistory();
@@ -103,39 +103,11 @@ function CandidateForm() {
         <div class="col-md-3 register-left">
           <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
           <h3>Welcome</h3>
-          <p>You are 30 seconds away from earning your own money!</p>
-          <input type="submit" name="" value="Login" />
+          <p>You are 30 seconds away from entering the best hiring website!</p>
+
           <br />
         </div>
         <div class="col-md-9 register-right">
-          <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                id="home-tab"
-                data-toggle="tab"
-                href="#home"
-                role="tab"
-                aria-controls="home"
-                aria-selected="true"
-              >
-                Employee
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                id="profile-tab"
-                data-toggle="tab"
-                href="#profile"
-                role="tab"
-                aria-controls="profile"
-                aria-selected="false"
-              >
-                Hirer
-              </a>
-            </li>
-          </ul>
           <div class="tab-content" id="myTabContent">
             <div
               class="tab-pane fade show active"
@@ -143,355 +115,143 @@ function CandidateForm() {
               role="tabpanel"
               aria-labelledby="home-tab"
             >
-              <h3 class="register-heading">Apply as a Employee</h3>
+              <h3 class="register-heading">Register as Candidate</h3>
               <div class="row register-form">
                 <div class="col-md-6">
                   <div class="form-group">
                     <input
                       type="text"
                       class="form-control"
-                      placeholder="First Name *"
-                      value=""
+                      placeholder="Full Name *"
+                      name="fullName"
+                      onChange={handleChange}
+                      value={state.fullName}
                     />
-                  </div>{" "}
+                  </div>
                   <div class="form-group">
                     <input
                       type="text"
                       class="form-control"
-                      placeholder="Last Name *"
-                      value=""
+                      placeholder="Title *"
+                      name="title"
+                      onChange={handleChange}
+                      value={state.title}
                     />
                   </div>
                   <div class="form-group">
                     <input
-                      type="password"
                       class="form-control"
-                      placeholder="Password *"
-                      value=""
+                      placeholder="Desired Position *"
+                      type="text"
+                      name="desiredPosition"
+                      onChange={handleChange}
+                      value={state.desiredPosition}
                     />
                   </div>
+
                   <div class="form-group">
-                    <input
-                      type="password"
-                      class="form-control"
-                      placeholder="Confirm Password *"
-                      value=""
-                    />
-                  </div>
-                  <div class="form-group">
-                    <div class="maxl">
-                      <label class="radio inline">
-                        <input
-                          type="radio"
-                          name="gender"
-                          value="male"
-                          checked
-                        />
-                        <span> Male </span>
-                      </label>
-                      <label class="radio inline">
-                        <input type="radio" name="gender" value="female" />
-                        <span>Female </span>
-                      </label>
-                    </div>
+                    <Form.Row>
+                      <ImageUploader
+                        buttonText="Choose images"
+                        onChange={uploadImage}
+                        imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+                        maxFileSize={5242880}
+                        type="image"
+                        value={image}
+                        name="myImage"
+                        accept=".jpg"
+                        style={uploaderStyle}
+                      />
+                    </Form.Row>
                   </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
                     <input
-                      type="email"
                       class="form-control"
                       placeholder="Your Email *"
-                      value=""
-                    />
-                  </div>{" "}
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      minlength="10"
-                      maxlength="10"
-                      name="txtEmpPhone"
-                      class="form-control"
-                      placeholder="Your Phone *"
-                      value=""
-                    />
-                  </div>
-                  <div class="form-group">
-                    <select class="form-control">
-                      <option class="hidden" selected disabled>
-                        Please select your Sequrity Question
-                      </option>
-                      <option>What is your Birthdate?</option>
-                      <option>What is Your old Phone Number</option>
-                      <option>What is your Pet Name?</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Enter Your Answer *"
-                      value=""
-                    />
-                  </div>
-                  <input type="submit" class="btnRegister" value="Register" />
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="tab-pane fade show"
-              id="profile"
-              role="tabpanel"
-              aria-labelledby="profile-tab"
-            >
-              <h3 class="register-heading">Apply as a Hirer</h3>
-              <div class="row register-form">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="First Name *"
-                      value=""
-                    />
-                  </div>
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Last Name *"
-                      value=""
-                    />
-                  </div>
-                  <div class="form-group">
-                    <input
                       type="email"
-                      class="form-control"
-                      placeholder="Email *"
-                      value=""
+                      name="email"
+                      onChange={handleChange}
+                      value={state.email}
                     />
                   </div>
                   <div class="form-group">
                     <input
-                      type="text"
-                      maxlength="10"
-                      minlength="10"
                       class="form-control"
-                      placeholder="Phone *"
-                      value=""
+                      placeholder="Location *"
+                      type="text"
+                      name="location"
+                      onChange={handleChange}
+                      value={state.location}
                     />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      class="form-control"
+                      placeholder="Expected Salary *"
+                      onChange={handleChange}
+                      type="number"
+                      name="expectedSalary"
+                      onChange={handleChange}
+                      value={state.expectedSalary}
+                    />
+                  </div>
+                  <div class="form-group"></div>
+                  <div class="form-group">
+                    <Form.Row>
+                      <Form.Group as={Col} controlId="formGridPassword">
+                        {workEx.map((field, idx) => {
+                          return (
+                            <div key={idx} style={addMoreDiv}>
+                              <Button
+                                type="button"
+                                onClick={() => handleRemove(idx)}
+                              >
+                                X
+                              </Button>
+                              <Form.Control
+                                type="text"
+                                placeholder="Work Experience"
+                                value={field}
+                                onChange={(e) => handleChangeMore(idx, e)}
+                              ></Form.Control>
+                            </div>
+                          );
+                        })}
+                        <Button
+                          variant="outline-primary"
+                          type="button"
+                          onClick={() => handleAdd()}
+                          style={buttonStyle}
+                        >
+                          Add more
+                        </Button>
+                      </Form.Group>
+                    </Form.Row>
                   </div>
                 </div>
-
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input
-                      type="password"
-                      class="form-control"
-                      placeholder="Password *"
-                      value=""
-                    />
-                  </div>
-                  <div class="form-group">
-                    <input
-                      type="password"
-                      class="form-control"
-                      placeholder="Confirm Password *"
-                      value=""
-                    />
-                  </div>
-                  <div class="form-group">
-                    <select class="form-control">
-                      <option class="hidden" selected disabled>
-                        Please select your Sequrity Question
-                      </option>
-                      <option>What is your Birthdate?</option>
-                      <option>What is Your old Phone Number</option>
-                      <option>What is your Pet Name?</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="`Answer *"
-                      value=""
-                    />
-                  </div>
-                  <input type="submit" class="btnRegister" value="Register" />
-                </div>
+                <input
+                  type="submit"
+                  class="btnRegister"
+                  value="Register"
+                  onClick={submitDetails}
+                  disabled={isInvalid}
+                  style={submitStyle}
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    /* <div>
-    <div style={divStyle}>
-  <Form>
-    <Form.Row style={rowStyle}>
-   <Form.Group as={Col} controlId="formGridPassword">
- <Form.Label style={textStyle}>Full Name</Form.Label>
-   <Form.Control */
-
-    /* //             type="text"
-    //             name="fullName"
-    //             onChange={handleChange}
-    //             value={state.fullName}
-    //             style={inputtStyle}
-    //           />
-    //         </Form.Group>
-
-    //         <Form.Group as={Col} controlId="formGridPassword">
-    //           <Form.Label style={textStyle}>Title</Form.Label>
-    //           <Form.Control
-    //             type="text"
-    //             name="title"
-    //             onChange={handleChange}
-    //             value={state.title}
-    //             style={inputtStyle}
-    //           />
-    //         </Form.Group>
-    //       </Form.Row>
-    //       <Form.Row>
-    //         <Form.Group as={Col} controlId="formGridEmail">
-    //           <Form.Label style={textStyle}>Email</Form.Label>
-    //           <Form.Control
-    //             type="email"
-    //             name="email"
-    //             onChange={handleChange}
-    //             value={state.email}
-    //             style={inputtStyle}
-                
-    //           />
-    //         </Form.Group>
-    //         <Form.Group as={Col} controlId="formGridEmail">
-    //           <Form.Label style={textStyle}>Location</Form.Label>
-    //           <Form.Control
-    //             type="text"
-    //             name="location"
-    //             onChange={handleChange}
-    //             value={state.location}
-    //             style={inputtStyle}
-    //           />
-    //         </Form.Group>
-    //       </Form.Row>
-    //       <br />
-    //       <Form.Row>
-    //         <Form.Group as={Col} controlId="formGridPassword">
-    //           <Form.Label style={textStyle}>Desired Position</Form.Label>
-    //           <Form.Control
-    //             type="text"
-    //             name="desiredPosition"
-    //             onChange={handleChange}
-    //             value={state.desiredPosition}
-    //             style={inputtStyle}
-    //           />
-    //         </Form.Group>
-    //         <Form.Group as={Col} controlId="formGridCity">
-    //           <Form.Label style={textStyle}>Expected Salary</Form.Label>
-    //           <Form.Control
-    //             type="number"
-    //             name="expectedSalary"
-    //             onChange={handleChange}
-    //             value={state.expectedSalary}
-    //             style={inputtStyle}
-    //           />
-    //         </Form.Group>
-    //       </Form.Row>
-    //       <br />
-    //       <Form.Row>
-    //         <Form.Group as={Col} controlId="formGridPassword">
-    //           <Form.Label style={textStyle}>Work Experience</Form.Label>
-    //           <br />
-    //           {workEx.map((field, idx) => {
-    //             return (
-    //               <div key={idx} style={addMoreDiv}>
-    //                 <Button
-    //                   type="button"
-    //                   onClick={() => handleRemove(idx)}
-    //                   style={removeButtonStyle}
-    //                 >
-    //                   X
-    //                 </Button>
-
-    //                 <Form.Control
-    //                   type="text"
-    //                   placeholder="Work Experience"
-    //                   value={field}
-    //                   onChange={(e) => handleChangeMore(idx, e)}
-    //                   style={inputtStyle}
-    //                 ></Form.Control>
-    //               </div>
-    //             );
-    //           })}
-    //           <Button
-    //             variant="outline-primary"
-    //             type="button"
-    //             onClick={() => handleAdd()}
-    //             style={buttonStyle}
-    //           >
-    //             Add more
-    //           </Button>
-    //         </Form.Group>
-    //       </Form.Row>
-
-    //       <Form.Row>
-    //         <ImageUploader
-    //           buttonText="Choose images"
-    //           onChange={uploadImage}
-    //           imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-    //           maxFileSize={5242880}
-    //           type="image"
-    //           value={image}
-    //           name="myImage"
-    //           accept=".jpg"
-    //         />
-    //       </Form.Row>
-
-    //       <Form.Group id="formGridCheckbox">
-    //         <input
-    //           type="radio"
-    //           defaultChecked={state.checked}
-    //           onClick={makeItChecked}
-    //         />{" "}
-    //         &nbsp;<label>Agree to Terms and Conditions</label>
-    //       </Form.Group>
-
-    //       <Button
-    //         variant="primary"
-    //         onClick={submitDetails}
-    //         disabled={isInvalid}
-    //         style={buttonStyle}
-    //       >
-    //         Submit
-    //       </Button>
-    //     </Form>
-    //   </div>
-    // </div> */
   );
 }
-
-const divStyle = {
-  marginTop: "4%",
-  marginLeft: "30%",
-  width: "35%",
-};
 
 const addMoreDiv = {
   display: "flex",
   justifyContent: "space-between",
-};
-
-const inputtStyle = {
-  borderRadius: 14,
-  border: "bold",
-  borderColor: "black",
-  fontFamily: "Courier, monospace",
-  fontSize: 15,
 };
 
 const buttonStyle = {
@@ -499,19 +259,16 @@ const buttonStyle = {
   fontSize: 14,
   cursor: "pointer",
   boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
+  marginTop: "5%",
 };
 
-const textStyle = {
-  fontFamily: "Zapf Chancery, cursive",
+const uploaderStyle = {
+  border: "none",
 };
 
-const removeButtonStyle = {
-  width: "6%",
-  height: "3%",
-};
-
-const rowStyle = {
-  marginBottom: "3%",
+const submitStyle = {
+  width: "25%",
+  marginLeft: "37%",
 };
 
 export default CandidateForm;
