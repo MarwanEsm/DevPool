@@ -1,15 +1,14 @@
 import React, { useContext, useState } from "react";
-// import { useHistory } from "react-router-dom";
-import Form from "react-bootstrap/Form";
-import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
 import "./EditProfileStyle.css";
 
 function EditProfieCanForm() {
   // const { user } = useContext(AuthContext);
   const { candidate } = useContext(CandidatesContext);
-
+  const [workEx, setWorkEx] = useState([]);
   const [state, setState] = useState({});
 
   const handleChange = (e) => {
@@ -43,6 +42,21 @@ function EditProfieCanForm() {
         console.log(res);
       });
   };
+
+  function handleAdd() {
+    setWorkEx([...workEx, ""]);
+  }
+
+  function handleRemove(i) {
+    const values = workEx.splice(i, 1);
+    setWorkEx(values);
+  }
+
+  function handleChangeMore(i, e) {
+    const values = [...workEx];
+    values[i] = e.target.value;
+    setWorkEx(values);
+  }
 
   return (
     <div>
@@ -251,18 +265,41 @@ function EditProfieCanForm() {
           <div class="col-md-4">
             <div class="p-3 py-5">
               <div class="d-flex justify-content-between align-items-center experience">
-                <span>Edit Experience</span>
-                <span class="border px-3 p-1 add-experience">
-                  <i class="fa fa-plus"></i>&nbsp;Experience
+                <span style={expereince}>Edit Experience</span>
+                <span
+                  class="border px-3 p-1 add-experience"
+                  onClick={handleAdd}
+                  style={iStyle}
+                >
+                  <i class="fa fa-plus" ></i>&nbsp;Experience
                 </span>
               </div>
               <div class="col-md-12" style={div1}>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="experience"
-                  value=""
-                />
+                <Form.Row>
+                  <Form.Group as={Col} controlId="formGridPassword">
+                    {workEx.map((field, idx) => {
+                      return (
+                        <div key={idx}>
+                          <span>
+                            <span
+                              type="button"
+                              onClick={() => handleRemove(idx)}
+                            >
+                              X
+                            </span>
+                            <input
+                              type="text"
+                              value={field}
+                              onChange={(e) => handleChangeMore(idx, e)}
+                              class="form-control"
+                              style={inputt1Style}
+                            />
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </Form.Group>
+                </Form.Row>
               </div>
               <div class="col-md-12">
                 <label class="labels">Additional Details</label>
@@ -285,6 +322,9 @@ const inputtStyle = {
   borderRadius: 14,
 };
 
+const inputt1Style = {
+  borderRadius: 14,
+};
 const buttonStyle = {
   fontFamily: "Courier, monospace",
   fontSize: 14,
@@ -308,4 +348,14 @@ const header = {
   textDecoration: "underline",
 };
 
+
+const expereince ={
+  fontFamily: "Trebuchet MS, sans-serif",
+}
+
+const iStyle ={
+  borderRadius:10,
+  backgroundColor:'#1565c0',
+  color:'white'
+}
 export default EditProfieCanForm;

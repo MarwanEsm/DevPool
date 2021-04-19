@@ -49,11 +49,6 @@ function IndividualProfile() {
                     src={`http://localhost:5000/${candidate.img}`}
                   />
                 )}
-
-                <div class="file btn btn-lg btn-primary">
-                  Change Photo
-                  <input type="file" name="file" />
-                </div>
               </div>
             </div>
 
