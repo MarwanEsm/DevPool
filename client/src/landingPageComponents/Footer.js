@@ -20,6 +20,7 @@ function Footer() {
               <div class="col-md-6">
                 <div class="box" style={div1Style}>
                   <h5 class="mb-0">Berlin Office</h5>
+                  &nbsp;
                   <p>Adolfstraße 24 13347 </p>
                   <br />
                   <div style={aLinkStyle}>
@@ -66,13 +67,17 @@ function Footer() {
                       name="chk"
                       class="custom-control-input"
                     />
-                    <label for="chk1" class="custom-control-label consent">
-                      I give my consent that my personal information can be
-                      collected
+                    <label
+                      for="chk1"
+                      class="custom-control-label consent"
+                      style={labelStyle}
+                    >
+                      I give my consent
                     </label>
                   </div>
-
-                  <Button style={button}>Submit</Button>
+                  <div>
+                    <Button style={button}>Submit</Button>
+                  </div>
                 </div>
               </div>
             </form>
@@ -122,5 +127,11 @@ const aLinkStyle = {
   display: "flex",
   justifyContent: "space-around",
 };
+
+const labelStyle = {
+  marginTop: "5%",
+  marginBottom: "5%",
+};
+
 
 export default Footer;

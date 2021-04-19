@@ -12,6 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const LoginPageForm = () => {
   const { setUser } = useContext(AuthContext);
+  const classes = useStyles();
 
   const [state, setState] = useState({
     email: "",
@@ -73,28 +74,6 @@ const LoginPageForm = () => {
       });
   };
 
-  const useStyles = makeStyles((theme) => ({
-    paper: {
-      marginTop: theme.spacing(8),
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-    },
-    avatar: {
-      margin: theme.spacing(1),
-      backgroundColor: "#405D9D",
-    },
-    form: {
-      width: "100%",
-      marginTop: theme.spacing(1),
-    },
-    submit: {
-      margin: theme.spacing(3, 0, 2),
-    },
-  }));
-
-  const classes = useStyles();
-
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -102,12 +81,11 @@ const LoginPageForm = () => {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" style={h3Style}>
           Sign in
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
-            variant="outlined"
             margin="normal"
             required
             fullWidth
@@ -117,10 +95,9 @@ const LoginPageForm = () => {
             autoComplete="email"
             autoFocus
             onChange={handleChange}
-           
+            style={h3Style}
           />
           <TextField
-            variant="outlined"
             margin="normal"
             required
             fullWidth
@@ -138,7 +115,7 @@ const LoginPageForm = () => {
             disabled={isInvalid}
             style={buttonStyle}
           >
-            Sign In
+            Log in
           </button>
           <Grid container style={container1}>
             <Grid>
@@ -160,11 +137,32 @@ const LoginPageForm = () => {
   );
 };
 
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: "#405D9D",
+  },
+  form: {
+    width: "90%",
+    marginTop: theme.spacing(1),
+  
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
+
 const linkStyle = {
-  fontFamily: "Andale Mono, monospace",
   fontSize: 14,
-  color: "gray",
   textDecoration: "underline",
+  fontFamily: "Trebuchet MS, sans-serif",
+  color: "#e6f2ff",
 };
 
 const buttonStyle = {
@@ -174,19 +172,23 @@ const buttonStyle = {
   boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
   marginBottom: "7%",
   marginTop: "6%",
-  width: "45%",
-  marginLeft: "25%",
+  width: "30%",
+  marginLeft: "33%",
   borderRadius: 10,
 };
 
 const container1 = {
-  marginLeft: "32%",
+  marginLeft: "33%",
 };
 
 const container2 = {
-  marginLeft: "18%",
+  marginLeft: "22%",
   marginTop: "5%",
 };
 
+const h3Style = {
+  fontFamily: "Trebuchet MS, sans-serif",
+  color: "white",
+};
 
 export default LoginPageForm;
