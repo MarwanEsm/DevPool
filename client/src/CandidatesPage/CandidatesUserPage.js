@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
+import React from "react";
 import CandidateNavBar from "../CandidateRegistrationPageComponents/NavBarCandidate";
 import CandidateForm from "../CandidateRegistrationPageComponents/CandidateForm";
 import Footer from "../LandingPageComponents/Footer";
-import { AuthContext } from "../ContextProvider/AuthContextProvider";
-import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
+
 
 function CandidatesUserPage() {
 

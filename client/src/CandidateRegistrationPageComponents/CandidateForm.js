@@ -87,7 +87,7 @@ function CandidateForm() {
   }
 
   return (
-    <div class="container register">
+    <div class="container register" style={divStyle}>
       <div class="row">
         <div class="col-md-3 register-left">
           <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
@@ -104,7 +104,9 @@ function CandidateForm() {
               role="tabpanel"
               aria-labelledby="home-tab"
             >
-              <h3 class="register-heading">Register as Candidate</h3>
+              <h3 class="register-heading" style={header}>
+                Register as Candidate
+              </h3>
               <div class="row register-form">
                 <div class="col-md-6">
                   <div class="form-group">
@@ -115,6 +117,7 @@ function CandidateForm() {
                       name="fullName"
                       onChange={handleChange}
                       value={state.fullName}
+                      style={inputStyle}
                     />
                   </div>
                   <div class="form-group">
@@ -125,6 +128,7 @@ function CandidateForm() {
                       name="title"
                       onChange={handleChange}
                       value={state.title}
+                      style={inputStyle}
                     />
                   </div>
                   <div class="form-group">
@@ -135,6 +139,7 @@ function CandidateForm() {
                       name="desiredPosition"
                       onChange={handleChange}
                       value={state.desiredPosition}
+                      style={inputStyle}
                     />
                   </div>
 
@@ -149,7 +154,6 @@ function CandidateForm() {
                         value={image}
                         name="myImage"
                         accept=".jpg"
-                        style={uploaderStyle}
                       />
                     </Form.Row>
                   </div>
@@ -164,6 +168,7 @@ function CandidateForm() {
                       name="email"
                       onChange={handleChange}
                       value={state.email}
+                      style={inputStyle}
                     />
                   </div>
                   <div class="form-group">
@@ -174,6 +179,7 @@ function CandidateForm() {
                       name="location"
                       onChange={handleChange}
                       value={state.location}
+                      style={inputStyle}
                     />
                   </div>
                   <div class="form-group">
@@ -183,8 +189,8 @@ function CandidateForm() {
                       onChange={handleChange}
                       type="number"
                       name="expectedSalary"
-                      onChange={handleChange}
                       value={state.expectedSalary}
+                      style={inputStyle}
                     />
                   </div>
                   <div class="form-group"></div>
@@ -194,16 +200,18 @@ function CandidateForm() {
                         {workEx.map((field, idx) => {
                           return (
                             <div key={idx} style={addMoreDiv}>
-                              <Button
+                              <span
                                 type="button"
                                 onClick={() => handleRemove(idx)}
+                                style={spanStyle}
                               >
                                 X
-                              </Button>
+                              </span>
                               <Form.Control
                                 type="text"
                                 value={field}
                                 onChange={(e) => handleChangeMore(idx, e)}
+                                style={input1Style}
                               ></Form.Control>
                             </div>
                           );
@@ -250,13 +258,33 @@ const buttonStyle = {
   marginTop: "5%",
 };
 
-const uploaderStyle = {
-  border: "none",
+const submitStyle = {
+  marginLeft: "40%",
 };
 
-const submitStyle = {
-  width: "25%",
-  marginLeft: "37%",
+const divStyle = {
+  marginTop: "4%",
+  marginBottom: "4%",
+};
+
+const spanStyle = {
+  marginRight: "2%",
+  marginTop: "3%",
+  color: "blue",
+};
+
+const input1Style = {
+  borderRadius: 8,
+  marginBottom: "2%",
+};
+
+const inputStyle = {
+  borderRadius: 6,
+};
+
+const header = {
+  fontFamily: "Trebuchet MS, sans-serif",
+  fontSize: 24,
 };
 
 export default CandidateForm;
