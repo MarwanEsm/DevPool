@@ -61,7 +61,7 @@ function RegistrationForm() {
             Create Account
           </h4>
           <p class="text-center">Get started with your free account</p>
-          <form>
+          <form style={form}>
             <div class="form-group input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text">
@@ -193,6 +193,10 @@ const checkBox = {
 const articleStyle = {
   width: 400,
 };
+
+const form ={
+  width:'100%'
+}
 
 const buttonStyle = {
   width: "30%",

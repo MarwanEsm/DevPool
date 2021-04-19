@@ -5,6 +5,7 @@ import Footer from "../LandingPageComponents/Footer";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import "react-flex/index.css";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
@@ -22,13 +23,14 @@ function LandingPage() {
       <div>
         <Headbar />
       </div>
-      <div>
+
+      <Row>
         {filteredCandidates &&
           filteredCandidates.length &&
           filteredCandidates.map((candidate) => {
             return (
-              <div>
-                <Col xs={14} sm={10} md={6} lg={3} style={colStyle}>
+              
+                <Col xs={12} sm={10} md={6} lg={3} style={colStyle}>
                   <Card
                     className="p-3"
                     border="primary"
@@ -45,17 +47,18 @@ function LandingPage() {
                       Name: {candidate.fullName}
                     </Card.Text>
                     <Card.Text style={text2Style}>
-                      Title: {candidate.title}
+                      Location: {candidate.location}
                     </Card.Text>
                     <Button onClick={handelReadMore} style={buttonStyle}>
                       Read More
                     </Button>
                   </Card>
                 </Col>
-              </div>
+              
             );
           })}
-      </div>
+          
+      </Row>
       <div>
         <Footer />
       </div>
@@ -66,7 +69,6 @@ function LandingPage() {
 const buttonStyle = {
   fontFamily: "Courier New, monospace",
   fontSize: 13,
-
   cursor: "pointer",
   boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
   width: "40%",
@@ -92,7 +94,6 @@ const cardStyle = {
 const colStyle = {
   display: "flex",
   justifyContent: "space-between",
-  alignItems: "space-betweent",
   marginTop: "3%",
 };
 const textStyle = {

@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Col from "react-bootstrap/Col";
 import Badge from "react-bootstrap/Badge";
+import _ from "lodash";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
 function Headbar() {
@@ -34,6 +35,10 @@ function Headbar() {
   const handleClick1 = () => {
     history.push("/LoginPage");
   };
+const locations =
+  _.uniqBy(candidates, "location")
+console.log(locations);
+
 
   return (
     <div style={maindivStyle}>
@@ -52,7 +57,8 @@ function Headbar() {
               >
                 <option value="all">All</option>
                 {candidates.length &&
-                  candidates.map((candidate) => {
+                  locations.map((candidate) => {
+                    
                     return (
                       <option key={candidate._id} value={candidate.location}>
                         {candidate.location}
@@ -94,7 +100,6 @@ const maindivStyle = {
   justifyContent: "space-around",
   paddingTop: "1%",
   marginTop: "0%",
- 
 };
 
 const div1Style = {
@@ -121,8 +126,8 @@ const selectStyle = {
   borderColor: "gray",
   fontFamily: "Courier, monospace",
   fontSize: 15,
-  fontWeight:'bold',
-  color: '#1565c0 '
+  fontWeight: "bold",
+  color: "#1565c0 ",
 };
 
 const badg = {
