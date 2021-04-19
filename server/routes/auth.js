@@ -28,12 +28,11 @@ router.post("/register", (req, res) => {
               email: reqemail,
               password: hash,
               owner: reqowner,
-           
             });
             newUser
               .save()
-              .then((user) => {
-                res.send(user);
+              .then((res) => {
+                res.send({ msg: " Details were submitted" });
               })
 
               .catch((err) => {

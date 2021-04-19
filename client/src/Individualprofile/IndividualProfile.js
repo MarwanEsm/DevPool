@@ -316,7 +316,7 @@ const badg = {
 };
 
 const divStyle = {
-  marginTop: "-15%",
+  marginTop: "-9%",
   marginLeft: "-7%",
 };
 

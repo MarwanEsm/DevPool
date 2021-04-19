@@ -1,23 +1,42 @@
 import React,{useContext} from "react";
 import Logo from "../LandingPageComponents/Logo";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { EmployerContext } from "../ContextProvider/EmployerContextProvider";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
+import Badge from "react-bootstrap/Badge";
 
 function EmployerNavBar() {
   const { user } = useContext(AuthContext);
+  const { employer } = useContext(EmployerContext);
+  const history = useHistory();
   console.log(user);
+
+  const handleClick=()=>{
+    if (employer) {
+    history.push(`/EmployerIndividualProfile/${user._id}`);
+  } else {
+    alert("Please register as employer");
+  }
+  }
+  
+
+
+const handleClick1 = () => {
+  history.push("/");
+};
   return (
     <div style={maindivStyle}>
-      <div style={logoStyle}>
+      <div>
         <Logo />
       </div>
       <div style={navdiv}>
-        {/* replace it with profile icon */}
-        <Link to = {`/EmployerIndividualProfile/${user._id}`} style={linkStyle}>My Profile </Link>
+        <Badge style={badg} variant="primary" onClick={handleClick}>
+          My Profile
+        </Badge>
         &nbsp; &nbsp;
-        <h5>|</h5>
-        &nbsp; &nbsp;
-        <Link to="/" style={linkStyle}>Logout</Link>
+        <Badge style={badg} variant="primary" onClick={handleClick1}>
+          Log out
+        </Badge>
       </div>
     </div>
   );
@@ -26,24 +45,24 @@ function EmployerNavBar() {
 const maindivStyle = {
   display: "flex",
   justifyContent: "space-between",
-  backgroundColor: "#F0FFF0",
   paddingTop: "1%",
-  paddingBottom: "1%",
   marginTop: "0%",
+  marginRight: "3%",
+  marginLeft: "1.3%",
 };
-
 const navdiv = {
   display: "flex",
-  justifyContent: "space-around",
-  paddingRight: "4%",
+  justifyContent: "space-between",
 };
 
-const logoStyle = {
-  paddingLeft: "3%",
-};
-
-const linkStyle = {
-  fontFamily: "Zapf Chancery, cursive",
+const badg = {
+  height: 30,
+  width: 120,
+  fontSize: 15,
+  cursor: "pointer",
+  borderRadius: 12,
+  padding: 7,
+  alignText: "center",
 };
 
 export default EmployerNavBar;

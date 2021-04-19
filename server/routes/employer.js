@@ -105,20 +105,7 @@ router.put(
         } else {
           console.log(employer);
           res.send({ msg: "Changes were submitted" });
-          // const body = {
-          //   ...req.body,
-          // };
-          // // const newCandidate = new CandidateSchema(body);
-          // // newCandidate
-          // // console.log(req.body);
-          // candidate.save()
-          //   .then((body) => {
-          //     console.log(body);
-          //     res.send({ success: true, msg: "Details weres submitted" });
-          //   })
-          //   .catch((err) => {
-          //     res.send(err);
-          //   });
+          
         }
       }
     );

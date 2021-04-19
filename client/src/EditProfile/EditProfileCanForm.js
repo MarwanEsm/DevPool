@@ -112,15 +112,19 @@ function EditProfieCanForm() {
           <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
               <div class="profile-img">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
-                  alt=""
-                />
+              
+                {candidate && (
+                  <img
+                    variant="top"
+                    src={`http://localhost:5000/${candidate.img}`}
+                  />
+                )}
+             
                 <div class="file btn btn-lg btn-primary">
                   Change Photo
                   <input
                     onChange={uploadImage}
-                    imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+                    imgextension={[".jpg", ".gif", ".png", ".gif"]}
                     maxFileSize={5242880}
                     type="file"
                     value={file}

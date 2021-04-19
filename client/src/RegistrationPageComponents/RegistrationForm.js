@@ -43,7 +43,13 @@ function RegistrationForm() {
       body: JSON.stringify(state),
     })
       .then((res) => res.json())
-      .then((res) => console.log(res));
+      .then((res) => {
+        if (res.success) {
+          alert(res.msg);
+        } else {
+          alert(res.msg);
+        }
+      });
   };
 
   return (

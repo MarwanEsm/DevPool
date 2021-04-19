@@ -3,13 +3,19 @@ import { useHistory } from "react-router-dom";
 import Badge from "react-bootstrap/Badge";
 import Logo from "../LandingPageComponents/Logo";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
+import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
 function CandidateNavBar() {
   const { user } = useContext(AuthContext);
+  const { candidate } = useContext(CandidatesContext);
   const history = useHistory();
 
   const handleClick = () => {
-    history.push(`/IndividualProfile/${user._id}`);
+    if (candidate) {
+      history.push(`/IndividualProfile/${user._id}`);
+    } else {
+      alert("Please register as candidate");
+    }
   };
 
   const handleClick1 = () => {

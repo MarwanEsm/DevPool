@@ -24,17 +24,6 @@ router.get("/all", (req, res) => {
   });
 });
 
-// router.get("/isRegistered", (req, res) => {
-//   CandidateSchema.find({ isRegistered: true }, (err, candidates) => {
-//     if (err) {
-//       res.send(err);
-//     } else {
-//       res.send(candidates);
-//       console.log(candidates);
-//     }
-//   });
-// });
-
 router.get(
   "/me",
   passport.authenticate("jwt", { session: false }),
@@ -53,7 +42,6 @@ router.get(
   }
 );
 
-/// can be used to fetch once a recruiter wants to check a candidate profile//
 router.get("/:id", (req, res) => {
   const candidateId = req.params.id;
   CandidateSchema.findById(candidateId, function (err, candidate) {
@@ -122,20 +110,6 @@ router.put(
         } else {
           console.log(candidate);
           res.send({ msg: "Changes were submitted" });
-          // const body = {
-          //   ...req.body,
-          // };
-          // // const newCandidate = new CandidateSchema(body);
-          // // newCandidate
-          // // console.log(req.body);
-          // candidate.save()
-          //   .then((body) => {
-          //     console.log(body);
-          //     res.send({ success: true, msg: "Details weres submitted" });
-          //   })
-          //   .catch((err) => {
-          //     res.send(err);
-          //   });
         }
       }
     );

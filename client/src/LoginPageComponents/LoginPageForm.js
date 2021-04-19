@@ -92,7 +92,6 @@ const LoginPageForm = () => {
             id="email"
             label="Email Address"
             name="email"
-            autoComplete="email"
             autoFocus
             onChange={handleChange}
             style={h3Style}
@@ -151,7 +150,6 @@ const useStyles = makeStyles((theme) => ({
   form: {
     width: "90%",
     marginTop: theme.spacing(1),
-  
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -188,7 +186,6 @@ const container2 = {
 
 const h3Style = {
   fontFamily: "Trebuchet MS, sans-serif",
-  color: "white",
 };
 
 export default LoginPageForm;
