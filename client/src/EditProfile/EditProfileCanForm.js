@@ -16,12 +16,34 @@ function EditProfieCanForm() {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
+  const [file, setMyFile] = useState();
+  const uploadImage = (file) => {
+    console.log(file);
+    setMyFile(file[0]);
+  };
+
   const submitDetails = (e) => {
     e.preventDefault();
-    console.log(state);
-    const token = localStorage.getItem("token");
-    console.log(token);
+    var data = new FormData();
 
+    console.log(`image`, file);
+    data.append("file", file);
+    data.append("filename", "img");
+
+    Object.keys(state).forEach((key) => {
+      data.append(key, state[key]);
+    });
+
+    const token = localStorage.getItem("token");
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
+
+    // var requestOptions = {
+    //   method: "PUT",
+    //   headers: myHeaders,
+    //   redirect: "follow",
+    //   body: data,
+    // };
     fetch("http://localhost:5000/candidate/me", {
       method: "put",
       headers: {
@@ -33,15 +55,40 @@ function EditProfieCanForm() {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(state);
         if (res.success) {
           alert(res.msg);
         } else {
           alert(res.msg);
         }
-        console.log(res);
       });
   };
+
+  // const submitDetails = (e) => {
+  //   e.preventDefault();
+  //   console.log(state);
+  //   const token = localStorage.getItem("token");
+  //   console.log(token);
+
+  //   fetch("http://localhost:5000/candidate/me", {
+  //     method: "put",
+  //     headers: {
+  //       Accept: "application/json, text/plain, */*",
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //     body: JSON.stringify(state),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       console.log(state);
+  //       if (res.success) {
+  //         alert(res.msg);
+  //       } else {
+  //         alert(res.msg);
+  //       }
+  //       console.log(res);
+  //     });
+  // };
 
   function handleAdd() {
     setWorkEx([...workEx, ""]);
@@ -71,7 +118,15 @@ function EditProfieCanForm() {
                 />
                 <div class="file btn btn-lg btn-primary">
                   Change Photo
-                  <input type="file" name="file" />
+                  <input
+                    onChange={uploadImage}
+                    imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+                    maxFileSize={5242880}
+                    type="file"
+                    value={file}
+                    name="file"
+                    accept=".jpg"
+                  />
                 </div>
               </div>
 
@@ -271,7 +326,7 @@ function EditProfieCanForm() {
                   onClick={handleAdd}
                   style={iStyle}
                 >
-                  <i class="fa fa-plus" ></i>&nbsp;Experience
+                  <i class="fa fa-plus"></i>&nbsp;Experience
                 </span>
               </div>
               <div class="col-md-12" style={div1}>
@@ -300,15 +355,6 @@ function EditProfieCanForm() {
                     })}
                   </Form.Group>
                 </Form.Row>
-              </div>
-              <div class="col-md-12">
-                <label class="labels">Additional Details</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="additional details"
-                  value=""
-                />
               </div>
             </div>
           </div>
@@ -348,14 +394,13 @@ const header = {
   textDecoration: "underline",
 };
 
-
-const expereince ={
+const expereince = {
   fontFamily: "Trebuchet MS, sans-serif",
-}
+};
 
-const iStyle ={
-  borderRadius:10,
-  backgroundColor:'#1565c0',
-  color:'white'
-}
+const iStyle = {
+  borderRadius: 10,
+  backgroundColor: "#1565c0",
+  color: "white",
+};
 export default EditProfieCanForm;

@@ -51,8 +51,8 @@ function RegistrationForm() {
       <p class="text-center"></p>
       <div class="card bg-light">
         <article class="card-body mx-auto" style={articleStyle}>
-          <h4 class="card-title mt-3 text-center">Create Account</h4>
-          <p class="text-center">Get started with your free account</p>
+          <h4 class="card-title mt-3 text-center" style={h3Style}>Create Account</h4>
+          <p class="text-center" >Get started with your free account</p>
           <form>
             <div class="form-group input-group">
               <div class="input-group-prepend">
@@ -151,7 +151,7 @@ function RegistrationForm() {
               disabled={isInvalid}
               style={buttonStyle}
             >
-              Create Account
+              Register
             </button>
             <br />
           </form>
@@ -163,6 +163,7 @@ function RegistrationForm() {
 
 const divStyle = {
   marginTop: "4%",
+  width:'30%'
 };
 
 const labelStyle = {
@@ -186,12 +187,17 @@ const articleStyle = {
 };
 
 const buttonStyle = {
-  width: "45%",
+  width: "30%",
   fontSize: 14,
   fontFamily: "Andale Mono, monospace",
-  marginLeft: "28%",
+  marginLeft: "35%",
   marginTop: "7%",
   borderRadius: 10,
+};
+
+const h3Style = {
+  fontFamily: "Trebuchet MS, sans-serif",
+  color:'#4d94ff'
 };
 
 export default RegistrationForm;
