@@ -50,6 +50,11 @@ function CandidateForm() {
       data.append(key, state[key]);
     });
 
+    // const makeItChecked = (e) => {
+    //   e.preventDefault();
+    //   setState({ ...state, checked: !state.checked });
+    // };
+  
     const token = localStorage.getItem("token");
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -228,6 +233,14 @@ function CandidateForm() {
                     </Form.Row>
                   </div>
                 </div>
+                {/* <Form.Group id="formGridCheckbox">
+                  <input
+                    type="radio"
+                    defaultChecked={state.checked}
+                    onClick={makeItChecked}
+                  />{" "}
+                  &nbsp;<label>Agree to Terms and Conditions</label>
+                </Form.Group> */}
                 <input
                   type="submit"
                   class="btnRegister"

@@ -11,7 +11,7 @@ function EmployerForm() {
     fieldOfBusiness: "",
     email: "",
     phoneNo: "",
-    checked: false,
+    // checked: false,
   });
 
   const isInvalid =
@@ -20,38 +20,31 @@ function EmployerForm() {
     state.location === "" ||
     state.fieldOfBusiness === "" ||
     state.email === "" ||
-    state.phoneNo === "" ||
-    state.checked === false;
+    state.phoneNo === "";
+  // state.checked === false;
 
   const handleChange = (e) => {
     e.preventDefault();
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
-  const submitDetails = (e) => {
+  const submitDetail = (e) => {
     e.preventDefault();
     var data = new FormData();
 
     const token = localStorage.getItem("token");
-    // const myHeaders = new Headers();
-    // myHeaders.append("Authorization", `Bearer ${token}`);
-    // var requestOptions = {
-    //   method: "POST",
-    //   headers: myHeaders,
-    //   redirect: "follow",
-    //   body: state,
-    // };
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
 
-    // fetch("http://localhost:5000/employer/new", requestOptions)
-      fetch("http://localhost:5000/employer/new", {
-        method: "post",
-        headers: {
-          Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(state),
-      })
+    fetch("http://localhost:5000/employer/new", {
+      method: "post",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(state),
+    })
       .then((res) => res.json())
       .then((res) => {
         if (res.success) {
@@ -63,130 +56,141 @@ function EmployerForm() {
       });
   };
 
-  const makeItChecked = (e) => {
-    e.preventDefault();
-    setState({ ...state, checked: !state.checked });
-  };
+  // const makeItChecked = (e) => {
+  //   e.preventDefault();
+  //   setState({ ...state, checked: !state.checked });
+  // };
 
   return (
-    <div>
-      <div style={divStyle}>
-        <Form>
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label style={textStyle}>Employer Name</Form.Label>
-              <Form.Control
-                type="text"
-                name="employerName"
-                onChange={handleChange}
-                value={state.employerName}
-                style={inputtStyle}
-              />
-            </Form.Group>
+    <div class="container register" style={divStyle}>
+      <div class="row">
+        <div class="col-md-3 register-left">
+          <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+          <h3>Welcome</h3>
+          <p>You are 30 seconds away from entering the best hiring website!</p>
 
-            <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label style={textStyle}>Website</Form.Label>
-              <Form.Control
-                type="text"
-                name="website"
-                onChange={handleChange}
-                value={state.website}
-                style={inputtStyle}
-              />
-            </Form.Group>
-          </Form.Row>
+          <br />
+        </div>
+        <div class="col-md-9 register-right">
+          <div class="tab-content" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="home"
+              role="tabpanel"
+              aria-labelledby="home-tab"
+            >
+              <h3 class="register-heading" style={header}>
+                Register as Employer
+              </h3>
+              <div class="row register-form">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Employer Name *"
+                      onChange={handleChange}
+                      style={inputStyle}
+                      name="employerName"
+                      value={state.employerName}
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Website *"
+                      onChange={handleChange}
+                      value={state.website}
+                      name="website"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      class="form-control"
+                      placeholder="Location *"
+                      type="text"
+                      name="location"
+                      onChange={handleChange}
+                      value={state.location}
+                    />
+                  </div>
+                </div>
 
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGridEmail">
-              <Form.Label style={textStyle}>Location</Form.Label>
-              <Form.Control
-                type="text"
-                name="location"
-                onChange={handleChange}
-                value={state.location}
-                style={inputtStyle}
-              />
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label style={textStyle}>Field Of Business</Form.Label>
-              <Form.Control
-                type="text"
-                name="fieldOfBusiness"
-                onChange={handleChange}
-                value={state.fieldOfBusiness}
-                style={inputtStyle}
-              />
-            </Form.Group>
-          </Form.Row>
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGridCity">
-              <Form.Label style={textStyle}>Concerned Person Email</Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                onChange={handleChange}
-                value={state.email}
-                style={inputtStyle}
-              />
-            </Form.Group>
-            <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label style={textStyle}>Phone No</Form.Label>
-              <Form.Control
-                type="number"
-                name="phoneNo"
-                onChange={handleChange}
-                value={state.phoneNo}
-                style={inputtStyle}
-              ></Form.Control>
-            </Form.Group>
-          </Form.Row>
-
-          <Form.Group id="formGridCheckbox">
-            <input
-              type="radio"
-              defaultChecked={state.checked}
-              onClick={makeItChecked}
-            />{" "}
-            &nbsp;<label>Agree to Terms and Conditions</label>
-          </Form.Group>
-
-          <Button
-            variant="primary"
-            onClick={submitDetails}
-            disabled={isInvalid}
-            style={buttonStyle}
-          >
-            Submit
-          </Button>
-        </Form>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input
+                      class="form-control"
+                      placeholder="Field Of Business *"
+                      type="text"
+                      name="fieldOfBusiness"
+                      onChange={handleChange}
+                      value={state.fieldOfBusiness}
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      class="form-control"
+                      placeholder="Email *"
+                      type="email"
+                      name="email"
+                      onChange={handleChange}
+                      value={state.email}
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      class="form-control"
+                      placeholder="Phone No. *"
+                      type="number"
+                      name="phoneNo"
+                      onChange={handleChange}
+                      value={state.phoneNo}
+                    />
+                  </div>
+                </div>
+                {/* <Form.Group id="formGridCheckbox">
+                  <input
+                    type="radio"
+                    defaultChecked={state.checked}
+                    onClick={makeItChecked}
+                  />{" "}
+                  &nbsp;<label>Agree to Terms and Conditions</label>
+                </Form.Group> */}
+                <input
+                  type="submit"
+                  class="btnRegister"
+                  value="Register"
+                  onClick={submitDetail}
+                  disabled={isInvalid}
+                  style={submitStyle}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
 const divStyle = {
-  marginTop: "4%",
-  marginLeft: "30%",
-  width: "40%",
-};
-const inputtStyle = {
-  borderRadius: 14,
-  border: "bold",
-  borderColor: "black",
-  fontFamily: "Courier, monospace",
-  fontSize: 15,
+  marginTop: "5%",
+  marginLeft: "17%",
+  width: "60%",
 };
 
-const buttonStyle = {
-  fontFamily: "Courier, monospace",
-  fontSize: 14,
-  cursor: "pointer",
-  boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
+const inputStyle = {
+  borderRadius: 6,
 };
 
-const textStyle = {
-  fontFamily: "Zapf Chancery, cursive",
+const header = {
+  fontFamily: "Trebuchet MS, sans-serif",
+  fontSize: 24,
+};
+
+const submitStyle = {
+  marginLeft: "40%",
 };
 
 export default EmployerForm;
