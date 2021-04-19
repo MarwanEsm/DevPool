@@ -59,8 +59,6 @@ function IndividualProfile() {
 
             <div class="col-md-6" style={storyOfMe}>
               <div class="profile-head">
-              
-
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                   <li class="nav-item">
                     <a
@@ -234,45 +232,43 @@ function IndividualProfile() {
                   role="tabpanel"
                   aria-labelledby="home-tab"
                 >
-                 
-
-                  <div class="row"  >
-                    <div class="col-md-6" >
+                  <div class="row">
+                    <div class="col-md-6">
                       <label>Full Name</label>
                     </div>
                     <div class="col-md-6">
                       {candidate && candidate.fullName}
                     </div>
                   </div>
-                  <hr style={hrStyle}/>
+                  <hr style={hrStyle} />
                   <div class="row">
                     <div class="col-md-6">
                       <label>Email</label>
                     </div>
                     <div class="col-md-6">{candidate && candidate.email}</div>
                   </div>
-                  <hr style={hrStyle}/>
+                  <hr style={hrStyle} />
                   <div class="row">
                     <div class="col-md-6">
                       <label>Phone</label>
                     </div>
                     <div class="col-md-6">{candidate && candidate.phoneNo}</div>
                   </div>
-                  <hr style={hrStyle}/>
+                  <hr style={hrStyle} />
                   <div class="row">
                     <div class="col-md-6">
                       <label>Hobbies</label>
                     </div>
                     <div class="col-md-6">{candidate && candidate.hobbies}</div>
                   </div>
-                  <hr style={hrStyle}/>
+                  <hr style={hrStyle} />
                   <div class="row">
                     <div class="col-md-6">
                       <label>Address</label>
                     </div>
                     <div class="col-md-6">{candidate && candidate.address}</div>
                   </div>
-                  <hr style={hrStyle}/>
+                  <hr style={hrStyle} />
                   <div class="row">
                     <div class="col-md-6">
                       <label>Languages</label>
@@ -281,11 +277,11 @@ function IndividualProfile() {
                       {candidate && candidate.languages}
                     </div>
                   </div>
-                  <hr style={hrStyle}/>
+                  <hr style={hrStyle} />
 
                   <div class="row">
                     <div class="col-md-6">
-                      <label>Experience</label>
+                      <label s>Experience</label>
                     </div>
                     {/* <div class="col-md-6">
                       <ul>
@@ -310,12 +306,8 @@ const svgStyle145 = {
   height: "24",
 };
 
-
-
 const storyOfMe = {
   width: "90%",
-  
-  
 };
 
 const badg = {
@@ -328,13 +320,13 @@ const badg = {
   alignText: "center",
 };
 
-const divStyle={
-  marginTop :'-15%',
-  marginLeft:'-7%'
-}
+const divStyle = {
+  marginTop: "-15%",
+  marginLeft: "-7%",
+};
 
-const hrStyle={
-  marginLeft:'13%'
-}
+const hrStyle = {
+  marginLeft: "13%",
+};
 
 export default IndividualProfile;

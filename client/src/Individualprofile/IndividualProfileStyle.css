@@ -93,3 +93,8 @@ body{
     font-weight: 600;
     color: #0062cc;
 }
+
+label {
+    font-family: OCR A Std, monospace;
+    font-size: 16px;
+}
