@@ -226,7 +226,7 @@ function IndividualProfile() {
               </div>
             </div>
 
-            <div class="col-md-6" >
+            <div class="col-md-6" style={divStyle}>
               <div class="tab-content profile-tab" id="myTabContent">
                 <div
                   class="tab-pane fade show active"
@@ -236,43 +236,43 @@ function IndividualProfile() {
                 >
                  
 
-                  <div class="row" style={divStyle}>
-                    <div class="col-md-6">
+                  <div class="row"  >
+                    <div class="col-md-6" >
                       <label>Full Name</label>
                     </div>
                     <div class="col-md-6">
                       {candidate && candidate.fullName}
                     </div>
                   </div>
-                  <hr/>
+                  <hr style={hrStyle}/>
                   <div class="row">
                     <div class="col-md-6">
                       <label>Email</label>
                     </div>
                     <div class="col-md-6">{candidate && candidate.email}</div>
                   </div>
-                  <hr/>
+                  <hr style={hrStyle}/>
                   <div class="row">
                     <div class="col-md-6">
                       <label>Phone</label>
                     </div>
                     <div class="col-md-6">{candidate && candidate.phoneNo}</div>
                   </div>
-                  <hr/>
+                  <hr style={hrStyle}/>
                   <div class="row">
                     <div class="col-md-6">
                       <label>Hobbies</label>
                     </div>
                     <div class="col-md-6">{candidate && candidate.hobbies}</div>
                   </div>
-                  <hr/>
+                  <hr style={hrStyle}/>
                   <div class="row">
                     <div class="col-md-6">
                       <label>Address</label>
                     </div>
                     <div class="col-md-6">{candidate && candidate.address}</div>
                   </div>
-                  <hr/>
+                  <hr style={hrStyle}/>
                   <div class="row">
                     <div class="col-md-6">
                       <label>Languages</label>
@@ -281,19 +281,20 @@ function IndividualProfile() {
                       {candidate && candidate.languages}
                     </div>
                   </div>
+                  <hr style={hrStyle}/>
 
-                  {/* <div class="row">
+                  <div class="row">
                     <div class="col-md-6">
                       <label>Experience</label>
                     </div>
-                    <div class="col-md-6">
+                    {/* <div class="col-md-6">
                       <ul>
                       {candidate && candidate.workexperience.map((workExperience)=>{
                         return <li>{candidate.workExperience}</li>
                       })}
                       </ul>
-                    </div>
-                  </div> */}
+                    </div> */}
+                  </div>
                 </div>
               </div>
             </div>
@@ -328,7 +329,12 @@ const badg = {
 };
 
 const divStyle={
-  marginTop :'-35%'
+  marginTop :'-15%',
+  marginLeft:'-7%'
+}
+
+const hrStyle={
+  marginLeft:'13%'
 }
 
 export default IndividualProfile;

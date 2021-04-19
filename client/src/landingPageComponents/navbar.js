@@ -106,7 +106,7 @@ const div1Style = {
 const rowdivStyle = {
   display: "flex",
   alignItems: "center",
-  marginRight: "18%",
+  marginRight: "16%",
 };
 
 const navdiv = {

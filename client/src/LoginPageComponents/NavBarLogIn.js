@@ -20,15 +20,6 @@ function LoginNavBar() {
         </Badge>
       </div>
     </div>
-
-    // <div style={maindivStyle}>
-    //   <div style={logoStyle}>
-    //     <Logo  />
-    //   </div>
-    //   <div style={navdiv}>
-    //     <Link to="/" style={linkStyle}>Home</Link>
-    //   </div>
-    // </div>
   );
 }
 

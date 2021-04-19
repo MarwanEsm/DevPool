@@ -8,7 +8,6 @@ import Col from "react-bootstrap/Col";
 import "react-flex/index.css";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
-
 function LandingPage() {
   const { filteredCandidates } = useContext(CandidatesContext);
   const history = useHistory();
