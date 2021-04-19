@@ -102,6 +102,7 @@ function EmployerForm() {
                       placeholder="Website *"
                       onChange={handleChange}
                       value={state.website}
+                      style={inputStyle}
                       name="website"
                     />
                   </div>
@@ -112,6 +113,7 @@ function EmployerForm() {
                       type="text"
                       name="location"
                       onChange={handleChange}
+                      style={inputStyle}
                       value={state.location}
                     />
                   </div>
@@ -125,6 +127,7 @@ function EmployerForm() {
                       type="text"
                       name="fieldOfBusiness"
                       onChange={handleChange}
+                      style={inputStyle}
                       value={state.fieldOfBusiness}
                     />
                   </div>
@@ -135,6 +138,7 @@ function EmployerForm() {
                       type="email"
                       name="email"
                       onChange={handleChange}
+                      style={inputStyle}
                       value={state.email}
                     />
                   </div>
@@ -146,6 +150,7 @@ function EmployerForm() {
                       name="phoneNo"
                       onChange={handleChange}
                       value={state.phoneNo}
+                      style={inputStyle}
                     />
                   </div>
                 </div>
@@ -175,9 +180,10 @@ function EmployerForm() {
 }
 
 const divStyle = {
-  marginTop: "5%",
+  marginTop: "6%",
   marginLeft: "17%",
   width: "60%",
+  marginBottom:'8%'
 };
 
 const inputStyle = {
