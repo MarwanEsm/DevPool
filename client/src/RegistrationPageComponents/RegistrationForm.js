@@ -47,7 +47,7 @@ function RegistrationForm() {
       body: JSON.stringify(state),
     })
       .then((res) => res.json())
-      .then((res) => {
+      .then((res) => {console.log(res);
         if (res.success) {
           alert(res.msg);
         } else {

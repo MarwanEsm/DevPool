@@ -31,7 +31,7 @@ router.post("/register", (req, res) => {
             });
             newUser
               .save()
-              .then((res) => {
+              .then((user) => {
                 res.send({ msg: " Details were submitted" });
               })
 

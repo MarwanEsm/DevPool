@@ -1,17 +1,10 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, createContext } from "react";
 
 const initContext = { user:[] };
 export const AuthContext = createContext(initContext);
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  useEffect(() => {
-    fetch("http://localhost:5000/user/all")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setUser(data);
-      });
-  }, []);
+  
 
 
   const value = { user, setUser };

@@ -54,7 +54,7 @@ function CandidateForm() {
     //   e.preventDefault();
     //   setState({ ...state, checked: !state.checked });
     // };
-  
+
     const token = localStorage.getItem("token");
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -81,7 +81,12 @@ function CandidateForm() {
   }
 
   function handleRemove(i) {
-    const values = workEx.splice(i, 1);
+    console.log(i);
+    console.log(workEx);
+
+    const values = workEx;
+    workEx.splice(i - 1, 1);
+    console.log(values);
     setWorkEx(values);
   }
 
@@ -198,7 +203,7 @@ function CandidateForm() {
                       style={inputStyle}
                     />
                   </div>
-                  <div class="form-group"></div>
+
                   <div class="form-group">
                     <Form.Row>
                       <Form.Group as={Col} controlId="formGridPassword">
