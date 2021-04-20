@@ -8,14 +8,18 @@ function RegistrationForm() {
     password: "",
     confirmationPassword: "",
     owner: "candidate",
-    // checked: false,
+    checked: false,
   });
+
+  const [checked, setChecked] =useState();
+
 
   const isInvalid =
     state.email === "" ||
     state.password === "" ||
     state.confirmationPassword !== state.password ||
-    state.owner === "";
+    state.owner === "" ||
+    !checked 
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -27,10 +31,10 @@ function RegistrationForm() {
     setState({ ...state, owner: e.target.value });
   };
 
-  // const makeItChecked = (e) => {
-  //   e.preventDefault();
-  //   setState({ ...state, checked: !state.checked });
-  // };
+  const makeItChecked = (e) => {
+    e.preventDefault();
+    setState({ ...state, checked: !state.checked });
+  };
 
   const submitDetails = (e) => {
     e.preventDefault();
@@ -51,7 +55,7 @@ function RegistrationForm() {
         }
       });
   };
-
+console.log(state);
   return (
     <div class="container" style={divStyle}>
       <p class="text-center"></p>
@@ -142,7 +146,9 @@ function RegistrationForm() {
                   type="checkbox"
                   name="chk"
                   class="custom-control-input"
-                  default={state.checked}
+                  defaultChecked= {false}
+                  value={checked}
+                  onChange={()=>setChecked(!checked)}
                 />
                 <label
                   for="chk1"

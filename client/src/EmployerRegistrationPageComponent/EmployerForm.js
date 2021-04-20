@@ -197,6 +197,7 @@ const header = {
 
 const submitStyle = {
   marginLeft: "40%",
+  fontSize:15
 };
 
 export default EmployerForm;
