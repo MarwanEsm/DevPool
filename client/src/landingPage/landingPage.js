@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import Headbar from "../LandingPageComponents/Navbar";
 import Footer from "../LandingPageComponents/Footer";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+// import Button from "react-bootstrap/Button";
+// import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import "./LandingPageStyle.css";
 import "react-flex/index.css";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
@@ -23,7 +24,52 @@ function LandingPage() {
       <div>
         <Headbar />
       </div>
-      <Row style={rowStlye}>
+
+      <div className="container">
+        <div className="row" style={divRow}>
+          {filteredCandidates &&
+            filteredCandidates.length &&
+            filteredCandidates.map((candidate) => {
+              return (
+                <div className="col-12 col-sm-6 col-lg-3" style={cardStyle}>
+                  <div
+                    className="single_advisor_profile wow fadeInUp"
+                    data-wow-delay="0.2s"
+                    style={divStyle}
+                  >
+                    <div className="advisor_thumb" key={candidate._id}>
+                      <img
+                        src={`http://localhost:5000/${candidate.img}`}
+                        style={imgStyle}
+                        alt=""
+                      />
+
+                      <div className="social-info">
+                        <a href="#">
+                          <i className="fa fa-facebook"></i>
+                        </a>
+                        <a href="#">
+                          <i className="fa fa-twitter"></i>
+                        </a>
+                        <a href="#">
+                          <i className="fa fa-linkedin"></i>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="single_advisor_details_info">
+                      <h6>{candidate.fullName}</h6>
+                      <p className="designation">{candidate.title}</p>
+                      <p className="designation">{candidate.location}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+        </div>
+      </div>
+
+      {/* <Row style={rowStlye}>
         {filteredCandidates &&
           filteredCandidates.length &&
           filteredCandidates.map((candidate) => {
@@ -54,7 +100,8 @@ function LandingPage() {
               </Col>
             );
           })}
-      </Row>
+      </Row>  */}
+
       <div>
         <Footer />
       </div>
@@ -62,32 +109,32 @@ function LandingPage() {
   );
 }
 
+const divStyle = {
+  visibility: "visible; animation-delay: 0.2s; animation-name: fadeInUp",
+};
+
 const buttonStyle = {
   fontFamily: "Courier New, monospace",
-  fontSize: 13,
+  fontSize: "70%",
   cursor: "pointer",
   boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
-  width: "40%",
+  width: "50%",
   marginLeft: "30%",
   backgroundColor: "#1565c0",
   color: "white",
 };
 
 const imgStyle = {
-  width: "100%",
+  width: 220,
+  height: 200,
   marginBottom: "3%",
 };
 
 const cardStyle = {
-  display: "flex",
-  width: "80%",
-  justifyContent: "space-between",
-  alignItems: "space-betweent",
-  backgroundColor: "#f2f2f2",
-  textAlign: "center",
+  marginTop: "4%",
 };
 
-const colStyle = {
+const colStlye = {
   display: "flex",
   justifyContent: "space-between",
   marginTop: "3%",
@@ -107,8 +154,15 @@ const text2Style = {
   fontWeight: "bold",
 };
 
-const rowStlye = {
-  marginLeft: "3%",
+const divRow = {
+  // marginLeft: "3%",
+  // height: "30%",
+  width: "130%",
+  marginLeft: "-15%",
 };
+
+const divThumb ={
+  width:'auto'
+}
 
 export default LandingPage;

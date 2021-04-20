@@ -5,21 +5,21 @@ import "./FooterStyle.css";
 function Footer() {
   return (
     <div>
-      <div class="card1">
-        <div class="row justify-content-center">
-          <div class="col-md-8">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="box" style={divStyle}>
+      <div className="card1">
+        <div className="row justify-content-center">
+          <div className="col-md-8">
+            <div className="row">
+              <div className="col-md-6">
+                <div className="box" style={divStyle}>
                   <h4>Want to create something together?</h4>
                   <a href="#">
                     <p style={aStyle}>Check our openings</p>
                   </a>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="box" style={div1Style}>
-                  <h5 class="mb-0">Berlin Office</h5>
+              <div className="col-md-6">
+                <div className="box" style={div1Style}>
+                  <h5 className="mb-0">Berlin Office</h5>
                   &nbsp;
                   <p>Adolfstraße 24 13347 </p>
                   <br />
@@ -46,30 +46,30 @@ function Footer() {
           </div>
 
           <div style={inputStyle}>
-            <h4 class="form-head">Help us make cool things!</h4>
+            <h4 className="form-head">Help us make cool things!</h4>
             <form className="form-control1">
-              <div class="form-group"></div>
-              <div class="form-group">
-                <div class="col-12 get-input">
+              <div className="form-group"></div>
+              <div className="form-group">
+                <div className="col-12 get-input">
                   <input
                     placeholder="email"
                     className="input"
-                    class="form-control input-box rm-border"
+                    className="form-control input-box rm-border"
                   />
 
                   <div
-                    class="custom-control custom-checkbox custom-control-inline"
+                    className="custom-control custom-checkbox custom-control-inline"
                     style={checkBox}
                   >
                     <input
                       id="chk1"
                       type="checkbox"
                       name="chk"
-                      class="custom-control-input"
+                      className="custom-control-input"
                     />
                     <label
                       for="chk1"
-                      class="custom-control-label consent"
+                      className="custom-control-label consent"
                       style={labelStyle}
                     >
                       I give my consent
@@ -84,7 +84,7 @@ function Footer() {
           </div>
         </div>
 
-        <div class="row"></div>
+        <div className="row"></div>
       </div>
     </div>
   );

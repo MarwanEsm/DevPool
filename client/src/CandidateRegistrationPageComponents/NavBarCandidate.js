@@ -12,7 +12,7 @@ function CandidateNavBar() {
 
   const handleClick = () => {
     console.log(user);
-    if (user.isRegistered ===true && user.owner==='candidate') {
+    if (user.isRegistered == true) {
       history.push(`/IndividualProfile/${user._id}`);
     } else {
       alert("Please register as candidate");
