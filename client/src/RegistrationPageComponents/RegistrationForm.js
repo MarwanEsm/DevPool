@@ -191,12 +191,12 @@ const checkBox = {
   marginTop: "4%",
 };
 const articleStyle = {
-  width: 400,
+  width: '90%',
 };
 
-const form ={
-  width:'100%'
-}
+const form = {
+  width: "100%",
+};
 
 const buttonStyle = {
   width: "30%",

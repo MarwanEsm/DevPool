@@ -23,41 +23,37 @@ function LandingPage() {
       <div>
         <Headbar />
       </div>
-
-      <Row>
+      <Row style={rowStlye}>
         {filteredCandidates &&
           filteredCandidates.length &&
           filteredCandidates.map((candidate) => {
             return (
-              
-                <Col xs={12} sm={10} md={6} lg={3} style={colStyle}>
-                  <Card
-                    className="p-3"
-                    border="primary"
-                    style={cardStyle}
-                    key={candidate._id}
-                  >
-                    <Card.Img
-                      style={imgStyle}
-                      variant="top"
-                      src={`http://localhost:5000/${candidate.img}`}
-                    />
-                    <Card.Text style={textStyle}>
-                      {" "}
-                      Name: {candidate.fullName}
-                    </Card.Text>
-                    <Card.Text style={text2Style}>
-                      Location: {candidate.location}
-                    </Card.Text>
-                    <Button onClick={handelReadMore} style={buttonStyle}>
-                      Read More
-                    </Button>
-                  </Card>
-                </Col>
-              
+              <Col xs={12} sm={10} md={6} lg={3} style={colStyle}>
+                <Card
+                  className="p-3"
+                  border="primary"
+                  style={cardStyle}
+                  key={candidate._id}
+                >
+                  <Card.Img
+                    style={imgStyle}
+                    variant="top"
+                    src={`http://localhost:5000/${candidate.img}`}
+                  />
+                  <Card.Text style={textStyle}>
+                    {" "}
+                    Name: {candidate.fullName}
+                  </Card.Text>
+                  <Card.Text style={text2Style}>
+                    Location: {candidate.location}
+                  </Card.Text>
+                  <Button onClick={handelReadMore} style={buttonStyle}>
+                    Read More
+                  </Button>
+                </Card>
+              </Col>
             );
           })}
-          
       </Row>
       <div>
         <Footer />
@@ -109,6 +105,10 @@ const text2Style = {
   fontFamily: "Andale Mono, monospace",
   color: "#1565c0",
   fontWeight: "bold",
+};
+
+const rowStlye = {
+  marginLeft: "3%",
 };
 
 export default LandingPage;
