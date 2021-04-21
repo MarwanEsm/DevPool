@@ -1,97 +1,81 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
 import "./FooterStyle.css";
+import {Link} from 'react-router-dom';
 
 function Footer() {
   return (
     <div>
-      <div className="card1">
-        <div className="row justify-content-center">
-          <div className="col-md-8">
-            <div className="row">
-              <div className="col-md-6">
-                <div className="box" style={divStyle}>
-                  <h4>Want to create something together?</h4>
-                  <a href="#">
-                    <p style={aStyle}>Check our openings</p>
-                  </a>
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="box" style={div1Style}>
-                  <h5 className="mb-0">Berlin Office</h5>
-                  &nbsp;
-                  <p>Adolfstraße 24 13347 </p>
-                  <br />
-                  <div style={aLinkStyle}>
-                    <div>
-                      <a href="#" style={aStyle}>
-                        About
-                      </a>
-                    </div>
-                    <div>
-                      <a href="#" style={aStyle}>
-                        Work
-                      </a>
-                    </div>
-                    <div>
-                      <a href="#" style={aStyle}>
-                        Blog
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      <footer class="footer">
+        <div class="row">
+          <div class="col-sm-6 col-md-4 footer-navigation">
+            <h3>
+              <a href="#">
+                Mar<span>wansstrap</span>
+              </a>
+            </h3>
+            <p class="links">
+              <Link to="#">Home</Link>
+              <strong> · </strong>
+              <Link to="#">Blog</Link>
+              <strong> · </strong>
+              <Link to="#">Jobs</Link>
+              <strong> · </strong>
+              <Link to="#">Contact</Link>
+            </p>
+            <p class="company-name">Marwan Trap © 2021</p>
+          </div>
+          <div class="col-sm-6 col-md-4 footer-contacts">
+            <div>
+              <span class="fa fa-map-marker footer-contacts-icon"> </span>
+              <p>
+                <span class="new-line-span">24 Adolf Street</span>Berlin, Germany
+              </p>
+            </div>
+            <div>
+              <i class="fa fa-phone footer-contacts-icon"></i>
+              <p class="footer-center-info email text-left"> +49 15755076336</p>
+            </div>
+            <div>
+              <i class="fa fa-envelope footer-contacts-icon"></i>
+              <p>
+                
+                <Link to="#" target="_blank" style={linkStyle}>
+                  support@bbbootstrap.com
+                </Link>
+              </p>
             </div>
           </div>
-
-          <div style={inputStyle}>
-            <h4 className="form-head">Help us make cool things!</h4>
-            <form className="form-control1">
-              <div className="form-group"></div>
-              <div className="form-group">
-                <div className="col-12 get-input">
-                  <input
-                    placeholder="email"
-                    className="input"
-                    className="form-control input-box rm-border"
-                  />
-
-                  <div
-                    className="custom-control custom-checkbox custom-control-inline"
-                    style={checkBox}
-                  >
-                    <input
-                      id="chk1"
-                      type="checkbox"
-                      name="chk"
-                      className="custom-control-input"
-                    />
-                    <label
-                      for="chk1"
-                      className="custom-control-label consent"
-                      style={labelStyle}
-                    >
-                      I give my consent
-                    </label>
-                  </div>
-                  <div>
-                    <Button style={button}>Submit</Button>
-                  </div>
-                </div>
-              </div>
-            </form>
+          <div class="clearfix"></div>
+          <div class="col-md-4 footer-about">
+            <h4>About the company</h4>
+            <p>
+              Marwanstrap.com is one of the leading ideas for User Exprience
+              snippets.
+            </p>
+            <div class="social-links social-icons">
+              <a href="#">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="#">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fa fa-linkedin"></i>
+              </a>
+              <a href="#">
+                <i class="fa fa-github"></i>
+              </a>
+            </div>
           </div>
         </div>
-
-        <div className="row"></div>
-      </div>
+      </footer>
     </div>
   );
 }
 
-const aStyle = {
+const linkStyle = {
   color: "white",
+  fontSize:15
 };
 
 const checkBox = {
@@ -132,6 +116,5 @@ const labelStyle = {
   marginTop: "5%",
   marginBottom: "5%",
 };
-
 
 export default Footer;

@@ -20,7 +20,7 @@ function LandingPage() {
       <div>
         <Headbar />
       </div>
-      
+
       <div className="container">
         <div className="row" style={divRow}>
           {filteredCandidates &&
@@ -88,18 +88,19 @@ const divStyle = {
 };
 
 const imgStyle = {
-  width: 220,
+  width: 240,
   height: 200,
   marginBottom: "3%",
 };
 
 const cardStyle = {
   marginTop: "4%",
+  marginLeft:'6.5%'
 };
 
 const divRow = {
   width: "130%",
-  marginLeft: "-15%",
+  marginLeft: "-16%",
 };
 
 const textStyle = {

@@ -1,8 +1,4 @@
-/* body {
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
-    margin-top: 3%;
-    padding: 3%;
-} */
+
 .single_advisor_profile {
   position: relative;
   margin-bottom: 50px;
@@ -18,7 +14,6 @@
   z-index: 1;
   border-radius: 15px 15px 0 0;
   margin: 0 auto;
-  /* margin-right: 3%; */
   padding: 30px 30px 15px 30px;
   background-color: #3f43fd;
   overflow: hidden;
