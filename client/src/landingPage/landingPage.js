@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
+import {Link, useHistory } from "react-router-dom";
 import Headbar from "../LandingPageComponents/Navbar";
 import Footer from "../LandingPageComponents/Footer";
 // import Button from "react-bootstrap/Button";
@@ -45,22 +45,22 @@ function LandingPage() {
                       />
 
                       <div className="social-info">
-                        <a href="#">
+                        <Link to ={candidate.facebook} >
                           <i className="fa fa-facebook"></i>
-                        </a>
-                        <a href="#">
+                        </Link>
+                        <Link to={candidate.twitter}>
                           <i className="fa fa-twitter"></i>
-                        </a>
-                        <a href="#">
+                        </Link>
+                        <Link to={candidate.linkedIn}>
                           <i className="fa fa-linkedin"></i>
-                        </a>
+                        </Link>
                       </div>
                     </div>
 
                     <div className="single_advisor_details_info">
-                      <h6>{candidate.fullName}</h6>
-                      <p className="designation">{candidate.title}</p>
-                      <p className="designation">{candidate.location}</p>
+                      <h6 style={textStyle}>{candidate.fullName}</h6>
+                      <p className="designation" style={textStyle}>{candidate.title}</p>
+                      <p className="designation" style={textStyle}>{candidate.location}</p>
                     </div>
                   </div>
                 </div>
@@ -139,20 +139,20 @@ const colStlye = {
   justifyContent: "space-between",
   marginTop: "3%",
 };
-const textStyle = {
-  fontSize: 16,
-  fontFamily: "Andale Mono, monospace",
-  color: "#1565c0",
-  fontWeight: "bold",
-  marginTop: "3%",
-};
+// const textStyle = {
+//   fontSize: 16,
+//   fontFamily: "Andale Mono, monospace",
+//   color: "#1565c0",
+//   fontWeight: "bold",
+//   marginTop: "3%",
+// };
 
-const text2Style = {
+/* const text2Style = {
   fontSize: 16,
   fontFamily: "Andale Mono, monospace",
   color: "#1565c0",
   fontWeight: "bold",
-};
+}; */
 
 const divRow = {
   // marginLeft: "3%",
@@ -165,4 +165,7 @@ const divThumb ={
   width:'auto'
 }
 
+const textStyle={
+  fontFamily: '	Candara',
+}
 export default LandingPage;
