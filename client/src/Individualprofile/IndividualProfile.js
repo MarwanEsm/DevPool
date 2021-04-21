@@ -99,7 +99,7 @@ function IndividualProfile() {
                     <table class="table table-profile">
                       <thead>
                         <tr>
-                          <th colspan="2">WORK AND EDUCATION</th>
+                          <th colspan="2" >WORK AND EDUCATION</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -382,5 +382,10 @@ const td3Style={
 
 const td4Style={
   paddingRight:'10%'
+}
+
+
+const titleStyle={
+  marginLeft:'80%'
 }
 export default IndividualProfile;
