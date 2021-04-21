@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import Badge from "react-bootstrap/Badge";
 
+
 function NavBarEditProfileCan() {
   const { user } = useContext(AuthContext);
   const history = useHistory();
@@ -23,10 +24,14 @@ function NavBarEditProfileCan() {
       </div>
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
+        <i class="fa fa-envelope" aria-hidden="true"/> 
+        &nbsp;
           Messages
         </Badge>
         &nbsp; &nbsp;
         <Badge style={badg} variant="primary" onClick={handleClick2}>
+        <i class="fa fa-sign-out" aria-hidden="true"/> 
+        &nbsp;
           Log out
         </Badge>
       </div>
@@ -48,13 +53,14 @@ const navdiv = {
 };
 
 const badg = {
-  height: 30,
-  width: 120,
-  fontSize: 15,
+  height: '80%',
+  width: 100,
+  fontSize: 14,
   cursor: "pointer",
   borderRadius: 12,
-  padding: 7,
+  paddingTop: 8,
   alignText: "center",
+  fontFamily: "	Candara",
 };
 
 export default NavBarEditProfileCan;

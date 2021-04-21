@@ -94,7 +94,6 @@ const LoginPageForm = () => {
             name="email"
             autoFocus
             onChange={handleChange}
-            style={h3Style}
           />
           <TextField
             margin="normal"
@@ -104,7 +103,6 @@ const LoginPageForm = () => {
             label="Password"
             type="password"
             id="password"
-            autoComplete="current-password"
             onChange={handleChange}
           />
 
@@ -145,7 +143,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: "#405D9D",
+    backgroundColor: "#007BFF",
   },
   form: {
     width: "90%",
@@ -157,22 +155,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const linkStyle = {
-  fontSize: 14,
+  fontSize: 13.5,
   textDecoration: "underline",
-  fontFamily: "Trebuchet MS, sans-serif",
-  color: "#e6f2ff",
+  fontFamily: "Candara",
+  color: "#595959",
 };
 
 const buttonStyle = {
-  fontFamily: "Courier, monospace",
+  fontFamily: "Candara",
   fontSize: 14,
   cursor: "pointer",
   boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
   marginBottom: "7%",
   marginTop: "6%",
-  width: "30%",
-  marginLeft: "33%",
+  width: "25%",
+  marginLeft: "36%",
   borderRadius: 10,
+  backgroundColor: "#1565c0",
 };
 
 const container1 = {
