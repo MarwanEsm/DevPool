@@ -8,6 +8,7 @@ import Badge from "react-bootstrap/Badge";
 import _ from "lodash";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
+
 function Headbar() {
   const {
     searchTitle,
@@ -35,10 +36,8 @@ function Headbar() {
   const handleClick1 = () => {
     history.push("/LoginPage");
   };
-const locations =
-  _.uniqBy(candidates, "location")
-console.log(locations);
-
+  const locations = _.uniqBy(candidates, "location");
+  console.log(locations);
 
   return (
     <div style={maindivStyle}>
@@ -58,7 +57,6 @@ console.log(locations);
                 <option value="all">All</option>
                 {candidates.length &&
                   locations.map((candidate) => {
-                    
                     return (
                       <option key={candidate._id} value={candidate.location}>
                         {candidate.location}
@@ -83,11 +81,18 @@ console.log(locations);
         </Form.Row>
       </div>
       <div style={navdiv}>
-        <Badge style={badg} variant="primary" onClick={handleClick}>
+      
+
+       <Badge style={badg} variant="primary" onClick={handleClick}>
+        <i class="fa fa-user"/> 
+        &nbsp;
           Register
         </Badge>
         &nbsp; &nbsp;
+        
         <Badge style={badg} variant="primary" onClick={handleClick1}>
+        <i class="fa fa-sign-in" /> 
+        &nbsp;
           Login
         </Badge>
       </div>
@@ -117,7 +122,7 @@ const rowdivStyle = {
 const navdiv = {
   display: "flex",
   justifyContent: "space-around",
-  marginRight: "1%",
+  marginRight: "2%",
 };
 
 const selectStyle = {
@@ -131,13 +136,21 @@ const selectStyle = {
 };
 
 const badg = {
-  height: 30,
-  width: 120,
-  fontSize: 15,
+  height: '60%',
+  width: 100,
+  fontSize: 14,
   cursor: "pointer",
   borderRadius: 12,
   padding: 7,
   alignText: "center",
 };
+
+// const badg = {
+//   height: "2%",
+//   width: "2%",
+//   cursor: "pointer",
+//   marginRight: "8%",
+//   color: "#3f43fd",
+// };
 
 export default Headbar;

@@ -20,7 +20,7 @@ function LandingPage() {
       <div>
         <Headbar />
       </div>
-
+      
       <div className="container">
         <div className="row" style={divRow}>
           {filteredCandidates &&
@@ -61,7 +61,13 @@ function LandingPage() {
                       <p className="designation" style={textStyle}>
                         {candidate.location}
                       </p>
-                      <span  style={spanStyle} class="btn btn-primary btn-block">Read more</span>
+                      <span
+                        style={spanStyle}
+                        class="btn btn-primary btn-block"
+                        onClick={handelReadMore}
+                      >
+                        Read more
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -100,15 +106,14 @@ const textStyle = {
   fontFamily: "	Candara",
 };
 
-const spanStyle={
+const spanStyle = {
   fontFamily: "	Candara",
-  fontSize:14,
-  width:'30%',
-  backgroundColor :'#3f43fd',
-  padding:'0.5%',
-  marginLeft:'40%',
-  marginTop:'5%'
-
-}
+  fontSize: 14,
+  width: "30%",
+  backgroundColor: "#3f43fd",
+  padding: "0.5%",
+  marginLeft: "40%",
+  marginTop: "5%",
+};
 
 export default LandingPage;
