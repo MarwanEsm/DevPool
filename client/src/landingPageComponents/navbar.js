@@ -8,7 +8,6 @@ import Badge from "react-bootstrap/Badge";
 import _ from "lodash";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
-
 function Headbar() {
   const {
     searchTitle,
@@ -42,7 +41,7 @@ function Headbar() {
   return (
     <div style={maindivStyle}>
       <div>
-        <Logo  />
+        <Logo />
       </div>
       <div style={rowdivStyle}>
         <Form.Row>
@@ -81,19 +80,14 @@ function Headbar() {
         </Form.Row>
       </div>
       <div style={navdiv}>
-      
-
-       <Badge style={badg} variant="primary" onClick={handleClick}>
-        <i class="fa fa-user"/> 
-        &nbsp;
-          Register
+        <Badge style={badg} variant="primary" onClick={handleClick}>
+          <i class="fa fa-user" />
+          &nbsp; Register
         </Badge>
         &nbsp; &nbsp;
-        
         <Badge style={badg} variant="primary" onClick={handleClick1}>
-        <i class="fa fa-sign-in" /> 
-        &nbsp;
-          Login
+          <i class="fa fa-sign-in" />
+          &nbsp; Login
         </Badge>
       </div>
     </div>
@@ -105,6 +99,8 @@ const maindivStyle = {
   justifyContent: "space-around",
   paddingTop: "1%",
   marginTop: "0%",
+  marginLeft:'-0.4%'
+  
 };
 
 const div1Style = {
@@ -116,13 +112,13 @@ const div1Style = {
 const rowdivStyle = {
   display: "flex",
   alignItems: "center",
-  marginRight: "16%",
+  marginRight: "19%",
 };
 
 const navdiv = {
   display: "flex",
   justifyContent: "space-around",
-  marginRight: "2%",
+  marginRight: "1%",
 };
 
 const selectStyle = {
@@ -136,7 +132,7 @@ const selectStyle = {
 };
 
 const badg = {
-  height: '60%',
+  height: "53%",
   width: 100,
   fontSize: 14,
   cursor: "pointer",
@@ -145,7 +141,5 @@ const badg = {
   alignText: "center",
   fontFamily: "	Candara",
 };
-
-
 
 export default Headbar;
