@@ -12,11 +12,13 @@ function CandidateNavBar() {
 
   const handleClick = () => {
     console.log(user);
-    if (user.isRegistered == true) {
-      history.push(`/IndividualProfile/${user._id}`);
-    } else {
-      alert("Please register as candidate");
-    }
+    history.push(`/IndividualProfile/${user._id}`)
+
+    // if (user.isRegistered == true) {
+    //   history.push(`/IndividualProfile/${user._id}`);
+    // } else {
+    //   alert("Please register as candidate");
+    // }
   };
 
   const handleClick1 = () => {

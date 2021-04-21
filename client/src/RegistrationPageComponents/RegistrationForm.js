@@ -70,7 +70,7 @@ function RegistrationForm() {
             type="email"
             class="form-control"
             placeholder="Email"
-            type="email"
+            name="email"
             onChange={handleChange}
             value={state.email}
           />

@@ -107,263 +107,101 @@ function EditProfieCanForm() {
 
   return (
     <div>
-      <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">
-          <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-              <div class="profile-img">
-              
-                {candidate && (
-                  <img
-                    variant="top"
-                    src={`http://localhost:5000/${candidate.img}`}
-                  />
-                )}
-             
-                <div class="file btn btn-lg btn-primary">
-                  Change Photo
-                  <input
-                    onChange={uploadImage}
-                    imgextension={[".jpg", ".gif", ".png", ".gif"]}
-                    maxFileSize={5242880}
-                    type="file"
-                    value={file}
-                    name="file"
-                    accept=".jpg"
-                  />
-                </div>
-              </div>
-
-              <span> </span>
-            </div>
-          </div>
-          <div class="col-md-5 border-right">
-            <div class="p-3 py-5">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h4 style={header}>Profile Settings</h4>
-              </div>
-              <div class="row mt-2">
-                <div class="col-md-6">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Full Name"
-                    name="fullName"
-                    onChange={handleChange}
-                    value={state.fullName}
-                    style={inputtStyle}
-                  />
-                </div>
-                <div class="col-md-6">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Title"
-                    name="title"
-                    onChange={handleChange}
-                    value={state.title}
-                    style={inputtStyle}
-                  />
-                </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col-md-12">
-                  <input
-                    class="form-control"
-                    placeholder="Hobbies"
-                    value=""
-                    type="text"
-                    name="hobbies"
-                    onChange={handleChange}
-                    value={state.hobbies}
-                    style={inputtStyle}
-                  />
-                </div>
-                <div class="col-md-12" style={div}>
-                  <input
-                    class="form-control"
-                    placeholder="Phone No."
-                    type="number"
-                    name="phoneNo"
-                    onChange={handleChange}
-                    value={state.phoneNo}
-                    style={inputtStyle}
-                  />
-                </div>
-                <div class="col-md-12" style={div}>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Location"
-                    type="text"
-                    name="location"
-                    onChange={handleChange}
-                    value={state.location}
-                    style={inputtStyle}
-                  />
-                </div>
-                <div class="col-md-12" style={div}>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Address"
-                    name="address"
-                    onChange={handleChange}
-                    value={state.address}
-                    style={inputtStyle}
-                  />
-                </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col-md-6" style={div}>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Desired Position"
-                    name="desiredPosition"
-                    onChange={handleChange}
-                    value={state.desiredPosition}
-                    style={inputtStyle}
-                  />
-                </div>
-                <div class="col-md-6" style={div}>
-                  <input
-                    class="form-control"
-                    placeholder="Expected Salary"
-                    type="number"
-                    name="expectedSalary"
-                    onChange={handleChange}
-                    value={state.expectedSalary}
-                    style={inputtStyle}
-                  />
-                </div>
-
-                <div class="col-md-6" style={div}>
-                  <input
-                    class="form-control"
-                    placeholder="Github"
-                    type="text"
-                    name="github"
-                    onChange={handleChange}
-                    value={state.github}
-                    style={inputtStyle}
-                  />
-                </div>
-
-                <div class="col-md-6" style={div}>
-                  <input
-                    class="form-control"
-                    placeholder="Website"
-                    type="text"
-                    name="website"
-                    onChange={handleChange}
-                    value={state.website}
-                    style={inputtStyle}
-                  />
-                </div>
-
-                <div class="col-md-6" style={div}>
-                  <input
-                    class="form-control"
-                    placeholder="Twitter"
-                    value={state.twitter}
-                    type="text"
-                    name="twitter"
-                    onChange={handleChange}
-                    style={inputtStyle}
-                  />
-                </div>
-
-                <div class="col-md-6" style={div}>
-                  <input
-                    class="form-control"
-                    placeholder="Facebook"
-                    type="text"
-                    name="facebook"
-                    onChange={handleChange}
-                    value={state.facebook}
-                    style={inputtStyle}
-                  />
-                </div>
-
-                <div class="col-md-6" style={div}>
-                  <input
-                    class="form-control"
-                    placeholder="Instagram"
-                    type="text"
-                    name="instagram"
-                    onChange={handleChange}
-                    value={state.instagram}
-                    style={inputtStyle}
-                  />
-                </div>
-
-                <div class="col-md-6" style={div}>
-                  <input
-                    class="form-control"
-                    placeholder="Languages"
-                    type="text"
-                    name="languages"
-                    onChange={handleChange}
-                    value={state.languages}
-                    style={inputtStyle}
-                  />
-                </div>
-              </div>
-              <div class="mt-5 text-center">
-                <Button
-                  variant="primary"
-                  onClick={submitDetails}
-                  style={buttonStyle}
-                >
-                  Submit
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="p-3 py-5">
-              <div class="d-flex justify-content-between align-items-center experience">
-                <span style={expereince}>Edit Experience</span>
-                <span
-                  class="border px-3 p-1 add-experience"
-                  onClick={handleAdd}
-                  style={iStyle}
-                >
-                  <i class="fa fa-plus"></i>&nbsp;Experience
-                </span>
-              </div>
-              <div class="col-md-12" style={div1}>
-                <Form.Row>
-                  <Form.Group as={Col} controlId="formGridPassword">
-                    {workEx.map((field, idx) => {
-                      return (
-                        <div key={idx}>
-                          <span>
-                            <span
-                              type="button"
-                              onClick={() => handleRemove(idx)}
-                            >
-                              X
-                            </span>
-                            <input
-                              type="text"
-                              value={field}
-                              onChange={(e) => handleChangeMore(idx, e)}
-                              class="form-control"
-                              style={inputt1Style}
-                            />
-                          </span>
-                        </div>
-                      );
-                    })}
-                  </Form.Group>
-                </Form.Row>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="container">
+<div class="row gutters">
+	<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+		<div class="card h-100">
+			<div class="card-body">
+				<div class="account-settings">
+					<div class="user-profile">
+						<div class="user-avatar">
+							<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Maxwell Admin"/>
+						</div>
+						<h5 class="user-name">Yuki Hayashi</h5>
+						<h6 class="user-email">yuki@Maxwell.com</h6>
+					</div>
+					<div class="about">
+						<h5 class="mb-2 text-primary">About</h5>
+						<p>I'm Yuki. Full Stack Designer I enjoy creating user-centric, delightful and human experiences.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+		<div class="card h-100">
+			<div class="card-body">
+				<div class="row gutters">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+						<h6 class="mb-3 text-primary">Personal Details</h6>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="fullName">Full Name</label>
+							<input type="text" class="form-control" id="fullName" placeholder="Enter full name"/>
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="eMail">Email</label>
+							<input type="email" class="form-control" id="eMail" placeholder="Enter email ID"/>
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="phone">Phone</label>
+							<input type="text" class="form-control" id="phone" placeholder="Enter phone number"/>
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="website">Website URL</label>
+							<input type="url" class="form-control" id="website" placeholder="Website url"/>
+						</div>
+					</div>
+				</div>
+				<div class="row gutters">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+						<h6 class="mb-3 text-primary">Address</h6>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="Street">Street</label>
+							<input type="name" class="form-control" id="Street" placeholder="Enter Street"/>
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="ciTy">City</label>
+							<input type="name" class="form-control" id="ciTy" placeholder="Enter City"/>
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="sTate">State</label>
+							<input type="text" class="form-control" id="sTate" placeholder="Enter State"/>
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+						<div class="form-group">
+							<label for="zIp">Zip Code</label>
+							<input type="text" class="form-control" id="zIp" placeholder="Zip Code"/>
+						</div>
+					</div>
+				</div>
+				<div class="row gutters">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+						<div class="text-right">
+							<button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
+							<button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
     </div>
   );
 }

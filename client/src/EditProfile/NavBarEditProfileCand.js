@@ -21,43 +21,35 @@ function IndividualCandidateNavBar() {
       </div>
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
+        <i class="fa fa-user-circle-o"  aria-hidden="true"/> 
+        &nbsp;
+       
           My Profile
         </Badge>
         &nbsp; &nbsp;
         <Badge style={badg} variant="primary" onClick={handleClick1}>
+        <i class="fa fa-sign-out" aria-hidden="true"/> 
+        &nbsp;
           Log out
         </Badge>
       </div>
     </div>
 
-    // <div style={maindivStyle}>
-    //   <div style={logoStyle}>
-    //     <Logo />
-    //   </div>
-    //   <div style={navdiv}>
-    //     <Link to="" onClick={handleClick} style={linkStyle}>
-    //       My Profile
-    //     </Link>
-    //     &nbsp; &nbsp;
-    //     <h5>|</h5>
-    //     &nbsp; &nbsp;
-    //     <Link to="/" style={linkStyle}>
-    //       Logout
-    //     </Link>
-    //   </div>
-    // </div>
+    
   );
 }
 
 const badg = {
-  height: 30,
-  width: 120,
-  fontSize: 15,
+  height: '80%',
+  width: 100,
+  fontSize: 14,
   cursor: "pointer",
   borderRadius: 12,
-  padding: 7,
+  paddingTop: 8,
   alignText: "center",
+  fontFamily: "	Candara",
 };
+
 
 const maindivStyle = {
   display: "flex",
