@@ -53,7 +53,11 @@ function IndividualProfile() {
               <div class="profile-header-info">
                 {candidate && <h4 class="m-t-sm">{candidate.fullName}</h4>}
                 {candidate && <p class="m-b-sm">{candidate.title}</p>}
-                <span class="btn btn-xs btn-primary mb-3" onClick={handelClick}>
+                <span
+                  class="btn btn-xs btn-primary mb-3"
+                  onClick={handelClick}
+                  style={badg}
+                >
                   Edit Profile
                 </span>
               </div>
@@ -100,7 +104,7 @@ function IndividualProfile() {
                       </thead>
                       <tbody>
                         <tr>
-                          <td class="field">Work Expereince</td>
+                          <td class="field" style={tdStyle}>Work Expereince</td>
                           <td class="value">
                             <div class="m-b-5">
                               {candidate && <b>{candidate.workExperience}</b>}
@@ -142,7 +146,7 @@ function IndividualProfile() {
                           </td>
                         </tr> */}
 
-                        <td class="field">Education</td>
+                        <td class="field" style={td2Style}>Education</td>
                         <td class="value">
                           <div class="m-b-5">
                             {candidate && <b>{candidate.workExperience}</b>}
@@ -347,18 +351,12 @@ const svgStyle145 = {
   height: 35,
 };
 
-const storyOfMe = {
-  width: "90%",
-};
-
 const badg = {
-  height: 30,
-  width: 120,
-  fontSize: 15,
+  height: 35,
+  width: 90,
+  fontSize: 14,
   cursor: "pointer",
   borderRadius: 12,
-  padding: 7,
-  alignText: "center",
 };
 
 const containerStyle = {
@@ -369,13 +367,13 @@ const containerStyle = {
 const headerContent = {
   borderRadius: 50,
 };
-const hrStyle = {
-  marginLeft: "13%",
-};
 
-const formStyle = {
-  marginTop: "5%",
-  marginBottom: "12%",
-};
+const tdStyle={
+  paddingRight:'3%'
+}
+
+const td2Style={
+  paddingRight:'11%'
+}
 
 export default IndividualProfile;
