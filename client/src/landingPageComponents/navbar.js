@@ -42,7 +42,7 @@ function Headbar() {
   return (
     <div style={maindivStyle}>
       <div>
-        <Logo />
+        <Logo  />
       </div>
       <div style={rowdivStyle}>
         <Form.Row>
@@ -138,19 +138,14 @@ const selectStyle = {
 const badg = {
   height: '60%',
   width: 100,
-  fontSize: 13,
+  fontSize: 14,
   cursor: "pointer",
   borderRadius: 12,
   paddingTop: 8,
   alignText: "center",
+  fontFamily: "	Candara",
 };
 
-// const badg = {
-//   height: "2%",
-//   width: "2%",
-//   cursor: "pointer",
-//   marginRight: "8%",
-//   color: "#3f43fd",
-// };
+
 
 export default Headbar;

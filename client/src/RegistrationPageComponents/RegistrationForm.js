@@ -11,15 +11,14 @@ function RegistrationForm() {
     checked: false,
   });
 
-  const [checked, setChecked] =useState();
-
+  const [checked, setChecked] = useState();
 
   const isInvalid =
     state.email === "" ||
     state.password === "" ||
     state.confirmationPassword !== state.password ||
     state.owner === "" ||
-    !checked 
+    !checked;
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -47,7 +46,8 @@ function RegistrationForm() {
       body: JSON.stringify(state),
     })
       .then((res) => res.json())
-      .then((res) => {console.log(res);
+      .then((res) => {
+        console.log(res);
         if (res.success) {
           alert(res.msg);
         } else {
@@ -55,122 +55,135 @@ function RegistrationForm() {
         }
       });
   };
-console.log(state);
+  console.log(state);
   return (
-    <div class="container" style={divStyle}>
-      <p class="text-center"></p>
-      <div class="card bg-light">
-        <article class="card-body mx-auto" style={articleStyle}>
-          <h4 class="card-title mt-3 text-center" style={h3Style}>
-            Create Account
-          </h4>
-          <p class="text-center">Get started with your free account</p>
-          <form style={form}>
-            <div class="form-group input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <i class="fa fa-envelope"></i>
-                </span>
-              </div>
-              <input
-                name="email"
-                class="form-control"
-                placeholder="Email address"
-                type="email"
-                onChange={handleChange}
-                value={state.email}
-                style={labelStyle}
-              />
-            </div>
-            <div class="form-group input-group">
-              <div class="form-group input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="fa fa-lock"></i>
-                  </span>
-                </div>
-                <input
-                  class="form-control"
-                  placeholder="Creat password"
-                  type="password"
-                  name="password"
-                  onChange={handleChange}
-                  value={state.password}
-                  style={labelStyle}
-                />
-              </div>
+    <div class="wrapper" style={formStyle}>
+      <form action="#">
+        <div class="h5 font-weight-bold text-center mb-3">Registration</div>
 
-              <div class="form-group input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="fa fa-lock"></i>
-                  </span>
-                </div>
-                <input
-                  class="form-control"
-                  placeholder="Repeat password"
-                  type="password"
-                  onChange={handleChange}
-                  name="confirmationPassword"
-                  value={state.confirmationPassword}
-                  style={labelStyle}
-                />
-              </div>
-            </div>
-            <div class="form-group input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <i class="fa fa-building"></i>
-                </span>
-              </div>
-              <select
-                class="form-control"
-                name="owner"
-                as="select"
-                onChange={handleDropDown}
-                defaultValue="Choose..."
-                style={labelStyle}
-              >
-                <option value="candidate">Candidate</option>
-                <option value="employer">Employer</option>
-              </select>
-            </div>
+        <div class="form-group d-flex align-items-center">
+          <div class="icon">
+            <span class="far fa-envelope"></span>
+          </div>
+          <input
+            autocomplete="off"
+            type="email"
+            class="form-control"
+            placeholder="Email"
+            type="email"
+            onChange={handleChange}
+            value={state.email}
+          />
+        </div>
 
-            <Form.Group id="formGridCheckbox">
-              <div
-                class="custom-control custom-checkbox custom-control-inline"
-                style={checkBox}
-              >
-                <input
-                  id="chk1"
-                  type="checkbox"
-                  name="chk"
-                  class="custom-control-input"
-                  defaultChecked= {false}
-                  value={checked}
-                  onChange={()=>setChecked(!checked)}
-                />
-                <label
-                  for="chk1"
-                  class="custom-control-label consent"
-                  style={label1Style}
-                >
-                  Agree to terms and conditions
-                </label>
-              </div>
-            </Form.Group>
-            <button
-              class="btn btn-primary btn-block"
-              onClick={submitDetails}
-              disabled={isInvalid}
-              style={buttonStyle}
+        <div class="form-group d-flex align-items-center">
+          <div class="icon">
+            <span class="fa fa-lock"></span>
+          </div>{" "}
+          <input
+            autocomplete="off"
+            class="form-control"
+            placeholder="Creat password"
+            type="password"
+            name="password"
+            onChange={handleChange}
+            value={state.password}
+          />
+          <div class="icon btn">
+            <span class="fas fa-eye-slash"></span>
+          </div>
+        </div>
+
+        <div class="form-group d-flex align-items-center">
+          <div class="icon">
+            <span class="fas fa-key"></span>
+          </div>{" "}
+          <input
+            autocomplete="off"
+            class="form-control"
+            placeholder="Repeat password"
+            type="password"
+            onChange={handleChange}
+            name="confirmationPassword"
+            value={state.confirmationPassword}
+          />
+        </div>
+        <div class="form-group d-flex align-items-center">
+          <div class="icon">
+            <span class="fas fa-building"></span>
+          </div>
+          <select
+            class="form-control"
+            name="owner"
+            as="select"
+            onChange={handleDropDown}
+            defaultValue="Choose..."
+            style={label1Style}
+          >
+            <option value="candidate" style={optionStyle}>
+              Candidate
+            </option>
+            <option value="employer" style={optionStyle}>
+              Employer
+            </option>
+          </select>
+        </div>
+
+        <Form.Group id="formGridCheckbox">
+          <div
+            class="custom-control custom-checkbox custom-control-inline"
+            style={checkBox}
+          >
+            <input
+              id="chk1"
+              type="checkbox"
+              name="chk"
+              class="custom-control-input"
+              defaultChecked={false}
+              value={checked}
+              onChange={() => setChecked(!checked)}
+            />
+            <label
+              for="chk1"
+              class="custom-control-label consent"
+              style={label2Style}
             >
-              Register
-            </button>
-            <br />
-          </form>
-        </article>
-      </div>
+              Agree to terms and conditions
+            </label>
+          </div>
+        </Form.Group>
+
+        <div
+          class="btn btn-primary mb-3"
+          onClick={submitDetails}
+          disabled={isInvalid}
+        >
+          Signup
+        </div>
+        <div class="terms mb-2">
+          By clicking "Signup", you acknowledge that you have read the{" "}
+          <a href="#">Privacy Policy</a> and agree to the{" "}
+          <a href="#">Terms of Service</a>.{" "}
+        </div>
+        <div class="connect border-bottom mt-4 mb-4"></div>
+        <ul class="p-0 social-links">
+          <li>
+            <a href="#">
+              <span class="fab fa-facebook-f"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="fab fa-google"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="fab fa-github"></span>
+            </a>
+          </li>
+        </ul>
+      </form>
     </div>
   );
 }
@@ -180,42 +193,35 @@ const divStyle = {
   width: "30% ",
 };
 
-const labelStyle = {
-  fontFamily: "Andale Mono, monospace",
-  fontSize: 14,
-  color: "#666666",
+const label2Style = {
+  fontFamily: "Candara",
+  fontSize: 13,
+  color: "white",
 };
 
 const label1Style = {
   fontSize: 13,
-  textDecoration: "underline",
-  fontFamily: "Trebuchet MS, sans-serif",
-  color: "#666666",
+};
+
+const optionStyle = {
+  color: "gray",
 };
 
 const checkBox = {
-  marginTop: "4%",
+  marginTop: "1%",
+  marginBottom: "6%",
 };
 const articleStyle = {
-  width: '90%',
+  width: "90%",
 };
 
-const form = {
-  width: "100%",
+const formStyle = {
+  marginBottom: "12%",
+  marginTop:'3%'
 };
 
-const buttonStyle = {
-  width: "30%",
-  fontSize: 14,
-  fontFamily: "Andale Mono, monospace",
-  marginLeft: "35%",
-  marginTop: "7%",
-  borderRadius: 10,
-};
 
-const h3Style = {
-  fontFamily: "Trebuchet MS, sans-serif",
-  color: "#4d94ff",
-};
+
+
 
 export default RegistrationForm;

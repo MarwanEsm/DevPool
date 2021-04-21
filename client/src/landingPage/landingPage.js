@@ -94,7 +94,7 @@ const imgStyle = {
 };
 
 const cardStyle = {
-  marginTop: "4%",
+  marginTop: "6%",
   marginLeft:'6.5%'
 };
 
