@@ -164,13 +164,13 @@ function IndividualProfile() {
                       </thead>
                       <tbody>
                         <tr>
-                          <td class="field">Mobile No.</td>
+                          <td class="field" style={td3Style}>Mobile No.</td>
                           {candidate && (
                             <td class="value">{candidate.phoneNo}</td>
                           )}
                         </tr>
                         <tr>
-                          <td class="field">Email</td>
+                          <td class="field" style={td4Style}>Email</td>
                           {candidate && (
                             <td class="value">{candidate.email}</td>
                           )}
@@ -373,7 +373,14 @@ const tdStyle={
 }
 
 const td2Style={
-  paddingRight:'11%'
+  paddingRight:'8%'
 }
 
+const td3Style={
+  paddingRight:'6%'
+}
+
+const td4Style={
+  paddingRight:'10%'
+}
 export default IndividualProfile;
