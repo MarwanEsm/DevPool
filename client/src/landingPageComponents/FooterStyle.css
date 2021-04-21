@@ -1,6 +1,5 @@
 footer {
   background-color: #1565c0;
-  /* box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12); */
   box-sizing: border-box;
   width: 100%;
   text-align: left;
@@ -115,6 +114,10 @@ div.social-links {
   margin-right: 5px;
   margin-bottom: 5px;
   margin-top: 5px;
+}
+
+::-webkit-input-placeholder {
+  color: #1565c0!important
 }
 
 .footer {

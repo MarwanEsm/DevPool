@@ -78,43 +78,6 @@ const linkStyle = {
   fontSize:15
 };
 
-const checkBox = {
-  marginTop: "2%",
-};
 
-const button = {
-  marginTop: "2%",
-  fontFamily: "Courier, monospace",
-  fontSize: 14,
-  fontWeight: "bold",
-  color: "#1565c0",
-  cursor: "pointer",
-  boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
-  backgroundColor: "white",
-};
-
-const divStyle = {
-  marginTop: "10%",
-  marginRight: "50%",
-};
-
-const div1Style = {
-  marginTop: "8%",
-  marginRight: "50%",
-};
-
-const inputStyle = {
-  width: "20%",
-};
-
-const aLinkStyle = {
-  display: "flex",
-  justifyContent: "space-around",
-};
-
-const labelStyle = {
-  marginTop: "5%",
-  marginBottom: "5%",
-};
 
 export default Footer;
