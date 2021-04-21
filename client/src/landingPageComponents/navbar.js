@@ -138,10 +138,10 @@ const selectStyle = {
 const badg = {
   height: '60%',
   width: 100,
-  fontSize: 14,
+  fontSize: 13,
   cursor: "pointer",
   borderRadius: 12,
-  padding: 7,
+  paddingTop: 8,
   alignText: "center",
 };
 
