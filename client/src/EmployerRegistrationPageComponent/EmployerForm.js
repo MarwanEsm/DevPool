@@ -30,7 +30,6 @@ function EmployerForm() {
 
   const submitDetail = (e) => {
     e.preventDefault();
-    var data = new FormData();
 
     const token = localStorage.getItem("token");
     const myHeaders = new Headers();
@@ -55,11 +54,6 @@ function EmployerForm() {
         console.log(res);
       });
   };
-
-  // const makeItChecked = (e) => {
-  //   e.preventDefault();
-  //   setState({ ...state, checked: !state.checked });
-  // };
 
   return (
     <div class="container register" style={divStyle}>
@@ -198,7 +192,7 @@ const submitStyle = {
   marginLeft: "40%",
   paddingBottom: 4,
   paddingTop: 3,
-  marginTop:'1%'
+  marginTop: "1%",
 };
 
 const divStyle = {
@@ -210,7 +204,6 @@ const inputStyle = {
   borderRadius: 20,
   fontFamily: "Candara",
   fontSize: 14,
-  
 };
 
 const header = {
@@ -220,7 +213,6 @@ const header = {
 
 const checkBox = {
   marginTop: "8%",
- 
 };
 
 const label2Style = {
@@ -229,8 +221,8 @@ const label2Style = {
   color: "black",
 };
 
-const div1Style ={
-  marginLeft:'30%',
-  marginTop:'3%'
-}
+const div1Style = {
+  marginLeft: "30%",
+  marginTop: "3%",
+};
 export default EmployerForm;

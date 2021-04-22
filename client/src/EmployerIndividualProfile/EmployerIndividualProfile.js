@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import IndividualEmplyoerNavBar from "./NavBarIndividualEmployer";
-import Swiper from 'swiper';
+import { AuthContext } from "../ContextProvider/AuthContextProvider";
+import Badge from "react-bootstrap/Badge";
 import Footer from "../LandingPageComponents/Footer";
-import './EmployerIndividualProfileStyle.css'
+import "./EmployerIndividualProfileStyle.css";
 
 function EmployerIndividualProfile() {
-  const { id } = useParams();
+  const history = useHistory();
+  const { user } = useContext(AuthContext);
   const [employer, setEmplyoer] = useState();
 
   useEffect(() => {
@@ -26,19 +28,9 @@ function EmployerIndividualProfile() {
       });
   }, []);
 
-  // var swiper = new Swiper('.blog-slider', {
-  //   spaceBetween: 30,
-  //   effect: 'fade',
-  //   loop: true,
-  //   mousewheel: {
-  //     invert: false,
-  //   },
-  //   // autoHeight: true,
-  //   pagination: {
-  //     el: '.blog-slider__pagination',
-  //     clickable: true,
-  //   }
-  // });
+  const handleClick1 = () => {
+    history.push(`/EditProfileEmployer/${user._id}`);
+  };
 
   return (
     <div>
@@ -46,135 +38,114 @@ function EmployerIndividualProfile() {
         <IndividualEmplyoerNavBar />
       </div>
 
-      <div class="blog-slider">
-        <div class="blog-slider__wrp swiper-wrapper">
-          <div class="blog-slider__item swiper-slide">
-            <div class="blog-slider__img">
-              <img
-                src="https://res.cloudinary.com/muhammederdem/image/upload/v1535759872/kuldar-kalvik-799168-unsplash.jpg"
-                alt=""
-              />
-            </div>
-            <div class="blog-slider__content">
-              <span class="blog-slider__code">26 December 2019</span>
-              <div class="blog-slider__title">Lorem Ipsum Dolor</div>
-              <div class="blog-slider__text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Recusandae voluptate repellendus magni illo ea animi?{" "}
+      <div>
+        <div className="container">
+          <div className="row gutters">
+            <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+              <div className="card h-100">
+                <div className="card-body">
+                  <div className="account-settings">
+                    <div className="user-profile"></div>
+                  </div>
+                </div>
               </div>
-              <a href="#" class="blog-slider__button">
-                READ MORE
-              </a>
             </div>
-          </div>
-          <div class="blog-slider__item swiper-slide">
-            <div class="blog-slider__img">
-              <img
-                src="https://res.cloudinary.com/muhammederdem/image/upload/v1535759871/jason-leung-798979-unsplash.jpg"
-                alt=""
-              />
-            </div>
-            <div class="blog-slider__content">
-              <span class="blog-slider__code">26 December 2019</span>
-              <div class="blog-slider__title">Lorem Ipsum Dolor2</div>
-              <div class="blog-slider__text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Recusandae voluptate repellendus magni illo ea animi?
-              </div>
-              <a href="#" class="blog-slider__button">
-                READ MORE
-              </a>
-            </div>
-          </div>
+            <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+              <div className="card h-100">
+                <div className="card-body">
+                  <div className="row gutters">
+                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                      <h6 className="mb-3 " style={header}>
+                        Employer Details
+                      </h6>
+                    </div>
+                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div className="form-group">
+                        <label htmlFor="fullName">Employer Name</label>
+                        {employer && <p style={pStyle}>{employer.employerName}</p>}
+                      </div>
+                    </div>
+                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div className="form-group">
+                        <label htmlFor="eMail">Website</label>
+                        {employer && <p style={pStyle}>{employer.website}</p>}
+                      </div>
+                    </div>
 
-          <div class="blog-slider__item swiper-slide">
-            <div class="blog-slider__img">
-              <img
-                src="https://res.cloudinary.com/muhammederdem/image/upload/v1535759871/alessandro-capuzzi-799180-unsplash.jpg"
-                alt=""
-              />
-            </div>
-            <div class="blog-slider__content">
-              <span class="blog-slider__code">26 December 2019</span>
-              <div class="blog-slider__title">Lorem Ipsum Dolor</div>
-              <div class="blog-slider__text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Recusandae voluptate repellendus magni illo ea animi?
+                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div className="form-group">
+                        <label htmlFor="phone">Location</label>
+                        {employer && <p style={pStyle}>{employer.location}</p>}
+                      </div>
+                    </div>
+                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div className="form-group">
+                        <label htmlFor="website">Field Of Business </label>
+                        {employer && <p style={pStyle}>{employer.fieldOfBusiness}</p>}
+                      </div>
+                    </div>
+
+                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div className="form-group">
+                        <label htmlFor="website">Email</label>
+                        {employer && <p style={pStyle}>{employer.email}</p>}
+                      </div>
+                    </div>
+
+                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div className="form-group">
+                        <label htmlFor="website">Phone No.</label>
+                        {employer && <p style={pStyle}>{employer.phoneNo}</p>}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="row gutters">
+                    {/* <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div className="form-group">
+                      <label htmlFor="Street">Street</label>
+                      <input
+                        type="name"
+                        className="form-control"
+                        id="Street"
+                        placeholder="Enter Street"
+                        style={inputtStyle}
+                      />
+                    </div>
+                  </div> */}
+                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div className="form-group"></div>
+                    </div>
+                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                      <div className="form-group"></div>
+                    </div>
+                    {/* <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div className="form-group">
+                      <label htmlFor="zIp">Zip Code</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="zIp"
+                        placeholder="Zip Code"
+                        style={inputtStyle}
+                      />
+                    </div>
+                  </div> */}
+                    <Badge
+                      style={badg}
+                      variant="primary"
+                      onClick={handleClick1}
+                    >
+                      <i class="fa fa-user-o" aria-hidden="true" />
+                      &nbsp; Edit Profile
+                    </Badge>{" "}
+                  </div>
+                </div>
               </div>
-              <a href="#" class="blog-slider__button">
-                READ MORE
-              </a>
             </div>
           </div>
         </div>
-        <div class="blog-slider__pagination"></div>
       </div>
-
-      {/* <div className="col-md-8">
-        <div className="card mb-3" style={rowDetailsStyle}>
-          <div className="card-body">
-            <div className="row"></div>
-
-            <div className="row">
-              <div className="col-sm-3">
-                <h6 className="mb-0">Employer Name</h6>
-              </div>
-              <div className="col-sm-9 text-secondary">
-                {employer && employer.employerName}
-              </div>
-            </div>
-
-            <hr />
-            <div className="row">
-              <div className="col-sm-3">
-                <h6 className="mb-0">Website</h6>
-              </div>
-              <div className="col-sm-9 text-secondary">
-                {employer && employer.website}
-              </div>
-            </div>
-            <hr />
-
-            <div className="row">
-              <div className="col-sm-3">
-                <h6 className="mb-0">Location</h6>
-              </div>
-              <div className="col-sm-9 text-secondary">
-                {employer && employer.location}
-              </div>
-            </div>
-            <hr />
-
-            <div className="row">
-              <div className="col-sm-3">
-                <h6 className="mb-0">Field Of Business</h6>
-              </div>
-              <div className="col-sm-9 text-secondary">
-                {employer && employer.fieldOfBusiness}
-              </div>
-            </div>
-            <hr />
-
-            <div className="row">
-              <div className="col-sm-3">
-                <h6 className="mb-0"> Email</h6>
-              </div>
-              <div className="col-sm-9 text-secondary">
-                {employer && employer.email}
-              </div>
-            </div>
-            <hr />
-            <div className="row">
-              <div className="col-sm-3">
-                <h6 className="mb-0"> Phone No.</h6>
-              </div>
-              <div className="col-sm-9 text-secondary">
-                {employer && employer.phoneNo}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>  */}
 
       <div>
         <Footer />
@@ -182,6 +153,34 @@ function EmployerIndividualProfile() {
     </div>
   );
 }
+
+const header = {
+  fontFamily: "Candara",
+  color: "black",
+  fontSize: 18,
+  fontWeight: "bold",
+};
+
+const badg = {
+  height: "80%",
+  width: 100,
+  fontSize: 14,
+  cursor: "pointer",
+  borderRadius: 12,
+  paddingTop: 8,
+  paddingBottom: 8,
+  alignText: "center",
+  fontFamily: "	Candara",
+  marginLeft: "45%",
+};
+
+const pStyle={
+  fontFamily:'Candara',
+  color:'gray'
+}
+
+
+
 
 
 export default EmployerIndividualProfile;
