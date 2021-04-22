@@ -62,7 +62,9 @@ function EmployerIndividualProfile() {
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                       <div className="form-group">
                         <label htmlFor="fullName">Employer Name</label>
-                        {employer && <p style={pStyle}>{employer.employerName}</p>}
+                        {employer && (
+                          <p style={pStyle}>{employer.employerName}</p>
+                        )}
                       </div>
                     </div>
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -74,14 +76,23 @@ function EmployerIndividualProfile() {
 
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                       <div className="form-group">
-                        <label htmlFor="phone">Location</label>
-                        {employer && <p style={pStyle}>{employer.location}</p>}
+                        <label htmlFor="website">Location </label>
+
+                        <div>
+                          {employer && (
+                            <span>
+                              <p style={pStyle}>{employer.location}</p>{" "}
+                            </span>
+                          )}
+                        </div>
                       </div>
                     </div>
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                       <div className="form-group">
                         <label htmlFor="website">Field Of Business </label>
-                        {employer && <p style={pStyle}>{employer.fieldOfBusiness}</p>}
+                        {employer && (
+                          <p style={pStyle}>{employer.fieldOfBusiness}</p>
+                        )}
                       </div>
                     </div>
 
@@ -101,36 +112,12 @@ function EmployerIndividualProfile() {
                   </div>
 
                   <div className="row gutters">
-                    {/* <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <div className="form-group">
-                      <label htmlFor="Street">Street</label>
-                      <input
-                        type="name"
-                        className="form-control"
-                        id="Street"
-                        placeholder="Enter Street"
-                        style={inputtStyle}
-                      />
-                    </div>
-                  </div> */}
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                       <div className="form-group"></div>
                     </div>
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                       <div className="form-group"></div>
                     </div>
-                    {/* <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <div className="form-group">
-                      <label htmlFor="zIp">Zip Code</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="zIp"
-                        placeholder="Zip Code"
-                        style={inputtStyle}
-                      />
-                    </div>
-                  </div> */}
                     <Badge
                       style={badg}
                       variant="primary"
@@ -174,13 +161,9 @@ const badg = {
   marginLeft: "45%",
 };
 
-const pStyle={
-  fontFamily:'Candara',
-  color:'gray'
-}
-
-
-
-
+const pStyle = {
+  fontFamily: "Candara",
+  color: "gray",
+};
 
 export default EmployerIndividualProfile;

@@ -488,10 +488,7 @@ const addMoreDiv = {
   justifyContent: "space-between",
 };
 
-const div = {
-  marginTop: "4%",
-  marginBottom: "10%",
-};
+
 
 const input1Style = {
   borderRadius: 20,
@@ -508,7 +505,6 @@ const spanStyle = {
 const buttonStyle = {
   fontFamily: "Candara",
   fontSize: 14,
-
   cursor: "pointer",
   marginTop: "5%",
   borderRadius: 20,

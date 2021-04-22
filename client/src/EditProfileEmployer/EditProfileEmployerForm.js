@@ -1,13 +1,12 @@
 import React, { useContext, useState } from "react";
-// import { useHistory } from "react-router-dom";
-import Form from "react-bootstrap/Form";
-import Col from "react-bootstrap/Col";
+import { useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-// import { AuthContext } from "../ContextProvider/AuthContextProvider";
+import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function EditProfieEmpForm() {
-  // const { user } = useContext(AuthContext);
-
+  const history = useHistory();
+  const { user } = useContext(AuthContext);
+  const [employer, setEmplyoer] = useState();
   const [state, setState] = useState({});
 
   const handleChange = (e) => {
@@ -43,108 +42,153 @@ function EditProfieEmpForm() {
 
   return (
     <div>
-      <div style={divStyle}>
-        <Form>
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGridEmail">
-              <Form.Label style={textStyle}>Phone No</Form.Label>
-              <Form.Control
-                type="number"
-                name="phoneNo"
-                onChange={handleChange}
-                value={state.phoneNo}
-                style={inputtStyle}
-              />
-            </Form.Group>
+      <div className="container">
+        <div className="row gutters">
+          <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+            <div className="card h-100">
+              <div className="card-body">
+                <div className="account-settings">
+                  <div className="user-profile"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+            <div className="card h-100">
+              <div className="card-body">
+                <div className="row gutters">
+                  <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <h6 className="mb-3 " style={header}>
+                      Employer Details
+                    </h6>
+                  </div>
+                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div className="form-group">
+                      <label htmlFor="fullName">Employer Name</label>
+                      &nbsp; &nbsp;
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Employer Name"
+                        name="employerName"
+                        onChange={handleChange}
+                        style={inputtStyle}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div className="form-group">
+                      <label htmlFor="eMail">Website</label>
+                      &nbsp; &nbsp;
+                      <input
+                        type="url"
+                        className="form-control"
+                        placeholder="website"
+                        name="website"
+                        onChange={handleChange}
+                        style={inputtStyle}
+                      />
+                    </div>
+                  </div>
 
-            <Form.Group as={Col} controlId="formGridEmail">
-              <Form.Label style={textStyle}>Location</Form.Label>
-              <Form.Control
-                type="text"
-                name="location"
-                onChange={handleChange}
-                value={state.location}
-                style={inputtStyle}
-              />
-            </Form.Group>
-          </Form.Row>
-          <br />
+                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div className="form-group">
+                      <label htmlFor="website">Location </label>
+                      &nbsp; &nbsp;
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Location"
+                        name="location"
+                        onChange={handleChange}
+                        style={inputtStyle}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div className="form-group">
+                      <label htmlFor="website">Field Of Business </label>
+                      &nbsp; &nbsp;
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Field Of Business"
+                        name="fieldOfBusiness"
+                        onChange={handleChange}
+                        style={inputtStyle}
+                      />
+                    </div>
+                  </div>
 
-          <Form.Row style={rowStyle}>
-            <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label style={textStyle}>WebSite</Form.Label>
-              <Form.Control
-                type="text"
-                name="website"
-                onChange={handleChange}
-                value={state.website}
-                style={inputtStyle}
-              />
-            </Form.Group>
+                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div className="form-group">
+                      <label htmlFor="website">Email</label>
+                      &nbsp; &nbsp;
+                      <input
+                        type="email"
+                        className="form-control"
+                        placeholder="Email"
+                        name="email"
+                        onChange={handleChange}
+                        style={inputtStyle}
+                      />
+                    </div>
+                  </div>
 
-            {/* <Form.Group as={Col} controlId="formGridEmail">
-              <Form.Label style={textStyle}>Facebook</Form.Label>
-              <Form.Control
-                type="text"
-                name="facebook"
-                onChange={handleChange}
-                value={state.facebook}
-                style={inputtStyle}
-              />
-            </Form.Group> */}
-          </Form.Row>
+                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div className="form-group">
+                      <label htmlFor="website">Phone No.</label>
+                      &nbsp; &nbsp;
+                      <input
+                        type="number"
+                        className="form-control"
+                        placeholder="Phone No."
+                        name="phoneNo"
+                        onChange={handleChange}
+                        style={inputtStyle}
+                      />
+                    </div>
+                  </div>
+                </div>
 
-          <Form.Row>
-            {/* <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label style={textStyle}>Instagram</Form.Label>
-              <Form.Control
-                type="text"
-                name="instagram"
-                onChange={handleChange}
-                value={state.instagram}
-                style={inputtStyle}
-              />
-            </Form.Group> */}
-          </Form.Row>
-          <br />
-
-          <Button variant="primary" onClick={submitDetails} style={buttonStyle}>
-            Submit
-          </Button>
-        </Form>
+                <div className="text-right" >
+                  <Button
+                    variant="primary"
+                    onClick={submitDetails}
+                    style={buttonUpdateStyle}
+                  >
+                    Update
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-const divStyle = {
-  marginTop: "4%",
-  marginLeft: "13%",
-  width: "65%",
-  marginBottom: "20%",
+const header = {
+  fontFamily: "Candara",
+  color: "black",
+  fontSize: 18,
+  fontWeight: "bold",
 };
 
 const inputtStyle = {
   borderRadius: 14,
-  border: "bold",
-  borderColor: "black",
-  fontFamily: "Courier, monospace",
-  fontSize: 15,
 };
 
-const buttonStyle = {
-  fontFamily: "Courier, monospace",
+
+const buttonUpdateStyle = {
+  fontFamily: "Candara",
   fontSize: 14,
   cursor: "pointer",
-  boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
-};
-
-const textStyle = {
-  fontFamily: "Zapf Chancery, cursive",
-};
-
-const rowStyle = {
-  marginBottom: "3%",
+  marginTop: "6%",
+  marginBottom: "4%",
+  borderRadius: 20,
+  marginRight:'45%'
 };
 
 export default EditProfieEmpForm;
