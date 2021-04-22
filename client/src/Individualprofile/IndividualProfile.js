@@ -104,7 +104,9 @@ function IndividualProfile() {
                       </thead>
                       <tbody>
                         <tr>
-                          <td class="field" style={tdStyle}>Work Expereince</td>
+                          <td class="field" style={tdStyle}>
+                            Work Expereince
+                          </td>
                           <td class="value">
                             <div class="m-b-5">
                               {candidate && <b>{candidate.workExperience}</b>}
@@ -146,7 +148,9 @@ function IndividualProfile() {
                           </td>
                         </tr> */}
 
-                        <td class="field" style={td2Style}>Education</td>
+                        <td class="field" style={td2Style}>
+                          Education
+                        </td>
                         <td class="value">
                           <div class="m-b-5">
                             {candidate && <b>{candidate.workExperience}</b>}
@@ -164,13 +168,17 @@ function IndividualProfile() {
                       </thead>
                       <tbody>
                         <tr>
-                          <td class="field" style={td3Style}>Mobile No.</td>
+                          <td class="field" style={td3Style}>
+                            Mobile No.
+                          </td>
                           {candidate && (
                             <td class="value">{candidate.phoneNo}</td>
                           )}
                         </tr>
                         <tr>
-                          <td class="field" style={td4Style}>Email</td>
+                          <td class="field" style={td4Style}>
+                            Email
+                          </td>
                           {candidate && (
                             <td class="value">{candidate.email}</td>
                           )}
@@ -368,24 +376,23 @@ const headerContent = {
   borderRadius: 50,
 };
 
-const tdStyle={
-  paddingRight:'3%'
-}
+const tdStyle = {
+  paddingRight: "2%",
+};
 
-const td2Style={
-  paddingRight:'8%'
-}
+const td2Style = {
+  paddingRight: "9%",
+};
 
-const td3Style={
-  paddingRight:'6%'
-}
+const td3Style = {
+  paddingRight: "6%",
+};
 
-const td4Style={
-  paddingRight:'10%'
-}
+const td4Style = {
+  paddingRight: "10%",
+};
 
-
-const titleStyle={
-  marginLeft:'80%'
-}
+const titleStyle = {
+  marginLeft: "80%",
+};
 export default IndividualProfile;

@@ -120,7 +120,6 @@ function EditProfieCanForm() {
                         <img src={`http://localhost:5000/${candidate.img}`} />
                       )}
                       <div class="file btn btn-lg btn-primary" style={divStyle}>
-                        
                         <input
                           onChange={uploadImage}
                           imgextension={[".jpg", ".gif", ".png", ".gif"]}
@@ -147,7 +146,7 @@ function EditProfieCanForm() {
               <div class="card-body">
                 <div class="row gutters">
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <h6 class="mb-3 text-primary">Personal Details</h6>
+                    <h6 class="mb-3 " style={header}>Personal Details</h6>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
@@ -155,48 +154,185 @@ function EditProfieCanForm() {
                       <input
                         type="text"
                         class="form-control"
-                        id="fullName"
-                        placeholder="Enter full name"
+                   
+                        placeholder="Full Name"
+                        name="fullName"
+                        onChange={handleChange}
+                        value={state.fullName}
+                        style={inputtStyle}
                       />
                     </div>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
-                      <label for="eMail">Email</label>
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="eMail"
-                        placeholder="Enter email ID"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <div class="form-group">
-                      <label for="phone">Phone</label>
+                      <label for="eMail">Title</label>
                       <input
                         type="text"
                         class="form-control"
-                        id="phone"
-                        placeholder="Enter phone number"
+                       
+                        placeholder="Title"
+                        name="title"
+                        onChange={handleChange}
+                        value={state.title}
+                        style={inputtStyle}
                       />
                     </div>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
-                      <label for="website">Website URL</label>
+                      <label for="phone">Location</label>
                       <input
-                        type="url"
+                        type="text"
                         class="form-control"
-                        id="website"
-                        placeholder="Website url"
+                        placeholder="Location"
+                        
+                        name="location"
+                        onChange={handleChange}
+                        value={state.location}
+                        style={inputtStyle}
+                      />
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                      <label for="website">Hobbies</label>
+                      <input
+                        class="form-control"
+                       type='text'
+                        name="hobbies"
+                        placeholder='Hobbies'
+                        onChange={handleChange}
+                        value={state.hobbies}
+                        style={inputtStyle}
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                      <label for="website">Phone No</label>
+                      <input
+                        class="form-control"
+                        placeholder="Phone No."
+                        type="number"
+                        name="phoneNo"
+                        onChange={handleChange}
+                        value={state.phoneNo}
+                        style={inputtStyle}
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                      <label for="website">Desired Position</label>
+                      <input
+                        class="form-control"
+                        placeholder="Desired Position"
+                        name="desiredPosition"
+                        onChange={handleChange}
+                        value={state.desiredPosition}
+                        type="text"
+                        style={inputtStyle}
+                      
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                      <label for="website">Expected Salary</label>
+                      <input
+                        class="form-control"
+                        placeholder="Expected Salary"
+                        type="number"
+                        name="expectedSalary"
+                        onChange={handleChange}
+                        value={state.expectedSalary}
+                        style={inputtStyle}
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                      <label for="website">Github</label>
+                      <input
+                        class="form-control"
+                        placeholder="Github URL"
+                        type="url"
+                        name="github"
+                        onChange={handleChange}
+                        value={state.github}
+                        style={inputtStyle}
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                      <label for="website">Website</label>
+                      <input
+                        class="form-control"
+                      
+                        placeholder="Website URL"
+                        type="url"
+                        name="website"
+                        onChange={handleChange}
+                        value={state.website}
+                        style={inputtStyle}
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                      <label for="website">Twitter</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        placeholder="Twitter User Name"
+                        value={state.twitter}
+                        name="twitter"
+                        onChange={handleChange}
+                        style={inputtStyle}
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                      <label for="website">Facebook</label>
+                      <input
+                        class="form-control"
+                        placeholder="Facebook URL"
+                        type="url"
+                        name="facebook"
+                        onChange={handleChange}
+                        value={state.facebook}
+                        style={inputtStyle}
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                      <label for="website">Languages</label>
+                      <input
+                        class="form-control"
+                        placeholder="Languages"
+                        type="text"
+                        name="languages"
+                        onChange={handleChange}
+                        value={state.languages}
+                        style={inputtStyle}
                       />
                     </div>
                   </div>
                 </div>
                 <div class="row gutters">
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <h6 class="mb-3 text-primary">Address</h6>
+                    <h6 class="mb-3 " style={headerAddress}>Address</h6>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
@@ -206,6 +342,7 @@ function EditProfieCanForm() {
                         class="form-control"
                         id="Street"
                         placeholder="Enter Street"
+                        style={inputtStyle}
                       />
                     </div>
                   </div>
@@ -217,6 +354,7 @@ function EditProfieCanForm() {
                         class="form-control"
                         id="ciTy"
                         placeholder="Enter City"
+                        style={inputtStyle}
                       />
                     </div>
                   </div>
@@ -228,6 +366,7 @@ function EditProfieCanForm() {
                         class="form-control"
                         id="sTate"
                         placeholder="Enter State"
+                        style={inputtStyle}
                       />
                     </div>
                   </div>
@@ -239,6 +378,7 @@ function EditProfieCanForm() {
                         class="form-control"
                         id="zIp"
                         placeholder="Zip Code"
+                        style={inputtStyle}
                       />
                     </div>
                   </div>
@@ -278,9 +418,7 @@ const inputtStyle = {
   borderRadius: 14,
 };
 
-const inputt1Style = {
-  borderRadius: 14,
-};
+
 const buttonStyle = {
   fontFamily: "Courier, monospace",
   fontSize: 14,
@@ -297,12 +435,20 @@ const div1 = {
 };
 
 const header = {
-  fontFamily: "Trebuchet MS, sans-serif",
-  marginLeft: "30%",
-  fontSize: 20,
-  marginBottom: "4%",
-  textDecoration: "underline",
+  fontFamily: "Candara",
+  color:'black',
+  fontSize:18,
+  fontWeight:'bold'
 };
+
+const headerAddress = {
+  fontFamily: "Candara",
+  color:'black',
+  fontSize:18,
+  fontWeight:'bold',
+  marginTop:15
+};
+
 
 const expereince = {
   fontFamily: "Trebuchet MS, sans-serif",
@@ -314,20 +460,19 @@ const iStyle = {
   color: "white",
 };
 
+const changePhotoStyle = {
+  width: "100%",
+  fontSize: 12,
+  color: "white",
+};
 
-const changePhotoStyle ={
-  width:'100%',
-  fontSize:12,
-  color:'white'
-}
-
-const divStyle={
-  width:'83%',
-  marginTop:'20%',
-  paddingBottom:6,
-  paddingTop:1,
-  paddingRight:0,
-  paddingLeft:12,
-  borderRadius:8
-}
+const divStyle = {
+  width: "83%",
+  marginTop: "20%",
+  paddingBottom: 6,
+  paddingTop: 1,
+  paddingRight: 0,
+  paddingLeft: 12,
+  borderRadius: 8,
+};
 export default EditProfieCanForm;

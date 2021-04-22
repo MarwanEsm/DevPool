@@ -3,7 +3,7 @@ import React, { useState, createContext, useEffect } from "react";
 const initContext = { user:[] };
 export const AuthContext = createContext(initContext);
 export const AuthContextProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState([]);
  
     useEffect(() => {
       fetch("http://localhost:5000/user/all")
