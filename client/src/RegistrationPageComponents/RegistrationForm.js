@@ -160,12 +160,12 @@ function RegistrationForm() {
         >
           Signup
         </div>
-        <div class="terms mb-2">
-          By clicking "Signup", you acknowledge that you have read the{" "}
-          <a href="#">Privacy Policy</a> and agree to the{" "}
-          <a href="#">Terms of Service</a>.{" "}
+        <div class="terms mb-2" style={termsStyle}>
+          By clicking "Signup", you acknowledge that you have read the
+          <a href="#">Privacy Policy</a> and agree to the
+          <a href="#">Terms of Service</a>.
         </div>
-        <div class="connect border-bottom mt-4 mb-4"></div>
+        <div class="connect border-bottom mt-4 mb-4" style={orStyle}></div>
         <ul class="p-0 social-links">
           <li>
             <a href="#">
@@ -220,8 +220,15 @@ const formStyle = {
   marginTop:'3%'
 };
 
+const termsStyle={
+  color:'gray'
+}
 
 
+const orStyle ={
+  background: '-webkit-linear-gradient(right, #acabcc, #55b6ee)'
+
+}
 
 
 export default RegistrationForm;

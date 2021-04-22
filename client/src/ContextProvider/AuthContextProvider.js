@@ -10,7 +10,8 @@ export const AuthContextProvider = ({ children }) => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          setUser(user);
+          setUser(user
+            );
         });
     }, []);
 

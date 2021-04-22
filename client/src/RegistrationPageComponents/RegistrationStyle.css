@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Candara';
+  font-family: "Candara";
 }
 
 .wrapper {
@@ -16,7 +16,7 @@
   border-top: 1px solid #ffffff6e;
   border-left: 1px solid #ffffff6e;
   border-radius: 15px;
-  background: linear-gradient(to bottom, #1d2675, #004683);
+  background: -webkit-linear-gradient(right, #acabcc, #55b6ee);
 }
 
 .wrapper .h5 {
@@ -45,7 +45,7 @@
 }
 
 .wrapper .form-group input::placeholder {
-  color:white !important;
+  color: white !important;
   font-size: 14px;
 }
 
@@ -147,6 +147,7 @@
 
 .wrapper .connect {
   position: relative;
+  
 }
 
 .wrapper .connect::after {
@@ -159,7 +160,7 @@
   color: #eee;
   z-index: 100;
   background-color: rgba(255, 255, 255, 0.315);
-  background-color: #1f5588;
+  background: -webkit-linear-gradient(left, #acabcc, #55b6ee)
 }
 
 .wrapper .social-links {
