@@ -146,7 +146,9 @@ function EditProfieCanForm() {
               <div class="card-body">
                 <div class="row gutters">
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <h6 class="mb-3 " style={header}>Personal Details</h6>
+                    <h6 class="mb-3 " style={header}>
+                      Personal Details
+                    </h6>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
@@ -154,7 +156,6 @@ function EditProfieCanForm() {
                       <input
                         type="text"
                         class="form-control"
-                   
                         placeholder="Full Name"
                         name="fullName"
                         onChange={handleChange}
@@ -169,7 +170,6 @@ function EditProfieCanForm() {
                       <input
                         type="text"
                         class="form-control"
-                       
                         placeholder="Title"
                         name="title"
                         onChange={handleChange}
@@ -185,7 +185,6 @@ function EditProfieCanForm() {
                         type="text"
                         class="form-control"
                         placeholder="Location"
-                        
                         name="location"
                         onChange={handleChange}
                         value={state.location}
@@ -198,9 +197,9 @@ function EditProfieCanForm() {
                       <label for="website">Hobbies</label>
                       <input
                         class="form-control"
-                       type='text'
+                        type="text"
                         name="hobbies"
-                        placeholder='Hobbies'
+                        placeholder="Hobbies"
                         onChange={handleChange}
                         value={state.hobbies}
                         style={inputtStyle}
@@ -234,7 +233,6 @@ function EditProfieCanForm() {
                         value={state.desiredPosition}
                         type="text"
                         style={inputtStyle}
-                      
                       />
                     </div>
                   </div>
@@ -274,7 +272,6 @@ function EditProfieCanForm() {
                       <label for="website">Website</label>
                       <input
                         class="form-control"
-                      
                         placeholder="Website URL"
                         type="url"
                         name="website"
@@ -330,9 +327,46 @@ function EditProfieCanForm() {
                     </div>
                   </div>
                 </div>
+
+                <div class="form-group" style={workExdivStyle}>
+                  <Form.Row>
+                    <Form.Group as={Col} controlId="formGridPassword">
+                      {workEx.map((field, idx) => {
+                        return (
+                          <div key={idx} style={addMoreDiv}>
+                            <span
+                              type="button"
+                              onClick={() => handleRemove(idx)}
+                              style={spanStyle}
+                            >
+                              X
+                            </span>
+                            <Form.Control
+                              type="text"
+                              value={field}
+                              onChange={(e) => handleChangeMore(idx, e)}
+                              style={input1Style}
+                            ></Form.Control>
+                          </div>
+                        );
+                      })}
+                      <Button
+                        variant="outline-primary"
+                        type="button"
+                        onClick={() => handleAdd()}
+                        style={buttonStyle}
+                      >
+                        Add Work Experience
+                      </Button>
+                    </Form.Group>
+                  </Form.Row>
+                </div>
+
                 <div class="row gutters">
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <h6 class="mb-3 " style={headerAddress}>Address</h6>
+                    <h6 class="mb-3 " style={headerAddress}>
+                      Address
+                    </h6>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
@@ -418,46 +452,19 @@ const inputtStyle = {
   borderRadius: 14,
 };
 
-
-const buttonStyle = {
-  fontFamily: "Courier, monospace",
-  fontSize: 14,
-  cursor: "pointer",
-  boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
-};
-
-const div = {
-  marginTop: "2%",
-};
-
-const div1 = {
-  marginTop: "8%",
-};
-
 const header = {
   fontFamily: "Candara",
-  color:'black',
-  fontSize:18,
-  fontWeight:'bold'
+  color: "black",
+  fontSize: 18,
+  fontWeight: "bold",
 };
 
 const headerAddress = {
   fontFamily: "Candara",
-  color:'black',
-  fontSize:18,
-  fontWeight:'bold',
-  marginTop:15
-};
-
-
-const expereince = {
-  fontFamily: "Trebuchet MS, sans-serif",
-};
-
-const iStyle = {
-  borderRadius: 10,
-  backgroundColor: "#1565c0",
-  color: "white",
+  color: "black",
+  fontSize: 18,
+  fontWeight: "bold",
+  marginTop: 15,
 };
 
 const changePhotoStyle = {
@@ -475,4 +482,41 @@ const divStyle = {
   paddingLeft: 12,
   borderRadius: 8,
 };
+
+const addMoreDiv = {
+  display: "flex",
+  justifyContent: "space-between",
+};
+
+const div = {
+  marginTop: "4%",
+  marginBottom: "10%",
+};
+
+
+
+const input1Style = {
+  borderRadius: 20,
+  marginBottom: "2%",
+  marginTop: "1%",
+};
+
+const spanStyle = {
+  marginRight: "2%",
+  marginTop: "3%",
+  color: "blue",
+};
+
+const buttonStyle = {
+  fontFamily: "Candara",
+  fontSize: 13,
+  cursor: "pointer",
+  marginTop: "5%",
+  borderRadius: 20,
+};
+
+const workExdivStyle={
+  marginTop:'3%'
+}
+
 export default EditProfieCanForm;

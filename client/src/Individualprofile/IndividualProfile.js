@@ -29,6 +29,12 @@ function IndividualProfile() {
       });
   }, []);
 
+  const [file, setMyFile] = useState();
+  const uploadImage = (file) => {
+    console.log(file);
+    setMyFile(file[0]);
+  };
+
   const handelClick = () => {
     history.push(`/EditProfileCandidate/${user._id}`);
   };
@@ -48,6 +54,8 @@ function IndividualProfile() {
                 {candidate && (
                   <img src={`http://localhost:5000/${candidate.img}`} alt="" />
                 )}
+
+               
               </div>
 
               <div class="profile-header-info">
@@ -99,7 +107,7 @@ function IndividualProfile() {
                     <table class="table table-profile">
                       <thead>
                         <tr>
-                          <th colspan="2" >WORK AND EDUCATION</th>
+                          <th colspan="2">WORK AND EDUCATION</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -392,7 +400,19 @@ const td4Style = {
   paddingRight: "10%",
 };
 
-const titleStyle = {
-  marginLeft: "80%",
+const changePhotoStyle = {
+  width: "100%",
+  fontSize: 12,
+  color: "white",
+};
+
+const divStyle = {
+  width: "83%",
+  marginTop: "20%",
+  paddingBottom: 6,
+  paddingTop: 1,
+  paddingRight: 0,
+  paddingLeft: 12,
+  borderRadius: 8,
 };
 export default IndividualProfile;
