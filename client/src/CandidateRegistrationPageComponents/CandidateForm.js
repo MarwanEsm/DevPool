@@ -153,7 +153,7 @@ function CandidateForm() {
                     />
                   </div>
 
-                  <div class="form-group">
+                  
                     <Form.Row>
                       <ImageUploader
                         buttonText="Choose images"
@@ -164,10 +164,12 @@ function CandidateForm() {
                         value={image}
                         name="myImage"
                         accept=".jpg"
+                        style={uplaoderStyle}
+                        buttonVariant="outline-primary"
                       />
                     </Form.Row>
                   </div>
-                </div>
+                
 
                 <div class="col-md-6">
                   <div class="form-group">
@@ -249,6 +251,7 @@ function CandidateForm() {
                 <input
                   type="submit"
                   class="btnRegister"
+                 
                   value="Register"
                   onClick={submitDetails}
                   disabled={isInvalid}
@@ -269,20 +272,21 @@ const addMoreDiv = {
 };
 
 const buttonStyle = {
-  fontFamily: "Courier, monospace",
-  fontSize: 14,
+  fontFamily: "Candara",
+  fontSize: 13,
   cursor: "pointer",
-  boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
   marginTop: "5%",
+  borderRadius:20
 };
 
 const submitStyle = {
   marginLeft: "40%",
+  paddingBottom :3
 };
 
 const divStyle = {
   marginTop: "4%",
-  marginBottom: "4%",
+  marginBottom: "10%",
 };
 
 const spanStyle = {
@@ -292,12 +296,14 @@ const spanStyle = {
 };
 
 const input1Style = {
-  borderRadius: 8,
+  borderRadius: 20,
   marginBottom: "2%",
 };
 
 const inputStyle = {
-  borderRadius: 6,
+  borderRadius: 20,
+  fontFamily:'Candara',
+  fontSize:14
 };
 
 const header = {
@@ -305,4 +311,8 @@ const header = {
   fontSize: 24,
 };
 
+
+const uplaoderStyle={
+  color:'#0062cc'
+}
 export default CandidateForm;

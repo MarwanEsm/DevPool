@@ -165,7 +165,7 @@ function RegistrationForm() {
           <a href="#">Privacy Policy</a> and agree to the
           <a href="#">Terms of Service</a>.
         </div>
-        <div class="connect border-bottom mt-4 mb-4" style={orStyle}></div>
+        {/* <div class="connect border-bottom mt-4 mb-4" style={orStyle}></div> */}
         <ul class="p-0 social-links">
           <li>
             <a href="#">

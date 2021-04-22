@@ -32,10 +32,14 @@ function CandidateNavBar() {
       </div>
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
+        <i class="fa fa-user" />
+        &nbsp;
           My Profile
         </Badge>
         &nbsp; &nbsp;
         <Badge style={badg} variant="primary" onClick={handleClick1}>
+        <i class="fa fa-sign-out" aria-hidden="true"/> 
+        &nbsp;
           Log out
         </Badge>
       </div>
@@ -57,13 +61,14 @@ const navdiv = {
 };
 
 const badg = {
-  height: 30,
-  width: 120,
-  fontSize: 15,
+  height: '80%',
+  width: 100,
+  fontSize: 14,
   cursor: "pointer",
   borderRadius: 12,
-  padding: 7,
+  paddingTop: 8,
   alignText: "center",
+  fontFamily: "	Candara",
 };
 
 export default CandidateNavBar;
