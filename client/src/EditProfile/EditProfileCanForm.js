@@ -532,7 +532,8 @@ const buttonCancelStyle = {
 
 
 const divButtonStyle = {
-  marginRight:'40%'
+  marginRight:'40%',
+  marginBottom :'4%'
 
 }
 export default EditProfieCanForm;

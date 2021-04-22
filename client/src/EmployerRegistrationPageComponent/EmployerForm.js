@@ -179,15 +179,25 @@ function EmployerForm() {
   );
 }
 
-const divStyle = {
-  marginTop: "6%",
-  marginLeft: "17%",
-  width: "60%",
-  marginBottom:'8%'
+
+const submitStyle = {
+  marginLeft: "40%",
+  paddingBottom :4,
+  paddingTop :3,
 };
 
+const divStyle = {
+  marginTop: "4%",
+  marginBottom: "10%",
+};
+
+
+
+
 const inputStyle = {
-  borderRadius: 6,
+  borderRadius: 20,
+  fontFamily:'Candara',
+  fontSize:14
 };
 
 const header = {
@@ -195,9 +205,7 @@ const header = {
   fontSize: 24,
 };
 
-const submitStyle = {
-  marginLeft: "40%",
-  fontSize:15
-};
+
+
 
 export default EmployerForm;
