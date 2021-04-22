@@ -9,7 +9,7 @@ function EmployerForm() {
     fieldOfBusiness: "",
     email: "",
     phoneNo: "",
-    // checked: false,
+  
   });
 
   const isInvalid =
@@ -19,7 +19,7 @@ function EmployerForm() {
     state.fieldOfBusiness === "" ||
     state.email === "" ||
     state.phoneNo === "";
-  // state.checked === false;
+ 
 
   const handleChange = (e) => {
     e.preventDefault();

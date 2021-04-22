@@ -3,11 +3,11 @@ import { useHistory } from "react-router-dom";
 import Badge from "react-bootstrap/Badge";
 import Logo from "../LandingPageComponents/Logo";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
-import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
+// import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
 function CandidateNavBar() {
   const { user } = useContext(AuthContext);
-  const { candidate } = useContext(CandidatesContext);
+  // const { candidate } = useContext(CandidatesContext);
   const history = useHistory();
 
   const handleClick = () => {

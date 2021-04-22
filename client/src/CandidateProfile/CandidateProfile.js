@@ -7,14 +7,14 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Footer from "../LandingPageComponents/Footer";
-import { AuthContext } from "../ContextProvider/AuthContextProvider";
+// import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
 const CandidateProfile = () => {
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
   const { filteredCandidates, candidate } = useContext(CandidatesContext);
   const history = useHistory();
-  const { id } = useParams();
+  // const { id } = useParams();
 
   const checkFullProfile = (candidateId) => {
     history.push(`/CandidateIndividualForEmployers/${candidateId}`);

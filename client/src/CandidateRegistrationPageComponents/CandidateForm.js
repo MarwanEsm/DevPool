@@ -7,6 +7,7 @@ import "./CandidateUserStyle.css";
 
 function CandidateForm() {
   const [workEx, setWorkEx] = useState([]);
+  const [checked, setChecked] = useState();
   const [state, setState] = useState({
     fullName: "",
     title: "",
@@ -48,11 +49,6 @@ function CandidateForm() {
     Object.keys(state).forEach((key) => {
       data.append(key, state[key]);
     });
-
-    // const makeItChecked = (e) => {
-    //   e.preventDefault();
-    //   setState({ ...state, checked: !state.checked });
-    // };
 
     const token = localStorage.getItem("token");
     const myHeaders = new Headers();
@@ -152,23 +148,21 @@ function CandidateForm() {
                     />
                   </div>
 
-                  
-                    <Form.Row>
-                      <ImageUploader
-                        buttonText="Choose images"
-                        onChange={uploadImage}
-                        imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-                        maxFileSize={5242880}
-                        type="image"
-                        value={image}
-                        name="myImage"
-                        accept=".jpg"
-                        style={uplaoderStyle}
-                        buttonVariant="outline-primary"
-                      />
-                    </Form.Row>
-                  </div>
-                
+                  <Form.Row>
+                    <ImageUploader
+                      buttonText="Choose images"
+                      onChange={uploadImage}
+                      imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+                      maxFileSize={5242880}
+                      type="image"
+                      value={image}
+                      name="myImage"
+                      accept=".jpg"
+                      style={uplaoderStyle}
+                      buttonVariant="outline-primary"
+                    />
+                  </Form.Row>
+                </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
@@ -239,18 +233,32 @@ function CandidateForm() {
                     </Form.Row>
                   </div>
                 </div>
-                {/* <Form.Group id="formGridCheckbox">
-                  <input
-                    type="radio"
-                    defaultChecked={state.checked}
-                    onClick={makeItChecked}
-                  />{" "}
-                  &nbsp;<label>Agree to Terms and Conditions</label>
-                </Form.Group> */}
+                <Form.Group id="formGridCheckbox" style={div1Style}>
+                  <div
+                    class="custom-control custom-checkbox custom-control-inline"
+                    style={checkBox}
+                  >
+                    <input
+                      id="chk1"
+                      type="checkbox"
+                      name="chk"
+                      class="custom-control-input"
+                      defaultChecked={false}
+                      value={checked}
+                      onChange={() => setChecked(!checked)}
+                    />
+                    <label
+                      for="chk1"
+                      class="custom-control-label consent"
+                      style={label2Style}
+                    >
+                      Agree to terms and conditions
+                    </label>
+                  </div>
+                </Form.Group>
                 <input
                   type="submit"
                   class="btnRegister"
-                 
                   value="Register"
                   onClick={submitDetails}
                   disabled={isInvalid}
@@ -275,12 +283,12 @@ const buttonStyle = {
   fontSize: 13,
   cursor: "pointer",
   marginTop: "5%",
-  borderRadius:20
+  borderRadius: 20,
 };
 
 const submitStyle = {
   marginLeft: "40%",
-  paddingBottom :3
+  paddingBottom: 3,
 };
 
 const divStyle = {
@@ -301,8 +309,8 @@ const input1Style = {
 
 const inputStyle = {
   borderRadius: 20,
-  fontFamily:'Candara',
-  fontSize:14
+  fontFamily: "Candara",
+  fontSize: 14,
 };
 
 const header = {
@@ -310,8 +318,21 @@ const header = {
   fontSize: 24,
 };
 
+const label2Style = {
+  fontFamily: "Candara",
+  fontSize: 13,
+  color: "black",
+};
 
-const uplaoderStyle={
-  color:'#0062cc'
-}
+const div1Style = {
+  marginLeft: "30%",
+  marginTop: "3%",
+};
+const uplaoderStyle = {
+  color: "#0062cc",
+};
+const checkBox = {
+  marginTop: "8%",
+};
+
 export default CandidateForm;

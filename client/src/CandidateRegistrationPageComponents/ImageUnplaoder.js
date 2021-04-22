@@ -5,8 +5,7 @@ function ImageUplaod() {
   const [image, setImage] = useState("");
   const uploadImage = (e) => {
     console.log(image);
-    // const image =e.target.images[0]
-    // setImage(e.target.value);
+  
   };
 
   return (

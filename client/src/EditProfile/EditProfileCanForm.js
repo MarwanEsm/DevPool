@@ -373,18 +373,7 @@ function EditProfieCanForm() {
                       Address
                     </h6>
                   </div>
-                  {/* <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <div className="form-group">
-                      <label htmlFor="Street">Street</label>
-                      <input
-                        type="name"
-                        className="form-control"
-                        id="Street"
-                        placeholder="Enter Street"
-                        style={inputtStyle}
-                      />
-                    </div>
-                  </div> */}
+
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
                       <label htmlFor="ciTy">City</label>
@@ -411,18 +400,6 @@ function EditProfieCanForm() {
                       />
                     </div>
                   </div>
-                  {/* <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <div className="form-group">
-                      <label htmlFor="zIp">Zip Code</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="zIp"
-                        placeholder="Zip Code"
-                        style={inputtStyle}
-                      />
-                    </div>
-                  </div> */}
                 </div>
                 <div className="row gutters">
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -487,8 +464,6 @@ const addMoreDiv = {
   display: "flex",
   justifyContent: "space-between",
 };
-
-
 
 const input1Style = {
   borderRadius: 20,

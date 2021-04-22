@@ -9,9 +9,9 @@ function Footer() {
         <div class="row">
           <div class="col-sm-6 col-md-4 footer-navigation">
             <h3>
-              <a href="#">
+              <Link to ="#">
                 Mar<span>wansstrap</span>
-              </a>
+              </Link>
             </h3>
             <p class="links">
               <Link to="#">Home</Link>

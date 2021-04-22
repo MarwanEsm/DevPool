@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
 import Logo from "../LandingPageComponents/Logo";
 import { useHistory } from "react-router-dom";
-
 import Badge from "react-bootstrap/Badge";
 
 function IndividualCandidateNavBar() {
-  
   const history = useHistory();
   const handleClick = () => {
     history.goBack();
@@ -21,26 +19,21 @@ function IndividualCandidateNavBar() {
       </div>
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
-        <i class="fa fa-user-circle-o"  aria-hidden="true"/> 
-        &nbsp;
-       
-          My Profile
+          <i class="fa fa-user-circle-o" aria-hidden="true" />
+          &nbsp; My Profile
         </Badge>
         &nbsp; &nbsp;
         <Badge style={badg} variant="primary" onClick={handleClick1}>
-        <i class="fa fa-sign-out" aria-hidden="true"/> 
-        &nbsp;
-          Log out
+          <i class="fa fa-sign-out" aria-hidden="true" />
+          &nbsp; Log out
         </Badge>
       </div>
     </div>
-
-    
   );
 }
 
 const badg = {
-  height: '80%',
+  height: "80%",
   width: 100,
   fontSize: 14,
   cursor: "pointer",
@@ -49,7 +42,6 @@ const badg = {
   alignText: "center",
   fontFamily: "	Candara",
 };
-
 
 const maindivStyle = {
   display: "flex",
