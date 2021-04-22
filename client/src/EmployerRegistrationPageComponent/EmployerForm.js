@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 
 function EmployerForm() {
   const [state, setState] = useState({
@@ -27,6 +25,8 @@ function EmployerForm() {
     e.preventDefault();
     setState({ ...state, [e.target.name]: e.target.value });
   };
+
+  const [checked, setChecked] = useState();
 
   const submitDetail = (e) => {
     e.preventDefault();
@@ -154,14 +154,29 @@ function EmployerForm() {
                     />
                   </div>
                 </div>
-                {/* <Form.Group id="formGridCheckbox">
-                  <input
-                    type="radio"
-                    defaultChecked={state.checked}
-                    onClick={makeItChecked}
-                  />{" "}
-                  &nbsp;<label>Agree to Terms and Conditions</label>
-                </Form.Group> */}
+                <Form.Group id="formGridCheckbox" style={div1Style}>
+                  <div
+                    class="custom-control custom-checkbox custom-control-inline"
+                    style={checkBox}
+                  >
+                    <input
+                      id="chk1"
+                      type="checkbox"
+                      name="chk"
+                      class="custom-control-input"
+                      defaultChecked={false}
+                      value={checked}
+                      onChange={() => setChecked(!checked)}
+                    />
+                    <label
+                      for="chk1"
+                      class="custom-control-label consent"
+                      style={label2Style}
+                    >
+                      Agree to terms and conditions
+                    </label>
+                  </div>
+                </Form.Group>
                 <input
                   type="submit"
                   class="btnRegister"
@@ -179,25 +194,23 @@ function EmployerForm() {
   );
 }
 
-
 const submitStyle = {
   marginLeft: "40%",
-  paddingBottom :4,
-  paddingTop :3,
+  paddingBottom: 4,
+  paddingTop: 3,
+  marginTop:'1%'
 };
 
 const divStyle = {
   marginTop: "4%",
-  marginBottom: "10%",
+  marginBottom: "8%",
 };
-
-
-
 
 const inputStyle = {
   borderRadius: 20,
-  fontFamily:'Candara',
-  fontSize:14
+  fontFamily: "Candara",
+  fontSize: 14,
+  
 };
 
 const header = {
@@ -205,7 +218,19 @@ const header = {
   fontSize: 24,
 };
 
+const checkBox = {
+  marginTop: "8%",
+ 
+};
 
+const label2Style = {
+  fontFamily: "Candara",
+  fontSize: 13,
+  color: "black",
+};
 
-
+const div1Style ={
+  marginLeft:'30%',
+  marginTop:'3%'
+}
 export default EmployerForm;

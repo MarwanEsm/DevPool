@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import Logo from "../LandingPageComponents/Logo";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function NavBarCandidateForEmployer() {
  

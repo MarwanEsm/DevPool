@@ -183,10 +183,5 @@ function EmployerIndividualProfile() {
   );
 }
 
-const rowDetailsStyle = {
-  fontSize: 19,
-  fontFamily: "Lucidatypewriter, monospace",
-  borderColor: "gray",
-  height: "95%",
-};
+
 export default EmployerIndividualProfile;

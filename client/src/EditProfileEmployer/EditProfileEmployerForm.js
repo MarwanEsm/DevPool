@@ -3,10 +3,10 @@ import React, { useContext, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import { AuthContext } from "../ContextProvider/AuthContextProvider";
+// import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function EditProfieEmpForm() {
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
 
   const [state, setState] = useState({});
 

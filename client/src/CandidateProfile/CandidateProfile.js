@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import CandidatePageNavBar from "./NavBarCandidate";
 import Button from "react-bootstrap/Button";
@@ -9,13 +9,10 @@ import Nav from "react-bootstrap/Nav";
 import Footer from "../LandingPageComponents/Footer";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
-// import { IdContext } from "../ContextProvider/IdContextProvider";
 
 const CandidateProfile = () => {
   const { user } = useContext(AuthContext);
   const { filteredCandidates, candidate } = useContext(CandidatesContext);
-  // const { employer } = useContext(EmployerContext);
-  // const { id } = useContext(IdContext);
   const history = useHistory();
   const { id } = useParams();
 
@@ -113,9 +110,8 @@ const CandidateProfile = () => {
 
                           <Button
                             variant="primary"
-                            onClick={()=> checkFullProfile(candidate._id)}
+                            onClick={() => checkFullProfile(candidate._id)}
                             style={buttonStyle}
-
                           >
                             Check Full Profile
                           </Button>

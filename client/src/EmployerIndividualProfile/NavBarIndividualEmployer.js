@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import Logo from "../LandingPageComponents/Logo";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
@@ -17,10 +17,8 @@ function IndividualEmplyoerNavBar() {
   };
 
   const handleClick2 = () => {
-    history.push('/');
+    history.push("/");
   };
-
-
 
   return (
     <div style={maindivStyle}>
@@ -29,60 +27,20 @@ function IndividualEmplyoerNavBar() {
       </div>
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
-        Candidates
+          Candidates
         </Badge>
         &nbsp; &nbsp;
         <Badge style={badg} variant="primary" onClick={handleClick1}>
-        Edit Profile
+          Edit Profile
         </Badge>
         &nbsp; &nbsp;
         <Badge style={badg} variant="primary" onClick={handleClick2}>
-        Logout
+          Logout
         </Badge>
       </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // <div style={maindivStyle}>
-    //   <div style={logoStyle}>
-    //     <Logo />
-    //   </div>
-    //   <div style={navdiv}>
-    //   <Link to="/CandidateProfile" style={linkStyle}>
-    //      Candidates
-    //     </Link>
-    //     &nbsp; &nbsp;
-    //     <h5>|</h5>
-    //     &nbsp; &nbsp;
-    //     <Link to={`/EditProfileEmployer/${user._id}`} style={linkStyle}>
-    //       Edit Profile
-    //     </Link>
-    //     &nbsp; &nbsp;
-    //     <h5>|</h5>
-    //     &nbsp; &nbsp;
-    //     <Link to="/" style={linkStyle}>
-    //       Logout
-    //     </Link>
-    //   </div>
-    // </div>
+  
   );
 }
 
@@ -108,7 +66,5 @@ const badg = {
   padding: 7,
   alignText: "center",
 };
-
-
 
 export default IndividualEmplyoerNavBar;

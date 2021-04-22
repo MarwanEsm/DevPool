@@ -188,10 +188,6 @@ function RegistrationForm() {
   );
 }
 
-const divStyle = {
-  marginTop: "4%",
-  width: "30% ",
-};
 
 const label2Style = {
   fontFamily: "Candara",
@@ -211,6 +207,7 @@ const checkBox = {
   marginTop: "1%",
   marginBottom: "6%",
 };
+
 const articleStyle = {
   width: "90%",
 };
