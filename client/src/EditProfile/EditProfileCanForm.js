@@ -368,7 +368,7 @@ function EditProfieCanForm() {
                       Address
                     </h6>
                   </div>
-                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  {/* <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                       <label for="Street">Street</label>
                       <input
@@ -379,7 +379,7 @@ function EditProfieCanForm() {
                         style={inputtStyle}
                       />
                     </div>
-                  </div>
+                  </div> */}
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                       <label for="ciTy">City</label>
@@ -394,17 +394,19 @@ function EditProfieCanForm() {
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
-                      <label for="sTate">State</label>
+                      <label for="sTate">Address</label>
                       <input
                         type="text"
                         class="form-control"
-                        id="sTate"
-                        placeholder="Enter State"
+                        placeholder="Address"
                         style={inputtStyle}
+                        name="address"
+                        onChange={handleChange}
+                        value={state.address}
                       />
                     </div>
                   </div>
-                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                  {/* <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                       <label for="zIp">Zip Code</label>
                       <input
@@ -415,27 +417,20 @@ function EditProfieCanForm() {
                         style={inputtStyle}
                       />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
                 <div class="row gutters">
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="text-right">
-                      <button
-                        type="button"
-                        id="submit"
-                        name="submit"
-                        class="btn btn-secondary"
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        type="button"
-                        id="submit"
-                        name="submit"
-                        class="btn btn-primary"
+                    <div class="text-right" style={divButtonStyle}>
+                      <Button style={buttonCancelStyle}>Cancel</Button>
+                      &nbsp; &nbsp;
+                      <Button
+                        variant="primary"
+                        onClick={submitDetails}
+                        style={buttonUpdateStyle}
                       >
                         Update
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -493,8 +488,6 @@ const div = {
   marginBottom: "10%",
 };
 
-
-
 const input1Style = {
   borderRadius: 20,
   marginBottom: "2%",
@@ -509,14 +502,37 @@ const spanStyle = {
 
 const buttonStyle = {
   fontFamily: "Candara",
-  fontSize: 13,
+  fontSize: 14,
+
   cursor: "pointer",
   marginTop: "5%",
   borderRadius: 20,
 };
 
-const workExdivStyle={
-  marginTop:'3%'
-}
+const buttonUpdateStyle = {
+  fontFamily: "Candara",
+  fontSize: 14,
+  cursor: "pointer",
+  marginTop: "5%",
+  borderRadius: 20,
+};
 
+const workExdivStyle = {
+  marginTop: "3%",
+};
+
+const buttonCancelStyle = {
+  fontFamily: "Candara",
+  fontSize: 14,
+  cursor: "pointer",
+  marginTop: "5%",
+  borderRadius: 20,
+  backgroundColor: "gray",
+};
+
+
+const divButtonStyle = {
+  marginRight:'40%'
+
+}
 export default EditProfieCanForm;
