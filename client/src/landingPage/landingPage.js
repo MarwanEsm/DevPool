@@ -63,7 +63,7 @@ function LandingPage() {
                       </p>
                       <span
                         style={spanStyle}
-                        class="btn btn-primary btn-block"
+                        className="btn btn-primary btn-block"
                         onClick={handelReadMore}
                       >
                         Read more

@@ -20,13 +20,13 @@ function RegissterNavBar() {
       </div>
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
-        <i class="fa fa-home" aria-hidden="true"/> 
+        <i className="fa fa-home" aria-hidden="true"/> 
         &nbsp;
           Home
         </Badge>
         &nbsp; &nbsp;
         <Badge style={badg} variant="primary" onClick={handleClick1}>
-        <i class="fa fa-sign-in" /> 
+        <i className="fa fa-sign-in" /> 
         &nbsp;
           Login
         </Badge>

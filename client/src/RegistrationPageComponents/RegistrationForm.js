@@ -31,11 +31,7 @@ function RegistrationForm() {
     setState({ ...state, owner: e.target.value });
   };
 
-  const makeItChecked = (e) => {
-    e.preventDefault();
-    setState({ ...state, checked: !state.checked });
-  };
-
+ 
   const submitDetails = (e) => {
     e.preventDefault();
     fetch("http://localhost:5000/auth/register", {

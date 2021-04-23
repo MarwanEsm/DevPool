@@ -32,13 +32,13 @@ function CandidateNavBar() {
       </div>
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
-        <i class="fa fa-user" />
+        <i className="fa fa-user" />
         &nbsp;
           My Profile
         </Badge>
         &nbsp; &nbsp;
         <Badge style={badg} variant="primary" onClick={handleClick1}>
-        <i class="fa fa-sign-out" aria-hidden="true"/> 
+        <i className="fa fa-sign-out" aria-hidden="true"/> 
         &nbsp;
           Log out
         </Badge>

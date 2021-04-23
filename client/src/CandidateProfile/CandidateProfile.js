@@ -89,7 +89,7 @@ const CandidateProfile = () => {
                         <div>
                           <Badge
                             style={badg1}
-                            class="btn btn-primary btn-block"
+                            className="btn btn-primary btn-block"
                             onClick={handelReadMore}
                           >
                             {linkName}

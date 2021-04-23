@@ -82,12 +82,12 @@ function CandidatePageNavBar() {
       </div>
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
-          <i class="fa fa-user" />
+          <i className="fa fa-user" />
           &nbsp; My Profile
         </Badge>
         &nbsp; &nbsp;
         <Badge style={badg} variant="primary" onClick={handleClick1}>
-          <i class="fa fa-sign-out" />
+          <i className="fa fa-sign-out" />
           &nbsp; Log Out
         </Badge>
       </div>

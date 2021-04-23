@@ -81,12 +81,12 @@ function Headbar() {
       </div>
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
-          <i class="fa fa-user" />
+          <i className="fa fa-user" />
           &nbsp; Register
         </Badge>
         &nbsp; &nbsp;
         <Badge style={badg} variant="primary" onClick={handleClick1}>
-          <i class="fa fa-sign-in" />
+          <i className="fa fa-sign-in" />
           &nbsp; Login
         </Badge>
       </div>

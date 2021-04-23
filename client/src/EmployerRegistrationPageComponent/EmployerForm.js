@@ -56,32 +56,32 @@ function EmployerForm() {
   };
 
   return (
-    <div class="container register" style={divStyle}>
-      <div class="row">
-        <div class="col-md-3 register-left">
+    <div className="container register" style={divStyle}>
+      <div className="row">
+        <div className="col-md-3 register-left">
           <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
           <h3>Welcome</h3>
           <p>You are 30 seconds away from entering the best hiring website!</p>
 
           <br />
         </div>
-        <div class="col-md-9 register-right">
-          <div class="tab-content" id="myTabContent">
+        <div className="col-md-9 register-right">
+          <div className="tab-content" id="myTabContent">
             <div
-              class="tab-pane fade show active"
+              className="tab-pane fade show active"
               id="home"
               role="tabpanel"
               aria-labelledby="home-tab"
             >
-              <h3 class="register-heading" style={header}>
+              <h3 className="register-heading" style={header}>
                 Register as Employer
               </h3>
-              <div class="row register-form">
-                <div class="col-md-6">
-                  <div class="form-group">
+              <div className="row register-form">
+                <div className="col-md-6">
+                  <div className="form-group">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Employer Name *"
                       onChange={handleChange}
                       style={inputStyle}
@@ -89,10 +89,10 @@ function EmployerForm() {
                       value={state.employerName}
                     />
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Website *"
                       onChange={handleChange}
                       value={state.website}
@@ -100,9 +100,9 @@ function EmployerForm() {
                       name="website"
                     />
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <input
-                      class="form-control"
+                      className="form-control"
                       placeholder="Location *"
                       type="text"
                       name="location"
@@ -113,10 +113,10 @@ function EmployerForm() {
                   </div>
                 </div>
 
-                <div class="col-md-6">
-                  <div class="form-group">
+                <div className="col-md-6">
+                  <div className="form-group">
                     <input
-                      class="form-control"
+                      className="form-control"
                       placeholder="Field Of Business *"
                       type="text"
                       name="fieldOfBusiness"
@@ -125,9 +125,9 @@ function EmployerForm() {
                       value={state.fieldOfBusiness}
                     />
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <input
-                      class="form-control"
+                      className="form-control"
                       placeholder="Email *"
                       type="email"
                       name="email"
@@ -136,9 +136,9 @@ function EmployerForm() {
                       value={state.email}
                     />
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <input
-                      class="form-control"
+                      className="form-control"
                       placeholder="Phone No. *"
                       type="number"
                       name="phoneNo"
@@ -150,21 +150,21 @@ function EmployerForm() {
                 </div>
                 <Form.Group id="formGridCheckbox" style={div1Style}>
                   <div
-                    class="custom-control custom-checkbox custom-control-inline"
+                    className="custom-control custom-checkbox custom-control-inline"
                     style={checkBox}
                   >
                     <input
                       id="chk1"
                       type="checkbox"
                       name="chk"
-                      class="custom-control-input"
+                      className="custom-control-input"
                       defaultChecked={false}
                       value={checked}
                       onChange={() => setChecked(!checked)}
                     />
                     <label
                       for="chk1"
-                      class="custom-control-label consent"
+                      className="custom-control-label consent"
                       style={label2Style}
                     >
                       Agree to terms and conditions
@@ -173,7 +173,7 @@ function EmployerForm() {
                 </Form.Group>
                 <input
                   type="submit"
-                  class="btnRegister"
+                  className="btnRegister"
                   value="Register"
                   onClick={submitDetail}
                   disabled={isInvalid}

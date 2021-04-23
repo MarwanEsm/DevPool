@@ -24,13 +24,13 @@ function NavBarEditProfileCan() {
       </div>
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
-        <i class="fa fa-envelope" aria-hidden="true"/> 
+        <i className="fa fa-envelope" aria-hidden="true"/> 
         &nbsp;
           Messages
         </Badge>
         &nbsp; &nbsp;
         <Badge style={badg} variant="primary" onClick={handleClick2}>
-        <i class="fa fa-sign-out" aria-hidden="true"/> 
+        <i className="fa fa-sign-out" aria-hidden="true"/> 
         &nbsp;
           Log out
         </Badge>

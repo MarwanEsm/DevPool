@@ -89,32 +89,32 @@ function CandidateForm() {
   }
 
   return (
-    <div class="container register" style={divStyle}>
-      <div class="row">
-        <div class="col-md-3 register-left">
+    <div className="container register" style={divStyle}>
+      <div className="row">
+        <div className="col-md-3 register-left">
           <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
           <h3>Welcome</h3>
           <p>You are 30 seconds away from entering the best hiring website!</p>
 
           <br />
         </div>
-        <div class="col-md-9 register-right">
-          <div class="tab-content" id="myTabContent">
+        <div className="col-md-9 register-right">
+          <div className="tab-content" id="myTabContent">
             <div
-              class="tab-pane fade show active"
+              className="tab-pane fade show active"
               id="home"
               role="tabpanel"
               aria-labelledby="home-tab"
             >
-              <h3 class="register-heading" style={header}>
+              <h3 className="register-heading" style={header}>
                 Register as Candidate
               </h3>
-              <div class="row register-form">
-                <div class="col-md-6">
-                  <div class="form-group">
+              <div className="row register-form">
+                <div className="col-md-6">
+                  <div className="form-group">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Full Name *"
                       name="fullName"
                       onChange={handleChange}
@@ -122,10 +122,10 @@ function CandidateForm() {
                       style={inputStyle}
                     />
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       placeholder="Title *"
                       name="title"
                       onChange={handleChange}
@@ -133,9 +133,9 @@ function CandidateForm() {
                       style={inputStyle}
                     />
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <input
-                      class="form-control"
+                      className="form-control"
                       placeholder="Desired Position *"
                       type="text"
                       name="desiredPosition"
@@ -161,10 +161,10 @@ function CandidateForm() {
                   </Form.Row>
                 </div>
 
-                <div class="col-md-6">
-                  <div class="form-group">
+                <div className="col-md-6">
+                  <div className="form-group">
                     <input
-                      class="form-control"
+                      className="form-control"
                       placeholder="Your Email *"
                       type="email"
                       name="email"
@@ -173,9 +173,9 @@ function CandidateForm() {
                       style={inputStyle}
                     />
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <input
-                      class="form-control"
+                      className="form-control"
                       placeholder="Location *"
                       type="text"
                       name="location"
@@ -184,9 +184,9 @@ function CandidateForm() {
                       style={inputStyle}
                     />
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <input
-                      class="form-control"
+                      className="form-control"
                       placeholder="Expected Salary *"
                       onChange={handleChange}
                       type="number"
@@ -196,7 +196,7 @@ function CandidateForm() {
                     />
                   </div>
 
-                  <div class="form-group">
+                  <div className="form-group">
                     <Form.Row>
                       <Form.Group as={Col} controlId="formGridPassword">
                         {workEx.map((field, idx) => {
@@ -232,21 +232,21 @@ function CandidateForm() {
                 </div>
                 <Form.Group id="formGridCheckbox" style={div1Style}>
                   <div
-                    class="custom-control custom-checkbox custom-control-inline"
+                    className="custom-control custom-checkbox custom-control-inline"
                     style={checkBox}
                   >
                     <input
                       id="chk1"
                       type="checkbox"
                       name="chk"
-                      class="custom-control-input"
+                      className="custom-control-input"
                       defaultChecked={false}
                       value={checked}
                       onChange={() => setChecked(!checked)}
                     />
                     <label
                       for="chk1"
-                      class="custom-control-label consent"
+                      className="custom-control-label consent"
                       style={label2Style}
                     >
                       Agree to terms and conditions
@@ -255,7 +255,7 @@ function CandidateForm() {
                 </Form.Group>
                 <input
                   type="submit"
-                  class="btnRegister"
+                  className="btnRegister"
                   value="Register"
                   onClick={submitDetails}
                   disabled={isInvalid}

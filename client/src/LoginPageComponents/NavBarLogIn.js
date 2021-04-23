@@ -16,7 +16,7 @@ function LoginNavBar() {
       </div>
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
-        <i class="fa fa-home" aria-hidden="true"/> 
+        <i className="fa fa-home" aria-hidden="true"/> 
         &nbsp;
           Home
         </Badge>

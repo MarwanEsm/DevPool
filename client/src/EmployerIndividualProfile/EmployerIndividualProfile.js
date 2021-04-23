@@ -123,7 +123,7 @@ function EmployerIndividualProfile() {
                       variant="primary"
                       onClick={handleClick1}
                     >
-                      <i class="fa fa-user-o" aria-hidden="true" />
+                      <i className="fa fa-user-o" aria-hidden="true" />
                       &nbsp; Edit Profile
                     </Badge>{" "}
                   </div>

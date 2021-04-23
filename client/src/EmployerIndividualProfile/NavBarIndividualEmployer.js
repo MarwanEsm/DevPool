@@ -21,12 +21,12 @@ function IndividualEmplyoerNavBar() {
       </div>
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
-          <i class="fa fa-users" aria-hidden="true" />
+          <i className="fa fa-users" aria-hidden="true" />
           &nbsp; Candidates
         </Badge>
         &nbsp; &nbsp;
         <Badge style={badg} variant="primary" onClick={handleClick2}>
-          <i class="fa fa-sign-out" aria-hidden="true" />
+          <i className="fa fa-sign-out" aria-hidden="true" />
           &nbsp; Logout
         </Badge>
       </div>

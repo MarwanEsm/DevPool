@@ -107,7 +107,7 @@ const LoginPageForm = () => {
           />
 
           <button
-            class="btn btn-primary btn-block"
+            className="btn btn-primary btn-block"
             onClick={loginUser}
             disabled={isInvalid}
             style={buttonStyle}
