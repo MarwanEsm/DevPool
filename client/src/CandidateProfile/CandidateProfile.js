@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useHistory} from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import CandidatePageNavBar from "./NavBarCandidate";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Footer from "../LandingPageComponents/Footer";
+import Badge from "react-bootstrap/Badge";
 // import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
@@ -21,7 +22,7 @@ const CandidateProfile = () => {
   };
 
   const [text, setText] = useState(false);
-  const moreInfo = () => {
+  const handelReadMore = () => {
     setText(!text);
   };
 
@@ -32,97 +33,115 @@ const CandidateProfile = () => {
       <div>
         <CandidatePageNavBar />
       </div>
-      <div>
-        <Row style={rowStyle}>
+      <div className="container">
+        <div className="row" style={divRow}>
           {filteredCandidates &&
             filteredCandidates.length &&
             filteredCandidates.map((candidate) => {
               return (
-                <Col xs={10} md={6} lg={4} key={candidate._id}>
-                  <Card key={candidate._id} style={cardStyle}>
-                    <Card.Header>
+                <div className="col-12 col-sm-6 col-lg-3" style={cardStyle}>
+                  <div
+                    className="single_advisor_profile wow fadeInUp"
+                    data-wow-delay="0.2s"
+                    style={divStyle}
+                  >
                       <div style={divNavStyle}>
                         <Nav variant="pills" defaultActiveKey="#first">
                           <Nav.Item>
-                            <Nav.Link href="#first" style={linkStyle}>
+                            <Nav.Link href="#first" style={badgAddTo}>
                               Add to watchlist
                             </Nav.Link>
                           </Nav.Item>
                           <Nav.Item>
-                            <Nav.Link href="#link" style={linkStyle}>
-                              Remove from watchlist
+                            <Nav.Link href="#link" style={badgRemove}>
+                              Remove watchlist
                             </Nav.Link>
                           </Nav.Item>
                         </Nav>
                       </div>
-                    </Card.Header>
-                    <Card.Img
-                      style={imgStyle}
-                      variant="top"
-                      src={`http://localhost:5000/${candidate.img}`}
-                    />
+               
+                    <div className="advisor_thumb" key={candidate._id}>
+                      <img
+                        src={`http://localhost:5000/${candidate.img}`}
+                        style={imgStyle}
+                        alt=""
+                      />
+                      <div className="social-info">
+                        <Link to={candidate.facebook}>
+                          <i className="fa fa-facebook"></i>
+                        </Link>
+                        <Link to={candidate.twitter}>
+                          <i className="fa fa-twitter"></i>
+                        </Link>
+                        <Link to={candidate.linkedIn}>
+                          <i className="fa fa-linkedin"></i>
+                        </Link>
+                      </div>
+                    </div>
 
-                    <Card.Body>
-                      <div>
-                        {" "}
-                        <span style={title1Style}>Name :</span>{" "}
-                        <span style={titleStyle}>{candidate.fullName}</span>
-                      </div>
+                    <div className="single_advisor_details_info">
+                      <h6 style={textStyle}>{candidate.fullName}</h6>
+                      <p className="designation" style={textStyle}>
+                        {candidate.title}
+                      </p>
+                      <p className="designation" style={textStyle}>
+                        {candidate.location}
+                      </p>
 
                       <div>
-                        <span style={title1Style}>Title :</span>{" "}
-                        <span style={titleStyle}>{candidate.title}</span>
-                      </div>
-                      <div>
-                        <span style={title1Style}>Location :</span>{" "}
-                        <span style={titleStyle}>{candidate.location}</span>
-                      </div>
-                      <div>
-                        <span style={title1Style}>Work Experience :</span>{" "}
-                      </div>
-                      <div style={divSpanStyle}>
-                        <span onClick={moreInfo} style={spanStyle}>
-                          {linkName}
-                          {text}
-                        </span>
-                      </div>
-                      {text && (
-                        <>
-                          <ul style={listStyle}>
-                            {candidate.workExperiences &&
-                              candidate.workExperiences.length &&
-                              candidate.workExperiences.map((exp) => {
-                                return <li key={candidate.exp}>{exp}</li>;
-                              })}
-                          </ul>
-                          <div>
-                            <span style={title1Style}>Desired Position :</span>{" "}
-                            <span style={titleStyle}>
-                              {candidate.desiredPosition}
-                            </span>
-                          </div>
-                          <div>
-                            <span style={title1Style}>Expected Salary :</span>{" "}
-                            <span style={titleStyle}>
-                              {candidate.expectedSalary}
-                            </span>
-                          </div>
+                        
 
-                          <Button
-                            variant="primary"
-                            onClick={() => checkFullProfile(candidate._id)}
-                            style={buttonStyle}
+                        <div >
+                          <Badge
+                            style={badg1}
+                            class="btn btn-primary btn-block"
+                            onClick={handelReadMore}
                           >
-                            Check Full Profile
-                          </Button>
-                        </>
-                      )}
-                    </Card.Body>
-                  </Card>
-                </Col>
+                            Read more
+                          </Badge>
+                        </div>
+                        {text && (
+                          <><p style={textStyle}>Work Experience :</p>
+                            <ul style={textStyle}>
+                              {candidate.workExperiences &&
+                                candidate.workExperiences.length &&
+                                candidate.workExperiences.map((exp) => {
+                                  return (
+                                    <li key={candidate.exp} style={textStyle}>
+                                      {exp}
+                                    </li>
+                                  );
+                                })}
+                            </ul>
+                            <div>
+                              <p style={textStyle}>Desired Position :</p>{" "}
+                              <p style={textStyle}>
+                                {candidate.desiredPosition}
+                              </p>
+                            </div>
+                            <div>
+                              <p style={textStyle}>Expected Salary :</p>{" "}
+                              <p style={textStyle}>
+                                {candidate.expectedSalary}
+                              </p>
+                            </div>
+
+                            <Button
+                              variant="primary"
+                              onClick={() => checkFullProfile(candidate._id)}
+                              style={buttonStyle}
+                            >
+                              Check Full Profile
+                            </Button>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               );
             })}
-        </Row>
+        </div>
       </div>
 
       <div>
@@ -144,9 +163,8 @@ const titleStyle = {
 };
 
 const cardStyle = {
-  marginBottom: "8%",
-  marginLeft: "4%",
-  width: "85%",
+  marginTop: "6%",
+  marginLeft: "6.5%",
 };
 
 const buttonStyle = {
@@ -158,32 +176,26 @@ const buttonStyle = {
 };
 
 const imgStyle = {
-  width: "60%",
-  marginLeft: "20%",
-  marginTop: "7%",
+  width: 240,
+  height: 200,
   marginBottom: "3%",
 };
 
-const listStyle = {
-  marginTop: "6%",
-  marginBottom: "6%",
-  marginRight: "11%",
-  listStyleType: "none",
-  fontFamily: "Andale Mono, monospace",
-  fontSize: 15,
-};
+// const listStyle = {
+//   marginTop: "6%",
+//   marginBottom: "6%",
+//   marginRight: "11%",
+//   listStyleType: "none",
+//   fontFamily: "Andale Mono, monospace",
+//   fontSize: 15,
+// };
 
-const linkStyle = {
-  marginTop: "2%",
-  fontSize: 13,
-};
-
-const title1Style = {
-  fontFamily: "Andale Mono, monospace",
-  fontSize: 15,
-  marginTop: "2%",
-  fontWeight: "bold",
-};
+// const title1Style = {
+//   fontFamily: "Andale Mono, monospace",
+//   fontSize: 15,
+//   marginTop: "2%",
+//   fontWeight: "bold",
+// };
 
 const spanStyle = {
   fontFamily: "Zapf Chancery, cursive",
@@ -199,6 +211,70 @@ const divSpanStyle = {
 const divNavStyle = {
   display: "flex",
   justifyContent: "space-around",
+};
+
+const divRow = {
+  width: "130%",
+  marginLeft: "-16%",
+};
+
+const divStyle = {
+  visibility: "visible; animation-delay: 0.2s; animation-name: fadeInUp",
+};
+
+const textStyle = {
+  fontFamily: "	Candara",
+};
+
+const badg = {
+  height: "80%",
+  width: "100%",
+  fontSize: 14,
+  cursor: "pointer",
+  borderRadius: 12,
+  paddingBottom: 15,
+  fontFamily: "	Candara",
+  
+};
+
+const badgAddTo = {
+  height: "80%",
+  width: "100%",
+  fontSize: 14,
+  cursor: "pointer",
+  borderRadius: 18,
+  paddingBottom: 15,
+  fontFamily: "	Candara",
+  backgroundColor:'#1565c0',
+  
+};
+
+const badgRemove = {
+  height: "80%",
+  width: "100%",
+  fontSize: 14,
+  cursor: "pointer",
+  borderRadius: 18,
+  paddingBottom: 15,
+  fontFamily: "	Candara",
+  color:'white'
+  
+};
+
+
+const badg1 = {
+  height: "100%",
+  width: "35%",
+  fontSize: 14,
+  cursor: "pointer",
+  borderRadius: 12,
+  paddingBottom: 6,
+  paddingTop:4,
+  fontFamily: "	Candara",
+  color:'white',
+  backgroundColor:'#1565c0',
+  marginRight:'30%',
+  marginTop:'6%'
 };
 
 export default CandidateProfile;

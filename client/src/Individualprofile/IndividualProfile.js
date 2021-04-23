@@ -54,8 +54,6 @@ function IndividualProfile() {
                 {candidate && (
                   <img src={`http://localhost:5000/${candidate.img}`} alt="" />
                 )}
-
-               
               </div>
 
               <div className="profile-header-info">
@@ -117,7 +115,13 @@ function IndividualProfile() {
                           </td>
                           <td className="value">
                             <div className="m-b-5">
-                              {candidate && <b>{candidate.workExperience}</b>}
+                              <ul>
+                                {candidate.workExperiences &&
+                                  candidate.workExperiences.length &&
+                                  candidate.workExperiences.map((exp) => {
+                                    return <li key={candidate.exp}>{exp}</li>;
+                                  })}
+                              </ul>
 
                               <br />
                             </div>
@@ -161,7 +165,9 @@ function IndividualProfile() {
                         </td>
                         <td className="value">
                           <div className="m-b-5">
-                            {candidate && <b style={valueStyle}> {candidate.education}</b>}
+                            {candidate && (
+                              <b style={valueStyle}> {candidate.education}</b>
+                            )}
 
                             <br />
                           </div>
@@ -301,13 +307,15 @@ function IndividualProfile() {
                   <li className="title">PERSONAL INFORMATION</li>
                   <li>
                     <div className="field">Occupation:</div>
-                    {candidate && <div className="value">{candidate.title}</div>}
+                    {candidate && (
+                      <div className="value">{candidate.title}</div>
+                    )}
                   </li>
                   <li>
                     <div className="field">Skills:</div>
-                    {candidate && <div className="value">{candidate.skills}
-                      
-                    </div>}
+                    {candidate && (
+                      <div className="value">{candidate.skills}</div>
+                    )}
                   </li>
                   {/* <li>
                     <div className="field">Birth of Date:</div>
@@ -325,7 +333,9 @@ function IndividualProfile() {
                   </li>
                   <li>
                     <div className="field">Hobbies</div>
-                    {candidate && <div className="value">{candidate.hobbies}</div>}
+                    {candidate && (
+                      <div className="value">{candidate.hobbies}</div>
+                    )}
                   </li>
                   <li>
                     <div className="field">Desired Position</div>
@@ -399,11 +409,9 @@ const td4Style = {
   paddingRight: "10%",
 };
 
-const valueStyle={
- 
- fontFamily:'Candara'
-
-}
+const valueStyle = {
+  fontFamily: "Candara",
+};
 // const changePhotoStyle = {
 //   width: "100%",
 //   fontSize: 12,
