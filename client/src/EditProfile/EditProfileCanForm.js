@@ -406,11 +406,7 @@ function EditProfieCanForm() {
                     <div className="text-right" style={divButtonStyle}>
                       <Button style={buttonCancelStyle}>Cancel</Button>
                       &nbsp; &nbsp;
-                      <Button
-                        variant="primary"
-                        onClick={submitDetails}
-                        style={buttonUpdateStyle}
-                      >
+                      <Button onClick={submitDetails} style={buttonUpdateStyle}>
                         Update
                       </Button>
                     </div>

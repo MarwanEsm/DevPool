@@ -95,44 +95,42 @@ const CandidateProfile = () => {
                             {linkName}
                           </Badge>
                         </div>
-                        <div style={divMoreInfo}>
-                        {text && (
-                          <>
-                            <p style={textStyle}>Work Experience :</p>
-                            <ul style={textStyle}>
-                              {candidate.workExperiences &&
-                                candidate.workExperiences.length &&
-                                candidate.workExperiences.map((exp) => {
-                                  return (
-                                    <li key={candidate.exp} style={textStyle}>
-                                      {exp}
-                                    </li>
-                                  );
-                                })}
-                            </ul>
-                            <div>
-                              <p style={textStyle}>Desired Position :</p>{" "}
-                              <p style={textStyle}>
-                                {candidate.desiredPosition}
-                              </p>
-                            </div>
-                            <div>
-                              <p style={textStyle}>Expected Salary :</p>{" "}
-                              <p style={textStyle}>
-                                {candidate.expectedSalary}
-                              </p>
-                            </div>
+                        <div >
+                          {text && (
+                            <>
+                              <p style={text2Style}>Work Experience :</p>
+                              <ul style={textStyle}>
+                                {candidate.workExperiences &&
+                                  candidate.workExperiences.length &&
+                                  candidate.workExperiences.map((exp) => {
+                                    return (
+                                      <li key={candidate.exp} style={textStyle}>
+                                        {exp}
+                                      </li>
+                                    );
+                                  })}
+                              </ul>
+                              <div>
+                                <p style={text1Style}>
+                                  Desired Position: {candidate.desiredPosition}
+                                </p>
+                              </div>
+                              <div>
+                                <p style={text1Style}>
+                                  Expected Salary: {candidate.expectedSalary}
+                                </p>
+                              </div>
 
-                            <div
-                              className="btn btn-primary mb-3"
-                              onClick={() => checkFullProfile(candidate._id)}
-                              style={checkProfile}
-                            >
-                              Check Full Profile
-                            </div>
-                          </>
-                        )}
-                      </div>
+                              <div
+                                className="btn btn-primary mb-3"
+                                onClick={() => checkFullProfile(candidate._id)}
+                                style={checkProfile}
+                              >
+                                Check Full Profile
+                              </div>
+                            </>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -171,13 +169,27 @@ const divStyle = {
 
 const textStyle = {
   fontFamily: "	Candara",
+  
+ 
+
 };
 
+const text1Style = {
+  fontFamily: "	Candara",
+  marginRight:'20%'
+
+};
+
+
+const text2Style = {
+  fontFamily: "	Candara",
+  marginRight:'29%'
+
+};
 const divRow = {
   width: "130%",
   marginLeft: "-16%",
 };
-
 
 const badgAddTo = {
   height: "80%",
@@ -218,11 +230,8 @@ const badg1 = {
 };
 
 
-const divMoreInfo={
-  marginRight:'30%'
-}
 
-const checkProfile={
-  marginLeft:'40%'
-}
+const checkProfile = {
+  marginRight: "25%",
+};
 export default CandidateProfile;
