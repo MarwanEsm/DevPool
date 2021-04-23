@@ -161,7 +161,7 @@ function IndividualProfile() {
                         </td>
                         <td className="value">
                           <div className="m-b-5">
-                            {candidate && <b>{candidate.workExperience}</b>}
+                            {candidate && <b style={valueStyle}> {candidate.education}</b>}
 
                             <br />
                           </div>
@@ -305,10 +305,9 @@ function IndividualProfile() {
                   </li>
                   <li>
                     <div className="field">Skills:</div>
-                    {/* <div className="value">
-                      C++, PHP, HTML5, CSS, jQuery, MYSQL, Ionic, Laravel,
-                      Phonegap, Bootstrap, Angular JS, Angular JS, Asp.net
-                    </div> */}
+                    {candidate && <div className="value">{candidate.skills}
+                      
+                    </div>}
                   </li>
                   {/* <li>
                     <div className="field">Birth of Date:</div>
@@ -400,6 +399,11 @@ const td4Style = {
   paddingRight: "10%",
 };
 
+const valueStyle={
+ 
+ fontFamily:'Candara'
+
+}
 // const changePhotoStyle = {
 //   width: "100%",
 //   fontSize: 12,

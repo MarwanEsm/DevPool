@@ -157,14 +157,14 @@ function EditProfieCanForm() {
                   </div>
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
-                      <label htmlFor="fullName">Full Name</label>
+                      <label htmlFor="fullName">Education</label>
                       <input
                         type="text"
                         className="form-control"
-                        placeholder="Full Name"
-                        name="fullName"
+                        placeholder="Education"
+                        name="education"
                         onChange={handleChange}
-                        value={state.fullName}
+                        value={state.education}
                         style={inputtStyle}
                       />
                     </div>
@@ -185,14 +185,14 @@ function EditProfieCanForm() {
                   </div>
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
-                      <label htmlFor="phone">Location</label>
+                      <label htmlFor="phone">Skills</label>
                       <input
                         type="text"
                         className="form-control"
-                        placeholder="Location"
-                        name="location"
+                        placeholder="Skills"
+                        name="skills"
                         onChange={handleChange}
-                        value={state.location}
+                        value={state.skills}
                         style={inputtStyle}
                       />
                     </div>

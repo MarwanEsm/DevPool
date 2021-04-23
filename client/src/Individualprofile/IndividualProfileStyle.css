@@ -22,10 +22,11 @@
     padding: 0.625rem 0;
 }
 .profile-info-list > li .field {
-    font-weight: 700;
+    font-weight: 700 ;
 }
 .profile-info-list > li .value {
     color: #666;
+    font-family: Candara;
 }
 .profile-info-list > li.img-list a {
     display: inline-block;
@@ -59,14 +60,17 @@
 }
 .table.table-profile .field {
     color: #666;
-    font-weight: 600;
+    font-weight: 600 ;
     width: 25%;
     text-align: right;
    
 }
 .table.table-profile .value {
-    font-weight: 500;
+    font-weight: 700;
     padding-right: 4rem;
+    color: #666;
+    font-family: Candara !important ;
+    
 }
 .profile-header {
     position: relative;
@@ -268,7 +272,7 @@ body .fc-widget-header a {
     text-align: right;
 }
 .table.table-profile .value {
-    font-weight: 500;
+    font-weight: 400 !important;
 }
 
 .friend-list {
