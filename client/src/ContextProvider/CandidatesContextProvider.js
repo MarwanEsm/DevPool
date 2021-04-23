@@ -1,7 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 
 const initContext = { candidates: [] };
-
 export const CandidatesContext = createContext(initContext);
 export const CandidatesContextProvider = ({ children }) => {
   const [candidates, setCandidates] = useState([]);

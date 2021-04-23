@@ -1,14 +1,9 @@
-import React, { useContext, useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, {useState } from "react";
 import Button from "react-bootstrap/Button";
-import { AuthContext } from "../ContextProvider/AuthContextProvider";
+
 
 function EditProfieEmpForm() {
-  const history = useHistory();
-  const { user } = useContext(AuthContext);
-  const [employer, setEmplyoer] = useState();
   const [state, setState] = useState({});
-
   const handleChange = (e) => {
     e.preventDefault();
     setState({ ...state, [e.target.name]: e.target.value });

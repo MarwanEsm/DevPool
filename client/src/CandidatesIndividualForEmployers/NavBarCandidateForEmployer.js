@@ -1,24 +1,32 @@
 import React from "react";
 import Logo from "../LandingPageComponents/Logo";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import Badge from "react-bootstrap/Badge";
 
 function NavBarCandidateForEmployer() {
- 
+  const history = useHistory();
+  const handleClick = () => {
+    history.push("/CandidateProfile");
+  };
+
+  const handleClick2 = () => {
+    history.push("/");
+  };
   return (
     <div style={maindivStyle}>
-      <div style={logoStyle}>
+      <div>
         <Logo />
       </div>
       <div style={navdiv}>
-        <Link to="/ChatScreen" style={linkStyle}>
-          Messages
-        </Link>
+        <Badge style={badg} variant="primary" onClick={handleClick}>
+          <i class="fa fa-users" aria-hidden="true" />
+          &nbsp; Candidates
+        </Badge>
         &nbsp; &nbsp;
-        <h5>|</h5>
-        &nbsp; &nbsp;
-        <Link to="/" style={linkStyle}>
-          Logout
-        </Link>
+        <Badge style={badg} variant="primary" onClick={handleClick2}>
+          <i class="fa fa-sign-out" aria-hidden="true" />
+          &nbsp; Logout
+        </Badge>
       </div>
     </div>
   );
@@ -26,24 +34,26 @@ function NavBarCandidateForEmployer() {
 
 const maindivStyle = {
   display: "flex",
-  justifyContent: "space-around",
-  backgroundColor: "#F0FFF0",
+  justifyContent: "space-between",
   paddingTop: "1%",
   marginTop: "0%",
-  paddingBottom: "1%",
+  marginRight: "3%",
+  marginLeft: "1.3%",
 };
-
 const navdiv = {
   display: "flex",
   justifyContent: "space-between",
 };
 
-const logoStyle = {
-  marginRight: "54%",
-};
-
-const linkStyle = {
-  fontFamily: "Zapf Chancery, cursive",
+const badg = {
+  height: "80%",
+  width: 100,
+  fontSize: 14,
+  cursor: "pointer",
+  borderRadius: 12,
+  paddingTop: 8,
+  alignText: "center",
+  fontFamily: "	Candara",
 };
 
 export default NavBarCandidateForEmployer;

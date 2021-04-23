@@ -209,9 +209,7 @@ const checkBox = {
   marginBottom: "6%",
 };
 
-const articleStyle = {
-  width: "90%",
-};
+
 
 const formStyle = {
   marginBottom: "12%",

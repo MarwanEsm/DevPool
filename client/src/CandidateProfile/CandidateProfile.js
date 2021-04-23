@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import CandidatePageNavBar from "./NavBarCandidate";
 import Nav from "react-bootstrap/Nav";
-import './CandidateProfileStyle.css';
+import "./CandidateProfileStyle.css";
 import Footer from "../LandingPageComponents/Footer";
 import Badge from "react-bootstrap/Badge";
 // import { AuthContext } from "../ContextProvider/AuthContextProvider";
@@ -42,21 +42,21 @@ const CandidateProfile = () => {
                     data-wow-delay="0.2s"
                     style={divStyle}
                   >
-                      <div style={divNavStyle}>
-                        <Nav variant="pills" defaultActiveKey="#first">
-                          <Nav.Item>
-                            <Nav.Link href="#first" style={badgAddTo}>
-                              Add to watchlist
-                            </Nav.Link>
-                          </Nav.Item>
-                          <Nav.Item>
-                            <Nav.Link href="#link" style={badgRemove}>
-                              Remove watchlist
-                            </Nav.Link>
-                          </Nav.Item>
-                        </Nav>
-                      </div>
-               
+                    <div style={divNavStyle}>
+                      <Nav variant="pills" defaultActiveKey="#first">
+                        <Nav.Item>
+                          <Nav.Link href="#first" style={badgAddTo}>
+                            Add to watchlist
+                          </Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                          <Nav.Link href="#link" style={badgRemove}>
+                            Remove watchlist
+                          </Nav.Link>
+                        </Nav.Item>
+                      </Nav>
+                    </div>
+
                     <div className="advisor_thumb" key={candidate._id}>
                       <img
                         src={`http://localhost:5000/${candidate.img}`}
@@ -86,19 +86,18 @@ const CandidateProfile = () => {
                       </p>
 
                       <div>
-                        
-
-                        <div >
+                        <div>
                           <Badge
                             style={badg1}
                             class="btn btn-primary btn-block"
                             onClick={handelReadMore}
                           >
-                            {linkName }
+                            {linkName}
                           </Badge>
                         </div>
-                        {text &&  (
-                          <><p style={textStyle}>Work Experience :</p>
+                        {text && (
+                          <>
+                            <p style={textStyle}>Work Experience :</p>
                             <ul style={textStyle}>
                               {candidate.workExperiences &&
                                 candidate.workExperiences.length &&
@@ -124,22 +123,11 @@ const CandidateProfile = () => {
                             </div>
 
                             <div
-          className="btn btn-primary mb-3"
-          onClick={() => checkFullProfile(candidate._id)}
-          
-        >
-          Check Full Profile
-        </div>
-
-
-
-                            {/* <Button
-                              variant="primary"
+                              className="btn btn-primary mb-3"
                               onClick={() => checkFullProfile(candidate._id)}
-                              style={buttonStyle}
                             >
                               Check Full Profile
-                            </Button> */}
+                            </div>
                           </>
                         )}
                       </div>
@@ -158,28 +146,9 @@ const CandidateProfile = () => {
   );
 };
 
-const rowStyle = {
-  marginTop: "6%",
-  marginLeft: "1%",
-};
-
-const titleStyle = {
-  fontFamily: "Andale Mono, monospace",
-  fontSize: 15,
-  marginTop: "2%",
-};
-
 const cardStyle = {
   marginTop: "6%",
   marginLeft: "6.5%",
-};
-
-const buttonStyle = {
-  marginTop: "7%",
-  fontFamily: "Courier, monospace",
-  fontSize: 14,
-  cursor: "pointer",
-  boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)",
 };
 
 const imgStyle = {
@@ -188,41 +157,9 @@ const imgStyle = {
   marginBottom: "3%",
 };
 
-// const listStyle = {
-//   marginTop: "6%",
-//   marginBottom: "6%",
-//   marginRight: "11%",
-//   listStyleType: "none",
-//   fontFamily: "Andale Mono, monospace",
-//   fontSize: 15,
-// };
-
-// const title1Style = {
-//   fontFamily: "Andale Mono, monospace",
-//   fontSize: 15,
-//   marginTop: "2%",
-//   fontWeight: "bold",
-// };
-
-const spanStyle = {
-  fontFamily: "Zapf Chancery, cursive",
-  fontSize: 13,
-  color: "blue",
-  textDecoration: "underline",
-};
-
-const divSpanStyle = {
-  marginTop: "4%",
-};
-
 const divNavStyle = {
   display: "flex",
   justifyContent: "space-around",
-};
-
-const divRow = {
-  width: "130%",
-  marginLeft: "-16%",
 };
 
 const divStyle = {
@@ -233,16 +170,11 @@ const textStyle = {
   fontFamily: "	Candara",
 };
 
-const badg = {
-  height: "80%",
-  width: "100%",
-  fontSize: 14,
-  cursor: "pointer",
-  borderRadius: 12,
-  paddingBottom: 15,
-  fontFamily: "	Candara",
-  
+const divRow = {
+  width: "130%",
+  marginLeft: "-16%",
 };
+
 
 const badgAddTo = {
   height: "80%",
@@ -252,8 +184,7 @@ const badgAddTo = {
   borderRadius: 18,
   paddingBottom: 15,
   fontFamily: "	Candara",
-  backgroundColor:'#1565c0',
-  
+  backgroundColor: "#1565c0",
 };
 
 const badgRemove = {
@@ -264,10 +195,8 @@ const badgRemove = {
   borderRadius: 18,
   paddingBottom: 15,
   fontFamily: "	Candara",
-  color:'white'
-  
+  color: "white",
 };
-
 
 const badg1 = {
   height: "100%",
@@ -276,13 +205,13 @@ const badg1 = {
   cursor: "pointer",
   borderRadius: 12,
   paddingBottom: 6,
-  paddingTop:4,
+  paddingTop: 4,
   fontFamily: "	Candara",
-  color:'white',
-  backgroundColor:'#1565c0',
-  marginRight:'30%',
-  marginTop:'6%',
-  marginBottom:'5%'
+  color: "white",
+  backgroundColor: "#1565c0",
+  marginRight: "30%",
+  marginTop: "6%",
+  marginBottom: "5%",
 };
 
 export default CandidateProfile;

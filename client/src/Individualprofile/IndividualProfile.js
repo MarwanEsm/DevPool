@@ -50,7 +50,7 @@ function IndividualProfile() {
             <div className="profile-header-cover"></div>
 
             <div className="profile-header-content" style={headerContent}>
-              <div className="profile-header-img">
+              <div className="profile-header-img" style={imageStyle}>
                 {candidate && (
                   <img src={`http://localhost:5000/${candidate.img}`} alt="" />
                 )}
@@ -68,33 +68,6 @@ function IndividualProfile() {
                 </span>
               </div>
             </div>
-
-            <ul className="profile-header-tab nav nav-tabs">
-              <li className="nav-item">
-                <a
-                  href="#profile-about"
-                  className="nav-link active show"
-                  data-toggle="tab"
-                >
-                  ABOUT
-                </a>
-              </li>
-              {/* <li className="nav-item">
-                <a href="#profile-photos" className="nav-link" data-toggle="tab">
-                  PHOTOS
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="#profile-videos" className="nav-link" data-toggle="tab">
-                  VIDEOS
-                </a>
-              </li> */}
-              {/* <li className="nav-item">
-                <a href="#profile-friends" className="nav-link" data-toggle="tab">
-                  FRIENDS
-                </a>
-              </li> */}
-            </ul>
           </div>
 
           <div className="profile-container">
@@ -127,38 +100,6 @@ function IndividualProfile() {
                             </div>
                           </td>
                         </tr>
-                        {/* <tr>
-                          <td className="field">Education</td>
-                          <td className="value">
-                            <div className="m-b-5">
-                              <b>University (2009)</b>{" "}
-                              <a href="#" className="m-l-10">
-                                Edit
-                              </a>
-                              <br />
-                              <span className="text-muted">
-                                University of Georgia, Athens, GA
-                              </span>
-                            </div>
-                            <div>
-                              <b>High School (2006)</b>{" "}
-                              <a href="#" className="m-l-10">
-                                Edit
-                              </a>
-                              <br />
-                              <span className="text-muted">
-                                Heritage High School, West Chestter, PA
-                              </span>
-                            </div>
-                          </td>
-                        </tr> */}
-                        {/* <tr>
-                          <td className="field">Skills</td>
-                          <td className="value">
-                            C++, PHP, HTML5, CSS, jQuery, MYSQL, Ionic, Laravel,
-                            Phonegap, Bootstrap, Angular JS, Angular JS, Asp.net
-                          </td>
-                        </tr> */}
 
                         <td className="field" style={td2Style}>
                           Education
@@ -317,14 +258,7 @@ function IndividualProfile() {
                       <div className="value">{candidate.skills}</div>
                     )}
                   </li>
-                  {/* <li>
-                    <div className="field">Birth of Date:</div>
-                    <div className="value">1989/11/04</div>
-                  </li> */}
-                  {/* <li>
-                    <div className="field">Country:</div>
-                    <div className="value">San Francisco</div>
-                  </li> */}
+
                   <li>
                     <div className="field">Langauges</div>
                     {candidate && (
@@ -412,19 +346,10 @@ const td4Style = {
 const valueStyle = {
   fontFamily: "Candara",
 };
-// const changePhotoStyle = {
-//   width: "100%",
-//   fontSize: 12,
-//   color: "white",
-// };
 
-// const divStyle = {
-//   width: "83%",
-//   marginTop: "20%",
-//   paddingBottom: 6,
-//   paddingTop: 1,
-//   paddingRight: 0,
-//   paddingLeft: 12,
-//   borderRadius: 8,
-// };
+const imageStyle = {
+  width: "20%",
+  height: "20%",
+};
+
 export default IndividualProfile;

@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import Logo from "../LandingPageComponents/Logo";
 import { useHistory } from "react-router-dom";
-import { AuthContext } from "../ContextProvider/AuthContextProvider";
+// import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import Badge from "react-bootstrap/Badge";
 
 
 function NavBarEditProfileCan() {
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
   const history = useHistory();
 
   const handleClick = () => {
