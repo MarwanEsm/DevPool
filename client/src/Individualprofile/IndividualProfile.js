@@ -44,13 +44,13 @@ function IndividualProfile() {
       <div>
         <IndividualCandidateNavBar />
       </div>
-      <div class="container" style={containerStyle}>
-        <div id="content" class="content p-0">
-          <div class="profile-header">
-            <div class="profile-header-cover"></div>
+      <div className="container" style={containerStyle}>
+        <div id="content" className="content p-0">
+          <div className="profile-header">
+            <div className="profile-header-cover"></div>
 
-            <div class="profile-header-content" style={headerContent}>
-              <div class="profile-header-img">
+            <div className="profile-header-content" style={headerContent}>
+              <div className="profile-header-img">
                 {candidate && (
                   <img src={`http://localhost:5000/${candidate.img}`} alt="" />
                 )}
@@ -58,11 +58,11 @@ function IndividualProfile() {
                
               </div>
 
-              <div class="profile-header-info">
-                {candidate && <h4 class="m-t-sm">{candidate.fullName}</h4>}
-                {candidate && <p class="m-b-sm">{candidate.title}</p>}
+              <div className="profile-header-info">
+                {candidate && <h4 className="m-t-sm">{candidate.fullName}</h4>}
+                {candidate && <p className="m-b-sm">{candidate.title}</p>}
                 <span
-                  class="btn btn-xs btn-primary mb-3"
+                  className="btn btn-xs btn-primary mb-3"
                   onClick={handelClick}
                   style={badg}
                 >
@@ -71,52 +71,52 @@ function IndividualProfile() {
               </div>
             </div>
 
-            <ul class="profile-header-tab nav nav-tabs">
-              <li class="nav-item">
+            <ul className="profile-header-tab nav nav-tabs">
+              <li className="nav-item">
                 <a
                   href="#profile-about"
-                  class="nav-link active show"
+                  className="nav-link active show"
                   data-toggle="tab"
                 >
                   ABOUT
                 </a>
               </li>
-              {/* <li class="nav-item">
-                <a href="#profile-photos" class="nav-link" data-toggle="tab">
+              {/* <li className="nav-item">
+                <a href="#profile-photos" className="nav-link" data-toggle="tab">
                   PHOTOS
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="#profile-videos" class="nav-link" data-toggle="tab">
+              <li className="nav-item">
+                <a href="#profile-videos" className="nav-link" data-toggle="tab">
                   VIDEOS
                 </a>
               </li> */}
-              {/* <li class="nav-item">
-                <a href="#profile-friends" class="nav-link" data-toggle="tab">
+              {/* <li className="nav-item">
+                <a href="#profile-friends" className="nav-link" data-toggle="tab">
                   FRIENDS
                 </a>
               </li> */}
             </ul>
           </div>
 
-          <div class="profile-container">
-            <div class="row row-space-20">
-              <div class="col-md-8">
-                <div class="tab-content p-0">
-                  <div class="tab-pane active show" id="profile-about">
-                    <table class="table table-profile">
+          <div className="profile-container">
+            <div className="row row-space-20">
+              <div className="col-md-8">
+                <div className="tab-content p-0">
+                  <div className="tab-pane active show" id="profile-about">
+                    <table className="table table-profile">
                       <thead>
                         <tr>
-                          <th colspan="2">WORK AND EDUCATION</th>
+                          <th colSpan="2">WORK AND EDUCATION</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td class="field" style={tdStyle}>
+                          <td className="field" style={tdStyle}>
                             Work Expereince
                           </td>
-                          <td class="value">
-                            <div class="m-b-5">
+                          <td className="value">
+                            <div className="m-b-5">
                               {candidate && <b>{candidate.workExperience}</b>}
 
                               <br />
@@ -124,43 +124,43 @@ function IndividualProfile() {
                           </td>
                         </tr>
                         {/* <tr>
-                          <td class="field">Education</td>
-                          <td class="value">
-                            <div class="m-b-5">
+                          <td className="field">Education</td>
+                          <td className="value">
+                            <div className="m-b-5">
                               <b>University (2009)</b>{" "}
-                              <a href="#" class="m-l-10">
+                              <a href="#" className="m-l-10">
                                 Edit
                               </a>
                               <br />
-                              <span class="text-muted">
+                              <span className="text-muted">
                                 University of Georgia, Athens, GA
                               </span>
                             </div>
                             <div>
                               <b>High School (2006)</b>{" "}
-                              <a href="#" class="m-l-10">
+                              <a href="#" className="m-l-10">
                                 Edit
                               </a>
                               <br />
-                              <span class="text-muted">
+                              <span className="text-muted">
                                 Heritage High School, West Chestter, PA
                               </span>
                             </div>
                           </td>
                         </tr> */}
                         {/* <tr>
-                          <td class="field">Skills</td>
-                          <td class="value">
+                          <td className="field">Skills</td>
+                          <td className="value">
                             C++, PHP, HTML5, CSS, jQuery, MYSQL, Ionic, Laravel,
                             Phonegap, Bootstrap, Angular JS, Angular JS, Asp.net
                           </td>
                         </tr> */}
 
-                        <td class="field" style={td2Style}>
+                        <td className="field" style={td2Style}>
                           Education
                         </td>
-                        <td class="value">
-                          <div class="m-b-5">
+                        <td className="value">
+                          <div className="m-b-5">
                             {candidate && <b>{candidate.workExperience}</b>}
 
                             <br />
@@ -168,7 +168,7 @@ function IndividualProfile() {
                         </td>
                       </tbody>
                     </table>
-                    <table class="table table-profile">
+                    <table className="table table-profile">
                       <thead>
                         <tr>
                           <th colspan="2">CONTACT INFORMATION</th>
@@ -176,19 +176,19 @@ function IndividualProfile() {
                       </thead>
                       <tbody>
                         <tr>
-                          <td class="field" style={td3Style}>
+                          <td className="field" style={td3Style}>
                             Mobile No.
                           </td>
                           {candidate && (
-                            <td class="value">{candidate.phoneNo}</td>
+                            <td className="value">{candidate.phoneNo}</td>
                           )}
                         </tr>
                         <tr>
-                          <td class="field" style={td4Style}>
+                          <td className="field" style={td4Style}>
                             Email
                           </td>
                           {candidate && (
-                            <td class="value">{candidate.email}</td>
+                            <td className="value">{candidate.email}</td>
                           )}
                         </tr>
                         <tr>
@@ -208,7 +208,7 @@ function IndividualProfile() {
                             </svg>
                           </td>
                           {candidate && (
-                            <td class="value">{candidate.facebook}</td>
+                            <td className="value">{candidate.facebook}</td>
                           )}
                         </tr>
                         <tr>
@@ -231,7 +231,7 @@ function IndividualProfile() {
                             </svg>
                           </td>
                           {candidate && (
-                            <td class="value">{candidate.github}</td>
+                            <td className="value">{candidate.github}</td>
                           )}
                         </tr>
                         <tr>
@@ -252,7 +252,7 @@ function IndividualProfile() {
                             </svg>
                           </td>
                           {candidate && (
-                            <td class="value">{candidate.twitter}</td>
+                            <td className="value">{candidate.twitter}</td>
                           )}
                         </tr>
                         <tr>
@@ -287,7 +287,7 @@ function IndividualProfile() {
                             </svg>
                           </td>
                           {candidate && (
-                            <td class="value">{candidate.instagram}</td>
+                            <td className="value">{candidate.instagram}</td>
                           )}
                         </tr>
                       </tbody>
@@ -296,55 +296,55 @@ function IndividualProfile() {
                 </div>
               </div>
 
-              <div class="col-md-4 hidden-xs hidden-sm">
-                <ul class="profile-info-list">
-                  <li class="title">PERSONAL INFORMATION</li>
+              <div className="col-md-4 hidden-xs hidden-sm">
+                <ul className="profile-info-list">
+                  <li className="title">PERSONAL INFORMATION</li>
                   <li>
-                    <div class="field">Occupation:</div>
-                    {candidate && <div class="value">{candidate.title}</div>}
+                    <div className="field">Occupation:</div>
+                    {candidate && <div className="value">{candidate.title}</div>}
                   </li>
                   <li>
-                    <div class="field">Skills:</div>
-                    {/* <div class="value">
+                    <div className="field">Skills:</div>
+                    {/* <div className="value">
                       C++, PHP, HTML5, CSS, jQuery, MYSQL, Ionic, Laravel,
                       Phonegap, Bootstrap, Angular JS, Angular JS, Asp.net
                     </div> */}
                   </li>
                   {/* <li>
-                    <div class="field">Birth of Date:</div>
-                    <div class="value">1989/11/04</div>
+                    <div className="field">Birth of Date:</div>
+                    <div className="value">1989/11/04</div>
                   </li> */}
                   {/* <li>
-                    <div class="field">Country:</div>
-                    <div class="value">San Francisco</div>
+                    <div className="field">Country:</div>
+                    <div className="value">San Francisco</div>
                   </li> */}
                   <li>
-                    <div class="field">Langauges</div>
+                    <div className="field">Langauges</div>
                     {candidate && (
-                      <div class="value">{candidate.languages}</div>
+                      <div className="value">{candidate.languages}</div>
                     )}
                   </li>
                   <li>
-                    <div class="field">Hobbies</div>
-                    {candidate && <div class="value">{candidate.hobbies}</div>}
+                    <div className="field">Hobbies</div>
+                    {candidate && <div className="value">{candidate.hobbies}</div>}
                   </li>
                   <li>
-                    <div class="field">Desired Position</div>
+                    <div className="field">Desired Position</div>
                     {candidate && (
-                      <div class="value">{candidate.desiredPosition}</div>
+                      <div className="value">{candidate.desiredPosition}</div>
                     )}
                   </li>
                   <li>
-                    <div class="field">Expected Salary</div>
+                    <div className="field">Expected Salary</div>
                     {candidate && (
-                      <div class="value">{candidate.expectedSalary}</div>
+                      <div className="value">{candidate.expectedSalary}</div>
                     )}
                   </li>
                   <li>
-                    <div class="field">Address:</div>
-                    <div class="value">
+                    <div className="field">Address:</div>
+                    <div className="value">
                       {candidate && (
-                        <address class="m-b-0">{candidate.address}</address>
+                        <address className="m-b-0">{candidate.address}</address>
                       )}
                     </div>
                   </li>
@@ -385,11 +385,11 @@ const headerContent = {
 };
 
 const tdStyle = {
-  paddingRight: "2%",
+  paddingRight: "3%",
 };
 
 const td2Style = {
-  paddingRight: "9%",
+  paddingRight: "7%",
 };
 
 const td3Style = {

@@ -126,7 +126,7 @@ function EditProfieCanForm() {
                         <input
                           onChange={uploadImage}
                           imgextension={[".jpg", ".gif", ".png", ".gif"]}
-                          maxFileSize={5242880}
+                          maxfilesize={5242880}
                           type="file"
                           value={file}
                           name="file"
