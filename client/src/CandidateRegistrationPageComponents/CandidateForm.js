@@ -76,12 +76,9 @@ function CandidateForm() {
   }
 
   function handleRemove(i) {
-    console.log(i);
+    let values = [...workEx];
+    values.splice(i, 1);
     console.log(workEx);
-
-    const values = workEx;
-    workEx.splice(i - 1, 1);
-    console.log(values);
     setWorkEx(values);
   }
 
@@ -322,7 +319,7 @@ const label2Style = {
   fontFamily: "Candara",
   fontSize: 13,
   color: "black",
-  textDecoration :'underline'
+  textDecoration: "underline",
 };
 
 const div1Style = {

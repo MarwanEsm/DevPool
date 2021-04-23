@@ -219,10 +219,13 @@ const label2Style = {
   fontFamily: "Candara",
   fontSize: 13,
   color: "black",
+  textDecoration:'underline'
 };
 
 const div1Style = {
   marginLeft: "30%",
   marginTop: "3%",
 };
+
+
 export default EmployerForm;
