@@ -95,6 +95,7 @@ const CandidateProfile = () => {
                             {linkName}
                           </Badge>
                         </div>
+                        <div style={divMoreInfo}>
                         {text && (
                           <>
                             <p style={textStyle}>Work Experience :</p>
@@ -125,11 +126,13 @@ const CandidateProfile = () => {
                             <div
                               className="btn btn-primary mb-3"
                               onClick={() => checkFullProfile(candidate._id)}
+                              style={checkProfile}
                             >
                               Check Full Profile
                             </div>
                           </>
                         )}
+                      </div>
                       </div>
                     </div>
                   </div>
@@ -214,4 +217,12 @@ const badg1 = {
   marginBottom: "5%",
 };
 
+
+const divMoreInfo={
+  marginRight:'30%'
+}
+
+const checkProfile={
+  marginLeft:'40%'
+}
 export default CandidateProfile;
