@@ -1,0 +1,16 @@
+.btn.btn-primary {
+  position: relative;
+  font-family: Candara;
+  font-size: 14px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: -webkit-linear-gradient(left, #9a9adf, #0a0efa);
+  margin-top: 8%;
+  margin-right: 22%;
+}
+
+.btn.btn-primary:hover {
+  background-color: #b4b4b433;
+  color: #fff;
+}

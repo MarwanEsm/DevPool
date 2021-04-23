@@ -115,13 +115,13 @@ function IndividualProfile() {
                           </td>
                           <td className="value">
                             <div className="m-b-5">
-                              <ul>
+                              {/* <ul>
                                 {candidate.workExperiences &&
                                   candidate.workExperiences.length &&
                                   candidate.workExperiences.map((exp) => {
                                     return <li key={candidate.exp}>{exp}</li>;
                                   })}
-                              </ul>
+                              </ul> */}
 
                               <br />
                             </div>

@@ -1,11 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import CandidatePageNavBar from "./NavBarCandidate";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
+import './CandidateProfileStyle.css';
 import Footer from "../LandingPageComponents/Footer";
 import Badge from "react-bootstrap/Badge";
 // import { AuthContext } from "../ContextProvider/AuthContextProvider";
@@ -97,10 +94,10 @@ const CandidateProfile = () => {
                             class="btn btn-primary btn-block"
                             onClick={handelReadMore}
                           >
-                            Read more
+                            {linkName }
                           </Badge>
                         </div>
-                        {text && (
+                        {text &&  (
                           <><p style={textStyle}>Work Experience :</p>
                             <ul style={textStyle}>
                               {candidate.workExperiences &&
@@ -126,13 +123,23 @@ const CandidateProfile = () => {
                               </p>
                             </div>
 
-                            <Button
+                            <div
+          className="btn btn-primary mb-3"
+          onClick={() => checkFullProfile(candidate._id)}
+          
+        >
+          Check Full Profile
+        </div>
+
+
+
+                            {/* <Button
                               variant="primary"
                               onClick={() => checkFullProfile(candidate._id)}
                               style={buttonStyle}
                             >
                               Check Full Profile
-                            </Button>
+                            </Button> */}
                           </>
                         )}
                       </div>
@@ -265,7 +272,7 @@ const badgRemove = {
 const badg1 = {
   height: "100%",
   width: "35%",
-  fontSize: 14,
+  fontSize: 13,
   cursor: "pointer",
   borderRadius: 12,
   paddingBottom: 6,
@@ -274,7 +281,8 @@ const badg1 = {
   color:'white',
   backgroundColor:'#1565c0',
   marginRight:'30%',
-  marginTop:'6%'
+  marginTop:'6%',
+  marginBottom:'5%'
 };
 
 export default CandidateProfile;
