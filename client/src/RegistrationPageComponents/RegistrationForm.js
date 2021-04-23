@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom';
 import Form from "react-bootstrap/Form";
 import "./RegistrationStyle.css";
 
@@ -55,20 +56,20 @@ function RegistrationForm() {
         }
       });
   };
-  console.log(state);
+ 
   return (
-    <div class="wrapper" style={formStyle}>
+    <div className="wrapper" style={formStyle}>
       <form action="#">
-        <div class="h5 font-weight-bold text-center mb-3">Registration</div>
+        <div className="h5 font-weight-bold text-center mb-3">Registration</div>
 
-        <div class="form-group d-flex align-items-center">
-          <div class="icon">
-            <span class="far fa-envelope"></span>
+        <div className="form-group d-flex align-items-center">
+          <div className="icon">
+            <span className="far fa-envelope"></span>
           </div>
           <input
             autocomplete="off"
             type="email"
-            class="form-control"
+            className="form-control"
             placeholder="Email"
             name="email"
             onChange={handleChange}
@@ -76,31 +77,31 @@ function RegistrationForm() {
           />
         </div>
 
-        <div class="form-group d-flex align-items-center">
-          <div class="icon">
-            <span class="fa fa-lock"></span>
+        <div className="form-group d-flex align-items-center">
+          <div className="icon">
+            <span className="fa fa-lock"></span>
           </div>{" "}
           <input
             autocomplete="off"
-            class="form-control"
+            className="form-control"
             placeholder="Creat password"
             type="password"
             name="password"
             onChange={handleChange}
             value={state.password}
           />
-          <div class="icon btn">
-            <span class="fas fa-eye-slash"></span>
+          <div className="icon btn">
+            <span className="fas fa-eye-slash"></span>
           </div>
         </div>
 
-        <div class="form-group d-flex align-items-center">
-          <div class="icon">
-            <span class="fas fa-key"></span>
+        <div className="form-group d-flex align-items-center">
+          <div className="icon">
+            <span className="fas fa-key"></span>
           </div>{" "}
           <input
             autocomplete="off"
-            class="form-control"
+            className="form-control"
             placeholder="Repeat password"
             type="password"
             onChange={handleChange}
@@ -108,12 +109,12 @@ function RegistrationForm() {
             value={state.confirmationPassword}
           />
         </div>
-        <div class="form-group d-flex align-items-center">
-          <div class="icon">
-            <span class="fas fa-building"></span>
+        <div className="form-group d-flex align-items-center">
+          <div className="icon">
+            <span className="fas fa-building"></span>
           </div>
           <select
-            class="form-control"
+            className="form-control"
             name="owner"
             as="select"
             onChange={handleDropDown}
@@ -131,21 +132,21 @@ function RegistrationForm() {
 
         <Form.Group id="formGridCheckbox">
           <div
-            class="custom-control custom-checkbox custom-control-inline"
+            className="custom-control custom-checkbox custom-control-inline"
             style={checkBox}
           >
             <input
               id="chk1"
               type="checkbox"
               name="chk"
-              class="custom-control-input"
+              className="custom-control-input"
               defaultChecked={false}
               value={checked}
               onChange={() => setChecked(!checked)}
             />
             <label
               for="chk1"
-              class="custom-control-label consent"
+              className="custom-control-label consent"
               style={label2Style}
             >
               Agree to terms and conditions
@@ -154,33 +155,33 @@ function RegistrationForm() {
         </Form.Group>
 
         <div
-          class="btn btn-primary mb-3"
+          className="btn btn-primary mb-3"
           onClick={submitDetails}
           disabled={isInvalid}
         >
           Signup
         </div>
-        <div class="terms mb-2" style={termsStyle}>
+        <div className="terms mb-2" style={termsStyle}>
           By clicking "Signup", you acknowledge that you have read the
-          <a href="#">Privacy Policy</a> and agree to the
-          <a href="#">Terms of Service</a>.
+          <Link to="#">Privacy Policy</Link> and agree to the
+          <Link to="#">Terms of Service</Link>.
         </div>
-        {/* <div class="connect border-bottom mt-4 mb-4" style={orStyle}></div> */}
-        <ul class="p-0 social-links">
+        <div className="connect border-bottom mt-4 mb-4" style={orStyle}></div>
+        <ul className="p-0 social-links">
           <li>
-            <a href="#">
-              <span class="fab fa-facebook-f"></span>
-            </a>
+            <Link to="#">
+              <span className="fab fa-facebook-f"></span>
+            </Link>
           </li>
           <li>
-            <a href="#">
-              <span class="fab fa-google"></span>
-            </a>
+            <Link to="#">
+              <span className="fab fa-google"></span>
+            </Link>
           </li>
           <li>
-            <a href="#">
-              <span class="fab fa-github"></span>
-            </a>
+            <Link to="#">
+              <span className="fab fa-github"></span>
+            </Link>
           </li>
         </ul>
       </form>

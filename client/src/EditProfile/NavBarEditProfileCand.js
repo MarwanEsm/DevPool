@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Logo from "../LandingPageComponents/Logo";
 import { useHistory } from "react-router-dom";
 import Badge from "react-bootstrap/Badge";

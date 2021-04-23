@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useParams, useHistory } from "react-router-dom";
-import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
+import { useHistory } from "react-router-dom";
+// import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import IndividualCandidateNavBar from "./NavBarIndividualCandidate";
-import Badge from "react-bootstrap/Badge";
+// import Badge from "react-bootstrap/Badge";
 import Footer from "../LandingPageComponents/Footer";
 import "./IndividualProfileStyle.css";
 
@@ -29,11 +29,11 @@ function IndividualProfile() {
       });
   }, []);
 
-  const [file, setMyFile] = useState();
-  const uploadImage = (file) => {
-    console.log(file);
-    setMyFile(file[0]);
-  };
+  // const [file, setMyFile] = useState();
+  // const uploadImage = (file) => {
+  //   console.log(file);
+  //   setMyFile(file[0]);
+  // };
 
   const handelClick = () => {
     history.push(`/EditProfileCandidate/${user._id}`);
@@ -400,19 +400,19 @@ const td4Style = {
   paddingRight: "10%",
 };
 
-const changePhotoStyle = {
-  width: "100%",
-  fontSize: 12,
-  color: "white",
-};
+// const changePhotoStyle = {
+//   width: "100%",
+//   fontSize: 12,
+//   color: "white",
+// };
 
-const divStyle = {
-  width: "83%",
-  marginTop: "20%",
-  paddingBottom: 6,
-  paddingTop: 1,
-  paddingRight: 0,
-  paddingLeft: 12,
-  borderRadius: 8,
-};
+// const divStyle = {
+//   width: "83%",
+//   marginTop: "20%",
+//   paddingBottom: 6,
+//   paddingTop: 1,
+//   paddingRight: 0,
+//   paddingLeft: 12,
+//   borderRadius: 8,
+// };
 export default IndividualProfile;

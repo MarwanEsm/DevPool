@@ -12,10 +12,6 @@ function IndividualEmplyoerNavBar() {
     history.push("/CandidateProfile");
   };
 
-  const handleClick1 = () => {
-    history.push(`/EditProfileEmployer/${user._id}`);
-  };
-
   const handleClick2 = () => {
     history.push("/");
   };
@@ -62,7 +58,6 @@ const badg = {
   paddingTop: 8,
   alignText: "center",
   fontFamily: "	Candara",
-  
 };
 
 export default IndividualEmplyoerNavBar;

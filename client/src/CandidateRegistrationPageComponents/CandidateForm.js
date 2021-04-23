@@ -322,6 +322,7 @@ const label2Style = {
   fontFamily: "Candara",
   fontSize: 13,
   color: "black",
+  textDecoration :'underline'
 };
 
 const div1Style = {

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory} from "react-router-dom";
 import CandidatePageNavBar from "./NavBarCandidate";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -12,7 +12,7 @@ import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider"
 
 const CandidateProfile = () => {
   // const { user } = useContext(AuthContext);
-  const { filteredCandidates, candidate } = useContext(CandidatesContext);
+  const { filteredCandidates } = useContext(CandidatesContext);
   const history = useHistory();
   // const { id } = useParams();
 

@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import {useHistory} from 'react-router-dom';
 import Logo from "../LandingPageComponents/Logo";
 import Badge from "react-bootstrap/Badge";
-import { AuthContext } from "../ContextProvider/AuthContextProvider";
+// import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function IndividualEmployerNavBar() {
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
   const history = useHistory();
   const handleClick = () => {
     history.goBack();

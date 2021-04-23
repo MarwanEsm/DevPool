@@ -1,6 +1,6 @@
 import React from "react";
 import "./FooterStyle.css";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -9,7 +9,7 @@ function Footer() {
         <div class="row">
           <div class="col-sm-6 col-md-4 footer-navigation">
             <h3>
-              <Link to ="#">
+              <Link to="#">
                 Mar<span>wansstrap</span>
               </Link>
             </h3>
@@ -28,7 +28,8 @@ function Footer() {
             <div>
               <span class="fa fa-map-marker footer-contacts-icon"> </span>
               <p>
-                <span class="new-line-span">24 Adolf Street</span>Berlin, Germany
+                <span class="new-line-span">24 Adolf Street</span>Berlin,
+                Germany
               </p>
             </div>
             <div>
@@ -38,7 +39,6 @@ function Footer() {
             <div>
               <i class="fa fa-envelope footer-contacts-icon"></i>
               <p>
-                
                 <Link to="#" target="_blank" style={linkStyle}>
                   support@bbbootstrap.com
                 </Link>
@@ -53,18 +53,18 @@ function Footer() {
               snippets.
             </p>
             <div class="social-links social-icons">
-              <a href="#">
+              <Link href="#">
                 <i class="fa fa-facebook"></i>
-              </a>
-              <a href="#">
+              </Link>
+              <Link href="#">
                 <i class="fa fa-twitter"></i>
-              </a>
-              <a href="#">
+              </Link>
+              <Link href="#">
                 <i class="fa fa-linkedin"></i>
-              </a>
-              <a href="#">
+              </Link>
+              <Link href="#">
                 <i class="fa fa-github"></i>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -75,9 +75,7 @@ function Footer() {
 
 const linkStyle = {
   color: "white",
-  fontSize:15
+  fontSize: 15,
 };
-
-
 
 export default Footer;
