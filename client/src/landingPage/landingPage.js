@@ -47,8 +47,8 @@ function LandingPage() {
                         <Link to={candidate.twitter}>
                           <i className="fa fa-twitter"></i>
                         </Link>
-                        <Link to={candidate.linkedIn}>
-                          <i className="fa fa-linkedin"></i>
+                        <Link to={candidate.instagram}>
+                          <i className="fa fa-instagram"></i>
                         </Link>
                       </div>
                     </div>

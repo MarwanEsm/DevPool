@@ -1,6 +1,7 @@
 import React from "react";
 import "./FooterStyle.css";
 import { Link } from "react-router-dom";
+import ButtonMailto from './Mailto';
 
 function Footer() {
   return (
@@ -39,9 +40,8 @@ function Footer() {
             <div>
               <i className="fa fa-envelope footer-contacts-icon"></i>
               <p>
-                <Link to="#" target="_blank" style={linkStyle}>
-                  support@bbbootstrap.com
-                </Link>
+              <ButtonMailto label="support@bbbootstrap.com" mailto="mailto:support@bbbootstrap.com"  />
+              
               </p>
             </div>
           </div>
