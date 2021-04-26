@@ -99,8 +99,7 @@ const maindivStyle = {
   justifyContent: "space-around",
   paddingTop: "1%",
   marginTop: "0%",
-  marginLeft:'-0.4%'
-  
+  marginLeft: "-0.4%",
 };
 
 const div1Style = {

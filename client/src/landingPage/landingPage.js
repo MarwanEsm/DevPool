@@ -41,13 +41,19 @@ function LandingPage() {
                       />
 
                       <div className="social-info">
-                        <a href={candidate.facebook} target='_blank'>
+                        <a href={candidate.facebook} target="_blank">
                           <i className="fa fa-facebook"></i>
                         </a>
-                        <a href={`https://www.instagram.com/${candidate.twitter}`} target='_blank'>
+                        <a
+                          href={`https://www.instagram.com/${candidate.twitter}`}
+                          target="_blank"
+                        >
                           <i className="fa fa-twitter"></i>
                         </a>
-                        <a href={`https://www.instagram.com/${candidate.instagram}`} target='_blank'>
+                        <a
+                          href={`https://www.instagram.com/${candidate.instagram}`}
+                          target="_blank"
+                        >
                           <i className="fa fa-instagram"></i>
                         </a>
                       </div>
@@ -95,7 +101,7 @@ const imgStyle = {
 
 const cardStyle = {
   marginTop: "6%",
-  marginLeft:'6.5%'
+  marginLeft: "6.5%",
 };
 
 const divRow = {

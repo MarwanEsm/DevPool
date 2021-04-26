@@ -77,7 +77,6 @@ span.new-line-span {
   font-weight: normal;
   font-size: 14px;
   line-height: 2;
- 
 }
 
 .footer-about h4 {
@@ -118,11 +117,9 @@ div.social-links {
 }
 
 ::-webkit-input-placeholder {
-  color: #1565c0!important
+  color: #1565c0 !important;
 }
 
 .footer {
   bottom: 0;
 }
-
-

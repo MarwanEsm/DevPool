@@ -34,7 +34,7 @@ function Footer() {
               <a
                 href="https://www.google.com/maps/place/Adolfstra%C3%9Fe+24,+13347+Berlin/@52.5473488,13.364106,16.74z/data=!4m5!3m4!1s0x47a8518757f35721:0x8bbf69003c9cb31d!8m2!3d52.5474121!4d13.3665791"
                 className="fa fa-map-marker footer-contacts-icon"
-                target='_blank'
+                target="_blank"
               >
                 {" "}
               </a>

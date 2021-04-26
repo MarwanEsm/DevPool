@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 import "./RegistrationStyle.css";
 
 function RegistrationForm() {
@@ -20,6 +22,11 @@ function RegistrationForm() {
     state.confirmationPassword !== state.password ||
     state.owner === "" ||
     !checked;
+
+    const [passwordShown, setPasswordShown] = useState(false);
+    const togglePasswordVisiblity = () => {
+      setPasswordShown(passwordShown ? false : true);
+    };
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -51,7 +58,13 @@ function RegistrationForm() {
         }
       });
   };
-
+  const eyeIcon = passwordShown ? (<FontAwesomeIcon icon={faEye} />
+    
+  ) : (
+    <span className="fas fa-eye-slash"></span>
+  );
+  const eye = <FontAwesomeIcon icon={faEye} />;
+ 
   return (
     <div className="wrapper" style={formStyle}>
       <form action="#">
@@ -80,13 +93,15 @@ function RegistrationForm() {
             autocomplete="off"
             className="form-control"
             placeholder="Creat password"
-            type="password"
+            type={passwordShown ? "text" : "password"}
+            // type="password"
             name="password"
             onChange={handleChange}
             value={state.password}
           />
           <div className="icon btn">
-            <span className="fas fa-eye-slash"></span>
+            <span onClick={togglePasswordVisiblity}>{eyeIcon}</span>
+            {/* <span className="fas fa-eye-slash"></span> */}
           </div>
         </div>
 
@@ -217,9 +232,9 @@ const orStyle = {
   background: "-webkit-linear-gradient(right, #acabcc, #55b6ee)",
 };
 
-const submitStyle={
-marginLeft:'25%',
-marginTop:'2%',
-marginBottom:'4%'
-}
+const submitStyle = {
+  marginLeft: "25%",
+  marginTop: "2%",
+  marginBottom: "4%",
+};
 export default RegistrationForm;
