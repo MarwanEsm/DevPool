@@ -4,6 +4,7 @@ const initContext = { candidates: [] };
 export const CandidatesContext = createContext(initContext);
 export const CandidatesContextProvider = ({ children }) => {
   const [candidates, setCandidates] = useState([]);
+  const [candidate, setCandidate] = useState();
   const [searchTitle, setSearchTitle] = useState("");
   const [selectLocation, setSelectLocation] = useState("all");
   const filteredCandidates = candidates.filter((candidate) => {
@@ -25,7 +26,8 @@ export const CandidatesContextProvider = ({ children }) => {
 
   return (
     <CandidatesContext.Provider
-      value={{
+      value={{candidate,
+        setCandidate,
         candidates,
         filteredCandidates,
         selectLocation,

@@ -34,12 +34,19 @@ function Footer() {
               <p>
                 <span className="new-line-span">24 Adolf Street</span>Berlin,
                 Germany
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.198991120139!2d13.3641060104615!3d52.54734883752056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a8518757f35721%3A0x8bbf69003c9cb31d!2sAdolfstra%C3%9Fe%2024%2C%2013347%20Berlin!5e0!3m2!1sen!2sde!4v1619433518168!5m2!1sen!2sde"
+                  // width="400"
+                  // height="300"
+                  // style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy"
+                ></iframe>
               </p>
             </div>
             <div>
               <i className="fa fa-phone footer-contacts-icon"></i>
               <p className="footer-center-info email text-left">
-                {" "}
                 +49 15755076336
               </p>
             </div>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 // import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
+import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 import IndividualCandidateNavBar from "./NavBarIndividualCandidate";
 // import Badge from "react-bootstrap/Badge";
 import Footer from "../LandingPageComponents/Footer";
@@ -9,8 +10,9 @@ import "./IndividualProfileStyle.css";
 
 function IndividualProfile() {
   const { user } = useContext(AuthContext);
+  const { candidate, setCandidate } = useContext(CandidatesContext);
   const history = useHistory();
-  const [candidate, setCandidate] = useState();
+  
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -62,7 +64,8 @@ function IndividualProfile() {
                 <span
                   className="btn btn-xs btn-primary mb-3"
                   onClick={handelClick}
-                  style={badg}
+                  // style={badg}
+                  style={contactButton}
                 >
                   Edit Profile
                 </span>
@@ -88,13 +91,14 @@ function IndividualProfile() {
                           </td>
                           <td className="value">
                             <div className="m-b-5">
-                              {/* <ul>
+                              <ul >
                                 {candidate.workExperiences &&
                                   candidate.workExperiences.length &&
                                   candidate.workExperiences.map((exp) => {
-                                    return <li key={candidate.exp}>{exp}</li>;
+                                    
+                                    return <li key={candidate.exp}  >{exp}</li>;
                                   })}
-                              </ul> */}
+                              </ul>
 
                               <br />
                             </div>
@@ -316,6 +320,7 @@ const badg = {
   fontSize: 14,
   cursor: "pointer",
   borderRadius: 12,
+  
 };
 
 const containerStyle = {
@@ -350,6 +355,11 @@ const valueStyle = {
 const imageStyle = {
   width: "20%",
   height: "20%",
+};
+
+const contactButton = {
+  marginRight: "3%",
+  marginTop: "2%",
 };
 
 export default IndividualProfile;

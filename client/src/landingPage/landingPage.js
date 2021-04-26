@@ -41,15 +41,15 @@ function LandingPage() {
                       />
 
                       <div className="social-info">
-                        <Link to={candidate.facebook}>
+                        <a href={candidate.facebook} target='_blank'>
                           <i className="fa fa-facebook"></i>
-                        </Link>
-                        <Link to={candidate.twitter}>
+                        </a>
+                        <a href={`https://www.instagram.com/${candidate.twitter}`} target='_blank'>
                           <i className="fa fa-twitter"></i>
-                        </Link>
-                        <Link to={candidate.instagram}>
+                        </a>
+                        <a href={`https://www.instagram.com/${candidate.instagram}`} target='_blank'>
                           <i className="fa fa-instagram"></i>
-                        </Link>
+                        </a>
                       </div>
                     </div>
 

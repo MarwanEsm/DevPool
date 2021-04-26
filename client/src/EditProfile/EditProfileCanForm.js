@@ -10,11 +10,12 @@ function EditProfieCanForm() {
   // const { user } = useContext(AuthContext);
   const { candidate } = useContext(CandidatesContext);
   const [workEx, setWorkEx] = useState([]);
-  const [state, setState] = useState({});
+  const [state, setState] = useState(candidate);
 
   const handleChange = (e) => {
     e.preventDefault();
     setState({ ...state, [e.target.name]: e.target.value });
+    //value//
   };
 
   const [file, setMyFile] = useState();
@@ -45,6 +46,7 @@ function EditProfieCanForm() {
     //   redirect: "follow",
     //   body: data,
     // };
+    console.log(state);
     fetch("http://localhost:5000/candidate/me", {
       method: "put",
       headers: {
@@ -105,7 +107,7 @@ function EditProfieCanForm() {
     values[i] = e.target.value;
     setWorkEx(values);
   }
-
+console.log(candidate);
   return (
     <div>
       <div className="container">

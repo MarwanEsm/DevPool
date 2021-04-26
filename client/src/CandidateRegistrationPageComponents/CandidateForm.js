@@ -13,7 +13,7 @@ function CandidateForm() {
     title: "",
     location: "",
     email: "",
-    workExperience: [],
+    workExperiences: [],
     desiredPosition: "",
     expectedSalary: "",
   });
@@ -22,7 +22,7 @@ function CandidateForm() {
     state.fullName === "" ||
     state.title === "" ||
     state.location === "" ||
-    state.workExperience === [] ||
+    state.workExperiences === [] ||
     state.desiredPosition === "" ||
     state.expectedSalary === "";
 
