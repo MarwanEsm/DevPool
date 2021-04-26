@@ -64,7 +64,6 @@ function IndividualProfile() {
                 <span
                   className="btn btn-xs btn-primary mb-3"
                   onClick={handelClick}
-                  // style={badg}
                   style={contactButton}
                 >
                   Edit Profile
@@ -357,7 +356,7 @@ const imageStyle = {
 };
 
 const contactButton = {
-  marginRight: "3%",
+  marginRight: "-1%",
   marginTop: "2%",
 };
 

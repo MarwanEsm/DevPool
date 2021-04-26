@@ -435,6 +435,7 @@ const changePhotoStyle = {
   width: "100%",
   fontSize: 12,
   color: "white",
+  marginTop:'3%'
 };
 
 const divStyle = {
