@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import "./RegistrationStyle.css";
 
@@ -31,7 +31,6 @@ function RegistrationForm() {
     setState({ ...state, owner: e.target.value });
   };
 
- 
   const submitDetails = (e) => {
     e.preventDefault();
     fetch("http://localhost:5000/auth/register", {
@@ -52,7 +51,7 @@ function RegistrationForm() {
         }
       });
   };
- 
+
   return (
     <div className="wrapper" style={formStyle}>
       <form action="#">
@@ -154,6 +153,7 @@ function RegistrationForm() {
           className="btn btn-primary mb-3"
           onClick={submitDetails}
           disabled={isInvalid}
+          style={submitStyle}
         >
           Signup
         </div>
@@ -185,7 +185,6 @@ function RegistrationForm() {
   );
 }
 
-
 const label2Style = {
   fontFamily: "Candara",
   fontSize: 13,
@@ -205,22 +204,22 @@ const checkBox = {
   marginBottom: "6%",
 };
 
-
-
 const formStyle = {
   marginBottom: "12%",
-  marginTop:'3%'
+  marginTop: "3%",
 };
 
-const termsStyle={
-  color:'gray'
+const termsStyle = {
+  color: "gray",
+};
+
+const orStyle = {
+  background: "-webkit-linear-gradient(right, #acabcc, #55b6ee)",
+};
+
+const submitStyle={
+marginLeft:'25%',
+marginTop:'2%',
+marginBottom:'4%'
 }
-
-
-const orStyle ={
-  background: '-webkit-linear-gradient(right, #acabcc, #55b6ee)'
-
-}
-
-
 export default RegistrationForm;
