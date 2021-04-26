@@ -1,9 +1,12 @@
 import React from "react";
 import "./FooterStyle.css";
 import { Link } from "react-router-dom";
-import ButtonMailto from './Mailto';
 
 function Footer() {
+  const handelClick = (e) => {
+    window.location = "mailto:support@bbbootstrap.com";
+    e.preventDefault();
+  };
   return (
     <div>
       <footer className="footer">
@@ -35,13 +38,20 @@ function Footer() {
             </div>
             <div>
               <i className="fa fa-phone footer-contacts-icon"></i>
-              <p className="footer-center-info email text-left"> +49 15755076336</p>
+              <p className="footer-center-info email text-left">
+                {" "}
+                +49 15755076336
+              </p>
             </div>
             <div>
               <i className="fa fa-envelope footer-contacts-icon"></i>
-              <p>
-              <ButtonMailto label="support@bbbootstrap.com" mailto="mailto:support@bbbootstrap.com"  />
-              
+
+              <p
+                className="footer-center-info email text-left"
+                onClick={handelClick}
+                style={pStyle}
+              >
+                support@bbbootstrap.com
               </p>
             </div>
           </div>
@@ -73,9 +83,8 @@ function Footer() {
   );
 }
 
-const linkStyle = {
-  color: "white",
-  fontSize: 15,
+const pStyle = {
+  cursor: "pointer",
 };
 
 export default Footer;

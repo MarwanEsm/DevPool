@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
-// import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 import NavBarCandidateForEmployer from "./NavBarCandidateForEmployer";
 import Footer from "../LandingPageComponents/Footer";
 
 function CandidateIndividualForEmployer() {
   const history = useHistory();
   const { id } = useParams();
-  // const { candidate, setCandidate } = useContext(CandidatesContext);
 
   const handelClick = () => {
     history.push("/ChatScreen");
   };
 
-  const handelClick1 = () => {
-    history.push("/");
+  const handelClick1 = (e) => {
+    window.location = `mailto:${candidate.email}`;
+    e.preventDefault();
   };
-
   const [candidate, setCandidate] = useState();
 
   useEffect(() => {
@@ -48,8 +46,7 @@ function CandidateIndividualForEmployer() {
             <div className="profile-header-cover"></div>
 
             <div className="profile-header-content" style={headerContent}>
-              <div className="profile-header-img"
-              style={imageStyle}>
+              <div className="profile-header-img" style={imageStyle}>
                 {candidate && (
                   <img src={`http://localhost:5000/${candidate.img}`} alt="" />
                 )}
@@ -66,13 +63,15 @@ function CandidateIndividualForEmployer() {
                   >
                     Message
                   </span>
-                  <span
-                    className="btn btn-xs btn-primary mb-3"
-                    onClick={handelClick1}
-                    style={contactButton}
-                  >
-                    Send Email
-                  </span>
+                  {candidate && (
+                    <span
+                      className="btn btn-xs btn-primary mb-3"
+                      onClick={handelClick1}
+                      style={contactButton}
+                    >
+                      Send Email
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
@@ -356,8 +355,9 @@ const divButton = {
   marginRight: "-3%",
 };
 
-const imageStyle={
-  width:'20%',
-  height:'20%'
-}
+const imageStyle = {
+  width: "20%",
+  height: "20%",
+};
+
 export default CandidateIndividualForEmployer;
