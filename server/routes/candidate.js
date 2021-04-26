@@ -99,6 +99,7 @@ router.post(
 router.put(
   "/me",
   passport.authenticate("jwt", { session: false }),
+
   (req, res) => {
     console.log(req.body);
     CandidateSchema.findOneAndUpdate(
@@ -115,5 +116,37 @@ router.put(
     );
   }
 );
+
+// router.put(
+//   "/new",
+//   passport.authenticate("jwt", { session: false }),
+//   upload.single("file"),
+//   (req, res) => {
+//     console.log(req.user);
+   
+//     CandidateSchema.findOneAndUpdate(
+//       { userId: req.user.id },
+//       req.body,
+//       (err, candidate) => {
+//         if (err) {
+//           res.send(err);
+//         } else {
+//           const body = {
+//             ...req.body,
+//             img: `uploads/${req.file.originalname}`,
+//             userId: req.user._id,
+//           }
+//             .then((candidate) => {
+//               candidate.save();
+//               res.send({ msg: "Details weres submitted" });
+//             })
+//             .catch((err) => {
+//               res.send(err);
+//             });
+//         }
+//       }
+//     );
+//   }
+// );
 
 module.exports = router;

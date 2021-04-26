@@ -107,7 +107,7 @@ function EditProfieCanForm() {
     values[i] = e.target.value;
     setWorkEx(values);
   }
-console.log(candidate);
+  console.log(candidate);
   return (
     <div>
       <div className="container">
@@ -166,7 +166,6 @@ console.log(candidate);
                         placeholder="Education"
                         name="education"
                         onChange={handleChange}
-                        value={state.education}
                         style={inputtStyle}
                       />
                     </div>
@@ -180,7 +179,6 @@ console.log(candidate);
                         placeholder="Title"
                         name="title"
                         onChange={handleChange}
-                        value={state.title}
                         style={inputtStyle}
                       />
                     </div>
@@ -194,7 +192,6 @@ console.log(candidate);
                         placeholder="Skills"
                         name="skills"
                         onChange={handleChange}
-                        value={state.skills}
                         style={inputtStyle}
                       />
                     </div>
@@ -208,7 +205,6 @@ console.log(candidate);
                         name="hobbies"
                         placeholder="Hobbies"
                         onChange={handleChange}
-                        value={state.hobbies}
                         style={inputtStyle}
                       />
                     </div>
@@ -223,7 +219,6 @@ console.log(candidate);
                         type="number"
                         name="phoneNo"
                         onChange={handleChange}
-                        value={state.phoneNo}
                         style={inputtStyle}
                       />
                     </div>
@@ -237,7 +232,6 @@ console.log(candidate);
                         placeholder="Desired Position"
                         name="desiredPosition"
                         onChange={handleChange}
-                        value={state.desiredPosition}
                         type="text"
                         style={inputtStyle}
                       />
@@ -253,7 +247,6 @@ console.log(candidate);
                         type="number"
                         name="expectedSalary"
                         onChange={handleChange}
-                        value={state.expectedSalary}
                         style={inputtStyle}
                       />
                     </div>
@@ -268,7 +261,6 @@ console.log(candidate);
                         type="url"
                         name="github"
                         onChange={handleChange}
-                        value={state.github}
                         style={inputtStyle}
                       />
                     </div>
@@ -283,7 +275,6 @@ console.log(candidate);
                         type="url"
                         name="website"
                         onChange={handleChange}
-                        value={state.website}
                         style={inputtStyle}
                       />
                     </div>
@@ -296,7 +287,6 @@ console.log(candidate);
                         className="form-control"
                         type="text"
                         placeholder="Twitter User Name"
-                        value={state.twitter}
                         name="twitter"
                         onChange={handleChange}
                         style={inputtStyle}
@@ -313,7 +303,6 @@ console.log(candidate);
                         type="url"
                         name="facebook"
                         onChange={handleChange}
-                        value={state.facebook}
                         style={inputtStyle}
                       />
                     </div>
@@ -328,7 +317,6 @@ console.log(candidate);
                         type="text"
                         name="languages"
                         onChange={handleChange}
-                        value={state.languages}
                         style={inputtStyle}
                       />
                     </div>
@@ -384,6 +372,7 @@ console.log(candidate);
                         className="form-control"
                         id="ciTy"
                         placeholder="Enter City"
+                        onChange={handleChange}
                         style={inputtStyle}
                       />
                     </div>
@@ -398,7 +387,7 @@ console.log(candidate);
                         style={inputtStyle}
                         name="address"
                         onChange={handleChange}
-                        value={state.address}
+                       
                       />
                     </div>
                   </div>
@@ -407,7 +396,7 @@ console.log(candidate);
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div className="text-right" style={divButtonStyle}>
                       <Button style={buttonCancelStyle}>Cancel</Button>
-                      &nbsp; &nbsp;
+
                       <Button onClick={submitDetails} style={buttonUpdateStyle}>
                         Update
                       </Button>
@@ -489,6 +478,7 @@ const buttonUpdateStyle = {
   cursor: "pointer",
   marginTop: "5%",
   borderRadius: 20,
+  marginLeft: "-18%",
 };
 
 const workExdivStyle = {
@@ -502,9 +492,12 @@ const buttonCancelStyle = {
   marginTop: "5%",
   borderRadius: 20,
   backgroundColor: "gray",
+  marginLeft: "68%",
 };
 
 const divButtonStyle = {
+  display: "flex",
+  justifyContent: "space-between",
   marginRight: "40%",
   marginBottom: "4%",
 };

@@ -34,7 +34,6 @@ function CandidateForm() {
 
   const handleChange = (e) => {
     e.preventDefault();
-
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
@@ -88,6 +87,7 @@ function CandidateForm() {
     setWorkEx(values);
   }
 
+  console.log(state);
   return (
     <div className="container register" style={divStyle}>
       <div className="row">
@@ -214,7 +214,7 @@ function CandidateForm() {
                                 value={field}
                                 onChange={(e) => handleChangeMore(idx, e)}
                                 style={input1Style}
-                              ></Form.Control>
+                              />
                             </div>
                           );
                         })}

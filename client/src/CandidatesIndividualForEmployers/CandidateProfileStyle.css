@@ -1,0 +1,11 @@
+.btn{
+    position:relative;
+  color: #eee;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background-color: inherit;
+  box-shadow: none;
+  overflow: hidden;
+    
+}
