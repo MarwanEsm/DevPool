@@ -64,15 +64,21 @@ const CandidateProfile = () => {
                         alt=""
                       />
                       <div className="social-info">
-                        <Link to={candidate.facebook}>
+                        <a href={candidate.facebook} target="_blank">
                           <i className="fa fa-facebook"></i>
-                        </Link>
-                        <Link to={candidate.twitter}>
+                        </a>
+                        <a
+                          href={`https://www.twitter.com/${candidate.twitter}`}
+                          target="_blank"
+                        >
                           <i className="fa fa-twitter"></i>
-                        </Link>
-                        <Link to={candidate.linkedIn}>
-                          <i className="fa fa-linkedin"></i>
-                        </Link>
+                        </a>
+                        <a
+                          href={`https://www.instagram.com/${candidate.instagram}`}
+                          target="_blank"
+                        >
+                          <i className="fa fa-instagram"></i>
+                        </a>
                       </div>
                     </div>
 
@@ -95,11 +101,11 @@ const CandidateProfile = () => {
                             {linkName}
                           </Badge>
                         </div>
-                        <div >
+                        <div>
                           {text && (
                             <>
                               <p style={text2Style}>Work Experience :</p>
-                              <ul style={textStyle}>
+                              {/* <ul style={textStyle}>
                                 {candidate.workExperiences &&
                                   candidate.workExperiences.length &&
                                   candidate.workExperiences.map((exp) => {
@@ -109,7 +115,7 @@ const CandidateProfile = () => {
                                       </li>
                                     );
                                   })}
-                              </ul>
+                              </ul> */}
                               <div>
                                 <p style={text1Style}>
                                   Desired Position: {candidate.desiredPosition}
@@ -169,25 +175,17 @@ const divStyle = {
 
 const textStyle = {
   fontFamily: "	Candara",
-  
- 
-
 };
 
 const text1Style = {
   fontFamily: "	Candara",
-  marginRight:'20%'
-
+  marginRight: "20%",
 };
-
 
 const text2Style = {
   fontFamily: "	Candara",
-  marginRight:'29%'
-
+  marginRight: "29%",
 };
-
-
 
 const divRow = {
   width: "130%",
@@ -231,8 +229,6 @@ const badg1 = {
   marginTop: "6%",
   marginBottom: "5%",
 };
-
-
 
 const checkProfile = {
   marginRight: "25%",

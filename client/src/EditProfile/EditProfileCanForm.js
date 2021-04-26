@@ -185,7 +185,7 @@ function EditProfieCanForm() {
                   </div>
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
-                      <label htmlFor="phone">Skills</label>
+                      <label htmlFor="skills">Skills</label>
                       <input
                         type="text"
                         className="form-control"
@@ -198,7 +198,7 @@ function EditProfieCanForm() {
                   </div>
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
-                      <label htmlFor="website">Hobbies</label>
+                      <label htmlFor="hobbies">Hobbies</label>
                       <input
                         className="form-control"
                         type="text"
@@ -212,7 +212,7 @@ function EditProfieCanForm() {
 
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
-                      <label htmlFor="website">Phone No</label>
+                      <label htmlFor="phoneNo">Phone No</label>
                       <input
                         className="form-control"
                         placeholder="Phone No."
@@ -226,7 +226,7 @@ function EditProfieCanForm() {
 
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
-                      <label htmlFor="website">Desired Position</label>
+                      <label htmlFor="desiredPosition">Desired Position</label>
                       <input
                         className="form-control"
                         placeholder="Desired Position"
@@ -240,7 +240,7 @@ function EditProfieCanForm() {
 
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
-                      <label htmlFor="website">Expected Salary</label>
+                      <label htmlFor="expectedSalary">Expected Salary</label>
                       <input
                         className="form-control"
                         placeholder="Expected Salary"
@@ -254,7 +254,7 @@ function EditProfieCanForm() {
 
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
-                      <label htmlFor="website">Github</label>
+                      <label htmlFor="github">Github</label>
                       <input
                         className="form-control"
                         placeholder="Github URL"
@@ -282,7 +282,7 @@ function EditProfieCanForm() {
 
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
-                      <label htmlFor="website">Twitter</label>
+                      <label htmlFor="twitter">Twitter</label>
                       <input
                         className="form-control"
                         type="text"
@@ -296,7 +296,7 @@ function EditProfieCanForm() {
 
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
-                      <label htmlFor="website">Facebook</label>
+                      <label htmlFor="facebook">Facebook</label>
                       <input
                         className="form-control"
                         placeholder="Facebook URL"
@@ -307,10 +307,37 @@ function EditProfieCanForm() {
                       />
                     </div>
                   </div>
+                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div className="form-group">
+                      <label htmlFor="instagram">Instagram</label>
+                      <input
+                        className="form-control"
+                        placeholder="Instagram User Name"
+                        type="url"
+                        name="instagram"
+                        onChange={handleChange}
+                        style={inputtStyle}
+                      />
+                    </div>
+                  </div>
 
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
-                      <label htmlFor="website">Languages</label>
+                      <label htmlFor="sTate">Address</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Address"
+                        style={inputtStyle}
+                        name="address"
+                        onChange={handleChange}
+                       
+                      />
+                    </div>
+                  </div>
+                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div className="form-group">
+                      <label htmlFor="languages">Languages</label>
                       <input
                         className="form-control"
                         placeholder="Languages"
@@ -322,6 +349,8 @@ function EditProfieCanForm() {
                     </div>
                   </div>
                 </div>
+
+              
 
                 <div className="form-group" style={workExdivStyle}>
                   <Form.Row>
@@ -357,41 +386,7 @@ function EditProfieCanForm() {
                   </Form.Row>
                 </div>
 
-                <div className="row gutters">
-                  <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <h6 className="mb-3 " style={headerAddress}>
-                      Address
-                    </h6>
-                  </div>
-
-                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <div className="form-group">
-                      <label htmlFor="ciTy">City</label>
-                      <input
-                        type="name"
-                        className="form-control"
-                        id="ciTy"
-                        placeholder="Enter City"
-                        onChange={handleChange}
-                        style={inputtStyle}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <div className="form-group">
-                      <label htmlFor="sTate">Address</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Address"
-                        style={inputtStyle}
-                        name="address"
-                        onChange={handleChange}
-                       
-                      />
-                    </div>
-                  </div>
-                </div>
+                
                 <div className="row gutters">
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div className="text-right" style={divButtonStyle}>

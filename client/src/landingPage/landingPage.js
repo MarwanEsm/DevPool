@@ -45,7 +45,7 @@ function LandingPage() {
                           <i className="fa fa-facebook"></i>
                         </a>
                         <a
-                          href={`https://www.instagram.com/${candidate.twitter}`}
+                          href={`https://www.twitter.com/${candidate.twitter}`}
                           target="_blank"
                         >
                           <i className="fa fa-twitter"></i>

@@ -162,7 +162,11 @@ function CandidateIndividualForEmployer() {
                             </svg>
                           </td>
                           {candidate && (
-                            <td className="value">{candidate.facebook}</td>
+                            <td className="value">
+                              <a href={candidate.facebook} target="_blank">
+                                {candidate.facebook}
+                              </a>
+                            </td>
                           )}
                         </tr>
                         <tr>
@@ -185,7 +189,11 @@ function CandidateIndividualForEmployer() {
                             </svg>
                           </td>
                           {candidate && (
-                            <td className="value">{candidate.github}</td>
+                            <td className="value">
+                              <a href={candidate.github} target="_blank">
+                                {candidate.github}
+                              </a>
+                            </td>
                           )}
                         </tr>
                         <tr>
@@ -206,7 +214,14 @@ function CandidateIndividualForEmployer() {
                             </svg>
                           </td>
                           {candidate && (
-                            <td className="value">{candidate.twitter}</td>
+                            <td className="value">
+                              <a
+                                href={`https://www.twitter.com/${candidate.twitter}`}
+                                target="_blank"
+                              >
+                                {candidate.twitter}
+                              </a>
+                            </td>
                           )}
                         </tr>
                         <tr>
@@ -241,7 +256,14 @@ function CandidateIndividualForEmployer() {
                             </svg>
                           </td>
                           {candidate && (
-                            <td className="value">{candidate.instagram}</td>
+                            <td className="value">
+                              <a
+                                href={`https://www.instagram.com/${candidate.instagram}`}
+                                target="_blank"
+                              >
+                                {candidate.instagram}
+                              </a>{" "}
+                            </td>
                           )}
                         </tr>
                       </tbody>
@@ -360,4 +382,7 @@ const imageStyle = {
   height: "20%",
 };
 
+const aStyle = {
+  marginTop: "4%",
+};
 export default CandidateIndividualForEmployer;
