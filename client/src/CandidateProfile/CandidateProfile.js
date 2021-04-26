@@ -186,6 +186,9 @@ const text2Style = {
   marginRight:'29%'
 
 };
+
+
+
 const divRow = {
   width: "130%",
   marginLeft: "-16%",

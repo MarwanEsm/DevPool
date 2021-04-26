@@ -7,7 +7,6 @@ export const CandidatesContextProvider = ({ children }) => {
   const [searchTitle, setSearchTitle] = useState("");
   const [selectLocation, setSelectLocation] = useState("all");
   const filteredCandidates = candidates.filter((candidate) => {
-    console.log(candidates);
     return (
       (candidate.title.toLowerCase().includes(searchTitle.toLowerCase()) &&
         candidate.location === selectLocation) ||
@@ -20,7 +19,6 @@ export const CandidatesContextProvider = ({ children }) => {
     fetch("http://localhost:5000/candidate/all")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setCandidates(data);
       });
   }, []);
