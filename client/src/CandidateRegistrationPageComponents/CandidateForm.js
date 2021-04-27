@@ -13,20 +13,22 @@ function CandidateForm() {
     title: "",
     location: "",
     email: "",
-    workExperiences: [],
     desiredPosition: "",
     expectedSalary: "",
   });
+
+  console.log(workEx);
+  const [image, setImage] = useState();
 
   const isInvalid =
     state.fullName === "" ||
     state.title === "" ||
     state.location === "" ||
-    state.workExperiences === [] ||
+    !workEx.length ||
+    !image ||
     state.desiredPosition === "" ||
     state.expectedSalary === "";
 
-  const [image, setImage] = useState();
   const uploadImage = (img) => {
     console.log(img);
     setImage(img[0]);
@@ -44,11 +46,13 @@ function CandidateForm() {
     console.log(`image`, image);
     data.append("file", image);
     data.append("filename", "img");
-
+    console.log(state);
     Object.keys(state).forEach((key) => {
       data.append(key, state[key]);
     });
-
+    workEx.forEach((wex) => {
+      data.append("workExperiences", wex);
+    });
     const token = localStorage.getItem("token");
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -87,6 +91,7 @@ function CandidateForm() {
     setWorkEx(values);
   }
 
+  console.log(state);
   return (
     <div className="container register" style={divStyle}>
       <div className="row">

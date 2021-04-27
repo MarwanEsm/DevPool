@@ -54,55 +54,39 @@ router.get("/:id", (req, res) => {
   });
 });
 
-// router.post(
-//   "/new",
-//   passport.authenticate("jwt", { session: false }),
-//   upload.single("file"),
-//   (req, res) => {
-//     console.log(req.user);
-//     const reqEmail = req.body.email;
-//     CandidateSchema.findOne({ email: reqEmail }, (err, candidate) => {
-//       if (err) {
-//         res.send(err);
-//       } else if (reqEmail !== req.user.email) {
-//         res.send({
-//           success: false,
-//           msg: " Email does not match the registered email",
-//         });
-//       } else if (candidate) {
-//         res.send({ success: false, msg: "Candidate is already registered" });
-//       } else {
-//         const body = {
-//           ...req.body,
-//           img: `uploads/${req.file.originalname}`,
-//           userId: req.user._id,
-//         };
-//         const newCandidate = new CandidateSchema(body);
-//         newCandidate
-//           .save()
-//           .then((user) => {
-//             UserSchema.findOneAndUpdate(
-//               { email: user.email },
-//               { isRegistered: true }
-//             ).then((user) => {
-//               user.save();
-//             });
-//             res.send({ msg: "Details weres submitted" });
-//           })
-//           .catch((err) => {
-//             res.send(err);
-//           });
-//       }
-//     });
-//   }
-// );
+router.put(
+  "/me",
+  passport.authenticate("jwt", { session: false }),
+  upload.single("file"),
+  (req, res) => {
+    console.log(req.file);
+    console.log(req.body);
+    const reqEmail = req.body.email;
+    const body = {
+      ...req.body,
+      img: `uploads/${req.file.originalname}`,
+      userId: req.user._id,
+    };
+    CandidateSchema.findOneAndUpdate(
+      { email: reqEmail },
+      body,
+      (err, candidate) => {
+        if (err) {
+          res.send(err);
+        } else {
+          res.send({ msg: "Candidate updated", candidate });
+        }
+      }
+    );
+  }
+);
 
 router.post(
   "/new",
   passport.authenticate("jwt", { session: false }),
   upload.single("file"),
   (req, res) => {
-    console.log(req.user);
+    console.log(req.body);
     const reqEmail = req.body.email;
     EmployerSchema.findOne({ email: reqEmail }, (err, employer) => {
       if (err) {
@@ -154,27 +138,25 @@ router.post(
   }
 );
 
-router.put(
-  "/me",
-  passport.authenticate("jwt", { session: false }),
+// router.put(
+//   "/me",
+//   passport.authenticate("jwt", { session: false }),
 
-  (req, res) => {
-    console.log(req.body);
-    CandidateSchema.findOneAndUpdate(
-      { userId: req.user.id },
-      req.body,
-      (err, candidate) => {
-        if (err) {
-          res.send(err);
-        } else {
-          console.log(candidate);
-          res.send({ msg: "Changes were submitted" });
-        }
-      }
-    );
-  }
-);
-
-
+//   (req, res) => {
+//     console.log(req.body);
+//     CandidateSchema.findOneAndUpdate(
+//       { userId: req.user.id },
+//       req.body,
+//       (err, candidate) => {
+//         if (err) {
+//           res.send(err);
+//         } else {
+//           console.log(candidate);
+//           res.send({ msg: "Changes were submitted" });
+//         }
+//       }
+//     );
+//   }
+// );
 
 module.exports = router;

@@ -19,9 +19,11 @@ function EditProfieCanForm() {
   };
 
   const [file, setMyFile] = useState();
-  const uploadImage = (file) => {
-    console.log(file);
-    setMyFile(file[0]);
+  const uploadImage = (event) => {
+    event.preventDefault();
+    const files = event.target.files
+    console.log(files);
+    setMyFile(files[0]);
   };
 
   const submitDetails = (e) => {
@@ -31,6 +33,8 @@ function EditProfieCanForm() {
     console.log(`image`, file);
     data.append("file", file);
     data.append("filename", "img");
+
+    
 
     Object.keys(state).forEach((key) => {
       data.append(key, state[key]);
@@ -46,15 +50,12 @@ function EditProfieCanForm() {
     //   redirect: "follow",
     //   body: data,
     // };
+    
     console.log(state);
     fetch("http://localhost:5000/candidate/me", {
       method: "put",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(state),
+      headers: myHeaders ,
+      body: data,
     })
       .then((res) => res.json())
       .then((res) => {
@@ -107,7 +108,7 @@ function EditProfieCanForm() {
     values[i] = e.target.value;
     setWorkEx(values);
   }
- 
+
   return (
     <div>
       <div className="container">
@@ -119,7 +120,10 @@ function EditProfieCanForm() {
                   <div className="user-profile">
                     <div className="user-avatar">
                       {candidate && (
-                        <img src={`http://localhost:5000/${candidate.img}`} alt=''/>
+                        <img
+                          src={`http://localhost:5000/${candidate.img}`}
+                          alt=""
+                        />
                       )}
                       <div
                         className="file btn btn-lg btn-primary"
@@ -127,12 +131,12 @@ function EditProfieCanForm() {
                       >
                         <input
                           onChange={uploadImage}
-                          imgextension={[".jpg", ".gif", ".png", ".gif"]}
+                          imgextension={[".jpg", ".png", ".gif"]}
                           maxfilesize={5242880}
                           type="file"
-                          value={file}
-                          name="file"
-                          accept=".jpg"
+                      
+                          name="img"
+                          accept= {[".jpg", ".gif", ".png"]}
                           style={changePhotoStyle}
                         />
                       </div>
@@ -331,7 +335,6 @@ function EditProfieCanForm() {
                         style={inputtStyle}
                         name="address"
                         onChange={handleChange}
-                       
                       />
                     </div>
                   </div>
@@ -349,8 +352,6 @@ function EditProfieCanForm() {
                     </div>
                   </div>
                 </div>
-
-              
 
                 <div className="form-group" style={workExdivStyle}>
                   <Form.Row>
@@ -386,7 +387,6 @@ function EditProfieCanForm() {
                   </Form.Row>
                 </div>
 
-                
                 <div className="row gutters">
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div className="text-right" style={divButtonStyle}>
@@ -430,7 +430,7 @@ const changePhotoStyle = {
   width: "100%",
   fontSize: 12,
   color: "white",
-  marginTop:'3%'
+  marginTop: "3%",
 };
 
 const divStyle = {

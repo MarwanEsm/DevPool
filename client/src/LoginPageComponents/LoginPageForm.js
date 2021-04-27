@@ -43,7 +43,7 @@ const LoginPageForm = () => {
         const { user, token } = res;
         localStorage.setItem("token", token);
         setUser(user);
-        console.log(user);
+       
 
         if (user && user.isRegistered === true && user.owner === "candidate") {
           history.push(`/IndividualProfile/${user._id}`);

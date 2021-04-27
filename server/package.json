@@ -16,7 +16,8 @@
     "path": "^0.12.7"
   },
   "scripts": {
-    "start": "concurrently \"nodemon server.js\" \"cd ../client && npm start\""
+    "start": "concurrently \"nodemon server.js\" \"cd ../client && npm start\"",
+    "dev" : "nodemon server.js"
   },
   "name": "server",
   "version": "1.0.0",
