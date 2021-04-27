@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-// import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 import IndividualCandidateNavBar from "./NavBarIndividualCandidate";
-// import Badge from "react-bootstrap/Badge";
 import Footer from "../LandingPageComponents/Footer";
 import "./IndividualProfileStyle.css";
 
@@ -12,7 +10,6 @@ function IndividualProfile() {
   const { user } = useContext(AuthContext);
   const { candidate, setCandidate } = useContext(CandidatesContext);
   const history = useHistory();
-  
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -31,12 +28,6 @@ function IndividualProfile() {
       });
   }, []);
 
-  // const [file, setMyFile] = useState();
-  // const uploadImage = (file) => {
-  //   console.log(file);
-  //   setMyFile(file[0]);
-  // };
-
   const handelClick = () => {
     history.push(`/EditProfileCandidate/${user._id}`);
   };
@@ -54,7 +45,11 @@ function IndividualProfile() {
             <div className="profile-header-content" style={headerContent}>
               <div className="profile-header-img" style={divImgstyle}>
                 {candidate && (
-                  <img src={`http://localhost:5000/${candidate.img}`} alt="" style={imgStyle}/>
+                  <img
+                    src={`http://localhost:5000/${candidate.img}`}
+                    alt=""
+                    style={imgStyle}
+                  />
                 )}
               </div>
 
@@ -318,7 +313,6 @@ const svgStyle145 = {
   height: 35,
 };
 
-
 const containerStyle = {
   marginTop: "5%",
   width: "67%",
@@ -353,12 +347,11 @@ const imgStyle = {
   height: "100%",
 };
 
-const divImgstyle={
-  width:'17%',
-  height:'2%',
-  marginBottom:'1%'
-  
-}
+const divImgstyle = {
+  width: "17%",
+  height: "2%",
+  marginBottom: "1%",
+};
 
 const contactButton = {
   marginRight: "-1%",

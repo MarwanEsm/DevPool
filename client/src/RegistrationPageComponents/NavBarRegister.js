@@ -20,15 +20,13 @@ function RegissterNavBar() {
       </div>
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
-        <i className="fa fa-home" aria-hidden="true"/> 
-        &nbsp;
-          Home
+          <i className="fa fa-home" aria-hidden="true" />
+          &nbsp; Home
         </Badge>
         &nbsp; &nbsp;
         <Badge style={badg} variant="primary" onClick={handleClick1}>
-        <i className="fa fa-sign-in" /> 
-        &nbsp;
-          Login
+          <i className="fa fa-sign-in" />
+          &nbsp; Login
         </Badge>
       </div>
     </div>
@@ -36,7 +34,7 @@ function RegissterNavBar() {
 }
 
 const badg = {
-  height: '80%',
+  height: "80%",
   width: 100,
   fontSize: 14,
   cursor: "pointer",
@@ -58,7 +56,5 @@ const navdiv = {
   display: "flex",
   justifyContent: "space-between",
 };
-
-
 
 export default RegissterNavBar;

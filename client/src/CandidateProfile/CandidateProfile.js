@@ -1,18 +1,15 @@
 import React, { useContext, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import CandidatePageNavBar from "./NavBarCandidate";
 import Nav from "react-bootstrap/Nav";
 import "./CandidateProfileStyle.css";
 import Footer from "../LandingPageComponents/Footer";
 import Badge from "react-bootstrap/Badge";
-// import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
 const CandidateProfile = () => {
-  // const { user } = useContext(AuthContext);
   const { filteredCandidates } = useContext(CandidatesContext);
   const history = useHistory();
-  // const { id } = useParams();
 
   const checkFullProfile = (candidateId) => {
     history.push(`/CandidateIndividualForEmployers/${candidateId}`);

@@ -119,7 +119,7 @@ function EditProfieCanForm() {
                   <div className="user-profile">
                     <div className="user-avatar">
                       {candidate && (
-                        <img src={`http://localhost:5000/${candidate.img}`} />
+                        <img src={`http://localhost:5000/${candidate.img}`} alt=''/>
                       )}
                       <div
                         className="file btn btn-lg btn-primary"

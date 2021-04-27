@@ -3,16 +3,15 @@ import { useHistory } from "react-router-dom";
 import Badge from "react-bootstrap/Badge";
 import Logo from "../LandingPageComponents/Logo";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
-// import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 
 function CandidateNavBar() {
   const { user } = useContext(AuthContext);
-  // const { candidate } = useContext(CandidatesContext);
+
   const history = useHistory();
 
   const handleClick = () => {
     console.log(user);
-    history.push(`/IndividualProfile/${user._id}`)
+    history.push(`/IndividualProfile/${user._id}`);
 
     // if (user.isRegistered == true) {
     //   history.push(`/IndividualProfile/${user._id}`);
@@ -32,15 +31,13 @@ function CandidateNavBar() {
       </div>
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
-        <i className="fa fa-user" />
-        &nbsp;
-          My Profile
+          <i className="fa fa-user" />
+          &nbsp; My Profile
         </Badge>
         &nbsp; &nbsp;
         <Badge style={badg} variant="primary" onClick={handleClick1}>
-        <i className="fa fa-sign-out" aria-hidden="true"/> 
-        &nbsp;
-          Log out
+          <i className="fa fa-sign-out" aria-hidden="true" />
+          &nbsp; Log out
         </Badge>
       </div>
     </div>
@@ -61,7 +58,7 @@ const navdiv = {
 };
 
 const badg = {
-  height: '80%',
+  height: "80%",
   width: 100,
   fontSize: 14,
   cursor: "pointer",

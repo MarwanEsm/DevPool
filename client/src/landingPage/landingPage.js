@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Headbar from "../LandingPageComponents/Navbar";
 import Footer from "../LandingPageComponents/Footer";
 import "./LandingPageStyle.css";

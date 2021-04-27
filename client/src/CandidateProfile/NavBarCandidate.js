@@ -92,59 +92,6 @@ function CandidatePageNavBar() {
         </Badge>
       </div>
     </div>
-
-    // <div style={maindivStyle}>
-    //   <div>
-    //     <Logo />
-    //   </div>
-    //   <div style={rowdivStyle}>
-    //     <Form.Row>
-    //       <Form.Group as={Col} controlId="formGridCity">
-    //         <div style={div1Style}>
-    //           <Form.Control
-    //             as="select"
-    //             defaultValue="all"
-    //             onChange={changeLocation}
-    //             style={selectStyle}
-    //           >
-    //             <option value="all">All</option>
-    //             {candidates.length &&
-    //               candidates.map((candidate) => {
-    //                 return (
-    //                   <option key={candidate._id} value={candidate.location}>
-    //                     {candidate.location}
-    //                   </option>
-    //                 );
-    //               })}
-    //           </Form.Control>
-    //         </div>
-    //       </Form.Group>
-
-    //       <Form.Group as={Col} controlId="formGridCity">
-    //         <FormControl
-    //           type="text"
-    //           name="searchTitle"
-    //           placeholder="What"
-    //           className="mr-sm-2"
-    //           value={searchTitle}
-    //           onChange={handleChange}
-    //           style={selectStyle}
-    //         />
-    //       </Form.Group>
-    //     </Form.Row>
-    //   </div>
-    //   <div style={navdiv}>
-    //     <Link to= {`/EmployerIndividualProfile/${user._id}`} style={linkStyle}>
-    //       My Profile
-    //     </Link>
-    //     &nbsp; &nbsp;
-    //     <h5>|</h5>
-    //     &nbsp; &nbsp;
-    //     <Link to="/" style={linkStyle}>
-    //       Log out
-    //     </Link>
-    //   </div>
-    // </div>
   );
 }
 

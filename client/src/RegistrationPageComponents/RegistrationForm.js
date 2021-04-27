@@ -23,10 +23,10 @@ function RegistrationForm() {
     state.owner === "" ||
     !checked;
 
-    const [passwordShown, setPasswordShown] = useState(false);
-    const togglePasswordVisiblity = () => {
-      setPasswordShown(passwordShown ? false : true);
-    };
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -58,13 +58,13 @@ function RegistrationForm() {
         }
       });
   };
-  const eyeIcon = passwordShown ? (<FontAwesomeIcon icon={faEye} />
-    
+  const eyeIcon = passwordShown ? (
+    <FontAwesomeIcon icon={faEye} />
   ) : (
     <span className="fas fa-eye-slash"></span>
   );
   const eye = <FontAwesomeIcon icon={faEye} />;
- 
+
   return (
     <div className="wrapper" style={formStyle}>
       <form action="#">
@@ -100,7 +100,6 @@ function RegistrationForm() {
           />
           <div className="icon btn">
             <span onClick={togglePasswordVisiblity}>{eyeIcon}</span>
-           
           </div>
         </div>
 
@@ -236,4 +235,6 @@ const submitStyle = {
   marginTop: "2%",
   marginBottom: "4%",
 };
+
+
 export default RegistrationForm;

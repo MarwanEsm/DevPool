@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
-import {useHistory} from 'react-router-dom';
+import React from "react";
+import { useHistory } from "react-router-dom";
 import Logo from "../LandingPageComponents/Logo";
 import Badge from "react-bootstrap/Badge";
-// import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function IndividualEmployerNavBar() {
-  // const { user } = useContext(AuthContext);
   const history = useHistory();
   const handleClick = () => {
     history.goBack();
@@ -15,28 +13,26 @@ function IndividualEmployerNavBar() {
   };
   return (
     <div style={maindivStyle}>
-    <div>
-      <Logo />
+      <div>
+        <Logo />
+      </div>
+      <div style={navdiv}>
+        <Badge style={badg} variant="primary" onClick={handleClick}>
+          <i className="fa fa-user-circle-o" aria-hidden="true" />
+          &nbsp; My Profile
+        </Badge>
+        &nbsp; &nbsp;
+        <Badge style={badg} variant="primary" onClick={handleClick1}>
+          <i className="fa fa-sign-out" aria-hidden="true" />
+          &nbsp; Log out
+        </Badge>
+      </div>
     </div>
-    <div style={navdiv}>
-      <Badge style={badg} variant="primary" onClick={handleClick}>
-      <i className="fa fa-user-circle-o"  aria-hidden="true"/> 
-      &nbsp;
-        My Profile
-      </Badge>
-      &nbsp; &nbsp;
-      <Badge style={badg} variant="primary" onClick={handleClick1}>
-      <i className="fa fa-sign-out" aria-hidden="true"/> 
-      &nbsp;
-        Log out
-      </Badge>
-    </div>
-  </div>
   );
 }
 
 const badg = {
-  height: '80%',
+  height: "80%",
   width: 100,
   fontSize: 14,
   cursor: "pointer",
@@ -45,7 +41,6 @@ const badg = {
   alignText: "center",
   fontFamily: "	Candara",
 };
-
 
 const maindivStyle = {
   display: "flex",
@@ -59,6 +54,5 @@ const navdiv = {
   display: "flex",
   justifyContent: "space-between",
 };
-
 
 export default IndividualEmployerNavBar;
