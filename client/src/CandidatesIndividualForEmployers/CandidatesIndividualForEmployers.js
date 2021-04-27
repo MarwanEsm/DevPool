@@ -15,6 +15,11 @@ function CandidateIndividualForEmployer() {
     window.location = `mailto:${candidate.email}`;
     e.preventDefault();
   };
+
+  const handelEmail = (e) => {
+    window.location = `mailto:${candidate.email}`;
+    e.preventDefault();
+  };
   const [candidate, setCandidate] = useState();
 
   useEffect(() => {
@@ -141,9 +146,11 @@ function CandidateIndividualForEmployer() {
                           <td className="field" style={td4Style}>
                             Email
                           </td>
-                          {candidate && (
-                            <td className="value">{candidate.email}</td>
-                          )}
+                          <span onClick={handelEmail} style={spanStyle}>
+                            {candidate && (
+                              <td className="value">{candidate.email}</td>
+                            )}
+                          </span>
                         </tr>
                         <tr>
                           <td>
@@ -382,7 +389,8 @@ const imageStyle = {
   height: "20%",
 };
 
-const aStyle = {
-  marginTop: "4%",
+const spanStyle = {
+  cursor: "pointer",
 };
+
 export default CandidateIndividualForEmployer;
