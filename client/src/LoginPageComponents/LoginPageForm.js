@@ -116,7 +116,7 @@ const LoginPageForm = () => {
           </button>
           <Grid container style={container1}>
             <Grid>
-              <Link to="#" variant="body2" style={linkStyle}>
+              <Link to="/ForgetPasswordPage" variant="body2" style={linkStyle}>
                 Forgot password?
               </Link>
             </Grid>

@@ -11,10 +11,11 @@ import EmployersUserPage from "./EmployerPage/EmployersUserPage";
 import CandidateProfile from "./CandidateProfile/CandidateProfile";
 import ChatScreen from "./ChatScreen/ChatScreen";
 import IndividualProfile from "./Individualprofile/IndividualProfile";
-import EmployerIndividualProfile from './EmployerIndividualProfile/EmployerIndividualProfile';
-import EditProfileCandidate from './EditProfile/EditProfileCandidate';
-import CandidateIndividualForEmployers from './CandidatesIndividualForEmployers/CandidatesIndividualForEmployers';
-import EditProfileEmployer from './EditProfileEmployer/EditProfileEmployer';
+import EmployerIndividualProfile from "./EmployerIndividualProfile/EmployerIndividualProfile";
+import EditProfileCandidate from "./EditProfile/EditProfileCandidate";
+import CandidateIndividualForEmployers from "./CandidatesIndividualForEmployers/CandidatesIndividualForEmployers";
+import EditProfileEmployer from "./EditProfileEmployer/EditProfileEmployer";
+import ForgetPasswordPage from "./ForgetPassword/ForgetPasswordPage";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -61,6 +62,9 @@ function App() {
                 </Route>
                 <Route path="/EditProfileEmployer/:id">
                   <EditProfileEmployer />
+                </Route>
+                <Route path="/ForgetPasswordPage">
+                  <ForgetPasswordPage />
                 </Route>
               </Switch>
             </UsersContextProvider>
