@@ -6,12 +6,15 @@ import "./ForgetPasswordFormStyle.css";
 
 function ForgetPasswordForm() {
   const [state, setState] = useState({
+    email: "",
     newPassword: "",
     repeatPassword: "",
   });
 
   const isInvalid =
-    state.newPassword === "" || state.repeatPassword !== state.newPassword;
+    state.email === "" ||
+    state.newPassword === "" ||
+    state.repeatPassword !== state.newPassword;
 
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordVisiblity = () => {
@@ -23,26 +26,32 @@ function ForgetPasswordForm() {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
-  //   const submitDetails = (e) => {
-  //     e.preventDefault();
-  //     fetch("http://localhost:5000/auth/register", {
-  //       method: "post",
-  //       headers: {
-  //         Accept: "application/json, text/plain, */*",
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(state),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((res) => {
-  //         console.log(res);
-  //         if (res.success) {
-  //           alert(res.msg);
-  //         } else {
-  //           alert(res.msg);
-  //         }
-  //       });
-  //   };
+  const submitDetails = (e) => {
+    e.preventDefault();
+    console.log(state);
+    const token = localStorage.getItem("token");
+    console.log(token);
+
+    fetch("http://localhost:5000/register", {
+      method: "put",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(state),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(state);
+        if (res.success) {
+          alert(res.msg);
+        } else {
+          alert(res.msg);
+        }
+        console.log(res);
+      });
+  };
 
   const eyeIcon = passwordShown ? (
     <FontAwesomeIcon icon={faEye} />
@@ -57,7 +66,20 @@ function ForgetPasswordForm() {
         <div className="h5 font-weight-bold text-center mb-3">
           Rest Password
         </div>
-
+        <div className="form-group d-flex align-items-center">
+          <div className="icon">
+            <span className="far fa-envelope"></span>
+          </div>
+          <input
+            autocomplete="off"
+            type="email"
+            className="form-control"
+            placeholder="Email"
+            name="email"
+            onChange={handleChange}
+            value={state.email}
+          />
+        </div>
         <div className="form-group d-flex align-items-center">
           <div className="icon">
             <span className="fa fa-lock"></span>
@@ -93,7 +115,7 @@ function ForgetPasswordForm() {
 
         <div
           className="btn btn-primary mb-3"
-        //   onClick={submitDetails}
+          onClick={submitDetails}
           disabled={isInvalid}
           style={submitStyle}
         >

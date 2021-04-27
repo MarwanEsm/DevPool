@@ -79,4 +79,39 @@ router.post("/login", (req, res) => {
   });
 });
 
+router.put(
+  "/me",
+  (req, res) => {
+    const reqemail = req.body.email;
+    const reqpassword = req.body.password;
+    UsersChema.findOneAndUpdate({ email: reqemail }, req.body, (err, user) => {
+      if (err) {
+        res.send(err);
+      } else if (!user) {
+        res.send({ msg: "User does not exist" });
+      } else {
+        bcrypt.compare(reqpassword, user.password, (err, result) => {
+          if (err) {
+            res.send(err);
+          } else if (result == true) {
+            const payload = {
+              id: user.id,
+              email: user.email,
+            };
+            jwt.sign(payload, keys.secretOrKey, (err, token) => {
+              if (err) {
+                res.send(err);
+              } else {
+                res
+                  .status(200)
+                  .json({ success: true, token: token, user: user });
+              }
+            });
+          } 
+        });
+      }
+    });
+  }
+);
+
 module.exports = router;
