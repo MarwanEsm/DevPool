@@ -1,13 +1,11 @@
 import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
-// import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import "./EditProfileStyle.css";
 
 function EditProfieCanForm() {
-  // const { user } = useContext(AuthContext);
   const { candidate } = useContext(CandidatesContext);
   const [workEx, setWorkEx] = useState([]);
   const [state, setState] = useState(candidate);
@@ -15,13 +13,12 @@ function EditProfieCanForm() {
   const handleChange = (e) => {
     e.preventDefault();
     setState({ ...state, [e.target.name]: e.target.value });
-    //value//
   };
 
   const [file, setMyFile] = useState();
   const uploadImage = (event) => {
     event.preventDefault();
-    const files = event.target.files
+    const files = event.target.files;
     console.log(files);
     setMyFile(files[0]);
   };
@@ -34,27 +31,20 @@ function EditProfieCanForm() {
     data.append("file", file);
     data.append("filename", "img");
 
-    
-
     Object.keys(state).forEach((key) => {
       data.append(key, state[key]);
     });
-
+    workEx.forEach((wex) => {
+      data.append("workExperiences", wex);
+    });
     const token = localStorage.getItem("token");
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
 
-    // var requestOptions = {
-    //   method: "PUT",
-    //   headers: myHeaders,
-    //   redirect: "follow",
-    //   body: data,
-    // };
-    
     console.log(state);
     fetch("http://localhost:5000/candidate/me", {
       method: "put",
-      headers: myHeaders ,
+      headers: myHeaders,
       body: data,
     })
       .then((res) => res.json())
@@ -67,41 +57,21 @@ function EditProfieCanForm() {
       });
   };
 
-  // const submitDetails = (e) => {
-  //   e.preventDefault();
-  //   console.log(state);
-  //   const token = localStorage.getItem("token");
-  //   console.log(token);
-
-  //   fetch("http://localhost:5000/candidate/me", {
-  //     method: "put",
-  //     headers: {
-  //       Accept: "application/json, text/plain, */*",
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //     body: JSON.stringify(state),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       console.log(state);
-  //       if (res.success) {
-  //         alert(res.msg);
-  //       } else {
-  //         alert(res.msg);
-  //       }
-  //       console.log(res);
-  //     });
-  // };
-
   function handleAdd() {
     setWorkEx([...workEx, ""]);
   }
 
   function handleRemove(i) {
-    const values = workEx.splice(i, 1);
+    let values = [...workEx];
+    values.splice(i, 1);
+    console.log(workEx);
     setWorkEx(values);
   }
+
+  // function handleRemove(i) {
+  //   const values = workEx.splice(i, 1);
+  //   setWorkEx(values);
+  // }
 
   function handleChangeMore(i, e) {
     const values = [...workEx];
@@ -134,9 +104,8 @@ function EditProfieCanForm() {
                           imgextension={[".jpg", ".png", ".gif"]}
                           maxfilesize={5242880}
                           type="file"
-                      
                           name="img"
-                          accept= {[".jpg", ".gif", ".png"]}
+                          accept={[".jpg", ".gif", ".png"]}
                           style={changePhotoStyle}
                         />
                       </div>
