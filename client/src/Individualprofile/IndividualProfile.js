@@ -52,9 +52,9 @@ function IndividualProfile() {
             <div className="profile-header-cover"></div>
 
             <div className="profile-header-content" style={headerContent}>
-              <div className="profile-header-img" style={imageStyle}>
+              <div className="profile-header-img" style={divImgstyle}>
                 {candidate && (
-                  <img src={`http://localhost:5000/${candidate.img}`} alt="" />
+                  <img src={`http://localhost:5000/${candidate.img}`} alt="" style={imgStyle}/>
                 )}
               </div>
 
@@ -292,6 +292,12 @@ function IndividualProfile() {
                         <address className="m-b-0">{candidate.address}</address>
                       )}
                     </div>
+                    <div className="field">City:</div>
+                    <div className="value">
+                      {candidate && (
+                        <address className="m-b-0">{candidate.city}</address>
+                      )}
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -312,14 +318,6 @@ const svgStyle145 = {
   height: 35,
 };
 
-const badg = {
-  height: 35,
-  width: 90,
-  fontSize: 14,
-  cursor: "pointer",
-  borderRadius: 12,
-  
-};
 
 const containerStyle = {
   marginTop: "5%",
@@ -350,10 +348,17 @@ const valueStyle = {
   fontFamily: "Candara",
 };
 
-const imageStyle = {
-  width: "20%",
-  height: "20%",
+const imgStyle = {
+  width: "100%",
+  height: "100%",
 };
+
+const divImgstyle={
+  width:'17%',
+  height:'2%',
+  marginBottom:'1%'
+  
+}
 
 const contactButton = {
   marginRight: "-1%",

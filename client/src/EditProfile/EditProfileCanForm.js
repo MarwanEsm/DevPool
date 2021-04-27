@@ -107,7 +107,7 @@ function EditProfieCanForm() {
     values[i] = e.target.value;
     setWorkEx(values);
   }
-  console.log(candidate);
+ 
   return (
     <div>
       <div className="container">
@@ -268,12 +268,12 @@ function EditProfieCanForm() {
 
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
-                      <label htmlFor="education">Education</label>
+                      <label htmlFor="languages">Languages</label>
                       <input
                         className="form-control"
-                        placeholder="Education"
-                        type="url"
-                        name="education"
+                        placeholder="Languages"
+                        type="text"
+                        name="languages"
                         onChange={handleChange}
                         style={inputtStyle}
                       />
@@ -337,12 +337,12 @@ function EditProfieCanForm() {
                   </div>
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
-                      <label htmlFor="languages">Languages</label>
+                      <label htmlFor="city">City</label>
                       <input
                         className="form-control"
-                        placeholder="Languages"
+                        placeholder="City"
                         type="text"
-                        name="languages"
+                        name="city"
                         onChange={handleChange}
                         style={inputtStyle}
                       />

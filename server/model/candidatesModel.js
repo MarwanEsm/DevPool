@@ -16,7 +16,7 @@ const CandidateSchema = new mongoose.Schema({
   instagram: String,
   facebook: String,
   twitter: String,
-  shortStoryAboutme: String,
+  city: String,
   phoneNo: Number,
   hobbies: String,
   address: String,

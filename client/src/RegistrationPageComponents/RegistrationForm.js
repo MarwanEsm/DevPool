@@ -88,27 +88,26 @@ function RegistrationForm() {
         <div className="form-group d-flex align-items-center">
           <div className="icon">
             <span className="fa fa-lock"></span>
-          </div>{" "}
+          </div>
           <input
             autocomplete="off"
             className="form-control"
             placeholder="Creat password"
             type={passwordShown ? "text" : "password"}
-            // type="password"
             name="password"
             onChange={handleChange}
             value={state.password}
           />
           <div className="icon btn">
             <span onClick={togglePasswordVisiblity}>{eyeIcon}</span>
-            {/* <span className="fas fa-eye-slash"></span> */}
+           
           </div>
         </div>
 
         <div className="form-group d-flex align-items-center">
           <div className="icon">
             <span className="fas fa-key"></span>
-          </div>{" "}
+          </div>
           <input
             autocomplete="off"
             className="form-control"
