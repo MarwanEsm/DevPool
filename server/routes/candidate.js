@@ -1,6 +1,7 @@
 const express = require("express");
 const CandidateSchema = require("../model/candidatesModel");
 const UserSchema = require("../model/usersModel");
+const EmployerSchema = require("../model/employersModel");
 const router = express.Router();
 const passport = require("passport");
 const multer = require("multer");
@@ -53,6 +54,49 @@ router.get("/:id", (req, res) => {
   });
 });
 
+// router.post(
+//   "/new",
+//   passport.authenticate("jwt", { session: false }),
+//   upload.single("file"),
+//   (req, res) => {
+//     console.log(req.user);
+//     const reqEmail = req.body.email;
+//     CandidateSchema.findOne({ email: reqEmail }, (err, candidate) => {
+//       if (err) {
+//         res.send(err);
+//       } else if (reqEmail !== req.user.email) {
+//         res.send({
+//           success: false,
+//           msg: " Email does not match the registered email",
+//         });
+//       } else if (candidate) {
+//         res.send({ success: false, msg: "Candidate is already registered" });
+//       } else {
+//         const body = {
+//           ...req.body,
+//           img: `uploads/${req.file.originalname}`,
+//           userId: req.user._id,
+//         };
+//         const newCandidate = new CandidateSchema(body);
+//         newCandidate
+//           .save()
+//           .then((user) => {
+//             UserSchema.findOneAndUpdate(
+//               { email: user.email },
+//               { isRegistered: true }
+//             ).then((user) => {
+//               user.save();
+//             });
+//             res.send({ msg: "Details weres submitted" });
+//           })
+//           .catch((err) => {
+//             res.send(err);
+//           });
+//       }
+//     });
+//   }
+// );
+
 router.post(
   "/new",
   passport.authenticate("jwt", { session: false }),
@@ -60,37 +104,51 @@ router.post(
   (req, res) => {
     console.log(req.user);
     const reqEmail = req.body.email;
-    CandidateSchema.findOne({ email: reqEmail }, (err, candidate) => {
+    EmployerSchema.findOne({ email: reqEmail }, (err, employer) => {
       if (err) {
         res.send(err);
-      } else if (reqEmail !== req.user.email) {
+      } else if (employer) {
         res.send({
           success: false,
-          msg: " Email does not match the registered email",
+          msg: "User exist",
         });
-      } else if (candidate) {
-        res.send({ success: false, msg: "Candidate is already registered" });
       } else {
-        const body = {
-          ...req.body,
-          img: `uploads/${req.file.originalname}`,
-          userId: req.user._id,
-        };
-        const newCandidate = new CandidateSchema(body);
-        newCandidate
-          .save()
-          .then((user) => {
-            UserSchema.findOneAndUpdate(
-              { email: user.email },
-              { isRegistered: true }
-            ).then((user) => {
-              user.save();
-            });
-            res.send({ msg: "Details weres submitted" });
-          })
-          .catch((err) => {
+        CandidateSchema.findOne({ email: reqEmail }, (err, candidate) => {
+          if (err) {
             res.send(err);
-          });
+          } else if (reqEmail !== req.user.email) {
+            res.send({
+              success: false,
+              msg: " Email does not match the registered email",
+            });
+          } else if (candidate) {
+            res.send({
+              success: false,
+              msg: "Candidate is already registered",
+            });
+          } else {
+            const body = {
+              ...req.body,
+              img: `uploads/${req.file.originalname}`,
+              userId: req.user._id,
+            };
+            const newCandidate = new CandidateSchema(body);
+            newCandidate
+              .save()
+              .then((user) => {
+                UserSchema.findOneAndUpdate(
+                  { email: user.email },
+                  { isRegistered: true }
+                ).then((user) => {
+                  user.save();
+                });
+                res.send({ msg: "Details weres submitted" });
+              })
+              .catch((err) => {
+                res.send(err);
+              });
+          }
+        });
       }
     });
   }
@@ -123,7 +181,7 @@ router.put(
 //   upload.single("file"),
 //   (req, res) => {
 //     console.log(req.user);
-   
+
 //     CandidateSchema.findOneAndUpdate(
 //       { userId: req.user.id },
 //       req.body,

@@ -268,12 +268,12 @@ function EditProfieCanForm() {
 
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
-                      <label htmlFor="website">Website</label>
+                      <label htmlFor="education">Education</label>
                       <input
                         className="form-control"
-                        placeholder="Website URL"
+                        placeholder="Education"
                         type="url"
-                        name="website"
+                        name="education"
                         onChange={handleChange}
                         style={inputtStyle}
                       />

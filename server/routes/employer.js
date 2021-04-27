@@ -3,6 +3,7 @@ const EmployerSchema = require("../model/employersModel");
 const passport = require("passport");
 const router = express.Router();
 const UserSchema = require("../model/usersModel");
+const CandidateSchema = require("../model/candidatesModel");
 
 router.get("/all", (req, res) => {
   EmployerSchema.find({}, (err, employers) => {
@@ -40,56 +41,114 @@ router.get("/:id", (req, res) => {
   });
 });
 
+// router.post(
+//   "/new",
+//   passport.authenticate("jwt", { session: false }),
+//   (req, res) => {
+//     const emEmail = req.body.email;
+//     console.log(req.user.email);
+//     console.log(req.body);
+//     EmployerSchema.findOne({ email: emEmail }, (err, employer) => {
+//       if (err) {
+//         res.send(err);
+//       } else if (employer) {
+//         res.send({
+//           success: false,
+//           msg: "Employer is already registered",
+//         });
+//       } else if (emEmail !== req.user.email) {
+//         res.send({
+//           success: false,
+//           msg: "Email does not match with registered email",
+//         });
+//       } else {
+//         const body = {
+//           ...req.body,
+//           userId: req.user._id,
+//         };
+//         const newEmployer = new EmployerSchema(body);
+//         newEmployer
+//           .save()
+//           .then((user) => {
+//             UserSchema.findOneAndUpdate(
+//               { email: user.email },
+//               { isRegistered: true }
+//             ).then((user) => {
+//               user.save();
+//             });
+
+//             res.send({
+//               success: true,
+//               msg: " Details were submitted",
+//             });
+//           })
+
+//           .catch((err) => {
+//             res.send(err);
+//           });
+//       }
+//     });
+//   }
+// );
+
 router.post(
   "/new",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const emEmail = req.body.email;
-    console.log(req.user.email);
-    console.log(req.body);
-    EmployerSchema.findOne({ email: emEmail }, (err, employer) => {
+    CandidateSchema.findOne({ email: emEmail }, (err, candidate) => {
       if (err) {
         res.send(err);
-      } else if (employer) {
+      } else if (candidate) {
         res.send({
           success: false,
-          msg: "Employer is already registered",
-        });
-      } else if (emEmail !== req.user.email) {
-        res.send({
-          success: false,
-          msg: "Email does not match with registered email",
+          msg: "User exist",
         });
       } else {
-        const body = {
-          ...req.body,
-          userId: req.user._id,
-        };
-        const newEmployer = new EmployerSchema(body);
-        newEmployer
-          .save()
-          .then((user) => {
-            UserSchema.findOneAndUpdate(
-              { email: user.email },
-              { isRegistered: true }
-            ).then((user) => {
-              user.save();
-            });
-
-            res.send({
-              success: true,
-              msg: " Details were submitted",
-            });
-          })
-
-          .catch((err) => {
+        EmployerSchema.findOne({ email: emEmail }, (err, employer) => {
+          if (err) {
             res.send(err);
-          });
+          } else if (employer) {
+            res.send({
+              success: false,
+              msg: "Employer is already registered",
+            });
+          } else if (emEmail !== req.user.email) {
+            res.send({
+              success: false,
+              msg: "Email does not match with registered email",
+            });
+          } else {
+            const body = {
+              ...req.body,
+              userId: req.user._id,
+            };
+            const newEmployer = new EmployerSchema(body);
+            newEmployer
+              .save()
+              .then((user) => {
+                UserSchema.findOneAndUpdate(
+                  { email: user.email },
+                  { isRegistered: true }
+                ).then((user) => {
+                  user.save();
+                });
+
+                res.send({
+                  success: true,
+                  msg: " Details were submitted",
+                });
+              })
+
+              .catch((err) => {
+                res.send(err);
+              });
+          }
+        });
       }
     });
   }
 );
-
 
 router.put(
   "/me",
@@ -105,7 +164,6 @@ router.put(
         } else {
           console.log(employer);
           res.send({ msg: "Changes were submitted" });
-          
         }
       }
     );

@@ -87,7 +87,6 @@ function CandidateForm() {
     setWorkEx(values);
   }
 
-  console.log(state);
   return (
     <div className="container register" style={divStyle}>
       <div className="row">
