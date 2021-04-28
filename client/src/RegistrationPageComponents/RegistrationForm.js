@@ -234,7 +234,10 @@ const submitStyle = {
   marginLeft: "25%",
   marginTop: "2%",
   marginBottom: "4%",
+  
 };
+
+
 
 
 export default RegistrationForm;

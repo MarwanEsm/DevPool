@@ -68,16 +68,16 @@ function Footer() {
               snippets.
             </p>
             <div className="social-links social-icons">
-              <Link href="#">
+              <Link href="https://www.facebook.com/profile.php?id=100014692329207">
                 <i className="fa fa-facebook"></i>
               </Link>
-              <Link href="#">
+              <Link href="https://twitter.com/MarwanAbouEsmaa">
                 <i className="fa fa-twitter"></i>
               </Link>
-              <Link href="#">
+              <Link href="https://www.linkedin.com/in/marwan-esmaail/">
                 <i className="fa fa-linkedin"></i>
               </Link>
-              <Link href="#">
+              <Link href="https://github.com/MarwanEsm">
                 <i className="fa fa-github"></i>
               </Link>
             </div>

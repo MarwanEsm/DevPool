@@ -17,7 +17,7 @@ function CandidateForm() {
     expectedSalary: "",
   });
 
-  console.log(workEx);
+ 
   const [image, setImage] = useState();
 
   const isInvalid =
@@ -91,7 +91,6 @@ function CandidateForm() {
     setWorkEx(values);
   }
 
-  console.log(state);
   return (
     <div className="container register" style={divStyle}>
       <div className="row">
@@ -289,7 +288,8 @@ const buttonStyle = {
 
 const submitStyle = {
   marginLeft: "40%",
-  paddingBottom: 3,
+  paddingBottom: 6,
+  paddingTop: 4,
 };
 
 const divStyle = {
@@ -331,7 +331,8 @@ const div1Style = {
   marginTop: "3%",
 };
 const uplaoderStyle = {
-  color: "#0062cc",
+  backgroundColor: "#0062cc",
+  borderRadius:5
 };
 const checkBox = {
   marginTop: "8%",

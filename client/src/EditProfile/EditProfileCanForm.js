@@ -27,13 +27,13 @@ function EditProfieCanForm() {
     e.preventDefault();
     var data = new FormData();
 
-    console.log(`image`, file);
-    data.append("file", file);
-    data.append("filename", "img");
+    // console.log(`image`, file);
+    // data.append("file", file);
+    // data.append("filename", "img");
 
-    Object.keys(state).forEach((key) => {
-      data.append(key, state[key]);
-    });
+    // Object.keys(state).forEach((key) => {
+    //   data.append(key, state[key]);
+    // });
     workEx.forEach((wex) => {
       data.append("workExperiences", wex);
     });
@@ -68,15 +68,10 @@ function EditProfieCanForm() {
     setWorkEx(values);
   }
 
-  // function handleRemove(i) {
-  //   const values = workEx.splice(i, 1);
-  //   setWorkEx(values);
-  // }
-
   function handleChangeMore(i, e) {
     const values = [...workEx];
     values[i] = e.target.value;
-    setWorkEx(values);
+    setWorkEx(values);console.log(values);
   }
 
   return (
@@ -88,7 +83,7 @@ function EditProfieCanForm() {
               <div className="card-body">
                 <div className="account-settings">
                   <div className="user-profile">
-                    <div className="user-avatar">
+                    {/* <div className="user-avatar">
                       {candidate && (
                         <img
                           src={`http://localhost:5000/${candidate.img}`}
@@ -109,7 +104,7 @@ function EditProfieCanForm() {
                           style={changePhotoStyle}
                         />
                       </div>
-                    </div>
+                    </div> */}
                     {candidate && (
                       <h5 className="user-name">{candidate.fullName}</h5>
                     )}
@@ -322,7 +317,42 @@ function EditProfieCanForm() {
                   </div>
                 </div>
 
-                <div className="form-group" style={workExdivStyle}>
+                <div className="form-group">
+                    <Form.Row>
+                      <Form.Group as={Col} controlId="formGridPassword">
+                        {workEx.map((field, idx) => {
+                          return (
+                            <div key={idx} style={addMoreDiv}>
+                              <span
+                                type="button"
+                                onClick={() => handleRemove(idx)}
+                                style={spanStyle}
+                              >
+                                X
+                              </span>
+                              <Form.Control
+                                type="text"
+                                value={field}
+                                onChange={(e) => handleChangeMore(idx, e)}
+                                style={input1Style}
+                              />
+                            </div>
+                          );
+                        })}
+                        <Button
+                          variant="outline-primary"
+                          type="button"
+                          onClick={() => handleAdd()}
+                          style={buttonStyle}
+                        >
+                          Add Work Experience
+                        </Button>
+                      </Form.Group>
+                    </Form.Row>
+                  </div>
+
+
+                {/* <div className="form-group" style={workExdivStyle}>
                   <Form.Row>
                     <Form.Group as={Col} controlId="formGridPassword">
                       {workEx.map((field, idx) => {
@@ -354,7 +384,7 @@ function EditProfieCanForm() {
                       </Button>
                     </Form.Group>
                   </Form.Row>
-                </div>
+                </div> */}
 
                 <div className="row gutters">
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -387,30 +417,30 @@ const header = {
   fontWeight: "bold",
 };
 
-const headerAddress = {
-  fontFamily: "Candara",
-  color: "black",
-  fontSize: 18,
-  fontWeight: "bold",
-  marginTop: 15,
-};
+// const headerAddress = {
+//   fontFamily: "Candara",
+//   color: "black",
+//   fontSize: 18,
+//   fontWeight: "bold",
+//   marginTop: 15,
+// };
 
-const changePhotoStyle = {
-  width: "100%",
-  fontSize: 12,
-  color: "white",
-  marginTop: "3%",
-};
+// const changePhotoStyle = {
+//   width: "100%",
+//   fontSize: 12,
+//   color: "white",
+//   marginTop: "3%",
+// };
 
-const divStyle = {
-  width: "83%",
-  marginTop: "20%",
-  paddingBottom: 6,
-  paddingTop: 1,
-  paddingRight: 0,
-  paddingLeft: 12,
-  borderRadius: 8,
-};
+// const divStyle = {
+//   width: "83%",
+//   marginTop: "20%",
+//   paddingBottom: 6,
+//   paddingTop: 1,
+//   paddingRight: 0,
+//   paddingLeft: 12,
+//   borderRadius: 8,
+// };
 
 const addMoreDiv = {
   display: "flex",
