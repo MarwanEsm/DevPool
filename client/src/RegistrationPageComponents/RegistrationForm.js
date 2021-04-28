@@ -40,23 +40,33 @@ function RegistrationForm() {
 
   const submitDetails = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/auth/register", {
-      method: "post",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(state),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-        if (res.success) {
-          alert(res.msg);
-        } else {
-          alert(res.msg);
-        }
-      });
+    if (
+      state.email === "" ||
+      state.password === "" ||
+      state.confirmationPassword !== state.password ||
+      state.owner === "" ||
+      !checked
+    ) {
+      alert("Please fill in all required fields");
+    } else {
+      fetch("http://localhost:5000/auth/register", {
+        method: "post",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(state),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res);
+          if (res.success) {
+            alert(res.msg);
+          } else {
+            alert(res.msg);
+          }
+        });
+    }
   };
   const eyeIcon = passwordShown ? (
     <FontAwesomeIcon icon={faEye} />
@@ -165,7 +175,6 @@ function RegistrationForm() {
         <div
           className="btn btn-primary mb-3"
           onClick={submitDetails}
-          disabled={isInvalid}
           style={submitStyle}
         >
           Signup
@@ -234,10 +243,6 @@ const submitStyle = {
   marginLeft: "25%",
   marginTop: "2%",
   marginBottom: "4%",
-  
 };
-
-
-
 
 export default RegistrationForm;

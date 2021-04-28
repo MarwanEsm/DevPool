@@ -12,6 +12,7 @@ function CandidateForm() {
     fullName: "",
     title: "",
     location: "",
+    workEx:[],
     email: "",
     desiredPosition: "",
     expectedSalary: "",
