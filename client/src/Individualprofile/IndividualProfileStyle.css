@@ -26,6 +26,7 @@
 .profile-info-list > li .value {
   color: #666;
   font-family: Candara;
+  /* margin-left: -10%; */
 }
 .profile-info-list > li.img-list a {
   display: inline-block;
@@ -61,12 +62,14 @@
   font-weight: 600;
   width: 25%;
   text-align: right;
+  
 }
 .table.table-profile .value {
   font-weight: 700;
   padding-right: 4rem;
   color: #666;
   font-family: Candara !important ;
+  
 }
 .profile-header {
   position: relative;
@@ -306,4 +309,9 @@ body .fc-widget-header a {
 .friend-list .friend-info p {
   color: #666;
   margin: 0;
+}
+
+
+.list{
+  list-style-type: none !important;
 }

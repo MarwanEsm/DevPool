@@ -75,7 +75,7 @@ function IndividualProfile() {
                     <table className="table table-profile">
                       <thead>
                         <tr>
-                          <th colSpan="2">WORK AND EDUCATION</th>
+                          <th colSpan="2" style={header1}>WORK AND EDUCATION</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -85,11 +85,11 @@ function IndividualProfile() {
                           </td>
                           <td className="value">
                             <div className="m-b-5">
-                              <ul >
+                              <ul className='list'>
                                 {candidate &&
                                    
                                   candidate.workExperiences.map((workExperience) => {
-                                    return <li key={workExperience} >{workExperience}</li>;
+                                    return <li  key={workExperience} >{workExperience}</li>;
                                   })}
                               </ul>
 
@@ -357,5 +357,9 @@ const contactButton = {
   marginRight: "-1%",
   marginTop: "2%",
 };
+
+const header1={
+  marginRight:'-80%'
+}
 
 export default IndividualProfile;

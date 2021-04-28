@@ -41,7 +41,7 @@ function EditProfieCanForm() {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
 
-    console.log(state);
+    
     fetch("http://localhost:5000/candidate/me", {
       method: "put",
       headers: myHeaders,
