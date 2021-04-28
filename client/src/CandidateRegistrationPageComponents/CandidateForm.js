@@ -12,13 +12,12 @@ function CandidateForm() {
     fullName: "",
     title: "",
     location: "",
-    workEx:[],
+    workEx: [],
     email: "",
     desiredPosition: "",
     expectedSalary: "",
   });
 
- 
   const [image, setImage] = useState();
 
   const isInvalid =
@@ -42,37 +41,49 @@ function CandidateForm() {
 
   const submitDetails = (e) => {
     e.preventDefault();
-    var data = new FormData();
+    if (
+      state.fullName === "" ||
+      state.title === "" ||
+      state.location === "" ||
+      !workEx.length ||
+      !image ||
+      state.desiredPosition === "" ||
+      state.expectedSalary === ""
+    ) {
+      alert("Please fill in all required fields");
+    } else {
+      var data = new FormData();
 
-    console.log(`image`, image);
-    data.append("file", image);
-    data.append("filename", "img");
-    console.log(state);
-    Object.keys(state).forEach((key) => {
-      data.append(key, state[key]);
-    });
-    workEx.forEach((wex) => {
-      data.append("workExperiences", wex);
-    });
-    const token = localStorage.getItem("token");
-    const myHeaders = new Headers();
-    myHeaders.append("Authorization", `Bearer ${token}`);
-
-    var requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      redirect: "follow",
-      body: data,
-    };
-    fetch("http://localhost:5000/candidate/new", requestOptions)
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.success) {
-          alert(res.msg);
-        } else {
-          alert(res.msg);
-        }
+      console.log(`image`, image);
+      data.append("file", image);
+      data.append("filename", "img");
+      console.log(state);
+      Object.keys(state).forEach((key) => {
+        data.append(key, state[key]);
       });
+      workEx.forEach((wex) => {
+        data.append("workExperiences", wex);
+      });
+      const token = localStorage.getItem("token");
+      const myHeaders = new Headers();
+      myHeaders.append("Authorization", `Bearer ${token}`);
+
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        redirect: "follow",
+        body: data,
+      };
+      fetch("http://localhost:5000/candidate/new", requestOptions)
+        .then((res) => res.json())
+        .then((res) => {
+          if (res.success) {
+            alert(res.msg);
+          } else {
+            alert(res.msg);
+          }
+        });
+    }
   };
 
   function handleAdd() {
@@ -333,7 +344,7 @@ const div1Style = {
 };
 const uplaoderStyle = {
   backgroundColor: "#0062cc",
-  borderRadius:5
+  borderRadius: 5,
 };
 const checkBox = {
   marginTop: "8%",

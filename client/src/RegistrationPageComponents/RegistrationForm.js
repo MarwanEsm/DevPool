@@ -16,13 +16,6 @@ function RegistrationForm() {
 
   const [checked, setChecked] = useState();
 
-  const isInvalid =
-    state.email === "" ||
-    state.password === "" ||
-    state.confirmationPassword !== state.password ||
-    state.owner === "" ||
-    !checked;
-
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
