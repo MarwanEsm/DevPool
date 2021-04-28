@@ -82,7 +82,8 @@ function CandidateForm() {
           } else {
             alert(res.msg);
           }
-        });
+        })
+        
     }
   };
 

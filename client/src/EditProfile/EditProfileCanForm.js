@@ -7,8 +7,47 @@ import "./EditProfileStyle.css";
 
 function EditProfieCanForm() {
   const { candidate } = useContext(CandidatesContext);
-  const [workEx, setWorkEx] = useState([]);
+
   const [state, setState] = useState(candidate);
+  const [workExp, setWorkExp] = useState([]);
+  // const [state, setState] = useState({
+  // fullName: candidate.fullName,
+  // title: candidate.title,
+  // location: candidate.location,
+  // desiredPosition: candidate.desiredPosition,
+  // expectedSalary: candidate.expectedSalary,
+  // website: candidate.website,
+  // github: candidate.github,
+  // instagram: candidate.instagram,
+  // facebook: candidate.facebook,
+  // twitter: candidate.twitter,
+  // city: candidate.city,
+  // phoneNo: candidate.phoneNo,
+  // hobbies: candidate.hobbies,
+  // address: candidate.address,
+  // languages: candidate.languages,
+  // skills: candidate.skills,
+  // education: candidate.education,
+
+  // fullName: '',
+  //     title: '',
+  //     location: '',
+  //     desiredPosition: '',
+  //     expectedSalary: '',
+  //     website: '',
+  //     github: '',
+  //     instagram: '',
+  //     facebook: '',
+  //     twitter: '',
+  //     city: '',
+  //     phoneNo: '',
+  //     hobbies: '',
+  //     address: '',
+  //     languages: '',
+  //     skills: '',
+  //     education: '',
+
+  // });
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -26,7 +65,6 @@ function EditProfieCanForm() {
   const submitDetails = (e) => {
     e.preventDefault();
     var data = new FormData();
-
     console.log(`image`, file);
     data.append("file", file);
     data.append("filename", "img");
@@ -34,14 +72,13 @@ function EditProfieCanForm() {
     Object.keys(state).forEach((key) => {
       data.append(key, state[key]);
     });
-    workEx.forEach((wex) => {
-      data.append("workExperiences", wex);
+    workExp.forEach((wexes) => {
+      data.append("workExperiences", wexes);
     });
     const token = localStorage.getItem("token");
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
 
-    
     fetch("http://localhost:5000/candidate/me", {
       method: "put",
       headers: myHeaders,
@@ -58,21 +95,21 @@ function EditProfieCanForm() {
   };
 
   function handleAdd() {
-    setWorkEx([...workEx, ""]);
+    setWorkExp([...workExp, ""]);
   }
 
   function handleRemove(i) {
-    let values = [...workEx];
-    values.splice(i, 1);
-    console.log(workEx);
-    setWorkEx(values);
+    let valuess = [...workExp];
+    valuess.splice(i, 1);
+    console.log(workExp);
+    setWorkExp(valuess);
   }
 
   function handleChangeMore(i, e) {
-    const values = [...workEx];
-    values[i] = e.target.value;
-    setWorkEx(values);
-    console.log(values);
+    const valuess = [...workExp];
+    valuess[i] = e.target.value;
+    setWorkExp(valuess);
+    console.log(valuess);
   }
 
   return (
@@ -321,7 +358,7 @@ function EditProfieCanForm() {
                 <div className="form-group">
                   <Form.Row>
                     <Form.Group as={Col} controlId="formGridPassword">
-                      {workEx.map((field, idx) => {
+                      {workExp.map((field, idx) => {
                         return (
                           <div key={idx} style={addMoreDiv}>
                             <span
@@ -351,40 +388,6 @@ function EditProfieCanForm() {
                     </Form.Group>
                   </Form.Row>
                 </div>
-
-                {/* <div className="form-group" style={workExdivStyle}>
-                  <Form.Row>
-                    <Form.Group as={Col} controlId="formGridPassword">
-                      {workEx.map((field, idx) => {
-                        return (
-                          <div key={idx} style={addMoreDiv}>
-                            <span
-                              type="button"
-                              onClick={() => handleRemove(idx)}
-                              style={spanStyle}
-                            >
-                              X
-                            </span>
-                            <Form.Control
-                              type="text"
-                              value={field}
-                              onChange={(e) => handleChangeMore(idx, e)}
-                              style={input1Style}
-                            ></Form.Control>
-                          </div>
-                        );
-                      })}
-                      <Button
-                        variant="outline-primary"
-                        type="button"
-                        onClick={() => handleAdd()}
-                        style={buttonStyle}
-                      >
-                        Add Work Experience
-                      </Button>
-                    </Form.Group>
-                  </Form.Row>
-                </div> */}
 
                 <div className="row gutters">
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -417,14 +420,6 @@ const header = {
   fontWeight: "bold",
 };
 
-const headerAddress = {
-  fontFamily: "Candara",
-  color: "black",
-  fontSize: 18,
-  fontWeight: "bold",
-  marginTop: 15,
-};
-
 const changePhotoStyle = {
   width: "100%",
   fontSize: 12,
@@ -435,6 +430,7 @@ const changePhotoStyle = {
 const divStyle = {
   width: "83%",
   marginTop: "20%",
+  marginLeft: "7%",
   paddingBottom: 6,
   paddingTop: 1,
   paddingRight: 0,
@@ -476,10 +472,6 @@ const buttonUpdateStyle = {
   marginLeft: "-18%",
 };
 
-const workExdivStyle = {
-  marginTop: "3%",
-};
-
 const buttonCancelStyle = {
   fontFamily: "Candara",
   fontSize: 14,
@@ -496,4 +488,5 @@ const divButtonStyle = {
   marginRight: "40%",
   marginBottom: "4%",
 };
+
 export default EditProfieCanForm;

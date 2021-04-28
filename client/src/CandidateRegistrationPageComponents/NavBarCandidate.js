@@ -10,14 +10,7 @@ function CandidateNavBar() {
   const history = useHistory();
 
   const handleClick = () => {
-    console.log(user);
     history.push(`/IndividualProfile/${user._id}`);
-
-    // if (user.isRegistered == true) {
-    //   history.push(`/IndividualProfile/${user._id}`);
-    // } else {
-    //   alert("Please register as candidate");
-    // }
   };
 
   const handleClick1 = () => {

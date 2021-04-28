@@ -138,25 +138,6 @@ router.post(
   }
 );
 
-// router.put(
-//   "/me",
-//   passport.authenticate("jwt", { session: false }),
 
-//   (req, res) => {
-//     console.log(req.body);
-//     CandidateSchema.findOneAndUpdate(
-//       { userId: req.user.id },
-//       req.body,
-//       (err, candidate) => {
-//         if (err) {
-//           res.send(err);
-//         } else {
-//           console.log(candidate);
-//           res.send({ msg: "Changes were submitted" });
-//         }
-//       }
-//     );
-//   }
-// );
 
 module.exports = router;
