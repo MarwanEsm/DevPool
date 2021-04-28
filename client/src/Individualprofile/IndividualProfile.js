@@ -32,43 +32,6 @@ function IndividualProfile() {
     history.push(`/EditProfileCandidate/${user._id}`);
   };
 
-  // const [state, setState] = useState();
-
-  const [file, setMyFile] = useState();
-  const uploadImage = (event) => {
-    event.preventDefault();
-    const files = event.target.files;
-    console.log(files);
-    setMyFile(files[0]);
-  };
-
-  const submitDetails = (e) => {
-    e.preventDefault();
-    var data = new FormData();
-
-    console.log(`image`, file);
-    data.append("file", file);
-    data.append("filename", "img");
-
-    const token = localStorage.getItem("token");
-    const myHeaders = new Headers();
-    myHeaders.append("Authorization", `Bearer ${token}`);
-
-    fetch("http://localhost:5000/candidate/me", {
-      method: "put",
-      headers: myHeaders,
-      body: data,
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.success) {
-          alert(res.msg);
-        } else {
-          alert(res.msg);
-        }
-      });
-  };
-
   return (
     <div>
       <div>
@@ -88,21 +51,6 @@ function IndividualProfile() {
                     style={imgStyle}
                   />
                 )}
-                <div className="file btn btn-lg btn-primary" style={divStyle}>
-                  <input
-                    onChange={uploadImage}
-                    imgextension={[".jpg", ".png", ".gif"]}
-                    maxfilesize={5242880}
-                    type="file"
-                    name="img"
-                    accept={[".jpg", ".gif", ".png"]}
-                    style={changePhotoStyle}
-                  />
-                </div>
-                
-                <button onClick={submitDetails} style={buttonUpdateStyle} className="file btn btn-lg btn-primary">
-                  Update
-                </button>
               </div>
 
               <div className="profile-header-info">
@@ -408,37 +356,6 @@ const divImgstyle = {
 const contactButton = {
   marginRight: "-1%",
   marginTop: "2%",
-};
-
-const changePhotoStyle = {
-  width: "100%",
-  fontSize: 8,
-  color: "white",
-  marginTop: "3%",
-};
-
-const divStyle = {
-  width: "83%",
-  marginTop: "4%",
-  marginLeft: "7%",
-  paddingBottom: 6,
-  paddingTop: 1,
-  paddingRight: 0,
-  paddingLeft: 12,
-  borderRadius: 8,
-};
-
-const buttonUpdateStyle = {
-  fontFamily: "Candara",
-  fontSize: 10,
-  cursor: "pointer",
-  marginTop: "5%",
-  borderRadius: 20,
-  padding:2,
-  backgroundColor:'blue',
-  color:'white',
-  marginLeft:'18%'
- 
 };
 
 export default IndividualProfile;
