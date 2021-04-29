@@ -69,6 +69,13 @@ router.put(
     };
     CandidateSchema.findOneAndUpdate(
       { email: reqEmail },
+     
+      // {
+      //   $push: {
+      //     body: req.body.value
+      //   },  new: true
+      // },
+    
       body,
       (err, candidate) => {
         if (err) {

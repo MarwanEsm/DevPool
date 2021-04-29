@@ -1,15 +1,18 @@
 import React, { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
+import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import "./EditProfileStyle.css";
 
 function EditProfieCanForm() {
   const { candidate } = useContext(CandidatesContext);
-
+  const { user } = useContext(AuthContext);
   const [state, setState] = useState(candidate);
   const [workExp, setWorkExp] = useState([]);
+  const history = useHistory();
   // const [state, setState] = useState({
   // fullName: candidate.fullName,
   // title: candidate.title,
@@ -54,6 +57,11 @@ function EditProfieCanForm() {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
+  const restInput = (e) => {
+    e.preventDefault();
+    setState("")
+    history.push(`/IndividualProfile/${user._id}`)
+  };
   const [file, setMyFile] = useState();
   const uploadImage = (event) => {
     event.preventDefault();
@@ -64,6 +72,7 @@ function EditProfieCanForm() {
 
   const submitDetails = (e) => {
     e.preventDefault();
+
     var data = new FormData();
     console.log(`image`, file);
     data.append("file", file);
@@ -392,7 +401,9 @@ function EditProfieCanForm() {
                 <div className="row gutters">
                   <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div className="text-right" style={divButtonStyle}>
-                      <Button style={buttonCancelStyle}>Cancel</Button>
+                      <Button onClick={restInput} style={buttonCancelStyle}>
+                        Cancel
+                      </Button>
 
                       <Button onClick={submitDetails} style={buttonUpdateStyle}>
                         Update
