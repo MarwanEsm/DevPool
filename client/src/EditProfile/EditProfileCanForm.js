@@ -10,27 +10,28 @@ import "./EditProfileStyle.css";
 function EditProfieCanForm() {
   const { candidate } = useContext(CandidatesContext);
   const { user } = useContext(AuthContext);
-  const [state, setState] = useState(candidate);
+  // const [state, setState] = useState(candidate);
   const [workExp, setWorkExp] = useState([]);
   const history = useHistory();
-  // const [state, setState] = useState({
-  // fullName: candidate.fullName,
-  // title: candidate.title,
-  // location: candidate.location,
-  // desiredPosition: candidate.desiredPosition,
-  // expectedSalary: candidate.expectedSalary,
-  // website: candidate.website,
-  // github: candidate.github,
-  // instagram: candidate.instagram,
-  // facebook: candidate.facebook,
-  // twitter: candidate.twitter,
-  // city: candidate.city,
-  // phoneNo: candidate.phoneNo,
-  // hobbies: candidate.hobbies,
-  // address: candidate.address,
-  // languages: candidate.languages,
-  // skills: candidate.skills,
-  // education: candidate.education,
+  const [state, setState] = useState({
+  fullName: candidate.fullName,
+  title: candidate.title,
+  location: candidate.location,
+  desiredPosition: candidate.desiredPosition,
+  expectedSalary: candidate.expectedSalary,
+  website: candidate.website,
+  github: candidate.github,
+  instagram: candidate.instagram,
+  facebook: candidate.facebook,
+  twitter: candidate.twitter,
+  city: candidate.city,
+  phoneNo: candidate.phoneNo,
+  hobbies: candidate.hobbies,
+  address: candidate.address,
+  languages: candidate.languages,
+  skills: candidate.skills,
+  education: candidate.education,
+  });
 
   // fullName: '',
   //     title: '',

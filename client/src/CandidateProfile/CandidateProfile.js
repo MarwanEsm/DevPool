@@ -94,6 +94,7 @@ const CandidateProfile = () => {
                             style={badg1}
                             className="btn btn-primary btn-block"
                             onClick={handelReadMore}
+                           
                           >
                             {linkName}
                           </Badge>
@@ -102,17 +103,13 @@ const CandidateProfile = () => {
                           {text && (
                             <>
                               <p style={text2Style}>Work Experience :</p>
-                              {/* <ul style={textStyle}>
-                                {candidate.workExperiences &&
-                                  candidate.workExperiences.length &&
-                                  candidate.workExperiences.map((exp) => {
-                                    return (
-                                      <li key={candidate.exp} style={textStyle}>
-                                        {exp}
-                                      </li>
-                                    );
+                              <ul className='list'>
+                                {candidate &&
+                                   
+                                  candidate.workExperiences.map((workExperience) => {
+                                    return <li  key={workExperience} >{workExperience}</li>;
                                   })}
-                              </ul> */}
+                              </ul>
                               <div>
                                 <p style={text1Style}>
                                   Desired Position: {candidate.desiredPosition}

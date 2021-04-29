@@ -60,31 +60,37 @@ router.put(
   upload.single("file"),
   (req, res) => {
     console.log(req.file);
-    console.log(req.body);
-    const reqEmail = req.body.email;
+    console.log(req.user);
+    
+    const reqEmail = req.user.email;
+    console.log(reqEmail);
     const body = {
       ...req.body,
       img: `uploads/${req.file.originalname}`,
       userId: req.user._id,
     };
-    CandidateSchema.findOneAndUpdate(
-      { email: reqEmail },
-     
-      // {
-      //   $push: {
-      //     body: req.body.value
-      //   },  new: true
-      // },
-    
-      body,
-      (err, candidate) => {
-        if (err) {
-          res.send(err);
-        } else {
-          res.send({ msg: "Candidate updated", candidate });
-        }
-      }
-    );
+
+    CandidateSchema.findOne({ email: reqEmail },  (err, candidate) => {
+      candidate = {...candidate, ...body}
+      candidate.save();
+      console.log(candidate);
+      console.log(err);
+      res.send(candidate)
+        });
+
+
+    // CandidateSchema.findOne({ email: reqEmail }, (err, candidate)(
+    //   req.user._id ,
+    //   body,
+    //   (err, candidate) => {
+    //     console.log(candidate);
+    //     if (err) {
+    //       res.send(err);
+    //     } else {
+    //       res.send({ msg: "Candidate updated", candidate });
+    //     }
+    //   }
+    // );
   }
 );
 
