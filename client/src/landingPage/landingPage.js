@@ -5,6 +5,7 @@ import Footer from "../LandingPageComponents/Footer";
 import "./LandingPageStyle.css";
 import "react-flex/index.css";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
+import {serverURL} from '../config';
 
 function LandingPage() {
   const { filteredCandidates } = useContext(CandidatesContext);
@@ -35,7 +36,7 @@ function LandingPage() {
                   >
                     <div className="advisor_thumb" key={candidate._id}>
                       <img
-                        src={`http://localhost:5000/${candidate.img}`}
+                        src={`${serverURL}${candidate.img}`}
                         style={imgStyle}
                         alt=""
                       />
