@@ -106,7 +106,7 @@ const maindivStyle = {
 const div1Style = {
   display: "flex",
   justifyContent: "space-between",
-  marginRight: "8%",
+  marginRight: "5%",
 };
 
 const rowdivStyle = {

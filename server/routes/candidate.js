@@ -64,19 +64,18 @@ router.put(
 
     const reqEmail = req.user.email;
     console.log(reqEmail);
-    const body = {
+    const candidate = {
       ...req.body,
       img: `uploads/${req.file.originalname}`,
       userId: req.user._id,
     };
 
-    CandidateSchema.findOne({ email: reqEmail }, (err, candidate) => {
-      candidate = { ...candidate, ...body };
-
+    CandidateSchema.findOneAndUpdate({ email: reqEmail }, (err, candidate) => {
+      // const candidate = {...body }
       candidate.save();
-      console.log(candidate);
+      // console.log(candidate);
       console.log(err);
-      res.send(candidate);
+      res.send({msg:'Details were updated'});
     });
 
     // CandidateSchema.findOne({ email: reqEmail }, (err, candidate)(

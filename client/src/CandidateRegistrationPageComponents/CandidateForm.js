@@ -75,7 +75,7 @@ function CandidateForm() {
         redirect: "follow",
         body: data,
       };
-      fetch(`${serverURL}/candidate/new`, requestOptions)
+      fetch(`${serverURL}candidate/new`, requestOptions)
         .then((res) => res.json())
         .then((res) => {
           if (res.success) {
