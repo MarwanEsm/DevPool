@@ -100,13 +100,18 @@ function CandidateIndividualForEmployer() {
                           </td>
                           <td className="value">
                             <div className="m-b-5">
-                              {/* <ul>
-                                {candidate.workExperiences &&
-                                  candidate.workExperiences.length &&
-                                  candidate.workExperiences.map((exp) => {
-                                    return <li key={candidate.exp}>{exp}</li>;
-                                  })}
-                              </ul> */}
+                              <ul className="list">
+                                {candidate &&
+                                  candidate.workExperiences.map(
+                                    (workExperience) => {
+                                      return (
+                                        <li key={workExperience}>
+                                          {workExperience}
+                                        </li>
+                                      );
+                                    }
+                                  )}
+                              </ul>
 
                               <br />
                             </div>

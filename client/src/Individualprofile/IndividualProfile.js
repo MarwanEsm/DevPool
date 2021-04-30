@@ -4,6 +4,7 @@ import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 import IndividualCandidateNavBar from "./NavBarIndividualCandidate";
 import Footer from "../LandingPageComponents/Footer";
+import {serverURL} from '../config';
 import "./IndividualProfileStyle.css";
 
 function IndividualProfile() {
@@ -13,7 +14,7 @@ function IndividualProfile() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch(`http://localhost:5000/candidate/me`, {
+    fetch(`${serverURL}candidate/me`, {
       method: "get",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -46,7 +47,7 @@ function IndividualProfile() {
               <div className="profile-header-img" style={divImgstyle}>
                 {candidate && (
                   <img
-                    src={`http://localhost:5000/${candidate.img}`}
+                    src={`${serverURL}${candidate.img}`}
                     alt=""
                     style={imgStyle}
                   />

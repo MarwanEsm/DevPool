@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import ImageUploader from "react-images-upload";
+import { serverURL } from "../config";
 import "./CandidateUserStyle.css";
 
 function CandidateForm() {
@@ -74,7 +75,7 @@ function CandidateForm() {
         redirect: "follow",
         body: data,
       };
-      fetch("http://localhost:5000/candidate/new", requestOptions)
+      fetch(`${serverURL}/candidate/new`, requestOptions)
         .then((res) => res.json())
         .then((res) => {
           if (res.success) {
@@ -82,8 +83,7 @@ function CandidateForm() {
           } else {
             alert(res.msg);
           }
-        })
-        
+        });
     }
   };
 

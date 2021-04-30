@@ -4,6 +4,7 @@ import IndividualEmplyoerNavBar from "./NavBarIndividualEmployer";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import Badge from "react-bootstrap/Badge";
 import Footer from "../LandingPageComponents/Footer";
+import {serverURL} from '../config';
 import "./EmployerIndividualProfileStyle.css";
 
 function EmployerIndividualProfile() {
@@ -13,7 +14,7 @@ function EmployerIndividualProfile() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch(`http://localhost:5000/employer/me`, {
+    fetch(`${serverURL}employer/me`, {
       method: "get",
       headers: {
         Authorization: `Bearer ${token}`,

@@ -5,6 +5,7 @@ import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider"
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
+import {serverURL} from '../config';
 import "./EditProfileStyle.css";
 
 function EditProfieCanForm() {
@@ -89,7 +90,7 @@ function EditProfieCanForm() {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
 
-    fetch("http://localhost:5000/candidate/me", {
+    fetch(`${serverURL}candidate/me`, {
       method: "put",
       headers: myHeaders,
       body: data,
@@ -134,7 +135,7 @@ function EditProfieCanForm() {
                     <div className="user-avatar">
                       {candidate && (
                         <img
-                          src={`http://localhost:5000/${candidate.img}`}
+                          src={`${serverURL}${candidate.img}`}
                           alt=""
                         />
                       )}

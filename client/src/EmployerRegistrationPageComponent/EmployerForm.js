@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
+import {serverURL} from '../config'
 
 function EmployerForm() {
   const [state, setState] = useState({
@@ -35,7 +36,7 @@ function EmployerForm() {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
 
-    fetch("http://localhost:5000/employer/new", {
+    fetch(`${serverURL}employer/new`, {
       method: "post",
       headers: {
         Accept: "application/json, text/plain, */*",

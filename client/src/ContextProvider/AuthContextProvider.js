@@ -1,4 +1,5 @@
 import React, { useState, createContext, useEffect } from "react";
+import {serverURL} from '../config';
 
 const initContext = { user:[] };
 export const AuthContext = createContext(initContext);
@@ -6,7 +7,7 @@ export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState([]);
  
     useEffect(() => {
-      fetch("http://localhost:5000/user/all")
+      fetch(`${serverURL}user/all`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
+import {serverURL} from '../config';
 
 
 const initContext = { users: [] };
@@ -8,7 +9,7 @@ export const UsersContextProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/user/all")
+    fetch(`${serverURL}user/all`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

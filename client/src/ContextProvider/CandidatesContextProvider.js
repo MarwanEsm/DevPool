@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
+import {serverURL} from '../config';
 
 const initContext = { candidates: [] };
 export const CandidatesContext = createContext(initContext);
@@ -17,7 +18,7 @@ export const CandidatesContextProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    fetch("http://localhost:5000/candidate/all")
+    fetch(`${serverURL}candidate/all`)
       .then((res) => res.json())
       .then((data) => {
         setCandidates(data);

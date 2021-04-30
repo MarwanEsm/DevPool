@@ -6,6 +6,7 @@ import "./CandidateProfileStyle.css";
 import Footer from "../LandingPageComponents/Footer";
 import Badge from "react-bootstrap/Badge";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
+import {serverURL} from '../config';
 
 const CandidateProfile = () => {
   const { filteredCandidates } = useContext(CandidatesContext);
@@ -56,7 +57,7 @@ const CandidateProfile = () => {
 
                     <div className="advisor_thumb" key={candidate._id}>
                       <img
-                        src={`http://localhost:5000/${candidate.img}`}
+                        src={`${serverURL}${candidate.img}`}
                         style={imgStyle}
                         alt=""
                       />

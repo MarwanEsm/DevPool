@@ -9,6 +9,7 @@ import Avatar from "@material-ui/core/Avatar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
+import { serverURL } from "../config";
 
 const LoginPageForm = () => {
   const { setUser } = useContext(AuthContext);
@@ -30,7 +31,7 @@ const LoginPageForm = () => {
   const loginUser = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:5000/auth/login", {
+    fetch(`${serverURL}auth/login`, {
       method: "post",
       headers: {
         Accept: "application/json, text/plain, */*",
@@ -43,7 +44,6 @@ const LoginPageForm = () => {
         const { user, token } = res;
         localStorage.setItem("token", token);
         setUser(user);
-       
 
         if (user && user.isRegistered === true && user.owner === "candidate") {
           history.push(`/IndividualProfile/${user._id}`);

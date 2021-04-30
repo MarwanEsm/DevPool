@@ -1,6 +1,6 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
-
+import { serverURL } from "../config";
 
 function EditProfieEmpForm() {
   const [state, setState] = useState({});
@@ -14,7 +14,7 @@ function EditProfieEmpForm() {
     console.log(state);
     const token = localStorage.getItem("token");
     console.log(token);
-    fetch("http://localhost:5000/employer/me", {
+    fetch(`${serverURL}employer/me`, {
       method: "put",
       headers: {
         Accept: "application/json, text/plain, */*",
@@ -146,7 +146,7 @@ function EditProfieEmpForm() {
                   </div>
                 </div>
 
-                <div className="text-right" >
+                <div className="text-right">
                   <Button
                     variant="primary"
                     onClick={submitDetails}
@@ -175,7 +175,6 @@ const inputtStyle = {
   borderRadius: 14,
 };
 
-
 const buttonUpdateStyle = {
   fontFamily: "Candara",
   fontSize: 14,
@@ -183,7 +182,7 @@ const buttonUpdateStyle = {
   marginTop: "6%",
   marginBottom: "4%",
   borderRadius: 20,
-  marginRight:'45%'
+  marginRight: "45%",
 };
 
 export default EditProfieEmpForm;

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import {serverURL} from '../config';
 import "./RegistrationStyle.css";
 
 function RegistrationForm() {
@@ -42,7 +43,7 @@ function RegistrationForm() {
     ) {
       alert("Please fill in all required fields");
     } else {
-      fetch("http://localhost:5000/auth/register", {
+      fetch(`${serverURL}auth/register`, {
         method: "post",
         headers: {
           Accept: "application/json, text/plain, */*",
