@@ -1,1 +1,1 @@
-web: node server.js --prefix server
+web: npm run deploy --prefix server

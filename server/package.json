@@ -17,7 +17,8 @@
   },
   "scripts": {
     "start": "concurrently \"nodemon server.js\" \"cd ../client && npm start\"",
-    "dev" : "nodemon server.js"
+    "dev" : "nodemon server.js",
+    "deploy" : "node server.js"
   },
   "name": "server",
   "version": "1.0.0",
