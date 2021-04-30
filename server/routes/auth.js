@@ -2,7 +2,6 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const UserSchema = require("../model/usersModel");
 const CandidateSchema = require("../model/candidatesModel");
-const keys = require("../Config.js");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
 
@@ -64,7 +63,7 @@ router.post("/login", (req, res) => {
             id: user.id,
             email: user.email,
           };
-          jwt.sign(payload, keys.secretOrKey, (err, token) => {
+          jwt.sign(payload, process.env.secretOrKey, (err, token) => {
             if (err) {
               res.send(err);
             } else {
@@ -98,7 +97,7 @@ router.put(
               id: user.id,
               email: user.email,
             };
-            jwt.sign(payload, keys.secretOrKey, (err, token) => {
+            jwt.sign(payload, process.env.secretOrKey, (err, token) => {
               if (err) {
                 res.send(err);
               } else {

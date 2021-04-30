@@ -1,6 +1,5 @@
 const express = require("express");
 const { body, validationResult } = require("express-validator");
-const secretOrKey = require("../Config.js").secretOrKey;
 const jwt = require("jsonwebtoken");
 const UserSchema = require("../model/usersModel");
 const passport = require("passport");
