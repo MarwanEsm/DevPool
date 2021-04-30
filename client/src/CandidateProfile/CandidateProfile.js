@@ -94,7 +94,6 @@ const CandidateProfile = () => {
                             style={badg1}
                             className="btn btn-primary btn-block"
                             onClick={handelReadMore}
-                           
                           >
                             {linkName}
                           </Badge>
@@ -103,12 +102,20 @@ const CandidateProfile = () => {
                           {text && (
                             <>
                               <p style={text2Style}>Work Experience :</p>
-                              <ul className='list'>
+                              <ul className="list" style={workExStyle}>
                                 {candidate &&
-                                   
-                                  candidate.workExperiences.map((workExperience) => {
-                                    return <li  key={workExperience} >{workExperience}</li>;
-                                  })}
+                                  candidate.workExperiences.map(
+                                    (workExperience) => {
+                                      return (
+                                        <li
+                                          key={workExperience}
+                                          style={workExStyle}
+                                        >
+                                          {workExperience}
+                                        </li>
+                                      );
+                                    }
+                                  )}
                               </ul>
                               <div>
                                 <p style={text1Style}>
@@ -226,5 +233,9 @@ const badg1 = {
 
 const checkProfile = {
   marginRight: "25%",
+};
+
+const workExStyle = {
+  textAlign: "center",
 };
 export default CandidateProfile;

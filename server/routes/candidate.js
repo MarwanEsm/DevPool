@@ -61,7 +61,7 @@ router.put(
   (req, res) => {
     console.log(req.file);
     console.log(req.user);
-    
+
     const reqEmail = req.user.email;
     console.log(reqEmail);
     const body = {
@@ -70,14 +70,14 @@ router.put(
       userId: req.user._id,
     };
 
-    CandidateSchema.findOne({ email: reqEmail },  (err, candidate) => {
-      candidate = {...candidate, ...body}
+    CandidateSchema.findOne({ email: reqEmail }, (err, candidate) => {
+      candidate = { ...candidate, ...body };
+
       candidate.save();
       console.log(candidate);
       console.log(err);
-      res.send(candidate)
-        });
-
+      res.send(candidate);
+    });
 
     // CandidateSchema.findOne({ email: reqEmail }, (err, candidate)(
     //   req.user._id ,
@@ -150,7 +150,5 @@ router.post(
     });
   }
 );
-
-
 
 module.exports = router;
