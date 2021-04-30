@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const passport = require("passport");
 const mongoose = require("mongoose");
-const mongoURI = require("./Config.js").mongoURI;
+const mongoURI = process.env.mongoURI
 
 // init express app
 const app = express();
