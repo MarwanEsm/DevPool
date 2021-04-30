@@ -102,7 +102,7 @@ const CandidateProfile = () => {
                           {text && (
                             <>
                               <p style={text2Style}>Work Experience :</p>
-                              <ul className="list" style={workExStyle}>
+                              <ul className="list" style={workExLi}>
                                 {candidate &&
                                   candidate.workExperiences.map(
                                     (workExperience) => {
@@ -111,7 +111,7 @@ const CandidateProfile = () => {
                                           key={workExperience}
                                           style={workExStyle}
                                         >
-                                          {workExperience}
+                                          -{workExperience}
                                         </li>
                                       );
                                     }
@@ -180,7 +180,7 @@ const textStyle = {
 
 const text1Style = {
   fontFamily: "	Candara",
-  marginRight: "20%",
+  textAlign: "center",
 };
 
 const text2Style = {
@@ -232,10 +232,14 @@ const badg1 = {
 };
 
 const checkProfile = {
-  marginRight: "25%",
+  marginRight: "23%",
 };
 
 const workExStyle = {
   textAlign: "center",
 };
+
+const workExLi={
+  marginBottom:'2%'
+}
 export default CandidateProfile;

@@ -1,11 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-require("dotenv");
+require('dotenv').config()
 const passport = require("passport");
 const mongoose = require("mongoose");
-const mongoURI = require("./Config.js").mongoURI;
-// const mongoURI = process.env.mongoURI
+// const mongoURI = require("./Config.js").mongoURI;
+const mongoURI = process.env.mongoURI
 
 // init express app
 const app = express();
