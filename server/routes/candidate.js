@@ -74,26 +74,11 @@ router.put(
       { email: reqEmail },
       body,
       (err, candidate) => {
-        // console.log('body', body);
         console.log(err);
         console.log(candidate);
         res.send({ msg: "Details were updated" });
       }
     );
-
-    // CandidateSchema.findOneAndUpdate(
-    //   { email: reqEmail },
-    //   (req.user._id,
-    //   body,
-    //   (err, candidate) => {
-    //     console.log(candidate);
-    //     if (err) {
-    //       res.send(err);
-    //     } else {
-    //       res.send({ msg: "Candidate updated", candidate });
-    //     }
-    //   })
-    // );
   }
 );
 
@@ -168,5 +153,54 @@ router.delete(
     });
   }
 );
+
+// router.put(
+//   "/me",
+//   passport.authenticate("jwt", { session: false }),upload.single("file"),
+//   (req, res) => {
+//     if (!'file') {
+//       // upload.single("file");
+
+//       // console.log(req.file);
+//       // console.log(req.user);
+
+//       const reqEmail = req.user.email;
+//       console.log("in code email", reqEmail);
+//       const body = {
+//         ...req.body,
+//         // img: `uploads/${req.file.originalname}`,
+//         userId: req.user._id,
+//       };
+
+//       CandidateSchema.findOneAndUpdate(
+//         { email: reqEmail },
+//         body,
+//         (err, candidate) => {
+//           console.log(err);
+//           console.log(candidate);
+//           res.send({ msg: "Details were updated" });
+//         }
+//       );
+//     } else {
+//       const reqEmail = req.user.email;
+//       console.log("in code email", reqEmail);
+//       const body = {
+//         ...req.body,
+//         // img: `uploads/${req.file.originalname}`,
+//         userId: req.user._id,
+//       };
+
+//       CandidateSchema.findOneAndUpdate(
+//         { email: reqEmail },
+//         body,
+//         (err, candidate) => {
+//           console.log(err);
+//           console.log(candidate);
+//           res.send({ msg: "Details were updated" });
+//         }
+//       );
+//     }
+//   }
+// );
 
 module.exports = router;

@@ -74,39 +74,39 @@ function EditProfieCanForm() {
 
   const submitDetails = (e) => {
     e.preventDefault();
-    if (file || !file) {
-      var data = new FormData();
-      console.log(`image`, file);
-      data.append("file", file);
-      data.append("filename", "img");
-      const body = { ...state };
-      console.log(body);
-      Object.keys(body).forEach((key) => {
-        if (key !== "workExperiences") {
-          data.append(key, state[key]);
+    var data = new FormData();
+    console.log(`image`, file);
+
+    data.append("file", file);
+    data.append("filename", "img");
+
+    const body = { ...state };
+    console.log(body);
+    Object.keys(body).forEach((key) => {
+      if (key !== "workExperiences") {
+        data.append(key, state[key]);
+      }
+    });
+    workExp.forEach((wexes) => {
+      data.append("workExperiences", wexes);
+    });
+    const token = localStorage.getItem("token");
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
+
+    fetch(`${serverURL}candidate/me`, {
+      method: "put",
+      headers: myHeaders,
+      body: data,
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.success) {
+          alert(res.msg);
+        } else {
+          alert(res.msg);
         }
       });
-      workExp.forEach((wexes) => {
-        data.append("workExperiences", wexes);
-      });
-      const token = localStorage.getItem("token");
-      const myHeaders = new Headers();
-      myHeaders.append("Authorization", `Bearer ${token}`);
-
-      fetch(`${serverURL}candidate/me`, {
-        method: "put",
-        headers: myHeaders,
-        body: data,
-      })
-        .then((res) => res.json())
-        .then((res) => {
-          if (res.success) {
-            alert(res.msg);
-          } else {
-            alert(res.msg);
-          }
-        });
-    }
   };
 
   function handleAdd() {
@@ -177,7 +177,7 @@ function EditProfieCanForm() {
                   </div>
                   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div className="form-group">
-                      <label htmlFor="fullName">Education</label>
+                      <label htmlFor="education">Education</label>
                       <input
                         type="text"
                         className="form-control"
