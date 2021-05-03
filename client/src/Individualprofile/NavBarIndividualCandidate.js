@@ -10,6 +10,7 @@ function NavBarEditProfileCan() {
   };
 
   const handleClick2 = () => {
+    localStorage.clear()
     history.push("/");
   };
 
