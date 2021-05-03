@@ -11,28 +11,28 @@ import "./EditProfileStyle.css";
 function EditProfieCanForm() {
   const { candidate } = useContext(CandidatesContext);
   const { user } = useContext(AuthContext);
-  // const [state, setState] = useState(candidate);
+  const [state, setState] = useState(candidate);
   const [workExp, setWorkExp] = useState([]);
   const history = useHistory();
-  const [state, setState] = useState({
-    fullName: candidate.fullName,
-    title: candidate.title,
-    location: candidate.location,
-    desiredPosition: candidate.desiredPosition,
-    expectedSalary: candidate.expectedSalary,
-    website: candidate.website,
-    github: candidate.github,
-    instagram: candidate.instagram,
-    facebook: candidate.facebook,
-    twitter: candidate.twitter,
-    city: candidate.city,
-    phoneNo: candidate.phoneNo,
-    hobbies: candidate.hobbies,
-    address: candidate.address,
-    languages: candidate.languages,
-    skills: candidate.skills,
-    education: candidate.education,
-  });
+  // const [state, setState] = useState({
+  //   fullName: candidate.fullName || '',
+  //   title: candidate.title || '',
+  //   location: candidate.location || '',
+  //   desiredPosition: candidate.desiredPosition || '',
+  //   expectedSalary: candidate.expectedSalary || '',
+  //   website: candidate.website || '',
+  //   github: candidate.github || '',
+  //   instagram: candidate.instagram || '',
+  //   facebook: candidate.facebook || '',
+  //   twitter: candidate.twitter || '',
+  //   city: candidate.city || '',
+  //   phoneNo: candidate.phoneNo || '',
+  //   hobbies: candidate.hobbies || '',
+  //   address: candidate.address || '',
+  //   languages: candidate.languages || '',
+  //   skills: candidate.skills || '',
+  //   education: candidate.education || '',
+  // });
 
   // fullName: '',
   //     title: '',
@@ -79,13 +79,14 @@ function EditProfieCanForm() {
     console.log(`image`, file);
     data.append("file", file);
     data.append("filename", "img");
-
+    const body = { ...state, workExperience: workExp };
+    console.log(body);
     Object.keys(state).forEach((key) => {
       data.append(key, state[key]);
     });
-    workExp.forEach((wexes) => {
-      data.append("workExperiences", wexes);
-    });
+    // workExp.forEach((wexes) => {
+    //   data.append("workExperiences", wexes);
+    // });
     const token = localStorage.getItem("token");
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -181,6 +182,7 @@ function EditProfieCanForm() {
                         name="education"
                         onChange={handleChange}
                         style={inputtStyle}
+                        value={state.education}
                       />
                     </div>
                   </div>
@@ -194,6 +196,7 @@ function EditProfieCanForm() {
                         name="title"
                         onChange={handleChange}
                         style={inputtStyle}
+                        value={state.title}
                       />
                     </div>
                   </div>
@@ -207,6 +210,7 @@ function EditProfieCanForm() {
                         name="skills"
                         onChange={handleChange}
                         style={inputtStyle}
+                        value={state.skills}
                       />
                     </div>
                   </div>
@@ -220,6 +224,7 @@ function EditProfieCanForm() {
                         placeholder="Hobbies"
                         onChange={handleChange}
                         style={inputtStyle}
+                        value={state.hobbies}
                       />
                     </div>
                   </div>
@@ -234,6 +239,7 @@ function EditProfieCanForm() {
                         name="phoneNo"
                         onChange={handleChange}
                         style={inputtStyle}
+                        value={state.phoneNo}
                       />
                     </div>
                   </div>
@@ -248,6 +254,7 @@ function EditProfieCanForm() {
                         onChange={handleChange}
                         type="text"
                         style={inputtStyle}
+                        value={state.desiredPosition}
                       />
                     </div>
                   </div>
@@ -262,6 +269,7 @@ function EditProfieCanForm() {
                         name="expectedSalary"
                         onChange={handleChange}
                         style={inputtStyle}
+                        value={state.expectedSalary}
                       />
                     </div>
                   </div>
@@ -276,6 +284,7 @@ function EditProfieCanForm() {
                         name="github"
                         onChange={handleChange}
                         style={inputtStyle}
+                        value={state.github}
                       />
                     </div>
                   </div>
@@ -290,6 +299,7 @@ function EditProfieCanForm() {
                         name="languages"
                         onChange={handleChange}
                         style={inputtStyle}
+                        value={state.languages}
                       />
                     </div>
                   </div>
@@ -304,6 +314,7 @@ function EditProfieCanForm() {
                         name="twitter"
                         onChange={handleChange}
                         style={inputtStyle}
+                        value={state.twitter}
                       />
                     </div>
                   </div>
@@ -318,6 +329,7 @@ function EditProfieCanForm() {
                         name="facebook"
                         onChange={handleChange}
                         style={inputtStyle}
+                        value={state.facebook}
                       />
                     </div>
                   </div>
@@ -331,6 +343,7 @@ function EditProfieCanForm() {
                         name="instagram"
                         onChange={handleChange}
                         style={inputtStyle}
+                        value={state.instagram}
                       />
                     </div>
                   </div>
@@ -345,6 +358,7 @@ function EditProfieCanForm() {
                         style={inputtStyle}
                         name="address"
                         onChange={handleChange}
+                        value={state.address}
                       />
                     </div>
                   </div>
@@ -358,6 +372,7 @@ function EditProfieCanForm() {
                         name="city"
                         onChange={handleChange}
                         style={inputtStyle}
+                        value={state.city}
                       />
                     </div>
                   </div>

@@ -64,13 +64,13 @@ router.put(
 
     const reqEmail = req.user.email;
     console.log('in code email', reqEmail);
-    // const body = {
-    //   ...req.body,
-    //   img: `uploads/${req.file.originalname}`,
-    //   userId: req.user._id,
-    // };
+    const body = {
+      ...req.body,
+      img: `uploads/${req.file.originalname}`,
+      userId: req.user._id,
+    };
 
-    CandidateSchema.findByIdAndUpdate(req.user._id, (err, candidate) => {
+    CandidateSchema.findOneAndUpdate({email:reqEmail}, body, (err, candidate) => {
       // console.log('body', body);
       console.log(err);
       console.log(candidate);
