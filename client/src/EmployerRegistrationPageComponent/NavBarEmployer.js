@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import Logo from "../LandingPageComponents/Logo";
 import { useHistory } from "react-router-dom";
 import { EmployerContext } from "../ContextProvider/EmployerContextProvider";
@@ -11,19 +11,18 @@ function EmployerNavBar() {
   const history = useHistory();
   console.log(user);
 
-  const handleClick=()=>{
+  const handleClick = () => {
     if (employer) {
-    history.push(`/EmployerIndividualProfile/${user._id}`);
-  } else {
-    alert("Please register as employer");
-  }
-  }
-  
+      history.push(`/EmployerIndividualProfile/${user._id}`);
+    } else {
+      alert("Please register as employer");
+    }
+  };
 
-
-const handleClick1 = () => {
-  history.push("/");
-};
+  const handleClick1 = () => {
+    localStorage.clear();
+    history.push("/");
+  };
   return (
     <div style={maindivStyle}>
       <div>
@@ -31,15 +30,13 @@ const handleClick1 = () => {
       </div>
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
-        <i className="fa fa-user" />
-        &nbsp;
-          My Profile
+          <i className="fa fa-user" />
+          &nbsp; My Profile
         </Badge>
         &nbsp; &nbsp;
         <Badge style={badg} variant="primary" onClick={handleClick1}>
-        <i className="fa fa-sign-out" aria-hidden="true"/> 
-        &nbsp;
-          Log out
+          <i className="fa fa-sign-out" aria-hidden="true" />
+          &nbsp; Log out
         </Badge>
       </div>
     </div>
@@ -60,7 +57,7 @@ const navdiv = {
 };
 
 const badg = {
-  height: '80%',
+  height: "80%",
   width: 100,
   fontSize: 14,
   cursor: "pointer",

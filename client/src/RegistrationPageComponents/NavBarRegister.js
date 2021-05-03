@@ -6,6 +6,7 @@ import Logo from "../LandingPageComponents/Logo";
 function RegissterNavBar() {
   const history = useHistory();
   const handleClick = () => {
+    localStorage.clear();
     history.push("/");
   };
 

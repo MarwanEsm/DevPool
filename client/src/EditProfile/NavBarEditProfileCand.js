@@ -10,6 +10,7 @@ function IndividualCandidateNavBar() {
   };
 
   const handleClick1 = () => {
+    localStorage.clear();
     history.push("/");
   };
   return (

@@ -10,6 +10,7 @@ function NavBarCandidateForEmployer() {
   };
 
   const handleClick2 = () => {
+    localStorage.clear();
     history.push("/");
   };
   return (

@@ -11,6 +11,7 @@ function IndividualEmplyoerNavBar() {
   };
 
   const handleClick2 = () => {
+    localStorage.clear();
     history.push("/");
   };
 

@@ -14,6 +14,7 @@ function CandidateNavBar() {
   };
 
   const handleClick1 = () => {
+    localStorage.clear();
     history.push("/");
   };
 

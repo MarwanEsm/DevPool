@@ -26,6 +26,7 @@ function CandidatePageNavBar() {
   const locations = _.uniqBy(candidates, "location");
   console.log(locations);
   const handleClick1 = () => {
+    localStorage.clear();
     history.push("/");
   };
 

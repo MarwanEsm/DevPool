@@ -9,6 +9,7 @@ function IndividualEmployerNavBar() {
     history.goBack();
   };
   const handleClick1 = () => {
+    localStorage.clear()
     history.push("/");
   };
   return (
