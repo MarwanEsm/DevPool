@@ -26,7 +26,7 @@
 .profile-info-list > li .value {
   color: #666;
   font-family: Candara;
-  /* margin-left: -10%; */
+ 
 }
 .profile-info-list > li.img-list a {
   display: inline-block;
@@ -315,3 +315,4 @@ body .fc-widget-header a {
 .list{
   list-style-type: none !important;
 }
+

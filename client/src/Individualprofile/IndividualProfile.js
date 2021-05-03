@@ -4,7 +4,7 @@ import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 import IndividualCandidateNavBar from "./NavBarIndividualCandidate";
 import Footer from "../LandingPageComponents/Footer";
-import {serverURL} from '../config';
+import { serverURL } from "../config";
 import "./IndividualProfileStyle.css";
 
 function IndividualProfile() {
@@ -76,7 +76,9 @@ function IndividualProfile() {
                     <table className="table table-profile">
                       <thead>
                         <tr>
-                          <th colSpan="2" style={header1}>WORK AND EDUCATION</th>
+                          <th colSpan="2" style={header1}>
+                            WORK AND EDUCATION
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -86,12 +88,17 @@ function IndividualProfile() {
                           </td>
                           <td className="value">
                             <div className="m-b-5">
-                              <ul className='list'>
+                              <ul className="list">
                                 {candidate &&
-                                   
-                                  candidate.workExperiences.map((workExperience) => {
-                                    return <li  key={workExperience} >{workExperience}</li>;
-                                  })}
+                                  candidate.workExperiences.map(
+                                    (workExperience) => {
+                                      return (
+                                        <li key={workExperience}>
+                                          {workExperience}
+                                        </li>
+                                      );
+                                    }
+                                  )}
                               </ul>
 
                               <br />
@@ -301,7 +308,11 @@ function IndividualProfile() {
           </div>
         </div>
       </div>
-
+      <div>
+        <button className="btn btn-xs btn-primary mb-3" style={deletButton}>
+          Delete Account
+        </button>
+      </div>
       <div>
         <Footer />
       </div>
@@ -359,8 +370,15 @@ const contactButton = {
   marginTop: "2%",
 };
 
-const header1={
-  marginRight:'-80%'
-}
+const header1 = {
+  marginRight: "-80%",
+};
+
+const deletButton = {
+  marginTop: "-15%",
+  marginLeft:'25%',
+  color:'red'
+
+};
 
 export default IndividualProfile;

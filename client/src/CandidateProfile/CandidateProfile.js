@@ -6,10 +6,10 @@ import "./CandidateProfileStyle.css";
 import Footer from "../LandingPageComponents/Footer";
 import Badge from "react-bootstrap/Badge";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
-import {serverURL} from '../config';
+import { serverURL } from "../config";
 
 const CandidateProfile = () => {
-  const { filteredCandidates } = useContext(CandidatesContext);
+  const { filteredCandidates, candidate } = useContext(CandidatesContext);
   const history = useHistory();
 
   const checkFullProfile = (candidateId) => {
@@ -22,6 +22,15 @@ const CandidateProfile = () => {
   };
 
   const linkName = text ? "Read Less << " : "Read More >> ";
+
+  const cursor = candidate.twitter === "" ? "wait" : "pointer";
+  
+  //   const twitter = (candidate.twitter) ?  <a
+  //   href={`https://www.twitter.com/${candidate.twitter}`}
+  //   target="_blank"
+  // >
+  //   <i className="fa fa-twitter"></i>
+  // </a>  : ''
 
   return (
     <div>
@@ -68,6 +77,7 @@ const CandidateProfile = () => {
                         <a
                           href={`https://www.twitter.com/${candidate.twitter}`}
                           target="_blank"
+                          style={cursor}
                         >
                           <i className="fa fa-twitter"></i>
                         </a>
@@ -240,7 +250,7 @@ const workExStyle = {
   textAlign: "center",
 };
 
-const workExLi={
-  marginBottom:'2%'
-}
+const workExLi = {
+  marginBottom: "2%",
+};
 export default CandidateProfile;
