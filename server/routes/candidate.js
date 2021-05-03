@@ -165,15 +165,6 @@ router.delete(
       } else {
         res.send("done");
       }
-    }).then((user) => {
-      UserSchema.findOneAndDelete({ email: reqEmail }, (err, user) => {
-        if (err) {
-          res.send(err);
-        } else {
-          res.send("done");
-          console.log(user);
-        }
-      });
     });
   }
 );

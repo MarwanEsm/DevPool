@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
@@ -7,6 +8,7 @@ import { serverURL } from "../config";
 import "./CandidateUserStyle.css";
 
 function CandidateForm() {
+  const history = useHistory();
   const [workEx, setWorkEx] = useState([]);
   const [checked, setChecked] = useState();
   const [state, setState] = useState({
@@ -39,6 +41,32 @@ function CandidateForm() {
     e.preventDefault();
     setState({ ...state, [e.target.name]: e.target.value });
   };
+
+  // const submitDetails1 = (e) => {
+  //   e.preventDefault();
+  //   const token = localStorage.getItem("token");
+  //   var requestOptions = {
+  //     method: "DELETE",
+  //     headers: {
+  //       Authorization: `Bearer ${token}`,
+  //       Accept: "application/json, text/plain, */*",
+  //       "Content-Type": "application/json",
+  //     },
+
+  //     redirect: "follow",
+  //   };
+  //   fetch(`${serverURL}auth/me`, requestOptions)
+  //     .then((res) => {
+  //       if (res.success) {
+  //         alert(res.msg);
+  //       } else {
+  //         alert(res.msg);
+  //       }
+  //     })
+  //     .then(localStorage.clear())
+
+  //     .then(history.push("/"));
+  // };
 
   const submitDetails = (e) => {
     e.preventDefault();
@@ -101,8 +129,7 @@ function CandidateForm() {
   function handleChangeMore(i, e) {
     const values = [...workEx];
     values[i] = e.target.value;
-    setWorkEx(values)
-    
+    setWorkEx(values);
   }
 
   return (
@@ -276,6 +303,13 @@ function CandidateForm() {
                   value="Register"
                   onClick={submitDetails}
                   disabled={isInvalid}
+                  style={submitStyle}
+                />
+                <input
+                  type="submit"
+                  className="btnRegister"
+                  value="Delete User"
+                  onClick={submitDetails1}
                   style={submitStyle}
                 />
               </div>

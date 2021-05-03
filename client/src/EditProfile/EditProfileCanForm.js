@@ -73,8 +73,8 @@ function EditProfieCanForm() {
   };
 
   const submitDetails = (e) => {
+    if(file || !file ){
     e.preventDefault();
-
     var data = new FormData();
     console.log(`image`, file);
     data.append("file", file);
@@ -105,6 +105,7 @@ function EditProfieCanForm() {
         }
       });
   };
+}
 
   function handleAdd() {
     setWorkExp([...workExp, ""]);

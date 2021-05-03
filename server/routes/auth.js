@@ -114,6 +114,19 @@ router.put(
 );
 
 
-
+// router.delete(
+//   "/me",
+//   passport.authenticate("jwt", { session: false }),
+//   (req, res) => {
+//     const reqEmail = req.user.email;
+//     UserSchema.findOneAndDelete({ email: reqEmail }, (err, user) => {
+//       if (err) {
+//         res.send(err);
+//       } else {
+//         res.send("done");
+//       }
+//     });
+//   }
+// );
 
 module.exports = router;

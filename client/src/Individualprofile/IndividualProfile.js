@@ -43,9 +43,8 @@ function IndividualProfile() {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json",
       },
-      // headers: myHeaders,
+
       redirect: "follow",
-      // candidate: candidate,
     };
     fetch(`${serverURL}candidate/me`, requestOptions)
       .then((res) => {
@@ -55,7 +54,7 @@ function IndividualProfile() {
           alert(res.msg);
         }
       })
-      .then(history.push("/"));
+      .then(history.push("/CandidatesUserPage"));
   };
 
   return (
