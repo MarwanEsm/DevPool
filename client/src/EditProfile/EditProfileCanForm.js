@@ -73,39 +73,41 @@ function EditProfieCanForm() {
   };
 
   const submitDetails = (e) => {
-    if(file || !file ){
     e.preventDefault();
-    var data = new FormData();
-    console.log(`image`, file);
-    data.append("file", file);
-    data.append("filename", "img");
-    const body = { ...state, workExperiences: workExp };
-    console.log(body);
-    Object.keys(state).forEach((key) => {
-      data.append(key, state[key]);
-    });
-    // workExp.forEach((wexes) => {
-    //   data.append("workExperiences", wexes);
-    // });
-    const token = localStorage.getItem("token");
-    const myHeaders = new Headers();
-    myHeaders.append("Authorization", `Bearer ${token}`);
-
-    fetch(`${serverURL}candidate/me`, {
-      method: "put",
-      headers: myHeaders,
-      body: data,
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.success) {
-          alert(res.msg);
-        } else {
-          alert(res.msg);
+    if (file || !file) {
+      var data = new FormData();
+      console.log(`image`, file);
+      data.append("file", file);
+      data.append("filename", "img");
+      const body = { ...state };
+      console.log(body);
+      Object.keys(body).forEach((key) => {
+        if (key !== "workExperiences") {
+          data.append(key, state[key]);
         }
       });
+      workExp.forEach((wexes) => {
+        data.append("workExperiences", wexes);
+      });
+      const token = localStorage.getItem("token");
+      const myHeaders = new Headers();
+      myHeaders.append("Authorization", `Bearer ${token}`);
+
+      fetch(`${serverURL}candidate/me`, {
+        method: "put",
+        headers: myHeaders,
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          if (res.success) {
+            alert(res.msg);
+          } else {
+            alert(res.msg);
+          }
+        });
+    }
   };
-}
 
   function handleAdd() {
     setWorkExp([...workExp, ""]);
