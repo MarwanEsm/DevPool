@@ -48,14 +48,14 @@ function IndividualProfile() {
       // candidate: candidate,
     };
     fetch(`${serverURL}candidate/me`, requestOptions)
-    .then((res) => {
-      if (res.success) {
-        alert(res.msg);
-      } else {
-        alert(res.msg);
-      }
-    })
-    .then(history.push('/'))
+      .then((res) => {
+        if (res.success) {
+          alert(res.msg);
+        } else {
+          alert(res.msg);
+        }
+      })
+      .then(history.push("/"));
   };
 
   return (

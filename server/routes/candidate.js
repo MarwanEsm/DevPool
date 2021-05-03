@@ -63,34 +63,35 @@ router.put(
     console.log(req.user);
 
     const reqEmail = req.user.email;
-    console.log(reqEmail);
-    const body = {
-      ...req.body,
-      img: `uploads/${req.file.originalname}`,
-      userId: req.user._id,
-    };
+    console.log('in code email', reqEmail);
+    // const body = {
+    //   ...req.body,
+    //   img: `uploads/${req.file.originalname}`,
+    //   userId: req.user._id,
+    // };
 
-    // CandidateSchema.findOneAndUpdate({ email: reqEmail }, (err, candidate) => {
-    //   console.log(body);
-    //   console.log(err);
-    //   res.send({ msg: "Details were updated" });
-    // });
+    CandidateSchema.findByIdAndUpdate(req.user._id, (err, candidate) => {
+      // console.log('body', body);
+      console.log(err);
+      console.log(candidate);
+      res.send({ msg: "Details were updated" });
+    });
 
-    CandidateSchema.findOneAndUpdate(
-      { email: reqEmail },
-      (req.user._id,
-      body,
-      (err, candidate) => {
-        console.log(candidate);
-        if (err) {
-          res.send(err);
-        } else {
-          res.send({ msg: "Candidate updated", candidate });
-        }
-      })
-    );
+    // CandidateSchema.findOneAndUpdate(
+    //   { email: reqEmail },
+    //   (req.user._id,
+    //   body,
+    //   (err, candidate) => {
+    //     console.log(candidate);
+    //     if (err) {
+    //       res.send(err);
+    //     } else {
+    //       res.send({ msg: "Candidate updated", candidate });
+    //     }
+    //   })
+    // );
   }
-);
+) 
 
 router.post(
   "/new",
@@ -149,7 +150,6 @@ router.post(
   }
 );
 
-
 router.delete(
   "/me",
   passport.authenticate("jwt", { session: false }),
@@ -159,7 +159,7 @@ router.delete(
       if (err) {
         res.send(err);
       } else {
-        res.send('done');
+        res.send("done");
         console.log(candidate);
       }
     });
