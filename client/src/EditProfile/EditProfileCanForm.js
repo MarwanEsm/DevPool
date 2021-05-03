@@ -79,7 +79,7 @@ function EditProfieCanForm() {
     console.log(`image`, file);
     data.append("file", file);
     data.append("filename", "img");
-    const body = { ...state, workExperience: workExp };
+    const body = { ...state, workExperiences: workExp };
     console.log(body);
     Object.keys(state).forEach((key) => {
       data.append(key, state[key]);
@@ -111,17 +111,17 @@ function EditProfieCanForm() {
   }
 
   function handleRemove(i) {
-    let valuess = [...workExp];
-    valuess.splice(i, 1);
+    let values = [...workExp];
+    values.splice(i, 1);
     console.log(workExp);
-    setWorkExp(valuess);
+    setWorkExp(values);
   }
 
   function handleChangeMore(i, e) {
-    const valuess = [...workExp];
-    valuess[i] = e.target.value;
-    setWorkExp(valuess);
-    console.log(valuess);
+    const values = [...workExp];
+    values[i] = e.target.value;
+    setWorkExp(values);
+    console.log(values);
   }
 
   return (

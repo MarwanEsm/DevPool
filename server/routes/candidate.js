@@ -63,19 +63,23 @@ router.put(
     console.log(req.user);
 
     const reqEmail = req.user.email;
-    console.log('in code email', reqEmail);
+    console.log("in code email", reqEmail);
     const body = {
       ...req.body,
       img: `uploads/${req.file.originalname}`,
       userId: req.user._id,
     };
 
-    CandidateSchema.findOneAndUpdate({email:reqEmail}, body, (err, candidate) => {
-      // console.log('body', body);
-      console.log(err);
-      console.log(candidate);
-      res.send({ msg: "Details were updated" });
-    });
+    CandidateSchema.findOneAndUpdate(
+      { email: reqEmail },
+      body,
+      (err, candidate) => {
+        // console.log('body', body);
+        console.log(err);
+        console.log(candidate);
+        res.send({ msg: "Details were updated" });
+      }
+    );
 
     // CandidateSchema.findOneAndUpdate(
     //   { email: reqEmail },
@@ -91,7 +95,7 @@ router.put(
     //   })
     // );
   }
-) 
+);
 
 router.post(
   "/new",
@@ -160,8 +164,16 @@ router.delete(
         res.send(err);
       } else {
         res.send("done");
-        console.log(candidate);
       }
+    }).then((user) => {
+      UserSchema.findOneAndDelete({ email: reqEmail }, (err, user) => {
+        if (err) {
+          res.send(err);
+        } else {
+          res.send("done");
+          console.log(user);
+        }
+      });
     });
   }
 );

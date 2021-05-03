@@ -101,7 +101,8 @@ function CandidateForm() {
   function handleChangeMore(i, e) {
     const values = [...workEx];
     values[i] = e.target.value;
-    setWorkEx(values);
+    setWorkEx(values)
+    
   }
 
   return (
