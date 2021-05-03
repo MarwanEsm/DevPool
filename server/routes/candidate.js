@@ -149,4 +149,21 @@ router.post(
   }
 );
 
+
+router.delete(
+  "/me",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const reqEmail = req.user.email;
+    CandidateSchema.findOneAndDelete({ email: reqEmail }, (err, candidate) => {
+      if (err) {
+        res.send(err);
+      } else {
+        res.send('done');
+        console.log(candidate);
+      }
+    });
+  }
+);
+
 module.exports = router;

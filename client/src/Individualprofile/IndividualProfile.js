@@ -33,6 +33,31 @@ function IndividualProfile() {
     history.push(`/EditProfileCandidate/${user._id}`);
   };
 
+  const handelDelete = (e) => {
+    e.preventDefault();
+    const token = localStorage.getItem("token");
+    var requestOptions = {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      // headers: myHeaders,
+      redirect: "follow",
+      // candidate: candidate,
+    };
+    fetch(`${serverURL}candidate/me`, requestOptions)
+    .then((res) => {
+      if (res.success) {
+        alert(res.msg);
+      } else {
+        alert(res.msg);
+      }
+    })
+    .then(history.push('/'))
+  };
+
   return (
     <div>
       <div>
@@ -309,7 +334,11 @@ function IndividualProfile() {
         </div>
       </div>
       <div>
-        <button className="btn btn-xs btn-primary mb-3" style={deletButton}>
+        <button
+          className="btn btn-xs btn-primary mb-3"
+          style={deletButton}
+          onClick={handelDelete}
+        >
           Delete Account
         </button>
       </div>
@@ -376,9 +405,8 @@ const header1 = {
 
 const deletButton = {
   marginTop: "-15%",
-  marginLeft:'25%',
-  color:'red'
-
+  marginLeft: "25%",
+  color: "red",
 };
 
 export default IndividualProfile;
