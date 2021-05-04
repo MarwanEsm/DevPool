@@ -147,8 +147,8 @@ router.delete(
     UserSchema.findOneAndDelete({ email: reqEmail }, (err, user) => {
       if (err) {
         res.send(err);
-      } else if(user) {
-        res.send(user);
+      } else if (user) {
+        res.send({ msg: "Your Profile will be deleted in 24 hours, we will send you email confirmation" });
       }
     });
   }

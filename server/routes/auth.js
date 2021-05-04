@@ -78,55 +78,40 @@ router.post("/login", (req, res) => {
   });
 });
 
-router.put(
-  "/me",
-  (req, res) => {
-    const reqemail = req.body.email;
-    const reqpassword = req.body.password;
-    UsersChema.findOneAndUpdate({ email: reqemail }, req.body, (err, user) => {
-      if (err) {
-        res.send(err);
-      } else if (!user) {
-        res.send({ msg: "User does not exist" });
-      } else {
-        bcrypt.compare(reqpassword, user.password, (err, result) => {
-          if (err) {
-            res.send(err);
-          } else if (result == true) {
-            const payload = {
-              id: user.id,
-              email: user.email,
-            };
-            jwt.sign(payload, process.env.secretOrKey, (err, token) => {
-              if (err) {
-                res.send(err);
-              } else {
-                res
-                  .status(200)
-                  .json({ success: true, token: token, user: user });
-              }
-            });
-          } 
-        });
-      }
-    });
-  }
-);
 
+router.put("/me", (req, res) => {
+  const reqemail = req.body.email;
+  const reqpassword = req.body.password;
+  UsersChema.findOneAndUpdate({ email: reqemail }, req.body, (err, user) => {
+    if (err) {
+      res.send(err);
+    } else if (!user) {
+      res.send({ msg: "User does not exist" });
+    } else {
+      bcrypt.compare(reqpassword, user.password, (err, result) => {
+        if (err) {
+          res.send(err);
+        } else if (result == true) {
+          const payload = {
+            id: user.id,
+            email: user.email,
+          };
+          jwt.sign(payload, process.env.secretOrKey, (err, token) => {
+            if (err) {
+              res.send(err);
+            } else {
+              res.status(200).json({ success: true, token: token, user: user });
+            }
+          });
+        }
+      });
+    }
+  });
+});
 
-// router.delete(
-//   "/me",
-//   passport.authenticate("jwt", { session: false }),
-//   (req, res) => {
-//     const reqEmail = req.user.email;
-//     UserSchema.findOneAndDelete({ email: reqEmail }, (err, user) => {
-//       if (err) {
-//         res.send(err);
-//       } else {
-//         res.send("done");
-//       }
-//     });
-//   }
-// );
+router.get("/logout", function (req, res) {
+  req.logout();
+  res.redirect("/");
+});
 
 module.exports = router;

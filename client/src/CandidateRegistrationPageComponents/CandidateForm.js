@@ -42,32 +42,6 @@ function CandidateForm() {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
-  // const submitDetails1 = (e) => {
-  //   e.preventDefault();
-  //   const token = localStorage.getItem("token");
-  //   var requestOptions = {
-  //     method: "DELETE",
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //       Accept: "application/json, text/plain, */*",
-  //       "Content-Type": "application/json",
-  //     },
-
-  //     redirect: "follow",
-  //   };
-  //   fetch(`${serverURL}auth/me`, requestOptions)
-  //     .then((res) => {
-  //       if (res.success) {
-  //         alert(res.msg);
-  //       } else {
-  //         alert(res.msg);
-  //       }
-  //     })
-  //     .then(localStorage.clear())
-
-  //     .then(history.push("/"));
-  // };
-
   const submitDetails = (e) => {
     e.preventDefault();
     if (
