@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import {serverURL} from '../config';
 import "./ForgetPasswordFormStyle.css";
 
 function ForgetPasswordForm() {
@@ -32,7 +33,7 @@ function ForgetPasswordForm() {
     const token = localStorage.getItem("token");
     console.log(token);
 
-    fetch("http://localhost:5000/register", {
+    fetch(`${serverURL}auth/me`, {
       method: "put",
       headers: {
         Accept: "application/json, text/plain, */*",

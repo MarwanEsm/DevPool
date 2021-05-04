@@ -78,36 +78,43 @@ router.post("/login", (req, res) => {
   });
 });
 
-
+///update password function ///
 router.put("/me", (req, res) => {
+  console.log(req.body);
   const reqemail = req.body.email;
   const reqpassword = req.body.password;
-  UsersChema.findOneAndUpdate({ email: reqemail }, req.body, (err, user) => {
+  UserSchema.findOneAndUpdate({ email: reqemail }, req.body, (err, user) => {
     if (err) {
       res.send(err);
-    } else if (!user) {
-      res.send({ msg: "User does not exist" });
+    }
+    if (!user) {
+      res.send({ msg: "user does not exist" });
     } else {
-      bcrypt.compare(reqpassword, user.password, (err, result) => {
-        if (err) {
-          res.send(err);
-        } else if (result == true) {
-          const payload = {
-            id: user.id,
-            email: user.email,
-          };
-          jwt.sign(payload, process.env.secretOrKey, (err, token) => {
-            if (err) {
-              res.send(err);
-            } else {
-              res.status(200).json({ success: true, token: token, user: user });
-            }
-          });
-        }
+      bcrypt.genSalt(10, function (err, salt) {
+        bcrypt.hash(reqpassword, salt, function (err, hash) {
+          if (err) {
+            res.send(err);
+          } else {
+            const newUser = new UserSchema({
+              email: reqemail,
+              password: hash,
+            });
+            newUser
+              .save()
+              .then((user) => {
+                res.send({ msg: " Password was updated" });
+              })
+              .catch((err) => {
+                res.send(err);
+              });
+          }
+        });
       });
     }
   });
 });
+
+
 
 router.get("/logout", function (req, res) {
   req.logout();
