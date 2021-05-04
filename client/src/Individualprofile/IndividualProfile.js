@@ -48,13 +48,10 @@ function IndividualProfile() {
     };
     fetch(`${serverURL}candidate/me`, requestOptions)
       .then((res) => {
-        if (res.success) {
-          alert(res.msg);
-        } else {
-          alert(res.msg);
-        }
+        alert(res.msg);
       })
-      .then(history.push("/CandidatesUserPage"));
+      .then(localStorage.clear())
+      .then(history.push("/"));
   };
 
   return (

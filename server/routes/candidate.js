@@ -144,11 +144,11 @@ router.delete(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const reqEmail = req.user.email;
-    CandidateSchema.findOneAndDelete({ email: reqEmail }, (err, candidate) => {
+    UserSchema.findOneAndDelete({ email: reqEmail }, (err, user) => {
       if (err) {
         res.send(err);
-      } else {
-        res.send("done");
+      } else if(user) {
+        res.send(user);
       }
     });
   }

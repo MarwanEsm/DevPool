@@ -305,13 +305,6 @@ function CandidateForm() {
                   disabled={isInvalid}
                   style={submitStyle}
                 />
-                {/* <input
-                  type="submit"
-                  className="btnRegister"
-                  value="Delete User"
-                  onClick={submitDetails1}
-                  style={submitStyle}
-                /> */}
               </div>
             </div>
           </div>
