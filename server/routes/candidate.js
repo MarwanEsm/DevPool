@@ -164,12 +164,6 @@ router.put(
   upload.single("file"),
   (req, res) => {
     const reqEmail = req.user.email;
-    // const body = {
-    //   ...req.body,
-    //   img: `uploads/${req.file.originalname}`,
-    //   userId: req.user._id,
-    // };
-
     if (!req.file) {
       const body = {
         ...req.body,
@@ -193,11 +187,9 @@ router.put(
         img: `uploads/${req.file.originalname}`,
         userId: req.user._id,
       };
-
       CandidateSchema.findOneAndUpdate(
         { email: reqEmail },
         body,
-        { img: `uploads/${req.file.originalname}` },
         console.log(body),
         (err, candidate) => {
           if (err) {

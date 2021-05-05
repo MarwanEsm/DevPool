@@ -3,6 +3,8 @@ const bcrypt = require("bcrypt");
 const UserSchema = require("../model/usersModel");
 const CandidateSchema = require("../model/candidatesModel");
 const jwt = require("jsonwebtoken");
+const passport = require("passport");
+const { sanitizeBody } = require("express-validator");
 const router = express.Router();
 
 router.post("/register", (req, res) => {
@@ -79,41 +81,117 @@ router.post("/login", (req, res) => {
 });
 
 ///update password function, send token then send it via email ///
-router.put("/me", (req, res) => {
-  console.log(req.body);
-  const reqemail = req.body.email;
-  const reqpassword = req.body.password;
-  UserSchema.findOneAndUpdate({ email: reqemail }, req.body, (err, user) => {
-    if (err) {
-      res.send(err);
-    }
-    if (!user) {
-      res.send({ msg: "User does not exist" });
-    } else {
-      bcrypt.genSalt(10, function (err, salt) {
-        bcrypt.hash(reqpassword, salt, function (err, hash) {
-          if (err) {
-            res.send(err);
-          } else {
-            (user.password = hash),
-              user
-                .save()
-                .then((user) => {
-                  res.send({ msg: " Password was updated" });
-                })
-                .catch((err) => {
-                  res.send(err);
-                });
-          }
-        });
-      });
-    }
-  });
-});
+// router.put("/me", (req, res) => {
+//   console.log(req.body);
+//   const reqemail = req.body.email;
+//   const reqpassword = req.body.password;
+//   UserSchema.findOneAndUpdate({ email: reqemail }, req.body, (err, user) => {
+//     if (err) {
+//       res.send(err);
+//     }
+//     if (!user) {
+//       res.send({ msg: "User does not exist" });
+//     } else {
+//       bcrypt.genSalt(10, function (err, salt) {
+//         bcrypt.hash(reqpassword, salt, function (err, hash) {
+//           if (err) {
+//             res.send(err);
+//           } else {
+//             (user.password = hash),
+//               user
+//                 .save()
+//                 .then((user) => {
+//                   res.send({ msg: " Password was updated" });
+//                 })
+//                 .catch((err) => {
+//                   res.send(err);
+//                 });
+//           }
+//         });
+//       });
+//     }
+//   });
+// });
 
 router.get("/logout", function (req, res) {
   req.logout();
   res.redirect("/");
 });
+
+///update password function///
+
+router.put(
+  "/forgotPassword",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const reEmail = req.user.email;
+    UserSchema.findOne({ email: reEmail }, (err, user) => {
+      if (err || !user) {
+        res.status(404).json({ error: "User does not exist!" });
+      } else {
+        const token = jwt.sign({ _id: user.id }, process.env.secretOrKey, {
+          expiresIn: "20m",
+        });
+        const data = {
+          from: "noreply@hello.com",
+          to: email,
+          subject: "Password reset",
+          html: `<h2>Please click on given Link to reset your password</h2>
+        <p>${process.env}/resetpasssword/${token}</p>`,
+          /// which URL after env should be//
+        };
+        UserSchema.findByIdAndUpdate({ resetLink: token }, (err, success) => {
+          if (err || !user) {
+            res.status(400).json({ error: "rest pasword link error" });
+          } else {
+            res.send(data, (err, body) => {
+              if (err) {
+                res.send(err);
+              } else {
+                res.send(body);
+              }
+            });
+          }
+        });
+      }
+    });
+  }
+);
+
+//   const reEmail  = req.user.email;
+//   UserSchema.findOne({ email }, (err, user) => {
+//     if (err || !user) {
+//       res.status(404).json({ error: "User does not exist!" });
+//     } else {
+//       const token = jwt.sign({ _id: user.id }, process.env.secretOrKey, {
+//         expiresIn: "20m",
+//       });
+//       const data = {
+//         from: "noreply@hello.com",
+//         to: email,
+//         subject: "Password reset",
+//         html: `<h2>Please click on given Link to reset your password</h2>
+//         <p>${process.env}/resetpasssword/${token}</p>`,
+//         /// which URL after env should be//
+//       }
+//     }
+//      UserSchema.findOneAndUpdate({resetLink : token}, (err, success)=>{
+//       if (err || !user) {
+//         res.status(400).json({ error: "rest pasword link error" });
+//       }else{
+//         res.send(data, (err, body)=>{
+//           if(err){
+//             res.send(err)
+//           }else{
+//             res.send(body)
+//           }
+//         })
+
+//       }
+//     })
+//   });
+// }
+
+// router.put('/forgot-password', forgotPassword)
 
 module.exports = router;
