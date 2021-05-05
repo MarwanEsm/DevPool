@@ -78,7 +78,7 @@ router.post("/login", (req, res) => {
   });
 });
 
-///update password function ///
+///update password function, send token then send it via email ///
 router.put("/me", (req, res) => {
   console.log(req.body);
   const reqemail = req.body.email;
@@ -88,33 +88,28 @@ router.put("/me", (req, res) => {
       res.send(err);
     }
     if (!user) {
-      res.send({ msg: "user does not exist" });
+      res.send({ msg: "User does not exist" });
     } else {
       bcrypt.genSalt(10, function (err, salt) {
         bcrypt.hash(reqpassword, salt, function (err, hash) {
           if (err) {
             res.send(err);
           } else {
-            const newUser = new UserSchema({
-              email: reqemail,
-              password: hash,
-            });
-            newUser
-              .save()
-              .then((user) => {
-                res.send({ msg: " Password was updated" });
-              })
-              .catch((err) => {
-                res.send(err);
-              });
+            (user.password = hash),
+              user
+                .save()
+                .then((user) => {
+                  res.send({ msg: " Password was updated" });
+                })
+                .catch((err) => {
+                  res.send(err);
+                });
           }
         });
       });
     }
   });
 });
-
-
 
 router.get("/logout", function (req, res) {
   req.logout();
