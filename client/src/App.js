@@ -16,6 +16,7 @@ import EditProfileCandidate from "./EditProfile/EditProfileCandidate";
 import CandidateIndividualForEmployers from "./CandidatesIndividualForEmployers/CandidatesIndividualForEmployers";
 import EditProfileEmployer from "./EditProfileEmployer/EditProfileEmployer";
 import ForgetPasswordPage from "./ForgetPassword/ForgetPasswordPage";
+import ResetPasswordForm from './ForgetPassword/ResetPasswordForm';
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -65,6 +66,9 @@ function App() {
                 </Route>
                 <Route path="/ForgetPasswordPage">
                   <ForgetPasswordPage />
+                </Route>
+                <Route path="/ResetPasswordForm">
+                  <ResetPasswordForm />
                 </Route>
               </Switch>
             </UsersContextProvider>

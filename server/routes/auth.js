@@ -6,6 +6,10 @@ const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const { sanitizeBody } = require("express-validator");
 const router = express.Router();
+const mailgun = require("mailgun-js");
+const DOMAIN = ""; // did not know which DOMAIN//
+// const mg = ({apiKey: api_key, domain: domain}); // why it is been used//
+//({apiKey: api_key, domain: domain});  I did not know what API //
 
 router.post("/register", (req, res) => {
   console.log(req.body);
@@ -118,10 +122,10 @@ router.get("/logout", function (req, res) {
   res.redirect("/");
 });
 
-///update password function///
+///Forgot password function///
 
 router.put(
-  "/forgotPassword",
+  "/forgotpassword",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const reEmail = req.user.email;
@@ -134,13 +138,13 @@ router.put(
         });
         const data = {
           from: "noreply@hello.com",
-          to: email,
+          to: reEmail,
           subject: "Password reset",
           html: `<h2>Please click on given Link to reset your password</h2>
         <p>${process.env}/resetpasssword/${token}</p>`,
           /// which URL after env should be//
         };
-        UserSchema.findByIdAndUpdate({ resetLink: token }, (err, success) => {
+        UserSchema.updateOne({ resetLink: token }, (err, success) => {
           if (err || !user) {
             res.status(400).json({ error: "rest pasword link error" });
           } else {
@@ -157,6 +161,36 @@ router.put(
     });
   }
 );
+
+/// Reset Password function ///
+
+router.put("/resetpassword", (req, res) => {
+  const { resetLink, newPass } = req.body;
+  if (resetLink) {
+    jwt.verify(resetLink.env.secretOrKey, (err, decodedData) => {
+      if (err) {
+        res.status(401).json({ err: "Token is expired" });
+      } else {
+        UserSchema.findOne({ resetLink }, (err, user) => {
+          if (err || !user) {
+            res
+              .status(400)
+              .json({ error: "User with this token does not exist" });
+          } const obj = {
+            password: newPass,
+          };
+          user.save((err, user) => {
+            if (err) {
+              res.send(err);
+            } else {
+              res.send(user);
+            }
+          });
+        });
+      }
+    });
+  }
+});
 
 //   const reEmail  = req.user.email;
 //   UserSchema.findOne({ email }, (err, user) => {

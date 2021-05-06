@@ -1,6 +1,6 @@
 import React from 'react';
 import ForgetPasswordNavBar from './ForgetPasswordNavBar';
-import ForgetPasswordForm from './ForgetPasswordForm';
+import ForgetPasswordForm from './ForgotPasswordForm';
 import Footer from '../LandingPageComponents/Footer'
 
 function ForgetPasswordPage () {

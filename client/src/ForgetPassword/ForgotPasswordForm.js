@@ -1,30 +1,30 @@
 import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
-import {serverURL} from '../config';
+// import Form from "react-bootstrap/Form";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { serverURL } from "../config";
 import "./ForgetPasswordFormStyle.css";
 
 function ForgetPasswordForm() {
   const [state, setState] = useState({
     email: "",
-    newPassword: "",
-    repeatPassword: "",
+    // newPassword: "",
+    // repeatPassword: "",
   });
 
-  const isInvalid =
-    state.email === "" ||
-    state.newPassword === "" ||
-    state.repeatPassword !== state.newPassword;
+  const isInvalid = state.email === "";
+  // state.newPassword === "" ||
+  // state.repeatPassword !== state.newPassword;
 
-  const [passwordShown, setPasswordShown] = useState(false);
-  const togglePasswordVisiblity = () => {
-    setPasswordShown(passwordShown ? false : true);
-  };
+  // const [passwordShown, setPasswordShown] = useState(false);
+  // const togglePasswordVisiblity = () => {
+  //   setPasswordShown(passwordShown ? false : true);
+  // };
 
   const handleChange = (e) => {
     e.preventDefault();
-    setState({ ...state, [e.target.name]: e.target.value });
+    setState(e.target.value)
+    // setState({ ...state, [e.target.name]: e.target.value });
   };
 
   const submitDetails = (e) => {
@@ -33,7 +33,7 @@ function ForgetPasswordForm() {
     const token = localStorage.getItem("token");
     console.log(token);
 
-    fetch(`${serverURL}auth/me`, {
+    fetch(`${serverURL}auth/forgotpassword`, {
       method: "put",
       headers: {
         Accept: "application/json, text/plain, */*",
@@ -54,18 +54,18 @@ function ForgetPasswordForm() {
       });
   };
 
-  const eyeIcon = passwordShown ? (
-    <FontAwesomeIcon icon={faEye} />
-  ) : (
-    <span className="fas fa-eye-slash"></span>
-  );
-  const eye = <FontAwesomeIcon icon={faEye} />;
+  // const eyeIcon = passwordShown ? (
+  //   <FontAwesomeIcon icon={faEye} />
+  // ) : (
+  //   <span className="fas fa-eye-slash"></span>
+  // );
+  // const eye = <FontAwesomeIcon icon={faEye} />;
 
   return (
     <div className="wrapper" style={formStyle}>
-      <form action="#">
+      <form action="submit">
         <div className="h5 font-weight-bold text-center mb-3">
-          Rest Password
+          Forgot Password
         </div>
         <div className="form-group d-flex align-items-center">
           <div className="icon">
@@ -81,7 +81,7 @@ function ForgetPasswordForm() {
             value={state.email}
           />
         </div>
-        <div className="form-group d-flex align-items-center">
+        {/* <div className="form-group d-flex align-items-center">
           <div className="icon">
             <span className="fa fa-lock"></span>
           </div>
@@ -97,13 +97,13 @@ function ForgetPasswordForm() {
           <div className="icon btn">
             <span onClick={togglePasswordVisiblity}>{eyeIcon}</span>
           </div>
-        </div>
+        </div> */}
 
-        <div className="form-group d-flex align-items-center">
+        {/* <div className="form-group d-flex align-items-center">
           <div className="icon">
             <span className="fas fa-key"></span>
-          </div>
-          <input
+          </div> */}
+        {/* <input
             autocomplete="off"
             className="form-control"
             placeholder="Repeat password"
@@ -111,8 +111,8 @@ function ForgetPasswordForm() {
             onChange={handleChange}
             name="repeatPassword"
             value={state.repeatPassword}
-          />
-        </div>
+          /> */}
+        {/* </div> */}
 
         <div
           className="btn btn-primary mb-3"
