@@ -7,9 +7,8 @@ const passport = require("passport");
 const { sanitizeBody } = require("express-validator");
 const router = express.Router();
 const mailgun = require("mailgun-js");
-const DOMAIN = ""; // did not know which DOMAIN//
-// const mg = ({apiKey: api_key, domain: domain}); // why it is been used//
-//({apiKey: api_key, domain: domain});  I did not know what API //
+const domain = "webApp";
+// const mg = ({apiKey: api_key, domain: domain})
 
 router.post("/register", (req, res) => {
   console.log(req.body);
@@ -124,43 +123,38 @@ router.get("/logout", function (req, res) {
 
 ///Forgot password function///
 
-router.put(
-  "/forgotpassword",
-  // passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    const reEmail = req.body.email;
-    UserSchema.findOne({ email: reEmail }, (err, user) => {
-      if (err || !user) {
-        res.status(404).json({ error: "User does not exist!" });
-      } else {
-        const token = jwt.sign({ _id: user.id }, process.env.secretOrKey, {
-          expiresIn: "20m",
-        });
-        const data = {
-          from: "noreply@hello.com",
-          to: reEmail,
-          subject: "Password reset",
-          html: `<h2>Please click on given Link to reset your password</h2>
+router.put("/forgotpassword", (req, res) => {
+  const reEmail = req.body.email;
+  UserSchema.findOne({ email: reEmail }, (err, user) => {
+    if (err || !user) {
+      res.status(404).json({ error: "User does not exist!" });
+    } else {
+      const token = jwt.sign({ _id: user.id }, process.env.secretOrKey, {
+        expiresIn: "20m",
+      });
+      const data = {
+        from: "noreply@webDev.com",
+        to: reEmail,
+        subject: "Password reset",
+        html: `<h2>Please click on given Link to reset your password</h2>
         <p>${process.env.webApp}/resetpasssword/${token}</p>`,
-          /// which URL after env should be//
-        };
-        UserSchema.updateOne({ resetLink: token }, (err, success) => {
-          if (err || !user) {
-            res.status(400).json({ error: "rest pasword link error" });
-          } else {
-            res.send(data, (err, body) => {
-              if (err) {
-                res.send(err);
-              } else {
-                res.send({msg:'reset link was sent '});
-              }
-            });
-          }
-        });
-      }
-    });
-  }
-);
+      };
+      UserSchema.updateOne({ resetLink: token }, (err, success) => {
+        if (err || !user) {
+          res.status(400).json({ error: "rest password link error" });
+        } else {
+          res.send(data, (err, body) => {
+            if (err) {
+              res.send(err);
+            } else {
+              res.send({ msg: "reset link was sent " });
+            }
+          });
+        }
+      });
+    }
+  });
+});
 
 /// Reset Password function ///
 
@@ -171,61 +165,35 @@ router.patch("/resetpassword", (req, res) => {
       if (err) {
         res.status(401).json({ err: "Token is expired" });
       } else {
-        UserSchema.findOne({ resetLink }, (err, user) => {
+        UserSchema.findOneAndDelete({ resetLink }, (err, user) => {
           if (err || !user) {
             res
               .status(400)
               .json({ error: "User with this token does not exist" });
-          } const obj = {
-            password: newPass,
-          };
-          user.save((err, user) => {
-            if (err) {
-              res.send(err);
-            } else {
-              res.send(user);
-            }
-          });
+          } else {
+            bcrypt.genSalt(10, function (err, salt) {
+              bcrypt.hash(newPass, salt, function (err, hash) {
+                if (err) {
+                  res.send(err);
+                } else {
+                  const obj = {
+                    password: newPass,
+                  };
+                  user.save((err, user) => {
+                    if (err) {
+                      res.send(err);
+                    } else {
+                      res.send(user);
+                    }
+                  });
+                }
+              });
+            });
+          }
         });
       }
     });
   }
 });
-
-//   const reEmail  = req.user.email;
-//   UserSchema.findOne({ email }, (err, user) => {
-//     if (err || !user) {
-//       res.status(404).json({ error: "User does not exist!" });
-//     } else {
-//       const token = jwt.sign({ _id: user.id }, process.env.secretOrKey, {
-//         expiresIn: "20m",
-//       });
-//       const data = {
-//         from: "noreply@hello.com",
-//         to: email,
-//         subject: "Password reset",
-//         html: `<h2>Please click on given Link to reset your password</h2>
-//         <p>${process.env}/resetpasssword/${token}</p>`,
-//         /// which URL after env should be//
-//       }
-//     }
-//      UserSchema.findOneAndUpdate({resetLink : token}, (err, success)=>{
-//       if (err || !user) {
-//         res.status(400).json({ error: "rest pasword link error" });
-//       }else{
-//         res.send(data, (err, body)=>{
-//           if(err){
-//             res.send(err)
-//           }else{
-//             res.send(body)
-//           }
-//         })
-
-//       }
-//     })
-//   });
-// }
-
-// router.put('/forgot-password', forgotPassword)
 
 module.exports = router;
