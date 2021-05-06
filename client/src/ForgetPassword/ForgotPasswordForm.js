@@ -36,12 +36,10 @@ function ForgetPasswordForm() {
     fetch(`${serverURL}auth/forgotpassword`, {
       method: "put",
       headers: {
-        Accept: 
-        "application/json, text/plain, */*",
-        // "Content-Type": "application/json",
-        // Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: JSON.stringify(state),
+      body: JSON.stringify({email : state}),
     })
       .then((res) => res.json())
       .then((res) => {

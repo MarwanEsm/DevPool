@@ -123,7 +123,8 @@ router.get("/logout", function (req, res) {
 
 ///Forgot password function///
 
-router.put('/forgotpassword', (req, res) => {
+router.put("/forgotpassword", (req, res) => {
+  console.log(req);
   const reEmail = req.body.email;
   UserSchema.findOne({ email: reEmail }, (err, user) => {
     if (err || !user) {
@@ -142,15 +143,8 @@ router.put('/forgotpassword', (req, res) => {
       UserSchema.updateOne({ resetLink: token }, (err, success) => {
         if (err || !user) {
           res.send(err);
-        
         } else {
-          res.send(data, (err, body) => {
-            if (err) {
-              res.send(err);
-            } else {
-              res.send({ msg: "reset link was sent " });
-            }
-          });
+          res.send(data)
         }
       });
     }
