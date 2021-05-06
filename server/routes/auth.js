@@ -123,11 +123,11 @@ router.get("/logout", function (req, res) {
 
 ///Forgot password function///
 
-router.put("/forgotpassword", (req, res) => {
+router.put('/forgotpassword', (req, res) => {
   const reEmail = req.body.email;
   UserSchema.findOne({ email: reEmail }, (err, user) => {
     if (err || !user) {
-      res.status(404).json({ error: "User does not exist!" });
+      res.send(err);
     } else {
       const token = jwt.sign({ _id: user.id }, process.env.secretOrKey, {
         expiresIn: "20m",
@@ -141,7 +141,8 @@ router.put("/forgotpassword", (req, res) => {
       };
       UserSchema.updateOne({ resetLink: token }, (err, success) => {
         if (err || !user) {
-          res.status(400).json({ error: "rest password link error" });
+          res.send(err);
+        
         } else {
           res.send(data, (err, body) => {
             if (err) {
@@ -158,42 +159,42 @@ router.put("/forgotpassword", (req, res) => {
 
 /// Reset Password function ///
 
-router.patch("/resetpassword", (req, res) => {
-  const { resetLink, newPass } = req.body;
-  if (resetLink) {
-    jwt.verify(resetLink.env.secretOrKey, (err, decodedData) => {
-      if (err) {
-        res.status(401).json({ err: "Token is expired" });
-      } else {
-        UserSchema.findOneAndDelete({ resetLink }, (err, user) => {
-          if (err || !user) {
-            res
-              .status(400)
-              .json({ error: "User with this token does not exist" });
-          } else {
-            bcrypt.genSalt(10, function (err, salt) {
-              bcrypt.hash(newPass, salt, function (err, hash) {
-                if (err) {
-                  res.send(err);
-                } else {
-                  const obj = {
-                    password: newPass,
-                  };
-                  user.save((err, user) => {
-                    if (err) {
-                      res.send(err);
-                    } else {
-                      res.send(user);
-                    }
-                  });
-                }
-              });
-            });
-          }
-        });
-      }
-    });
-  }
-});
+// router.patch("/resetpassword", (req, res) => {
+//   const { resetLink, newPass } = req.body;
+//   if (resetLink) {
+//     jwt.verify(resetLink.env.secretOrKey, (err, decodedData) => {
+//       if (err) {
+//         res.status(401).json({ err: "Token is expired" });
+//       } else {
+//         UserSchema.findOneAndDelete({ resetLink }, (err, user) => {
+//           if (err || !user) {
+//             res
+//               .status(400)
+//               .json({ error: "User with this token does not exist" });
+//           } else {
+//             bcrypt.genSalt(10, function (err, salt) {
+//               bcrypt.hash(newPass, salt, function (err, hash) {
+//                 if (err) {
+//                   res.send(err);
+//                 } else {
+//                   const obj = {
+//                     password: newPass,
+//                   };
+//                   user.save((err, user) => {
+//                     if (err) {
+//                       res.send(err);
+//                     } else {
+//                       res.send(user);
+//                     }
+//                   });
+//                 }
+//               });
+//             });
+//           }
+//         });
+//       }
+//     });
+//   }
+// });
 
 module.exports = router;

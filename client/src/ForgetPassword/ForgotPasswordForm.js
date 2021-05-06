@@ -30,15 +30,16 @@ function ForgetPasswordForm() {
   const submitDetails = (e) => {
     e.preventDefault();
     console.log(state);
-    const token = localStorage.getItem("token");
-    console.log(token);
+    // const token = localStorage.getItem("token");
+    // console.log(token);
 
     fetch(`${serverURL}auth/forgotpassword`, {
       method: "put",
       headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Accept: 
+        "application/json, text/plain, */*",
+        // "Content-Type": "application/json",
+        // Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(state),
     })
