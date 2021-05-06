@@ -48,10 +48,15 @@ function IndividualProfile() {
     };
     fetch(`${serverURL}candidate/me`, requestOptions)
       .then((res) => {
-        alert(res.msg);
+        return res.json()
+       
       })
-      .then(localStorage.clear())
-      .then(history.push("/"));
+      .then(result => {
+        alert(result.msg);
+      localStorage.clear()
+      history.push("/");
+    })
+      
   };
 
   return (

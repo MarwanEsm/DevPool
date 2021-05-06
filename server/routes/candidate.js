@@ -144,7 +144,8 @@ router.delete(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const reqEmail = req.user.email;
-    UserSchema.findOneAndDelete({ email: reqEmail }, (err, user) => {
+    UserSchema.findOneAndDelete({ email: reqEmail }, (err, user) => {console.log(user)
+      console.log(err);;
       if (err) {
         res.send(err);
       } else if (user) {

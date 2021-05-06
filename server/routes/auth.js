@@ -126,9 +126,9 @@ router.get("/logout", function (req, res) {
 
 router.put(
   "/forgotpassword",
-  passport.authenticate("jwt", { session: false }),
+  // passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    const reEmail = req.user.email;
+    const reEmail = req.body.email;
     UserSchema.findOne({ email: reEmail }, (err, user) => {
       if (err || !user) {
         res.status(404).json({ error: "User does not exist!" });
@@ -141,7 +141,7 @@ router.put(
           to: reEmail,
           subject: "Password reset",
           html: `<h2>Please click on given Link to reset your password</h2>
-        <p>${process.env}/resetpasssword/${token}</p>`,
+        <p>${process.env.webApp}/resetpasssword/${token}</p>`,
           /// which URL after env should be//
         };
         UserSchema.updateOne({ resetLink: token }, (err, success) => {
@@ -152,7 +152,7 @@ router.put(
               if (err) {
                 res.send(err);
               } else {
-                res.send(body);
+                res.send({msg:'reset link was sent '});
               }
             });
           }
@@ -164,7 +164,7 @@ router.put(
 
 /// Reset Password function ///
 
-router.put("/resetpassword", (req, res) => {
+router.patch("/resetpassword", (req, res) => {
   const { resetLink, newPass } = req.body;
   if (resetLink) {
     jwt.verify(resetLink.env.secretOrKey, (err, decodedData) => {

@@ -67,7 +67,7 @@ function App() {
                 <Route path="/ForgetPasswordPage">
                   <ForgetPasswordPage />
                 </Route>
-                <Route path="/ResetPasswordForm">
+                <Route path="/ResetPasswordForm/:token">
                   <ResetPasswordForm />
                 </Route>
               </Switch>

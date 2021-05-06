@@ -8,7 +8,7 @@ const UserSchema = new mongoose.Schema({
   owner: { type: String, required: true },
   id_: Schema.Types.ObjectId,
   isRegistered: { type: Boolean, default: false },
-  resetLink: { data: String, default: "" },
+  resetLink: { type: String, default: "" },
 });
 
 module.exports = mongoose.model("user", UserSchema);
