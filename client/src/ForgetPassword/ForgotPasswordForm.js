@@ -134,7 +134,7 @@ const formStyle = {
 const submitStyle = {
   marginLeft: "25%",
   marginTop: "2%",
-  marginBottom: "4%",
+  marginBottom: "4%"
 };
 
 export default ForgetPasswordForm;
