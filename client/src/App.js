@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import LandingPage from "./LandingPage/LandingPage";
+import LandingPage from "./LandingPage/landingPage";
 import CandidatesContextProvider from "./ContextProvider/CandidatesContextProvider";
 import UsersContextProvider from "./ContextProvider/UsersContextProvider";
 import AuthContextProvider from "./ContextProvider/AuthContextProvider";

@@ -110,7 +110,7 @@ const CandidateProfile = () => {
                           </Badge>
                         </div>
                         <div>
-                          {text && (
+                          {/* {text && (
                             <>
                               <p style={text2Style}>Work Experience :</p>
                               <ul className="list" style={workExLi}>
@@ -147,7 +147,7 @@ const CandidateProfile = () => {
                                 Check Full Profile
                               </div>
                             </>
-                          )}
+                          )} */}
                         </div>
                       </div>
                     </div>

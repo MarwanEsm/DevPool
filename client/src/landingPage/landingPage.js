@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import Headbar from "../LandingPageComponents/Navbar";
+import Headbar from "../LandingPageComponents/navbar";
 import Footer from "../LandingPageComponents/Footer";
 import "./LandingPageStyle.css";
 import "react-flex/index.css";
