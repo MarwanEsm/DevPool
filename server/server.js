@@ -1,8 +1,8 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 require("dotenv").config();
-const passport = require("passport");
+const passport = require("./passport");
 const mongoose = require("mongoose");
 // const mongoURI = require("./Config.js").mongoURI;
 const mongoURI = process.env.mongoURI;
@@ -24,7 +24,9 @@ app.use(
     extended: true,
   })
 );
+
 app.use(cors());
+
 
 app.use("/candidate", require("./routes/candidate"));
 app.use("/user", require("./routes/user"));
