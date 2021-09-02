@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 // const mongoURI = require("./Config.js").mongoURI;
 const mongoURI = process.env.mongoURI;
 
+console.log(process.env)
 // init express app
 const app = express();
 const port = process.env.PORT || 5000;
