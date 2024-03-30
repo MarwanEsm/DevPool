@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 import IndividualCandidateNavBar from "./NavBarIndividualCandidate";
-import Footer from "../LandingPageComponents/Footer";
+// import Footer from "../LandingPageComponents/Footer";
 import { serverURL } from "../config";
 import "./IndividualProfileStyle.css";
 
@@ -49,14 +49,14 @@ function IndividualProfile() {
     fetch(`${serverURL}candidate/me`, requestOptions)
       .then((res) => {
         return res.json()
-       
+
       })
       .then(result => {
         alert(result.msg);
-      localStorage.clear()
-      history.push("/");
-    })
-      
+        localStorage.clear()
+        history.push("/");
+      })
+
   };
 
   return (
@@ -343,9 +343,9 @@ function IndividualProfile() {
           Delete Account
         </button>
       </div>
-      <div>
+      {/* <div>
         <Footer />
-      </div>
+      </div> */}
     </div>
   );
 }

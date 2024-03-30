@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import Logo from "../LandingPageComponents/Logo";
+// import Logo from "../LandingPageComponents/Logo";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Col from "react-bootstrap/Col";
@@ -42,9 +42,9 @@ function CandidatePageNavBar() {
 
   return (
     <div style={maindivStyle}>
-      <div>
+      {/* <div>
         <Logo />
-      </div>
+      </div> */}
       <div style={rowdivStyle}>
         <Form.Row>
           <Form.Group as={Col} controlId="formGridCity">

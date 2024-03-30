@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../LandingPageComponents/Logo";
+// import Logo from "../LandingPageComponents/Logo";
 import { useHistory } from "react-router-dom";
 import Badge from "react-bootstrap/Badge";
 
@@ -15,9 +15,9 @@ function IndividualCandidateNavBar() {
   };
   return (
     <div style={maindivStyle}>
-      <div>
+      {/* <div>
         <Logo />
-      </div>
+      </div> */}
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
           <i className="fa fa-user-circle-o" aria-hidden="true" />

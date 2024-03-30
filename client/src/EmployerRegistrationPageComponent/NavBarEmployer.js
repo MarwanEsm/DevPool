@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Logo from "../LandingPageComponents/Logo";
+// import Logo from "../LandingPageComponents/Logo";
 import { useHistory } from "react-router-dom";
 import { EmployerContext } from "../ContextProvider/EmployerContextProvider";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
@@ -25,9 +25,9 @@ function EmployerNavBar() {
   };
   return (
     <div style={maindivStyle}>
-      <div>
+      {/* <div>
         <Logo />
-      </div>
+      </div> */}
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
           <i className="fa fa-user" />

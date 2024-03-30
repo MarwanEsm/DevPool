@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import Badge from "react-bootstrap/Badge";
-import Logo from "../LandingPageComponents/Logo";
+// import Logo from "../LandingPageComponents/Logo";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 
 function CandidateNavBar() {
@@ -20,9 +20,9 @@ function CandidateNavBar() {
 
   return (
     <div style={maindivStyle}>
-      <div>
+      {/* <div>
         <Logo />
-      </div>
+      </div> */}
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
           <i className="fa fa-user" />

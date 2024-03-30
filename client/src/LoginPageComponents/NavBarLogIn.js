@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import Badge from "react-bootstrap/Badge";
-import Logo from "../LandingPageComponents/Logo";
+// import Logo from "../LandingPageComponents/Logo";
 
 function LoginNavBar() {
   const history = useHistory();
@@ -11,13 +11,13 @@ function LoginNavBar() {
 
   return (
     <div style={maindivStyle}>
-      <div>
+      {/* <div>
         <Logo />
-      </div>
+      </div> */}
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
-        <i className="fa fa-home" aria-hidden="true"/> 
-        &nbsp;
+          <i className="fa fa-home" aria-hidden="true" />
+          &nbsp;
           Home
         </Badge>
       </div>

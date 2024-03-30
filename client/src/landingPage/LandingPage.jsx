@@ -1,30 +1,31 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import Headbar from "../LandingPageComponents/navbar";
-import Footer from "../LandingPageComponents/Footer";
+// import Headbar from "../LandingPageComponents/navbar";
+// import Footer from "../LandingPageComponents/Footer";
 import "./LandingPageStyle.css";
 import "react-flex/index.css";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
-import {serverURL} from '../config';
+import { serverURL } from '../config';
 
 function LandingPage() {
-  const { filteredCandidates } = useContext(CandidatesContext);
-  const history = useHistory();
+    const { filteredCandidates } = useContext(CandidatesContext);
+    const history = useHistory();
 
-  const handelReadMore = (e) => {
-    e.preventDefault();
-    history.push("/LoginPage");
-  };
+    const handelReadMore = (e) => {
+        e.preventDefault();
+        history.push("/LoginPage");
+    };
 
-  return (
-    <div>
-      <div>
-        <Headbar />
-      </div>
+    return (
+        <div>
+            {/* <div>
+                <Headbar />
+            </div> */}
 
-      <div className="container">
-        <div className="row" style={divRow}>
-          {filteredCandidates &&
+            <div className="container">
+                <div className="row" style={divRow}>
+                    <h1>Hi</h1>
+                    {/* {filteredCandidates &&
             filteredCandidates.length &&
             filteredCandidates.map((candidate) => {
               return (
@@ -79,49 +80,49 @@ function LandingPage() {
                   </div>
                 </div>
               );
-            })}
-        </div>
-      </div>
+            })} */}
+                </div>
+            </div>
 
-      <div>
-        <Footer />
-      </div>
-    </div>
-  );
+            {/* <div>
+                <Footer />
+            </div> */}
+        </div>
+    );
 }
 
 const divStyle = {
-  visibility: "visible; animation-delay: 0.2s; animation-name: fadeInUp",
+    visibility: "visible; animation-delay: 0.2s; animation-name: fadeInUp",
 };
 
 const imgStyle = {
-  width: 240,
-  height: 200,
-  marginBottom: "3%",
+    width: 240,
+    height: 200,
+    marginBottom: "3%",
 };
 
 const cardStyle = {
-  marginTop: "6%",
-  marginLeft: "6.5%",
+    marginTop: "6%",
+    marginLeft: "6.5%",
 };
 
 const divRow = {
-  width: "130%",
-  marginLeft: "-16%",
+    width: "130%",
+    marginLeft: "-16%",
 };
 
 const textStyle = {
-  fontFamily: "	Candara",
+    fontFamily: "	Candara",
 };
 
 const spanStyle = {
-  fontFamily: "	Candara",
-  fontSize: 14,
-  width: "30%",
-  backgroundColor: "#3f43fd",
-  padding: "0.5%",
-  marginLeft: "40%",
-  marginTop: "5%",
+    fontFamily: "	Candara",
+    fontSize: 14,
+    width: "30%",
+    backgroundColor: "#3f43fd",
+    padding: "0.5%",
+    marginLeft: "40%",
+    marginTop: "5%",
 };
 
 export default LandingPage;

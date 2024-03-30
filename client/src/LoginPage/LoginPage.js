@@ -1,14 +1,14 @@
 import React from 'react';
 import LoginPageForm from '../LoginPageComponents/LoginPageForm';
 import LoginNavBar from '../LoginPageComponents/NavBarLogIn';
-import Footer from '../LandingPageComponents/Footer'
+// import Footer from '../LandingPageComponents/Footer'
 
-function LoginPage () {
-    return(
+function LoginPage() {
+    return (
         <div>
-        <LoginNavBar/>
-        <LoginPageForm/>
-        <Footer/>
+            <LoginNavBar />
+            <LoginPageForm />
+            {/* <Footer/> */}
         </div>
     )
 }

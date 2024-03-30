@@ -3,8 +3,8 @@ import { useHistory } from "react-router-dom";
 import IndividualEmplyoerNavBar from "./NavBarIndividualEmployer";
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import Badge from "react-bootstrap/Badge";
-import Footer from "../LandingPageComponents/Footer";
-import {serverURL} from '../config';
+// import Footer from "../LandingPageComponents/Footer";
+import { serverURL } from '../config';
 import "./EmployerIndividualProfileStyle.css";
 
 function EmployerIndividualProfile() {
@@ -134,10 +134,10 @@ function EmployerIndividualProfile() {
           </div>
         </div>
       </div>
-
+      {/* 
       <div>
         <Footer />
-      </div>
+      </div> */}
     </div>
   );
 }

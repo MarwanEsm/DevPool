@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import Logo from "../LandingPageComponents/Logo";
+// import Logo from "../LandingPageComponents/Logo";
 import Badge from "react-bootstrap/Badge";
 
 function IndividualEmployerNavBar() {
@@ -14,9 +14,9 @@ function IndividualEmployerNavBar() {
   };
   return (
     <div style={maindivStyle}>
-      <div>
+      {/* <div>
         <Logo />
-      </div>
+      </div> */}
       <div style={navdiv}>
         <Badge style={badg} variant="primary" onClick={handleClick}>
           <i className="fa fa-user-circle-o" aria-hidden="true" />

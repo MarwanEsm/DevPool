@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import CandidatePageNavBar from "./NavBarCandidate";
 import Nav from "react-bootstrap/Nav";
 import "./CandidateProfileStyle.css";
-import Footer from "../LandingPageComponents/Footer";
+// import Footer from "../LandingPageComponents/Footer";
 import Badge from "react-bootstrap/Badge";
 import { CandidatesContext } from "../ContextProvider/CandidatesContextProvider";
 import { serverURL } from "../config";
@@ -24,7 +24,7 @@ const CandidateProfile = () => {
   const linkName = text ? "Read Less << " : "Read More >> ";
 
   const cursor = candidate.twitter === "" ? "wait" : "pointer";
-  
+
   //   const twitter = (candidate.twitter) ?  <a
   //   href={`https://www.twitter.com/${candidate.twitter}`}
   //   target="_blank"
@@ -157,10 +157,10 @@ const CandidateProfile = () => {
             })}
         </div>
       </div>
-
+      {/* 
       <div>
         <Footer />
-      </div>
+      </div> */}
     </div>
   );
 };

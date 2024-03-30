@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import NavBarCandidateForEmployer from "./NavBarCandidateForEmployer";
-import Footer from "../LandingPageComponents/Footer";
+// import Footer from "../LandingPageComponents/Footer";
 
 function CandidateIndividualForEmployer() {
   const history = useHistory();
@@ -338,10 +338,10 @@ function CandidateIndividualForEmployer() {
           </div>
         </div>
       </div>
-
+      {/* 
       <div>
         <Footer />
-      </div>
+      </div> */}
     </div>
   );
 }
